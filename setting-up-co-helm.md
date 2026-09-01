@@ -1,0 +1,529 @@
+# setting up co helm
+
+{% hint style="info" %}
+### What's New?
+
+**Cluster Orchestrator now supports Karpenter `1.7.3` features** Users must [re-run the Terraform template](/broken/pages/772628fca92e7e1a0be4d9903f196f94eb89b6db#step-1-set-up-required-infrastructure-with-terraform) and perform a Helm upgrade to add new permissions for Cluster Orchestrator related to Karpenter 1.7.3.
+{% endhint %}
+
+## Via Terraform and Helm
+
+#### Before You Begin <a href="#before-you-begin" id="before-you-begin"></a>
+
+For complete prerequisites, required tools, environment variables, and AWS/Kubernetes permissions, see the Installation Guide.
+
+**Quick Prerequisites Checklist**
+
+* **AWS Account** with permissions to create IAM roles and policies
+* **EKS Cluster** running and accessible via kubectl
+* **Helm 3.x or later** installed on your local machine
+* **Terraform 1.2.0 or later** installed on your local machine
+* **Harness Account** with CACM module enabled
+* **Kubernetes Connector** configured in your Harness account
+* Environment variables set: `CLUSTER_NAME`, `REGION`, `CCM_K8S_CONNECTOR_ID`, `TOKEN`
+
+**AWS Spot Instance Service-Linked Role**
+
+Required for provisioning spot instances. Create this role in your AWS account before enabling Cluster Orchestrator:
+
+```bash
+aws iam create-service-linked-role --aws-service-name spot.amazonaws.com
+```
+
+{% hint style="info" %}
+This is an AWS account-level role, not specific to individual EKS clusters. Without this role, new nodes will fall back to on-demand instances instead of spot instances. For more information, see [AWS Spot Instance Service-Linked Roles](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/service-linked-roles-spot-instance-requests.html).
+{% endhint %}
+
+#### Implementation Steps <a href="#implementation-steps" id="implementation-steps"></a>
+
+#### **Step 1: Set Up Required Infrastructure with Terraform**
+
+First, we'll use Terraform to set up the required infrastructure components:
+
+* AWS IAM roles and policies with proper permissions
+* Resource tagging for subnets, security groups, and AMIs
+* Harness service accounts and API tokens
+
+{% hint style="info" %}
+If you are re-running the enablement script or Terraform template for Cluster Orchestrator related to Karpenter 1.7.3
+
+As part of the onboarding script or Helm upgrade, CRDs for Nodepools, EC2NodeClass, and NodeClaims will be upgraded. If using GitOps, users have to manually upgrade the CRDs:
+
+* Nodepool → https://raw.githubusercontent.com/aws/karpenter-provider-aws/v1.7.3/pkg/apis/crds/karpenter.sh\_nodepools.yaml
+* NodeClaim → https://raw.githubusercontent.com/aws/karpenter-provider-aws/v1.7.3/pkg/apis/crds/karpenter.sh\_nodeclaims.yaml
+* EC2NodeClass → https://raw.githubusercontent.com/aws/karpenter-provider-aws/v1.7.3/pkg/apis/crds/karpenter.k8s.aws\_ec2nodeclasses.yaml
+{% endhint %}
+
+<details>
+
+<summary>Click to expand the Terraform template</summary>
+
+```hcl
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.86"
+    }
+    harness = {
+      source  = "harness/harness"
+      version = "0.35.3"
+    }
+  }
+
+  required_version = ">= 1.2.0"
+}
+
+provider "aws" {
+  region = "us-east-2"
+}
+
+variable "cluster" {
+  type = object({
+    name                     = string
+    oidc_arn                 = string
+    subnets                  = list(string)
+    security_groups          = list(string)
+    ami                      = string
+    k8s_connector_id         = string
+    existing_node_role       = string
+    eks_pod_identity_enabled = bool
+  })
+
+  default = {
+    name                     = "cluster-xxx-xxx"                                                   // Replace with your EKS cluster Name
+    oidc_arn                 = "arn:aws:iam::xxx:oidc-provider/oidc.eks.xxx.amazonaws.com/id/xxxx" // Replace with your OIDC Provider ARN for the cluster
+    subnets                  = ["eksctl-xxx"]                                                      // Replace with the names of subnets used in your EKS cluster
+    security_groups          = ["eks-cluster-sg-xxx"]                                              // Replace with the names of security groups used in your EKS cluster
+    ami                      = "ami-i0xxxxxxxxx"                                                   // Replace with the id of AMI used in your EKS cluster
+    k8s_connector_id         = "xxx"                                                               // Replace with the ID of harness ccm kubernetes connector for the cluster
+    existing_node_role       = "RoleNameXXXX"
+    eks_pod_identity_enabled = false                                                               // Set to true if eks pod identity is enabled in the cluster   
+  }
+
+}
+
+variable "harness" {
+  type = object({
+    endpoint                          = string
+    account_id                        = string
+    platform_api_key                  = string
+    cluster_orch_service_account_name = string
+    cluster_orch_namespace            = string
+  })
+
+  default = {
+    endpoint                          = "https://app.harness.io/gateway"
+    account_id                        = "xxx"                                                   // Replace with your Harness Account ID
+    platform_api_key                  = "pat.xxx.xxx.xxx"                                       // Replace with your Harness API key
+    cluster_orch_service_account_name = "ccm-clusterorchestrator"                               // Name of the service account used by cluster orchestrator
+    cluster_orch_namespace            = "kube-system"                                           // Namespace where the cluster orchestrator will be deployed
+  }
+}
+
+provider "harness" {
+  endpoint         = var.harness.endpoint
+  account_id       = var.harness.account_id
+  platform_api_key = var.harness.platform_api_key
+
+}
+
+
+data "aws_eks_cluster" "cluster" {
+  name = var.cluster.name
+}
+
+data "aws_iam_openid_connect_provider" "cluster_oidc" {
+  count = var.cluster.eks_pod_identity_enabled ? 0 : 1
+  arn   = var.cluster.oidc_arn
+}
+
+data "aws_subnets" "cluster_subnets" {
+  filter {
+    name   = "tag:Name"
+    values = var.cluster.subnets
+  }
+}
+data "aws_security_groups" "cluster_security_groups" {
+  filter {
+    name   = "group-name"
+    values = var.cluster.security_groups
+  }
+}
+
+
+resource "aws_ec2_tag" "cluster_subnet_tag" {
+  for_each    = toset(data.aws_subnets.cluster_subnets.ids)
+  resource_id = each.value
+  key         = format("harness.io/%s", substr(data.aws_eks_cluster.cluster.name, 0, 40))
+  value       = "owned"
+}
+
+resource "aws_ec2_tag" "cluster_security_group_tag" {
+  for_each    = toset(data.aws_security_groups.cluster_security_groups.ids)
+  resource_id = each.value
+  key         = format("harness.io/%s", substr(data.aws_eks_cluster.cluster.name, 0, 40))
+  value       = "owned"
+}
+
+resource "aws_ec2_tag" "cluster_ami_tag" {
+  resource_id = var.cluster.ami
+  key         = format("harness.io/%s", substr(data.aws_eks_cluster.cluster.name, 0, 40))
+  value       = "owned"
+}
+
+data "aws_iam_policy_document" "assume_inline_policy" {
+  statement {
+    actions = ["sts:AssumeRole"]
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+    effect = "Allow"
+  }
+}
+
+resource "aws_iam_role" "node_role" {
+  name                = format("%s-%s-%s", "harness-ccm", substr(data.aws_eks_cluster.cluster.name, 0, 40), "node")
+  assume_role_policy  = data.aws_iam_policy_document.assume_inline_policy.json
+  description         = format("%s %s %s", "Role to manage", data.aws_eks_cluster.cluster.name, "EKS cluster used by Harness CACM")
+  managed_policy_arns = ["arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly", "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy", "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy", "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy", "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"]
+}
+
+resource "aws_eks_access_entry" "node_role_entry" {
+  cluster_name  = var.cluster.name
+  principal_arn = aws_iam_role.node_role.arn
+  type          = "EC2_LINUX"
+}
+
+resource "aws_iam_instance_profile" "instance_profile" {
+  name = format("%s-%s-%s", "harness-ccm", substr(data.aws_eks_cluster.cluster.name, 0, 40), "inst-prof")
+  role = aws_iam_role.node_role.name
+}
+
+resource "aws_iam_policy" "controller_role_policy" {
+  name_prefix = "ClusterOrchestratorControllerPolicy"
+  policy = jsonencode({
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Action" : [
+          "ec2:CreateLaunchTemplate",
+          "ec2:CreateFleet",
+          "ec2:RunInstances",
+          "ec2:CreateTags",
+          "ec2:TerminateInstances",
+          "ec2:DeleteLaunchTemplate",
+          "ec2:DescribeLaunchTemplates",
+          "ec2:DescribeInstances",
+          "ec2:DescribeSecurityGroups",
+          "ec2:DescribeSubnets",
+          "ec2:DescribeInstanceTypes",
+          "ec2:DescribeInstanceTypeOfferings",
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeSpotPriceHistory",
+          "ec2:DescribeImages",
+          "ec2:GetSpotPlacementScores",
+          "iam:PassRole",
+          "iam:CreateInstanceProfile",
+          "iam:TagInstanceProfile",
+          "iam:AddRoleToInstanceProfile",
+          "iam:RemoveRoleFromInstanceProfile",
+          "iam:DeleteInstanceProfile",
+          "iam:GetInstanceProfile",
+          "iam:ListInstanceProfiles",
+          "ssm:GetParameter",
+          "pricing:GetProducts",
+          "eks:DescribeCluster"
+        ],
+        "Resource" : "*",
+        "Effect" : "Allow"
+      }
+    ]
+  })
+}
+
+data "aws_iam_policy_document" "oidc_controller_trust_policy" {
+  statement {
+    actions = ["sts:AssumeRole", "sts:AssumeRoleWithWebIdentity"]
+    principals {
+      type        = "Federated"
+      identifiers = var.cluster.eks_pod_identity_enabled ? [] : [data.aws_iam_openid_connect_provider.cluster_oidc[0].arn]
+    }
+    effect = "Allow"
+  }
+}
+
+data "aws_iam_policy_document" "pod_identity_controller_trust_policy" {
+  statement {
+    sid    = "AllowEksAuthToAssumeRoleForPodIdentity"
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["pods.eks.amazonaws.com"]
+    }
+    actions = ["sts:AssumeRole", "sts:TagSession"]
+  }
+}
+
+
+resource "aws_iam_role" "controller_role" {
+  name                = format("%s-%s-%s", "harness-ccm", substr(data.aws_eks_cluster.cluster.name, 0, 40), "controller")
+  assume_role_policy  = var.cluster.eks_pod_identity_enabled ? data.aws_iam_policy_document.pod_identity_controller_trust_policy.json : data.aws_iam_policy_document.oidc_controller_trust_policy.json
+  description         = format("%s %s %s", "Role to manage", data.aws_eks_cluster.cluster.name, "EKS cluster controller used by Harness CACM")
+  managed_policy_arns = [aws_iam_policy.controller_role_policy.arn]
+}
+
+/*
+uncomment to create eks addon for pod identity agent, if "eks-pod-identity-agent" is not present as addon in the cluster
+
+resource "aws_eks_addon" "pod-identity-agent" {
+  count        = var.cluster.eks_pod_identity_enabled ? 1 : 0
+  cluster_name = var.cluster.name
+  addon_name   = "eks-pod-identity-agent"
+}
+*/
+
+resource "aws_eks_pod_identity_association" "pod_identity_association" {
+  count           = var.cluster.eks_pod_identity_enabled ? 1 : 0
+  cluster_name    = data.aws_eks_cluster.cluster.name
+  namespace       = var.harness.cluster_orch_namespace
+  service_account = var.harness.cluster_orch_service_account_name
+  role_arn        = aws_iam_role.controller_role.arn
+}
+
+resource "aws_iam_role_policy" "harness_describe_permissions" {
+  name = "HarnessDescribePermissions"
+  role = var.cluster.existing_node_role
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "ec2:DescribeImages",
+          "ec2:DescribeInstanceTypeOfferings",
+          "ec2:DescribeInstanceTypes",
+          "ec2:DescribeAvailabilityZones",
+          "ec2:DescribeLaunchTemplates",
+          "ec2:CreateLaunchTemplate",
+          "ec2:CreateTags",
+          "pricing:GetProducts",
+		   "ec2:DescribeSpotPriceHistory",
+		   "ec2:CreateFleet",
+		   "iam:PassRole",
+		   "ec2:RunInstances",
+		   "ec2:DeleteLaunchTemplate",
+           "ec2:TerminateInstances"
+        ]
+        Effect   = "Allow"
+        Resource = "*"
+      },
+    ]
+  })
+}
+
+data "aws_region" "current" {}
+
+resource "harness_cluster_orchestrator" "test_region" {
+  name             = substr(data.aws_eks_cluster.cluster.name, 0, 40)
+  cluster_endpoint = data.aws_eks_cluster.cluster.endpoint
+  k8s_connector_id = var.cluster.k8s_connector_id
+  region           = data.aws_region.current.name 
+}
+
+resource "harness_platform_service_account" "cluster_orch_service_account" {
+  identifier  = replace(substr(data.aws_eks_cluster.cluster.name, 0, 40), "-", "_")
+  name        = substr(data.aws_eks_cluster.cluster.name, 0, 40)
+  email       = "email@service.harness.io"
+  description = "service account for cluster orchestrator"
+  account_id  = var.harness.account_id
+}
+
+resource "harness_platform_role_assignments" "cluster_orch_role" {
+  resource_group_identifier = "_all_account_level_resources"
+  role_identifier           = "_account_admin"
+  principal {
+    identifier = harness_platform_service_account.cluster_orch_service_account.id
+    type       = "SERVICE_ACCOUNT"
+  }
+}
+
+resource "harness_platform_apikey" "api_key" {
+  identifier  = replace(substr(data.aws_eks_cluster.cluster.name, 0, 40), "-", "_")
+  name        = substr(data.aws_eks_cluster.cluster.name, 0, 40)
+  parent_id   = harness_platform_service_account.cluster_orch_service_account.id
+  apikey_type = "SERVICE_ACCOUNT"
+  account_id  = var.harness.account_id
+}
+
+resource "harness_platform_token" "api_token" {
+  identifier  = "token"
+  name        = replace(substr(data.aws_eks_cluster.cluster.name, 0, 40), "-", "_")
+  parent_id   = harness_platform_service_account.cluster_orch_service_account.id
+  account_id  = var.harness.account_id
+  apikey_type = "SERVICE_ACCOUNT"
+  apikey_id   = harness_platform_apikey.api_key.id
+}
+
+output "harness_ccm_token" {
+  value     = harness_platform_token.api_token.value
+  sensitive = true
+}
+
+output "eks_cluster_controller_role_arn" {
+  value = aws_iam_role.controller_role.arn
+}
+
+output "eks_cluster_default_instance_profile" {
+  value = aws_iam_instance_profile.instance_profile.name
+}
+
+output "eks_cluster_node_role_arn" {
+  value = aws_iam_role.node_role.arn
+}
+
+output "harness_cluster_orchestrator_id" {
+  value = harness_cluster_orchestrator.cluster_orchestrator.id
+}
+
+```
+
+</details>
+
+**How to Run the Terraform Script**
+
+1. Save the above template to a file named `cluster-orchestrator.tf`
+2. Update the placeholder values in the `default` blocks with your actual EKS cluster and Harness account information
+3. Initialize and apply the Terraform configuration:
+
+```bash
+terraform init
+terraform apply
+```
+
+**Important Terraform Outputs**
+
+After successful execution, Terraform will generate several outputs required for the Helm installation:
+
+| Output                                 | Description                                  |
+| -------------------------------------- | -------------------------------------------- |
+| `harness_ccm_token`                    | The Harness CACM token (sensitive value)     |
+| `eks_cluster_controller_role_arn`      | The ARN for the EKS cluster controller role  |
+| `eks_cluster_default_instance_profile` | The name of the default EC2 instance profile |
+| `eks_cluster_node_role_arn`            | The ARN for the node IAM role                |
+| `harness_cluster_orchestrator_id`      | The Cluster Orchestrator ID                  |
+
+#### **Step 2: Configure Helm for Cluster Orchestrator Installation**
+
+**1. Add the Harness CACM Cluster Orchestrator Helm Repository**
+
+```bash
+helm repo add harness-ccm-cluster-orchestrator https://lightwing-downloads.s3.ap-southeast-1.amazonaws.com/cluster-orchestrator-helm-chart
+```
+
+**2. Update the Helm Repository**
+
+```bash
+helm repo update harness-ccm-cluster-orchestrator
+```
+
+#### **Step 3: Install the Cluster Orchestrator**
+
+**1. Retrieve the Terraform Output Values**
+
+To get the sensitive token value, run:
+
+```bash
+terraform output harness_ccm_token
+```
+
+For other values, you can run:
+
+```bash
+terraform output
+```
+
+**2. Install the Helm Chart**
+
+Use the following command to install the Cluster Orchestrator, replacing the placeholders with values from your Terraform outputs:
+
+```bash
+helm install harness-ccm-cluster-orchestrator --namespace kube-system \
+  harness-ccm-cluster-orchestrator/harness-ccm-cluster-orchestrator \
+  --set harness.accountID="<harness_account_id>" \
+  --set harness.k8sConnectorID="<k8s_connector_id>" \
+  --set harness.ccm.secret.token="<harness_ccm_token>" \
+  --set eksCluster.name="<eks_cluster_name>" \
+  --set eksCluster.region="<eks_cluster_region>" \
+  --set eksCluster.controllerRoleARN="<eks_cluster_controller_role_arn>" \
+  --set eksCluster.endpoint="<eks_cluster_endpoint>" \
+  --set eksCluster.defaultInstanceProfile.name="<eks_cluster_default_instance_profile>" \
+  --set eksCluster.nodeRole.arn="<eks_cluster_node_role_arn>" \
+  --set clusterOrchestrator.id="<cluster_orchestrator_id>"
+```
+
+{% hint style="info" %}
+**Co-exist with your existing Karpenter**
+
+To run Cluster Orchestrator alongside your existing Karpenter instead of replacing it, add one more flag to the install command:
+
+```bash
+--set clusterOrchestrator.autoscaler.enabled=false
+```
+
+This installs every workload except the autoscaler, so your existing Karpenter keeps provisioning and scaling your nodes while the other workloads run alongside it. Go to Co-exist with Karpenter to review which features are supported in this installation.
+{% endhint %}
+
+#### Troubleshooting <a href="#troubleshooting" id="troubleshooting"></a>
+
+<details>
+
+<summary>Missing OIDC Provider</summary>
+
+If your cluster doesn't have an OIDC provider ARN configured, you can create one with the following command:
+
+```bash
+eksctl utils associate-iam-oidc-provider --region <your_cluster_region> --cluster <your_cluster> --approve
+```
+
+</details>
+
+<details>
+
+<summary>Verifying Installation</summary>
+
+Check if the Cluster Orchestrator pods are running correctly:
+
+```bash
+kubectl get pods -n kube-system | grep cluster-orchestrator
+```
+
+</details>
+
+<details>
+
+<summary>Why are instances with AL2023 AMIs not joining the cluster as nodes?</summary>
+
+Default configuration in the harness-default `ec2nodeclass` is set to use the AL2 AMI family. Updating it to AL2023 enables support for AL2023 AMIs, allowing new instances to successfully join the cluster. 🛠️ Steps to fix:
+
+* Run the following command to edit the node class configuration:
+
+```bash
+kubectl edit ec2nodeclass harness-default
+```
+
+* In the spec section, locate the `amiFamily` field.
+* Replace `AL2` with `AL2023`.
+* Save and exit the editor.
+* After making this change, newly provisioned instances using AL2023 AMIs will properly join the cluster as nodes.
+
+</details>
+
+#### Next Steps <a href="#next-steps" id="next-steps"></a>
+
+After successful installation:
+
+1. Navigate to the Harness CACM module to verify the Cluster Orchestrator is connected
+2. Configure optimization policies in the Harness CACM UI
+3. Monitor your cluster for cost optimizations in the Harness dashboard
