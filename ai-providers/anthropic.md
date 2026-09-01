@@ -10,20 +10,21 @@ Connecting Anthropic brings your Claude spend into Harness Cloud & AI Cost Manag
 
 ### Create the Anthropic Admin API Key <a href="#create-the-anthropic-admin-api-key" id="create-the-anthropic-admin-api-key"></a>
 
-Anthropic bills its developer Platform and its Enterprise plans separately, and each needs its own type of key. Go to the [Platform tab](anthropic.md#anthropic-platform) if you use the developer API, or the Enterprise tab for a Team or Enterprise plan.
+Anthropic bills its Developer Platform and its Enterprise plans separately, and each needs its own type of key. Go to the Platform tab if you use the developer API, or the Enterprise tab for a Team or Enterprise plan.
 
 {% tabs %}
 {% tab title="Anthropic (Platform)" %}
 1. Sign in to the Claude Console at [platform.claude.com](https://platform.claude.com) with the **Admin** role.
-2. In the sidebar, go to **API Keys**, then locate **Admin Keys**.
-3. Create a new Admin key and give it a descriptive name.
-4. Copy the key and store it securely. Anthropic does not display it again after creation.
+2. In the sidebar, go to **API Keys**, then expand the section to find **Admin Keys**.
+3. Click **Create Admin Key** and give it a descriptive name, for example, `Harness CCM Integration`.
+4. Copy the key and store it securely. Anthropic does not display the key again after creation.
 {% endtab %}
 
 {% tab title="Anthropic Enterprise" %}
-1. Sign in to [claude.ai/analytics/api-keys](https://claude.ai/analytics/api-keys) as the **Primary Owner** of your organization. Standard Admins and Owners cannot generate Analytics API keys.
-2. Create a new **Analytics API key** and give it a descriptive name.
-3. Copy the key and store it securely. Anthropic does not display it again after creation.
+1. As the **Primary Owner** of your Anthropic Enterprise organization, sign in to [claude.ai/analytics/api-keys](https://claude.ai/analytics/api-keys). Standard Admins and Owners cannot generate Analytics API keys.
+2. Click to create a new **Analytics API key**.
+3. Give it a descriptive name, for example, `Harness CCM Integration`.
+4. Copy the key and store it securely. Anthropic does not display the key again after creation.
 {% endtab %}
 {% endtabs %}
 
@@ -33,7 +34,7 @@ Use an Analytics API key from `claude.ai/analytics/api-keys`, not an Admin API k
 
 ### Set Up the Anthropic Connector <a href="#set-up-the-anthropic-connector" id="set-up-the-anthropic-connector"></a>
 
-To connect Anthropic, go to **Cloud & AI Cost Management** > **Account Settings** > **AI Providers** and click **AI Provider**, and then select **Anthropic**.
+To connect Anthropic, go to **Cloud & AI Cost Management** > **Account Settings** > **AI Providers**, click **AI Provider**, and then select **Anthropic**.
 
 #### Step 1: Name the Connector <a href="#step-1-name-the-connector" id="step-1-name-the-connector"></a>
 
@@ -52,12 +53,12 @@ Then click **Continue**.
 
 #### Step 3: Add the Connector Details <a href="#step-3-add-the-connector-details" id="step-3-add-the-connector-details"></a>
 
-On the **Connector Details** panel, confirm the API endpoint and provide the Anthropic Admin API key as a Harness secret. Do the following:
+On the **Connector Details** panel, confirm the API endpoint and provide the Anthropic Admin API key you created in Create the Anthropic Admin API Key as a Harness secret. Do the following:
 
 1. In the **URL** field, do not change the default `https://api.anthropic.com` unless you have a custom endpoint.
 2. In the **API Key** field, click **Create or Select a Secret**.
-   * To use an existing secret, select it from the list, then click **Apply Selected**.
-   *   To add a new secret, click **New Secret Text**, enter a **Secret Name**, and provide your Anthropic Admin API key as the **Secret Value**.
+   * To use an existing secret that contains your Anthropic Admin API key, select it from the list, then click **Apply Selected**.
+   *   To add a new secret, click **New Secret Text**, enter a **Secret Name**, and provide the Anthropic Admin API key you created as the **Secret Value**.
 
        <div data-gb-custom-block data-tag="hint" data-style="warning" class="hint hint-warning"><p>The key must match the product type you selected in Step 2, or the connection test fails with a scope mismatch error. If the connection test fails, refer to Fix a scope mismatch error.</p></div>
 
