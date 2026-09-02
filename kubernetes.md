@@ -9,7 +9,7 @@
 {% hint style="danger" %}
 #### Deploy one delegate per cluster
 
-A single delegate serving multiple clusters is not supported for CACM. Metric collection is memory-intensive and the resource requirement grows with the number of nodes in each cluster. Sharing a delegate across clusters will exceed its resource capacity and produce inaccurate cost data.
+A single delegate serving multiple clusters is not supported for CACM. Metric collection is memory-intensive, and the resource requirement grows with the number of nodes in each cluster. Sharing a delegate across clusters will exceed its resource capacity and produce inaccurate cost data.
 {% endhint %}
 
 <details>
@@ -76,10 +76,10 @@ For clusters exceeding 100 nodes, allocate the following additional resources:
 {% hint style="warning" %}
 #### Right-size your delegate before you deploy
 
-The more nodes your cluster has, the more CPU and memory your delegate needs. Always deploy one delegate replica sized for that cluster. Do not split the load across multiple smaller replicas, as CACM does not support horizontal scaling. Go to [Cluster, Delegate, and Metrics Server Requirements](kubernetes.md#cluster-delegate-and-metrics-server-requirements) to review sizing before you deploy.
+The more nodes your cluster has, the more CPU and memory your delegate needs. Always deploy one delegate replica sized for that cluster. Do not split the load across multiple smaller replicas, as CACM does not support horizontal scaling. Go to [Cluster, Delegate, and Metrics Server](kubernetes.md#cluster-delegate-and-metrics-server-requirements) Requirements to review sizing before you deploy.
 {% endhint %}
 
-**Install delegate**
+### **Install delegate**
 
 [Install a Harness Kubernetes delegate in the cluster.](https://app.gitbook.com/s/3F2TpHXhur2QtQnORSM9/use-harness-platform/delegates/delegate/install-delegates/overview)
 
@@ -90,7 +90,7 @@ You can choose one of the following permissions for the delegate for CACM:
 * **Install Delegate with cluster-wide read/write access:** Creates a new namespace called "harness-delegate-ng" with the service account bound to Cluster Admin role. This Delegate will be able to read tasks (capture change events etc., needed for Harness Cloud & AI Cost Management) anywhere on the K8s cluster where the Delegate is installed.
 * **Install Delegate with cluster-wide read access:** (Requires read-only Cluster Admin role) Creates a new namespace called "harness-delegate-ng" with the service account bound to Cluster Admin role. This Delegate will be able to perform read-only tasks (capture change events etc., needed for Harness Cloud & AI Cost Management) anywhere on the K8s cluster where the Delegate is installed.
 
-**Delegate role requirements for CACM visibility features and recommendations:**
+### **Delegate role requirements for CACM visibility features and recommendations:**
 
 The YAML provided for the Harness Delegate defaults to the `cluster-admin` role. If you can't use cluster-admin because you are using a cluster in your company, you'll need to edit the delegate YAML to include the role below. If you deployed your delegate with Helm, you can also set the value `ccm.visibility: true` to have this role and binding created.
 
@@ -161,7 +161,7 @@ rules:
 
 {% tabs %}
 {% tab title="Quick Create" %}
-#### Quick Create Method <a href="#quick-create-method" id="quick-create-method"></a>
+### Quick Create Method <a href="#quick-create-method" id="quick-create-method"></a>
 
 {% hint style="info" %}
 The following entities are created in this process:
@@ -175,17 +175,17 @@ The following entities are created in this process:
 Add Kubernetes Cloud Cost Connector in Harness
 {% endembed %}
 
-**Step-by-Step Guide**
+### **Step-by-Step Guide**
 
-**Step 1: Overview**
+#### **Step 1: Overview**
 
 1. Launch the wizard and select **Kubernetes** as the cloud provider. Click on **Quick Create**.
-2. Enter a name for your connector. Please note, this is the name with which the Kubernetes Cluster will be identified in Harness Cloud & AI Cost Management. Also you need to have **Cluster Admin Role** to the Cluster you would like to add
+2. Enter a name for your connector. Please note that this is the name with which the Kubernetes Cluster will be identified in Harness Cloud & AI Cost Management. Also, you need to have the **Cluster Admin Role** for the Cluster you would like to add
 3. Click **Continue**.
 
 ***
 
-**Step 2: Download and Apply YAML**
+#### **Step 2: Download and Apply YAML**
 
 To grant Harness the required cluster permissions, apply the **delegate YAML**.
 
@@ -211,9 +211,9 @@ For Amazon EKS clusters, make sure the Kubernetes **Metrics Server** is installe
 
 ***
 
-**Step 3: Create and Test Connection**
+#### **Step 3: Create and Test Connection**
 
-After the successful creation of delegate and the connectors, and verification of permissions, select **Finish**. The connector is now listed in the Kubernetes clusters table.
+After successfully creating the delegate and connectors and verifying permissions, select **Finish**. The connector is now listed in the Kubernetes clusters table.
 
 ***
 
@@ -221,7 +221,7 @@ After the successful creation of delegate and the connectors, and verification o
 {% endtab %}
 
 {% tab title="Advanced" %}
-#### Advanced Method <a href="#advanced-method" id="advanced-method"></a>
+### Advanced Method <a href="#advanced-method" id="advanced-method"></a>
 
 {% hint style="info" %}
 If you have previously created a connector to the preferred cluster for any other modules (Deployments, Builds etc.), you may reference the same connector to upgrade to support Cloud & AI Cost Management.
@@ -239,40 +239,40 @@ To fully enable CACM for a Kubernetes cluster, you need to:
 {% hint style="info" %}
 After you enable CACM in your first cluster, the data is available within a few minutes for viewing and analysis.
 
-However, you can't see the idle cost due to missing utilization data. CACM generates the last 30 days of the cost data based on the first events.
+However, you can't see the idle cost due to missing utilization data. CACM generates the last 30 days ofthe cost data based on the first events.
 
 From the second cluster onwards, it takes about 2 to 3 hours for the data to be available for viewing and analysis.
 
 If you are using a CACM cloud connector, the data generation is delayed. Since CACM performs cost true-up based on cost information available at cloud provider source.
 {% endhint %}
 
-**Kubernetes CACM connection requirements and workflow**
+### **Kubernetes CACM connection requirements and workflow**
 
 For CACM, you can only use Kubernetes connectors at the Account level in Harness. This section describes how to set up the CACM Kubernetes connector.
 
 Here's a visual representation of the CACM Kubernetes connector requirements and workflow:
 
-**Create the Cloud Provider Kubernetes Cluster Connector**
+### **Create the Cloud Provider Kubernetes Cluster Connector**
 
 Once the delegate is deployed you need to [create a Kubernetes cloud provider connector](https://app.gitbook.com/s/3F2TpHXhur2QtQnORSM9/use-harness-platform/connectors/cloud-providers/add-a-kubernetes-cluster-connector) at the Account level. This connector should be created to `Use credentials of a specific Harness delegate` and select the delegate you deployed into the target cluster.
 
 Make sure the connector passes its connection test to validate the delegate has been installed correctly and can make outbound connections to the Harness Manager.
 
 {% hint style="warning" %}
-In Harness, the ratio of Delegates to Connectors is 1:2. If you have 20 clusters, then you need 20 delegates and 40 connectors (one Kubernetes cloud provider connector and one CACM Cloud Integration/Cloud Costs Kubernetes connector for each cluster). Each delegate must be deployed inside its target cluster. CACM collects metrics directly from the cluster it runs in and cannot serve multiple clusters.
+Each delegate must be deployed inside its target cluster. CACM collects metrics directly from the cluster it runs in and cannot serve multiple clusters. Because of this, the ratio of Delegates to Connectors in Harness is 1:2. For 20 clusters, you need 20 delegates and 40 connectors (one Kubernetes cloud provider connector and one CACM Kubernetes connector per cluster).
 {% endhint %}
 
-**Create CACM Kubernetes Connector**
+### **Create CACM Kubernetes Connector**
 
-**Interactive Guide**
+### **Interactive Guide**
 
 {% embed url="https://app.tango.us/app/embed/a55ce80b-4990-4510-9407-7d69690d70c1?skipCover=false&defaultListView=false&skipBranding=false&makeViewOnly=true&hideAuthorAndDetails=true" %}
 Add Kubernetes Cloud Cost Connector in Harness
 {% endembed %}
 
-**Step-by-Step Guide**
+### **Step-by-Step Guide**
 
-**Step 1: Overview**
+#### **Step 1: Overview**
 
 1. **Select Kubernetes Connector**: Choose an existing Kubernetes connector from your available connectors.
 2. **Configure Cloud Cost Connector**: Enter a name, optional description, and tags for your connector.
@@ -280,7 +280,7 @@ Add Kubernetes Cloud Cost Connector in Harness
 
 ***
 
-**Step 2: Feature Selection**
+#### **Step 2: Feature Selection**
 
 Choose the Cloud & AI Cost Management features you want to enable for your Kubernetes cluster:
 
@@ -300,7 +300,7 @@ Click **Continue** to proceed to the next step.
 
 ***
 
-**Step 3: Secret Creation (Conditional - if AutoStopping is selected)**
+#### **Step 3: Secret Creation (Conditional - if AutoStopping is selected)**
 
 1. **Create an API key** from your Harness account settings
 2.  **Create namespace**:
@@ -328,7 +328,7 @@ Click **Continue** to proceed to the next step.
 
 ***
 
-**Step 4: Provide Permissions**
+#### **Step 4: Provide Permissions**
 
 1. **Download YAML file** - The wizard will provide a YAML file containing permissions to access the pods and services of the cluster. You can also preview the YAML file.
 2. Copy the downloaded YAML to a machine where you have kubectl installed and have access to your Kubernetes cluster. Run the following command to apply the Harness delegate to your Kubernetes Cluster:
@@ -345,7 +345,7 @@ For EKS clusters, ensure the metrics server is installed.
 
 ***
 
-**Step 5: Verify Connection**
+#### **Step 5: Verify Connection**
 
 Harness will verify the connection to your Kubernetes cluster
 
@@ -355,7 +355,7 @@ Harness will verify the connection to your Kubernetes cluster
 
 ***
 
-**Troubleshooting**
+### **Troubleshooting**
 
 In the **Verify connection** step, if you get an error message like `few of the visibility permissions are missing`, then you need to review the CACM permissions required for Harness Delegate.
 
@@ -396,7 +396,7 @@ yes
 
 ***
 
-#### Next Steps <a href="#next-steps" id="next-steps"></a>
+### Next Steps <a href="#next-steps" id="next-steps"></a>
 
 Explore these features to enhance your cloud & AI cost management:
 
@@ -411,7 +411,7 @@ Turn visibility into action and unlock cost efficiency across your Azure cloud i
 
 ***
 
-#### FAQs <a href="#faqs" id="faqs"></a>
+### FAQs <a href="#faqs" id="faqs"></a>
 
 <details>
 
