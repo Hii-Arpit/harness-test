@@ -8,3 +8,5 @@
   * [Cursor](ai-providers/cursor.md)
   * [Devin](ai-providers/devin.md)
   * [Github Copilot](ai-providers/github-copilot.md)
+* [cloud cost management](cloud-cost-management.md)
+* [Kubernetes](kubernetes.md)
