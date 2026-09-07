@@ -59,20 +59,20 @@ Go to Feature support in Co-exist with Karpenter to review the support level for
 
 The following table shows how each Cluster Orchestrator feature behaves when you run Cluster Orchestrator alongside your existing Karpenter.
 
-| Feature                       | Support level   | Description                                                                                                                                       |
-| ----------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Telemetry collection          | Fully supported | Collects the same cost and usage data as the **Default Installation**                                                                             |
-| Workload distribution         | Fully supported | Karpenter honors the node labels and taints that Cluster Orchestrator sets                                                                        |
-| Cluster schedules             | Fully supported | Karpenter removes idle nodes as your workloads scale down                                                                                         |
-| VPA                           | Fully supported | Karpenter provisions nodes sized to fit the pod resource requests that VPA sets                                                                   |
-| NodePools and NodeClass UI    | Fully supported | Your existing Karpenter NodePools appear in the Cluster Orchestrator UI                                                                           |
-| Bin packing                   | Fully supported | Karpenter's built-in consolidation packs your workloads onto fewer nodes                                                                          |
-| Spot orchestration            | Degraded        | When a spot node is interrupted, Cluster Orchestrator cordons it early so no new workloads land on it, and Karpenter creates the replacement node |
-| Spot-to-spot consolidation    | Degraded        | Cluster Orchestrator can turn this on, but first asks you to restart Karpenter to enable the required setting                                     |
-| Commitment integration        | Not supported   | Not available, because Karpenter decides when to use committed capacity, not Cluster Orchestrator                                                 |
-| Fallback and reverse fallback | Not supported   | Not available, because Cluster Orchestrator does not control which instances are provisioned                                                      |
-| Replacement schedules         | Not supported   | Not available, because Cluster Orchestrator does not replace nodes in this installation                                                           |
-| Distribution strategy         | Not supported   | Not available, because Cluster Orchestrator does not control how instances are selected                                                           |
+| Feature                       | Support level   | Description                                                                                                                                                                  |
+| ----------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Telemetry collection          | Fully supported | Collects the same cost and usage data as the **Default Installation**                                                                                                        |
+| Workload distribution         | Degraded        | Pod-level distribution works, but provisioning-time distribution does not, because Cluster Orchestrator does not control node provisioning                                   |
+| Cluster schedules             | Fully supported | Karpenter removes idle nodes as your workloads scale down                                                                                                                    |
+| VPA                           | Fully supported | Karpenter provisions nodes sized to fit the pod resource requests that VPA sets                                                                                              |
+| NodePools and NodeClass UI    | Degraded        | The UI is likely empty because the NodePool sync runs in the autoscaler, which is not installed in this mode                                                                 |
+| Bin packing                   | Degraded        | Karpenter's built-in consolidation is not the same as Cluster Orchestrator's bin packing feature; the Harness pod evictor requires the autoscaler for NodePool configuration |
+| Spot orchestration            | Not supported   | The interrupt listener, cordon, provision, and drain logic all run inside the autoscaler pod, which is not installed in this mode                                            |
+| Spot-to-spot consolidation    | Not supported   | Only applied through the Harness autoscaler's Karpenter integration, which is not installed in this mode                                                                     |
+| Commitment integration        | Not supported   | Not available, because Karpenter decides when to use committed capacity, not Cluster Orchestrator                                                                            |
+| Fallback and reverse fallback | Not supported   | Not available, because Cluster Orchestrator does not control which instances are provisioned                                                                                 |
+| Replacement schedules         | Not supported   | Not available, because Cluster Orchestrator does not replace nodes in this installation                                                                                      |
+| Distribution strategy         | Not supported   | Not available, because Cluster Orchestrator does not control how instances are selected                                                                                      |
 
 ***
 
@@ -80,10 +80,16 @@ The following table shows how each Cluster Orchestrator feature behaves when you
 
 Enable Co-exist with Karpenter by running the Cluster Orchestrator enablement script with the autoscaler disabled. This installs the Cluster Orchestrator add-ons without the autoscaler and without any AWS cloud setup, so no additional AWS permissions are required.
 
+{% hint style="info" %}
+The `AUTOSCALER_ENABLED` flag is only available on the AWS enablement script.
+{% endhint %}
+
 1. Log in to [Harness](https://app.harness.io) and go to **Cloud Costs** → **Cluster Orchestrator**.
 2. Select your cluster, then open the configuration screen.
 3. Copy the generated enablement script.
-4.  Run the generated script with the autoscaler disabled by setting `AUTOSCALER_ENABLED=false` at the start of the command:
+4.  Add `AUTOSCALER_ENABLED=false` manually at the start of the copied command, then run it.
+
+    The Harness UI does not add this flag for you. Copy the generated command and add `AUTOSCALER_ENABLED=false` at the start before running it.
 
     ```bash
     AUTOSCALER_ENABLED=false <generated enablement script>
@@ -102,8 +108,9 @@ Enable Co-exist with Karpenter by running the Cluster Orchestrator enablement sc
       VPA_ENABLED=false \
       /bin/bash -c "$(curl -H 'x-api-key: <harness_api_token>' -fsSL 'https://app.harness.io/lw/api/accounts/<account_id>/clusters/orchestrator/onboard?accountIdentifier=<account_id>')"
     ```
-5. Scale your Karpenter deployment back up so it resumes node provisioning.
-6.  Verify the installation. In Co-exist with Karpenter, the four Cluster Orchestrator workloads run and the `cluster-orch-autoscaler` deployment is absent:
+
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>VPA is disabled by default. To use VPA in Co-exist with Karpenter, add <code>VPA_ENABLED=true</code> to the command.</p></div>
+5.  Verify the installation. In Co-exist with Karpenter, the four Cluster Orchestrator workloads run and the `cluster-orch-autoscaler` deployment is absent:
 
     ```bash
     kubectl get deploy,daemonset -n kube-system | grep "cluster-orch\|cluster-telemetry"
@@ -128,9 +135,25 @@ After migration, the degraded and unsupported features become fully available, a
 
 <details>
 
-<summary>Cluster Orchestrator add-ons installed in Co-exist with Karpenter, but Karpenter stopped provisioning nodes.</summary>
+<summary>The NodePools and NodeClass UI is empty after installing Co-exist with Karpenter.</summary>
 
-Confirm that your Karpenter deployment is scaled back up after running the co-exist enablement script. In Co-exist with Karpenter, Cluster Orchestrator does not provision nodes; Karpenter does.
+This is expected. NodePool sync runs inside the autoscaler, which is not installed in Co-exist with Karpenter. The UI populates only after you migrate to the full installation.
+
+</details>
+
+<details>
+
+<summary>The interrupt listener is reporting errors in Co-exist with Karpenter.</summary>
+
+This is expected. The interrupt listener is installed but the spot handling logic (cordon, provision, drain) runs inside the autoscaler pod, which is not installed in this mode. Interrupt listener errors in co-exist mode do not affect your cluster. Migrate to the full installation to enable full spot orchestration.
+
+</details>
+
+<details>
+
+<summary>A feature such as bin packing or workload distribution is enabled in the Harness UI but has no effect.</summary>
+
+Several Cluster Orchestrator features depend on the autoscaler, which is not installed in Co-exist with Karpenter. Enabling these features in the UI has no effect in this mode. Go to Feature support in Co-exist with Karpenter to review which features are available, and migrate to the full installation to use autoscaler-dependent features.
 
 </details>
 
