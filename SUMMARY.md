@@ -9,4 +9,6 @@
   * [Devin](ai-providers/devin.md)
   * [Github Copilot](ai-providers/github-copilot.md)
 * [cloud cost management](cloud-cost-management.md)
+* [Account tags in CACM](account-tags-in-cacm.md)
 * [Kubernetes](kubernetes.md)
+* [Kubernetes](kubernetes-1.md)
