@@ -10,5 +10,5 @@
   * [Github Copilot](ai-providers/github-copilot.md)
 * [cloud cost management](cloud-cost-management.md)
 * [Account tags in CACM](account-tags-in-cacm.md)
-* [Kubernetes](kubernetes.md)
-* [Kubernetes](kubernetes-1.md)
+* [K8s.md](k8s-md.md)
+* [Preview](preview.md)
