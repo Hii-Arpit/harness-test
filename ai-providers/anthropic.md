@@ -1,12 +1,10 @@
 # Anthropic
 
-## Anthropic
-
 Connecting Anthropic brings your Claude spend into Harness Cloud & AI Cost Management alongside your cloud costs. The connector uses an Admin API key to pull usage and cost data from your Anthropic account. You can analyze AI spend in Cost Explorer, attribute it with Views and Cost Categories, and govern it with budgets and anomaly detection, the same way you manage cloud costs.
 
 ### Before You Begin <a href="#before-you-begin" id="before-you-begin"></a>
 
-**Anthropic Admin API key:** An Admin key with read-only access from your Anthropic account. The key lets Harness ingest billing and usage data. Go to the [Anthropic Admin API documentation](https://platform.claude.com/docs/en/manage-claude/admin-api) to create one, or follow the steps below.
+**Anthropic Admin API key:** An Admin API key from your Anthropic account. The key enables Harness to ingest billing and usage data. Go to the [Anthropic Admin API key documentation](https://platform.claude.com/docs/en/manage-claude/admin-api-keys) to create one, or perform the following steps.
 
 ### Create the Anthropic Admin API Key <a href="#create-the-anthropic-admin-api-key" id="create-the-anthropic-admin-api-key"></a>
 
@@ -15,21 +13,22 @@ Anthropic bills its Developer Platform and its Enterprise plans separately, and 
 {% tabs %}
 {% tab title="Anthropic (Platform)" %}
 1. Sign in to the Claude Console at [platform.claude.com](https://platform.claude.com) with the **Admin** role.
-2. In the sidebar, go to **API Keys**, then expand the section to find **Admin Keys**.
-3. Click **Create Admin Key** and give it a descriptive name, for example, `Harness CCM Integration`.
+2. Go to **Settings** > **Admin keys**.
+3. Click **Create key**, give it a descriptive name (for example, `Harness CCM Integration`), and choose a key expiration.
 4. Copy the key and store it securely. Anthropic does not display the key again after creation.
 {% endtab %}
 
 {% tab title="Anthropic Enterprise" %}
-1. As the **Primary Owner** of your Anthropic Enterprise organization, sign in to [claude.ai/analytics/api-keys](https://claude.ai/analytics/api-keys). Standard Admins and Owners cannot generate Analytics API keys.
-2. Click to create a new **Analytics API key**.
-3. Give it a descriptive name, for example, `Harness CCM Integration`.
-4. Copy the key and store it securely. Anthropic does not display the key again after creation.
+1. As the **Primary Owner** of your Anthropic Enterprise organization, sign in to the web interface at [claude.ai](https://claude.ai). Do not use the developer console.
+2. Click your profile or initials in the bottom-left corner, then select **Organization settings**.
+3. Go to the **API** tab. The first time you use this feature, toggle on **Enable public API access**.
+4. Click **Create Key**, give it a descriptive name, for example, `Harness CCM Integration`, and ensure the **read:analytics** scope is selected.
+5. Copy the key and store it securely. Anthropic does not display the key again after creation.
 {% endtab %}
 {% endtabs %}
 
 {% hint style="warning" %}
-Use an Analytics API key from `claude.ai/analytics/api-keys`, not an Admin API key from `platform.claude.com`. The Enterprise product type requires the `read:analytics` scope, and the Platform product type requires the `api:admin` scope.
+For an **Anthropic Enterprise** plan, use an Analytics API key from `claude.ai`, **not** a Console Admin API key from `platform.claude.com`. Enterprise keys require the `read:analytics` scope. Console keys are scope-less (full access) and only work with the Platform product type. Only the **Primary Owner** can generate Enterprise Analytics API keys.
 {% endhint %}
 
 ### Set Up the Anthropic Connector <a href="#set-up-the-anthropic-connector" id="set-up-the-anthropic-connector"></a>
@@ -79,16 +78,16 @@ If the test fails with an **HTTP 403 "Missing required scope"** error, your key 
 
 **Fix a Scope Mismatch Error**
 
-Each product type needs an Admin key with a specific scope. If the key does not match the product type you selected in Step 2, the connection test fails with an **HTTP 403 "Missing required scope"** error.
+The two Anthropic product types use different key types. If the key does not match the product type you selected in Step 2, the connection test fails with an **HTTP 403 "Missing required scope"** error.
 
-| Product type             | Required key scope |
-| ------------------------ | ------------------ |
-| **Anthropic (Platform)** | `api:admin`        |
-| **Anthropic Enterprise** | `read:analytics`   |
+| Product type             | Required key type                                     | Created in                                    |
+| ------------------------ | ----------------------------------------------------- | --------------------------------------------- |
+| **Anthropic (Platform)** | Console Admin API key (scope-less, full access)       | `platform.claude.com` > Settings > Admin keys |
+| **Anthropic Enterprise** | Enterprise Analytics API key (`read:analytics` scope) | `claude.ai` > Organization settings > API     |
 
-If you select **Anthropic Enterprise** but use a Platform key, the test reports that `read:analytics` is missing.
+If you select **Anthropic Enterprise** but use a Console Admin key, the test reports that `read:analytics` is missing.
 
-If you select **Anthropic (Platform)** but use an Enterprise key, the test reports that `api:admin` is missing.
+If you select **Anthropic (Platform)** but use an Enterprise Analytics key, the test reports a scope mismatch.
 
 To fix it, do one of the following, and then click **Retest**:
 

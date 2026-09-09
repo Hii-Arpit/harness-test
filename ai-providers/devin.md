@@ -10,7 +10,7 @@ Connecting Devin brings your Devin spend into Harness Cloud & AI Cost Management
 
 Devin recommends a service user key for automated access. To create one:
 
-1. Sign in to Devin and go to **Settings** → **Devin API**. Enterprise deployments use a dedicated host, for example, `harness.devinenterprise.com`.
+1. Sign in to Devin and go to **Settings** → **Devin API**. Enterprise deployments use a dedicated host, for example, `your-org.devinenterprise.com`.
 2. On the **Devin API** page, open the **Service users** tab, then click **Provision** and select **Enterprise service user** or **Organization service user**, depending on your account.
 3. In the dialog box, enter a **Display name**, for example, `Harness CCM Integration`.
 4. Assign the **Admin** role, and set **Expiration** to the longest available option (or **Never**) so ingestion does not stop when the key expires.

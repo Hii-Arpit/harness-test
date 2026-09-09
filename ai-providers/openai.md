@@ -11,7 +11,7 @@ Connecting OpenAI brings your OpenAI spend into Harness Cloud & AI Cost Manageme
 1. Sign in to the OpenAI platform at [platform.openai.com](https://platform.openai.com) as an organization **Owner**. Only organization Owners can create Admin API keys.
 2. Go to **Settings** → **Organization** → **Admin keys**, or open [platform.openai.com/settings/organization/admin-keys](https://platform.openai.com/settings/organization/admin-keys) directly.
 3. Click **Create new Admin key** and give it a descriptive name, for example, `Harness CCM Integration`.
-4. Set the permissions to **Restricted**, then grant **Read** access to the **Management API** and **Usage API** scopes.
+4. Under **Permissions**, click **Read only** to grant read access to all scopes at once, or click **Restricted** and set **Organization Administration** and **Usage API Scope** to **Read**.
 5. Click **Create Admin key**.
 6. Copy the key and store it securely. OpenAI does not display the key again after creation.
 

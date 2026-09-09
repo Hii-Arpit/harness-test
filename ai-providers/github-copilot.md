@@ -4,7 +4,7 @@ Connecting GitHub Copilot brings your GitHub Copilot spend into Harness Cloud & 
 
 ### Before You Begin <a href="#before-you-begin" id="before-you-begin"></a>
 
-**GitHub Copilot Admin key:** An Admin key with read-only access from your GitHub organization. The key enables Harness to ingest billing and usage data. Go to the [GitHub Copilot user management API documentation](https://docs.github.com/en/rest/copilot/copilot-user-management?apiVersion=2026-03-10) to generate one, or perform the following steps.
+**GitHub Copilot Admin key:** An Admin key with read-only access from your GitHub organization. The key enables Harness to ingest billing and usage data. Go to the [GitHub Copilot metrics API documentation](https://docs.github.com/en/rest/copilot/copilot-metrics) to review the required scopes, or perform the following steps.
 
 ### Create the GitHub Copilot Admin Key <a href="#create-the-github-copilot-admin-key" id="create-the-github-copilot-admin-key"></a>
 
