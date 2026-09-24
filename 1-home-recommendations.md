@@ -237,7 +237,7 @@ Changes made in the AWS Console are reflected in Harness CACM after the next sch
 | Before discounts | The full on-demand rate with no Reserved Instance or Savings Plan discounts applied. Use this if you want to see what resources would cost without any commitments. |
 | After discounts | Your effective cost after Reserved Instance and Savings Plan savings are factored in, spread evenly over the reservation term. Use this if your organization tracks committed spend. |
 
-### Nodepool recommendation costs and **Workload recommendation costs
+### Nodepool recommendation costs and Workload recommendation costs
 
 Both settings share the same four cost type options:
 
@@ -273,7 +273,7 @@ These two cost types look similar but use different rates for reserved resources
 
 When **Actual** is selected, the following toggles are available:
 
-#### Savings Programs:
+**Savings Programs:**
 
 | Toggle | Description |
 |---|---|
@@ -281,13 +281,13 @@ When **Actual** is selected, the following toggles are available:
 | Legacy spend-based CUD credits | Legacy form of spend-based committed use credits. |
 | Resource-based CUD credits | Discounts from Committed Use contracts tied to specific vCPU and memory resources. |
 
-#### Invoice Level Charges:
+**Invoice Level Charges:**
 
 | Toggle | Description |
 |---|---|
 | Tax | Applicable taxes included in the cost calculation. |
 
-#### Other Savings:
+**Other Savings:**
 
 | Toggle | Description |
 |---|---|
