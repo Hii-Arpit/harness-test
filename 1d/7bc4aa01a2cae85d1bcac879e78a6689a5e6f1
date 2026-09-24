@@ -1,0 +1,14 @@
+1-home-recommendations.md
+  h_59fd564719da3b 227,240,267,300
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1d7bc4aa01a2cae85d1bcac879e78a6689a5e6f1",
+  "prompts": {},
+  "humans": {
+    "h_59fd564719da3b": {
+      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+    }
+  }
+}
