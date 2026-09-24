@@ -243,7 +243,7 @@ Both settings share the same four cost type options:
 
 | Cost type | Description |
 |---|---|
-| List price | The published retail rate with no discounts applied. This is what you would pay with no reservations or commitments — the highest cost view. |
+| List price | The published retail rate with no discounts applied. This is the highest cost view, before any reservations or commitments are considered. |
 | Unblended | The actual rate charged for each individual resource. On-demand instances show at the on-demand rate; reserved instances show at their reserved rate. No costs are spread or averaged. |
 | Amortized | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. For example, a $1,200 annual RI upfront charge shows as $100/month instead of a lump sum in month one. |
 | Net-amortized | Same as Amortized, with any additional enterprise discounts and credits applied on top. Reflects your true effective monthly cost. Recommended for organizations with enterprise agreements. |
@@ -253,14 +253,14 @@ Both settings share the same four cost type options:
 
 Both ignore reservation spreading, but they differ in what rate is shown.
 
-Say you have two EC2 instances — one bought as a Reserved Instance at $0.05/hr, one on-demand at $0.10/hr (the retail list price).
+Consider two EC2 instances: one purchased as a Reserved Instance at $0.05/hr, and one running on-demand at $0.10/hr (the retail list price).
 
 | | Reserved Instance | On-demand | Total |
 |---|---|---|---|
 | **List price** | $0.10/hr | $0.10/hr | $0.20/hr |
 | **Unblended** | $0.05/hr | $0.10/hr | $0.15/hr |
 
-**List price** treats everything as if it were on-demand — your RI deal is ignored. **Unblended** shows each resource at the rate you actually pay. If you have no reservations, the two are the same.
+**List price** treats all resources as on-demand regardless of purchase type. **Unblended** shows each resource at the rate it was actually purchased at. With no reservations in place, the two values are identical.
 {% endhint %}
 
 The default cost type for AWS workload costs is **Amortized**.
