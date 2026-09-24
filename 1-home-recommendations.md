@@ -273,7 +273,7 @@ These two cost types look similar but use different rates for reserved resources
 
 When **Actual** is selected, the following toggles are available:
 
-Savings Programs:
+#### Savings Programs:
 
 | Toggle | Description |
 |---|---|
@@ -281,13 +281,13 @@ Savings Programs:
 | Legacy spend-based CUD credits | Legacy form of spend-based committed use credits. |
 | Resource-based CUD credits | Discounts from Committed Use contracts tied to specific vCPU and memory resources. |
 
-Invoice Level Charges:
+#### Invoice Level Charges:
 
 | Toggle | Description |
 |---|---|
 | Tax | Applicable taxes included in the cost calculation. |
 
-Other Savings:
+#### Other Savings:
 
 | Toggle | Description |
 |---|---|
