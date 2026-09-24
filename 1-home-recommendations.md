@@ -272,14 +272,16 @@ These two cost types look similar but use different rates for reserved resources
 {% endtab %}
 
 {% tab title="Google Cloud Provider" %}
-### Nodepool recommendation costs
+### Nodepool recommendation costs and Workload recommendation costs
+
+Both settings share the same two cost type options:
 
 | Cost type | Description |
 |---|---|
 | List price | The published retail rate from GCP with no discounts or credits applied. This is what you would pay with no savings programs or commitments in place. No additional toggles available. |
-| Actual | Your effective billed cost after applying the credits and discounts you select below. Use this to match recommendation costs to what your organization actually pays. |
+| Actual | Your effective billed cost after applying the credits and discounts you select below. Use this to match recommendation costs to what your account actually pays. |
 
-When **Actual** is selected, choose which credits and discounts to include in the cost calculation. Enable the toggles that match how your account tracks GCP spend. Each enabled toggle is factored into the recommendation cost and savings shown.
+When **Actual** is selected, choose which credits and discounts to include in the cost calculation. Enable the toggles that match how your account tracks GCP spend. Each enabled toggle is factored into the recommendation cost and savings shown for both Nodepool and Workload recommendations.
 
 **Savings Programs:**
 
@@ -304,15 +306,6 @@ When **Actual** is selected, choose which credits and discounts to include in th
 | Spending-based discounts | Discounts earned by maintaining a minimum monthly spend commitment. |
 | Subscription credits | Credits from GCP subscription agreements. |
 | Negotiated savings | Custom pricing negotiated with Google Cloud. |
-
-**Workload recommendation costs**
-
-The default cost type for GCP workload costs is **Actual**. When Actual is selected, workload costs use the same credits and discount toggles configured under Nodepool costs above.
-
-| Cost type | Description |
-|---|---|
-| List price | The published retail rate from GCP with no discounts or credits applied. This is what you would pay with no savings programs or commitments in place. |
-| Actual | Your effective billed cost using the same credits and discounts selected for Nodepool. Use this to keep workload and nodepool costs consistent. |
 {% endtab %}
 
 {% tab title="Microsoft Azure" %}
