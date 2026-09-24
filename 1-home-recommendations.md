@@ -243,10 +243,10 @@ Both settings share the same four cost type options:
 
 | Cost type | Description |
 |---|---|
-| List price | Base on-demand price before any discounts or reservation savings are applied. |
-| Unblended | Standard pay-as-you-go billing cost without reservation discounts. |
-| Amortized | Reservation and Savings Plan costs spread evenly over the reservation term. |
-| Net-amortized | Amortized cost further reduced by any negotiated discounts and credits. |
+| List price | The published retail rate with no discounts applied. This is what you would pay with no reservations or commitments — the highest cost view. |
+| Unblended | The actual rate charged for each individual resource. On-demand instances show at the on-demand rate; reserved instances show at their reserved rate. No costs are spread or averaged. |
+| Amortized | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. For example, a $1,200 annual RI upfront charge shows as $100/month instead of a lump sum in month one. |
+| Net-amortized | Same as Amortized, with any additional enterprise discounts and credits applied on top. Reflects your true effective monthly cost. Recommended for organizations with enterprise agreements. |
 
 The default cost type for AWS workload costs is **Amortized**.
 {% endtab %}
