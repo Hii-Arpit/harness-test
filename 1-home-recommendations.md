@@ -224,7 +224,7 @@ Cost type changes take effect on the next job run, which may take up to 24 hours
 {% tab title="Amazon Web Services" %}
 CACM surfaces AWS recommendation costs for three resource types.
 
-**Passthrough recommendation costs (EC2)**
+### Passthrough recommendation costs (EC2)
 
 EC2 recommendations are passthrough. CACM pulls them directly from [AWS Cost Optimization Hub](https://docs.aws.amazon.com/cost-management/latest/userguide/coh-preferences.html#coh-savings-estimation) without recalculating costs. The cost type shown in Harness reflects the savings estimation setting configured in your AWS Console, not a setting you change in Harness.
 
@@ -237,7 +237,7 @@ Changes made in the AWS Console are reflected in Harness CACM after the next sch
 | Before discounts | The full on-demand rate with no Reserved Instance or Savings Plan discounts applied. Use this if you want to see what resources would cost without any commitments. |
 | After discounts | Your effective cost after Reserved Instance and Savings Plan savings are factored in, spread evenly over the reservation term. Use this if your organization tracks committed spend. |
 
-**Nodepool recommendation costs** and **Workload recommendation costs**
+### Nodepool recommendation costs and **Workload recommendation costs
 
 Both settings share the same four cost type options:
 
@@ -261,11 +261,10 @@ These two cost types look similar but use different rates for reserved resources
 **List price** treats all resources as on-demand regardless of purchase type. **Unblended** shows each resource at the rate it was actually purchased at. With no reservations in place, the two values are identical.
 {% endhint %}
 
-The default cost type for AWS workload costs is **Amortized**.
 {% endtab %}
 
 {% tab title="Google Cloud Provider" %}
-**Nodepool recommendation costs**
+### Nodepool recommendation costs
 
 | Cost type | Description |
 |---|---|
@@ -298,7 +297,7 @@ Other Savings:
 | Subscription credits | Credits from GCP subscription agreements. |
 | Negotiated savings | Custom pricing negotiated with Google Cloud. |
 
-**Workload recommendation costs**
+### Workload recommendation costs
 
 | Cost type | Description |
 |---|---|
