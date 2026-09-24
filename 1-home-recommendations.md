@@ -222,7 +222,7 @@ Cost type changes take effect on the next job run, which may take up to 24 hours
 
 {% tabs %}
 {% tab title="Amazon Web Services" %}
-CACM surfaces AWS recommendation costs for three resource types.
+CACM surfaces AWS recommendation costs for four resource types.
 
 ### Passthrough recommendation costs (EC2)
 
@@ -237,7 +237,15 @@ Changes made in the AWS Console are reflected in Harness CACM after the next sch
 | Before discounts | The full on-demand rate with no Reserved Instance or Savings Plan discounts applied. Use this if you want to see what resources would cost without any commitments. |
 | After discounts | Your effective cost after Reserved Instance and Savings Plan savings are factored in, spread evenly over the reservation term. Use this if your organization tracks committed spend. |
 
-### Nodepool recommendation costs and Workload recommendation costs
+**ECS recommendation costs**
+
+| Cost type | Description |
+|---|---|
+| Unblended | The actual rate charged for each ECS task. Each resource shows at the rate it was actually purchased at, with no costs spread or averaged. |
+| Amortized | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. |
+| Net-amortized | Same as Amortized, with any additional enterprise discounts and credits applied on top. |
+
+**Nodepool recommendation costs** and **Workload recommendation costs**
 
 Both settings share the same four cost type options:
 
