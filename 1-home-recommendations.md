@@ -248,6 +248,21 @@ Both settings share the same four cost type options:
 | Amortized | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. For example, a $1,200 annual RI upfront charge shows as $100/month instead of a lump sum in month one. |
 | Net-amortized | Same as Amortized, with any additional enterprise discounts and credits applied on top. Reflects your true effective monthly cost. Recommended for organizations with enterprise agreements. |
 
+{% hint style="success" %}
+**List price vs Unblended**
+
+Both ignore reservation spreading, but they differ in what rate is shown.
+
+Say you have two EC2 instances — one bought as a Reserved Instance at $0.05/hr, one on-demand at $0.10/hr (the retail list price).
+
+| | Reserved Instance | On-demand | Total |
+|---|---|---|---|
+| **List price** | $0.10/hr | $0.10/hr | $0.20/hr |
+| **Unblended** | $0.05/hr | $0.10/hr | $0.15/hr |
+
+**List price** treats everything as if it were on-demand — your RI deal is ignored. **Unblended** shows each resource at the rate you actually pay. If you have no reservations, the two are the same.
+{% endhint %}
+
 The default cost type for AWS workload costs is **Amortized**.
 {% endtab %}
 
