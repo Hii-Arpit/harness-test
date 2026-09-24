@@ -268,10 +268,10 @@ These two cost types look similar but use different rates for reserved resources
 
 | Cost type | Description |
 |---|---|
-| List price | Base on-demand price with no discounts or credits applied. No additional toggles. |
-| Actual | Effective billed cost. When selected, you can include or exclude specific credits and discounts using the toggles below. |
+| List price | The published retail rate from GCP with no discounts or credits applied. This is what you would pay with no savings programs or commitments in place. No additional toggles available. |
+| Actual | Your effective billed cost after applying the credits and discounts you select below. Use this to match recommendation costs to what your organization actually pays. |
 
-When **Actual** is selected, the following toggles are available:
+When **Actual** is selected, choose which credits and discounts to include in the cost calculation. Enable the toggles that match how your account tracks GCP spend. Each enabled toggle is factored into the recommendation cost and savings shown.
 
 **Savings Programs:**
 
