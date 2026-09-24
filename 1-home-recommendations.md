@@ -222,6 +222,8 @@ Cost type changes take effect on the next job run, which may take up to 24 hours
 
 {% tabs %}
 {% tab title="Amazon Web Services" %}
+<figure><img src="../../../.gitbook/assets/recommendations-cost-settings-aws.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+
 CACM surfaces AWS recommendation costs for four resource types.
 
 ### Passthrough recommendation costs (EC2)
@@ -272,6 +274,8 @@ These two cost types look similar but use different rates for reserved resources
 {% endtab %}
 
 {% tab title="Google Cloud Provider" %}
+<figure><img src="../../../.gitbook/assets/recommendations-cost-settings-gcp.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+
 ### Nodepool & Workload recommendation costs
 
 Both settings share the same two cost type options:
@@ -309,6 +313,8 @@ When **Actual** is selected, choose which credits and discounts to include in th
 {% endtab %}
 
 {% tab title="Microsoft Azure" %}
+<figure><img src="../../../.gitbook/assets/recommendations-cost-settings-azure.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+
 VM and VMSS recommendations are passthrough. CACM pulls them directly from Azure Advisor without recalculating costs. The cost type you select here controls which Azure billing view those passthrough costs are matched against. Nodepool and Workload costs are calculated by CACM using the selected cost type.
 
 All three resource types (**Passthrough (VM, VMSS)**, **Nodepool**, and **Workload**) share the same three cost type options:
@@ -318,8 +324,6 @@ All three resource types (**Passthrough (VM, VMSS)**, **Nodepool**, and **Worklo
 | List price | Retail price before any enterprise agreements, negotiated discounts, or credits are applied. |
 | Actual | The billed cost as it appears on your invoice. For reservations, the full charge appears in the billing period of purchase. |
 | Amortized | Reservation costs spread evenly across the reservation term. Use this for apples-to-apples comparisons between committed and on-demand spend. |
-
-The default cost type for Azure workload costs is **Actual**.
 {% endtab %}
 {% endtabs %}
 
