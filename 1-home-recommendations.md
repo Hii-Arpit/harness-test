@@ -315,7 +315,7 @@ When **Actual** is selected, choose which credits and discounts to include in th
 {% tab title="Microsoft Azure" %}
 <figure><img src="../../../.gitbook/assets/recommendations-cost-settings-azure.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-VM and VMSS recommendations are passthrough. CACM pulls them directly from Azure Advisor without recalculating costs. The cost type you select here controls which Azure billing view those passthrough costs are matched against. Nodepool and Workload costs are calculated by CACM using the selected cost type.
+**VM** and **VMSS** recommendations are pulled directly from Azure Advisor. CACM does not recalculate their costs. For Nodepool and Workload, CACM calculates costs using the cost type you select here.
 
 All three resource types (**Passthrough (VM, VMSS)**, **Nodepool**, and **Workload**) share the same three cost type options:
 
