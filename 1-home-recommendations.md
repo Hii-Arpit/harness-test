@@ -232,10 +232,10 @@ EC2 recommendations are passthrough. CACM pulls them directly from [AWS Cost Opt
 Changes made in the AWS Console are reflected in Harness CACM after the next scheduled sync.
 {% endhint %}
 
-| Cost type | Maps to | Description |
-|---|---|---|
-| Before discounts | Unblended | On-demand cost before Reserved Instance or Savings Plan discounts are applied. |
-| After discounts | Net-amortized | Cost after Reserved Instance and Savings Plan discounts are applied. |
+| Cost type | Description |
+|---|---|
+| Before discounts | The full on-demand rate with no Reserved Instance or Savings Plan discounts applied. Use this if you want to see what resources would cost without any commitments. |
+| After discounts | Your effective cost after Reserved Instance and Savings Plan savings are factored in, spread evenly over the reservation term. Use this if your organization tracks committed spend. |
 
 **Nodepool recommendation costs** and **Workload recommendation costs**
 
