@@ -249,11 +249,9 @@ Both settings share the same four cost type options:
 | Net-amortized | Same as Amortized, with any additional enterprise discounts and credits applied on top. Reflects your true effective monthly cost. Recommended for organizations with enterprise agreements. |
 
 {% hint style="success" %}
-**List price vs Unblended**
+### List price vs Unblended
 
-Both ignore reservation spreading, but they differ in what rate is shown.
-
-Consider two EC2 instances: one purchased as a Reserved Instance at $0.05/hr, and one running on-demand at $0.10/hr (the retail list price).
+These two cost types look similar but use different rates for reserved resources. Consider two EC2 instances: one purchased as a Reserved Instance at $0.05/hr, and one running on-demand at $0.10/hr (the retail list price).
 
 | | Reserved Instance | On-demand | Total |
 |---|---|---|---|
