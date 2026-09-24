@@ -297,14 +297,14 @@ When **Actual** is selected, choose which credits and discounts to include in th
 | Subscription credits | Credits from GCP subscription agreements. |
 | Negotiated savings | Custom pricing negotiated with Google Cloud. |
 
-### Workload recommendation costs
+**Workload recommendation costs**
+
+The default cost type for GCP workload costs is **Actual**. When Actual is selected, workload costs use the same credits and discount toggles configured under Nodepool costs above.
 
 | Cost type | Description |
 |---|---|
-| List price | Base on-demand price with no discounts or credits applied. |
-| Actual | Effective billed cost after applying the credits and discounts configured for Nodepool above. |
-
-The default cost type for GCP workload costs is **Actual**.
+| List price | The published retail rate from GCP with no discounts or credits applied. This is what you would pay with no savings programs or commitments in place. |
+| Actual | Your effective billed cost using the same credits and discounts selected for Nodepool. Use this to keep workload and nodepool costs consistent. |
 {% endtab %}
 
 {% tab title="Microsoft Azure" %}
