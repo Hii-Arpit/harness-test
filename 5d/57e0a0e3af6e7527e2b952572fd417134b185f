@@ -1,0 +1,162 @@
+.gitbook/assets/continuous-delivery-onboarding.svg
+  h_59fd564719da3b 1-661
+.gitbook/assets/node-js.svg
+  h_59fd564719da3b 1-39
+.gitbook/assets/nodejs-dark.svg
+  h_59fd564719da3b 1-39
+1-home-recommendations.md
+  h_59fd564719da3b 213,227,229,231,234,255,257,264,294,296
+SUMMARY.md
+  h_59fd564719da3b 3-51,53-93
+application-maps.md
+  h_59fd564719da3b 1-82
+architecture.md
+  h_59fd564719da3b 1-183
+aws-lambda.md
+  h_59fd564719da3b 1-3
+aws-sam.md
+  h_59fd564719da3b 1-3
+basic-dedicated-delegate.md
+  h_59fd564719da3b 1-68
+basic.md
+  h_59fd564719da3b 1-65
+cd-best-practices.md
+  h_59fd564719da3b 1-176
+cd-integrations.md
+  h_59fd564719da3b 1-186
+centralized-delegate.md
+  h_59fd564719da3b 1-97
+chaos-faults.md
+  h_59fd564719da3b 1-288
+client-side-standard-sdks.md
+  h_59fd564719da3b 1-77
+command-probe-newrelic.md
+  h_59fd564719da3b 1-65
+compatibility.md
+  h_59fd564719da3b 1-101
+continuous-delivery.md
+  h_59fd564719da3b 1-47
+custom-dashboards.md
+  h_59fd564719da3b 1-265
+dart-sdk.md
+  h_59fd564719da3b 1-97
+delegate.md
+  h_59fd564719da3b 1-117
+expressions.md
+  h_59fd564719da3b 1-262
+faqs.md
+  h_59fd564719da3b 1-700
+feature-management-experimentation.md
+  h_59fd564719da3b 1-2598
+get-started.md
+  h_59fd564719da3b 1-163
+getting-started.md
+  h_59fd564719da3b 1-608
+google-cloud-build.md
+  h_59fd564719da3b 1-85
+google-cloud-run-deployment-strategies.md
+  h_59fd564719da3b 1-3
+google-cloud-run.md
+  h_59fd564719da3b 1-3
+harness-cd.md
+  h_59fd564719da3b 1-188
+harness-git-cache.md
+  h_59fd564719da3b 1-146
+helm-deployment-strategies.md
+  h_59fd564719da3b 1-3
+helm.md
+  h_59fd564719da3b 1-3
+image-registry.md
+  h_59fd564719da3b 1-222
+index.md
+  h_59fd564719da3b 1-144
+install-the-sdk.md
+  h_59fd564719da3b 1-110
+jenkins.md
+  h_59fd564719da3b 1-98
+k8s-apply.md
+  h_59fd564719da3b 1-165
+k8s-delete.md
+  h_59fd564719da3b 1-116
+k8s-diff.md
+  h_59fd564719da3b 1-137
+k8s-patch.md
+  h_59fd564719da3b 1-164
+k8s-rollout.md
+  h_59fd564719da3b 1-121
+k8s-scale.md
+  h_59fd564719da3b 1-163
+k8s-steady-state-check.md
+  h_59fd564719da3b 1-183
+kubernetes-deployment-strategies.md
+  h_59fd564719da3b 1-3
+kubernetes-services.md
+  h_59fd564719da3b 1-387
+kubernetes.md
+  h_59fd564719da3b 1-227
+lambda-deployment-strategies.md
+  h_59fd564719da3b 1-3
+license-consumption.md
+  h_59fd564719da3b 1-26
+limited-permissions-dedicated-delegate.md
+  h_59fd564719da3b 1-82
+limited-permissions.md
+  h_59fd564719da3b 1-79
+migration.md
+  h_59fd564719da3b 1-129
+network-config.md
+  h_59fd564719da3b 1-167
+on-premise-vs-saas.md
+  h_59fd564719da3b 1-78
+on-premises-smp.md
+  h_59fd564719da3b 1-37
+opa-governance.md
+  h_59fd564719da3b 1-356
+openfeature-providers.md
+  h_59fd564719da3b 1-71
+openshift-scc.md
+  h_59fd564719da3b 1-126
+overview.md
+  h_59fd564719da3b 1-105
+pipeline-notifications.md
+  h_59fd564719da3b 1-56
+platform.md
+  h_59fd564719da3b 1-3923
+probes.md
+  h_59fd564719da3b 1-95
+rbac.md
+  h_59fd564719da3b 1-199
+risk-scans.md
+  h_59fd564719da3b 1-217
+risks.md
+  h_59fd564719da3b 1-258
+sam-services.md
+  h_59fd564719da3b 1-161
+serverless.md
+  h_59fd564719da3b 1-3
+service-discovery.md
+  h_59fd564719da3b 1-226
+services.md
+  h_59fd564719da3b 1-196
+step-library.md
+  h_59fd564719da3b 1-3
+terraform-onboarding.md
+  h_59fd564719da3b 1-179
+trigger-on-a-new-artifact.md
+  h_59fd564719da3b 1-484
+versioning-policy.md
+  h_59fd564719da3b 1-293
+windows-chaos-permissions.md
+  h_59fd564719da3b 1-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "5d57e0a0e3af6e7527e2b952572fd417134b185f",
+  "prompts": {},
+  "humans": {
+    "h_59fd564719da3b": {
+      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+    }
+  }
+}
