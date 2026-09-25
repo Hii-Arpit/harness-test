@@ -236,16 +236,16 @@ Changes made in the AWS Console reflect in Harness CACM after the next scheduled
 
 | Cost type | Description |
 |---|---|
-| Before discounts | The full on-demand rate with no Reserved Instance or Savings Plan discounts applied. Use this if you want to see what resources would cost without any commitments. |
-| After discounts | Your effective cost after Reserved Instance and Savings Plan savings are factored in, spread evenly over the reservation term. Use this if your organization tracks committed spend. |
+| [Before discounts](https://docs.aws.amazon.com/cost-management/latest/userguide/coh-preferences.html#coh-savings-estimation) | The full on-demand rate with no Reserved Instance or Savings Plan discounts applied. Use this if you want to see what resources would cost without any commitments. |
+| [After discounts](https://docs.aws.amazon.com/cost-management/latest/userguide/coh-preferences.html#coh-savings-estimation) | Your effective cost after Reserved Instance and Savings Plan savings are factored in, spread evenly over the reservation term. Use this if your organization tracks committed spend. |
 
 **Workload recommendation costs**
 
 | Cost type | Description |
 |---|---|
-| List price | The published retail rate with no discounts applied. This is the highest cost view, before any reservations or commitments are considered. |
-| Amortized | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. For example, a $1,200 annual RI upfront charge shows as $100/month instead of a lump sum in month one. |
-| Net-amortized | Same as Amortized, with any additional enterprise discounts and credits applied on top. Reflects your true effective monthly cost. Recommended for organizations with enterprise agreements. |
+| [List price](https://docs.aws.amazon.com/whitepapers/latest/how-aws-pricing-works/how-aws-pricing-works.html) | The published retail rate with no discounts applied. This is the highest cost view, before any reservations or commitments are considered. |
+| [Amortized](https://docs.aws.amazon.com/cost-management/latest/userguide/amortizing-reserved-instances.html) | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. For example, a $1,200 annual RI upfront charge shows as $100/month instead of a lump sum in month one. |
+| [Net-amortized](https://docs.aws.amazon.com/cost-management/latest/userguide/amortizing-reserved-instances.html) | Same as Amortized, with any additional enterprise discounts and credits applied on top. Reflects your true effective monthly cost. Recommended for organizations with enterprise agreements. |
 
 {% hint style="info" %}
 ### Feature flags
@@ -272,8 +272,8 @@ Nodepool recommendation costs use your account-level default cost settings.
 
 | Cost type | Description |
 |---|---|
-| List price | The published retail rate from GCP with no discounts or credits applied. This is what you would pay with no savings programs or commitments in place. No additional toggles available. |
-| Actual | Your effective billed cost after applying the credits and discounts you select below. Use this to match recommendation costs to what your account actually pays. |
+| [List price](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-schema) | The published retail rate from GCP with no discounts or credits applied. This is what you would pay with no savings programs or commitments in place. No additional toggles available. |
+| [Actual](https://cloud.google.com/billing/docs/how-to/credits) | Your effective billed cost after applying the credits and discounts you select below. Use this to match recommendation costs to what your account actually pays. |
 
 When you select **Actual**, choose which credits and discounts to include in the cost calculation. Enable the toggles that match how your account tracks GCP spend. Each enabled toggle is factored into the recommendation cost and savings shown.
 
@@ -281,9 +281,9 @@ When you select **Actual**, choose which credits and discounts to include in the
 
 | Toggle | Description |
 |---|---|
-| Spend-based CUD discounts | Discounts from Committed Use contracts based on a committed spend amount. |
-| Legacy spend-based CUD credits | Legacy form of spend-based committed use credits. |
-| Resource-based CUD credits | Discounts from Committed Use contracts tied to specific vCPU and memory resources. |
+| [Spend-based CUD discounts](https://cloud.google.com/billing/docs/how-to/commitments) | Discounts from Committed Use contracts based on a committed spend amount. |
+| [Legacy spend-based CUD credits](https://cloud.google.com/billing/docs/how-to/commitments) | Legacy form of spend-based committed use credits. |
+| [Resource-based CUD credits](https://cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts) | Discounts from Committed Use contracts tied to specific vCPU and memory resources. |
 
 **Invoice Level Charges:**
 
@@ -295,10 +295,10 @@ When you select **Actual**, choose which credits and discounts to include in the
 
 | Toggle | Description |
 |---|---|
-| Promotional credits | One-time credits from Google promotions or trials. |
-| Sustained use discounts (SUDs) | Automatic discounts for running Compute Engine resources for a significant portion of the billing month. |
-| Spending-based discounts | Discounts earned by maintaining a minimum monthly spend commitment. |
-| Subscription credits | Credits from GCP subscription agreements. |
+| [Promotional credits](https://cloud.google.com/billing/docs/how-to/credits) | One-time credits from Google promotions or trials. |
+| [Sustained use discounts (SUDs)](https://cloud.google.com/compute/docs/sustained-use-discounts) | Automatic discounts for running Compute Engine resources for a significant portion of the billing month. |
+| [Spending-based discounts](https://cloud.google.com/billing/docs/how-to/credits) | Discounts earned by maintaining a minimum monthly spend commitment. |
+| [Subscription credits](https://cloud.google.com/billing/docs/how-to/credits) | Credits from GCP subscription agreements. |
 | Negotiated savings | Custom pricing negotiated with Google Cloud. |
 
 {% hint style="info" %}
@@ -324,8 +324,8 @@ Both **Passthrough (VM, VMSS)** and **Workload** share the same two cost type op
 
 | Cost type | Description |
 |---|---|
-| Actual | The billed cost as it appears on your invoice. For reservations, the full charge appears in the billing period of purchase. |
-| Amortized | Reservation costs spread evenly across the reservation term. Use this for apples-to-apples comparisons between committed and on-demand spend. |
+| [Actual](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) | The billed cost as it appears on your invoice. For reservations, the full charge appears in the billing period of purchase. |
+| [Amortized](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) | Reservation costs spread evenly across the reservation term. Use this for apples-to-apples comparisons between committed and on-demand spend. |
 
 {% hint style="info" %}
 ### Feature flags
