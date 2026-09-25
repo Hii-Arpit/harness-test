@@ -1,6 +1,6 @@
 ---
 description: "View and manage EC2 Commitment Orchestrator insights including savings breakdowns, spend analysis, and Reserved Instance coverage"
-hidden: true
+hidden: false
 ---
 
 

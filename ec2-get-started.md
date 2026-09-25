@@ -1,6 +1,6 @@
 ---
 description: "Get started with Commitment Orchestrator for EC2 to automate Reserved Instance and Savings Plan purchases and reduce AWS compute costs"
-hidden: true
+hidden: false
 ---
 
 
