@@ -247,7 +247,7 @@ Changes made in the AWS Console are reflected in Harness CACM after the next sch
 | Amortized | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. |
 | Net-amortized | Same as Amortized, with any additional enterprise discounts and credits applied on top. |
 
-**Nodepool & Workload recommendation costs**
+**Workload recommendation costs**
 
 Both settings share the same four cost type options:
 
