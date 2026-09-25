@@ -1,0 +1,14 @@
+1-asset-governance.md
+  h_59fd564719da3b 282-284
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "0d7ce6fbfd93d9ba817d195e97c3023ba59e8e7a",
+  "prompts": {},
+  "humans": {
+    "h_59fd564719da3b": {
+      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+    }
+  }
+}
