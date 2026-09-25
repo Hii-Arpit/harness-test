@@ -83,6 +83,12 @@ Here is an in-depth explanation of the Overview page and the information it disp
 {% tab title="Governance Recommendations" %}
 <figure><img src="../../.gitbook/assets/overview-two.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
+{% hint style="success" %}
+### Cost settings
+
+Potential Monthly Spend and Potential Monthly Savings are calculated using your account-level default cost settings. To change the cost type, navigate to **Account Settings** → **Cloud & AI Cost Management** → **Cost Settings**.
+{% endhint %}
+
 *   **Recommendations** - Governance Overview displays a list of all recommendations that can help optimize the cloud assets and minimize cloud costs. Governance Overview highlights the total potential savings that can be achieved if all recommendations are applied. Additional to this, for each recommendation, Harness shows more details like:
 
     * **Potential Monthly Savings**: Monthly cost savings that can be realized if the recommendations are applied.
@@ -92,10 +98,6 @@ Here is an in-depth explanation of the Overview page and the information it disp
     * **Custom Recommendations**: All Custom Recommendations show up with a "Custom" badge after successful creation.
 
     <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p><strong>NOTE</strong></p><ul><li>In case of AWS and Azure, Account/ Subscription and region combination with greater than 300$ of monthly spend are considered for recommendations.</li><li>In case of GCP, Project with greater than 300$ of monthly spend is considered for recommendations.</li></ul></div>
-
-{% hint style="info" %}
-Potential Monthly Spend and Potential Monthly Savings are calculated using your account-level default cost settings. To change the cost type, navigate to **Account Settings** → **Cloud & AI Cost Management** → **Cost Settings**.
-{% endhint %}
 
 To apply a recommendation, select the row. The recommendation opens on the **Recommendations** page. To learn how to enforce this recommendation, go to Governance recommendations.
 
