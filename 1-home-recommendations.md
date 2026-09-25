@@ -210,7 +210,7 @@ To configure this feature, click on **+Add mapping** to add a new mapping, then 
 {% endtab %}
 
 {% tab title="Cost Settings" %}
-Cost settings control which cost basis is used to calculate the **Potential Monthly Spend** and **Potential Monthly Savings** displayed across all recommendations. These settings inherit from your Account Settings defaults. Override them to apply only to Recommendations.
+Cost settings control which cost basis is used to calculate the **Potential Monthly Spend** and **Potential Monthly Savings** displayed across all recommendations. These settings inherit from your Account Settings defaults. Override them here to apply only to Recommendations.
 
 To configure cost settings, navigate to **Recommendations** → **Settings** → **Cost Settings**.
 
@@ -224,41 +224,51 @@ Cost type changes take effect on the next job run, which may take up to 24 hours
 {% tab title="Amazon Web Services" %}
 <figure><img src="../../../.gitbook/assets/recommendations-cost-settings-aws.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-CACM surfaces AWS recommendation costs for two resource types. ECS and Nodepool recommendation costs use your account-level default cost settings.
+CACM surfaces AWS recommendation costs for four resource types.
 
-### Passthrough recommendation costs
+### Passthrough recommendation costs (EC2)
 
-Passthrough recommendations are pulled directly from [AWS Cost Optimization Hub](https://docs.aws.amazon.com/cost-management/latest/userguide/coh-preferences.html#coh-savings-estimation) without CACM recalculating costs. The cost type shown in Harness reflects the savings estimation setting configured in your AWS Console, not a setting you change in Harness.
+EC2 recommendations are passthrough. CACM pulls them directly from [AWS Cost Optimization Hub](https://docs.aws.amazon.com/cost-management/latest/userguide/coh-preferences.html#coh-savings-estimation) without recalculating costs. The cost type shown in Harness reflects the savings estimation setting configured in your AWS Console, not a setting you change in Harness.
 
 {% hint style="info" %}
-Changes made in the AWS Console reflect in Harness CACM after the next scheduled sync.
+Changes made in the AWS Console are reflected in Harness CACM after the next scheduled sync.
 {% endhint %}
 
 | Cost type | Description |
 |---|---|
-| [Before discounts](https://docs.aws.amazon.com/cost-management/latest/userguide/coh-preferences.html#coh-savings-estimation) | The full on-demand rate with no Reserved Instance or Savings Plan discounts applied. Use this if you want to see what resources would cost without any commitments. |
-| [After discounts](https://docs.aws.amazon.com/cost-management/latest/userguide/coh-preferences.html#coh-savings-estimation) | Your effective cost after Reserved Instance and Savings Plan savings are factored in, spread evenly over the reservation term. Use this if your organization tracks committed spend. |
+| Before discounts | The full on-demand rate with no Reserved Instance or Savings Plan discounts applied. Use this if you want to see what resources would cost without any commitments. |
+| After discounts | Your effective cost after Reserved Instance and Savings Plan savings are factored in, spread evenly over the reservation term. Use this if your organization tracks committed spend. |
 
-**Workload recommendation costs**
+**ECS recommendation costs**
 
 | Cost type | Description |
 |---|---|
-| [List price](https://docs.aws.amazon.com/whitepapers/latest/how-aws-pricing-works/how-aws-pricing-works.html) | The published retail rate with no discounts applied. This is the highest cost view, before any reservations or commitments are considered. |
-| [Amortized](https://docs.aws.amazon.com/cost-management/latest/userguide/amortizing-reserved-instances.html) | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. For example, a $1,200 annual RI upfront charge shows as $100/month instead of a lump sum in month one. |
-| [Net-amortized](https://docs.aws.amazon.com/cost-management/latest/userguide/amortizing-reserved-instances.html) | Same as Amortized, with any additional enterprise discounts and credits applied on top. Reflects your true effective monthly cost. Recommended for organizations with enterprise agreements. |
+| Unblended | The actual rate charged for each ECS task. Each resource shows at the rate it was actually purchased at, with no costs spread or averaged. |
+| Amortized | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. |
+| Net-amortized | Same as Amortized, with any additional enterprise discounts and credits applied on top. |
 
-{% hint style="info" %}
-### Feature flags
+**Nodepool & Workload recommendation costs**
 
-The active cost type for AWS workload recommendations is controlled by account-level feature flags. The default cost type is **Amortized**.
+Both settings share the same four cost type options:
 
-| Feature flag | Cost type applied |
+| Cost type | Description |
 |---|---|
-| None (default) | Amortized |
-| `CCM_K8S_COST_TRUE_UP_WITH_CUR_PUBLIC_PRICING` | List price |
-| `CCM_K8S_COST_TRUE_UP_WITH_CUR_NET_AMORTIZED_PRICING` | Net-amortized (only when `CCM_K8S_COST_TRUE_UP_WITH_CUR_PUBLIC_PRICING` is off) |
+| List price | The published retail rate with no discounts applied. This is the highest cost view, before any reservations or commitments are considered. |
+| Unblended | The actual rate charged for each individual resource. On-demand instances show at the on-demand rate; reserved instances show at their reserved rate. No costs are spread or averaged. |
+| Amortized | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. For example, a $1,200 annual RI upfront charge shows as $100/month instead of a lump sum in month one. |
+| Net-amortized | Same as Amortized, with any additional enterprise discounts and credits applied on top. Reflects your true effective monthly cost. Recommended for organizations with enterprise agreements. |
 
-Contact your account administrator to enable or disable these flags.
+{% hint style="success" %}
+**List price vs Unblended**
+
+These two cost types look similar but use different rates for reserved resources. Consider two EC2 instances: one purchased as a Reserved Instance at $0.05/hr, and one running on-demand at $0.10/hr (the retail list price).
+
+| | Reserved Instance | On-demand | Total |
+|---|---|---|---|
+| **List price** | $0.10/hr | $0.10/hr | $0.20/hr |
+| **Unblended** | $0.05/hr | $0.10/hr | $0.15/hr |
+
+**List price** treats all resources as on-demand regardless of purchase type. **Unblended** shows each resource at the rate it was actually purchased at. With no reservations in place, the two values are identical.
 {% endhint %}
 
 {% endtab %}
@@ -266,24 +276,24 @@ Contact your account administrator to enable or disable these flags.
 {% tab title="Google Cloud Provider" %}
 <figure><img src="../../../.gitbook/assets/recommendations-cost-settings-gcp.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-Nodepool recommendation costs use your account-level default cost settings.
+### Nodepool & Workload recommendation costs
 
-### Workload recommendation costs
+Both settings share the same two cost type options:
 
 | Cost type | Description |
 |---|---|
-| [List price](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-schema) | The published retail rate from GCP with no discounts or credits applied. This is what you would pay with no savings programs or commitments in place. No additional toggles available. |
-| [Actual](https://cloud.google.com/billing/docs/how-to/credits) | Your effective billed cost after applying the credits and discounts you select below. Use this to match recommendation costs to what your account actually pays. |
+| List price | The published retail rate from GCP with no discounts or credits applied. This is what you would pay with no savings programs or commitments in place. No additional toggles available. |
+| Actual | Your effective billed cost after applying the credits and discounts you select below. Use this to match recommendation costs to what your account actually pays. |
 
-When you select **Actual**, choose which credits and discounts to include in the cost calculation. Enable the toggles that match how your account tracks GCP spend. Each enabled toggle is factored into the recommendation cost and savings shown.
+When **Actual** is selected, choose which credits and discounts to include in the cost calculation. Enable the toggles that match how your account tracks GCP spend. Each enabled toggle is factored into the recommendation cost and savings shown for both Nodepool and Workload recommendations.
 
 **Savings Programs:**
 
 | Toggle | Description |
 |---|---|
-| [Spend-based CUD discounts](https://cloud.google.com/billing/docs/how-to/commitments) | Discounts from Committed Use contracts based on a committed spend amount. |
-| [Legacy spend-based CUD credits](https://cloud.google.com/billing/docs/how-to/commitments) | Legacy form of spend-based committed use credits. |
-| [Resource-based CUD credits](https://cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts) | Discounts from Committed Use contracts tied to specific vCPU and memory resources. |
+| Spend-based CUD discounts | Discounts from Committed Use contracts based on a committed spend amount. |
+| Legacy spend-based CUD credits | Legacy form of spend-based committed use credits. |
+| Resource-based CUD credits | Discounts from Committed Use contracts tied to specific vCPU and memory resources. |
 
 **Invoice Level Charges:**
 
@@ -295,50 +305,25 @@ When you select **Actual**, choose which credits and discounts to include in the
 
 | Toggle | Description |
 |---|---|
-| [Promotional credits](https://cloud.google.com/billing/docs/how-to/credits) | One-time credits from Google promotions or trials. |
-| [Sustained use discounts (SUDs)](https://cloud.google.com/compute/docs/sustained-use-discounts) | Automatic discounts for running Compute Engine resources for a significant portion of the billing month. |
-| [Spending-based discounts](https://cloud.google.com/billing/docs/how-to/credits) | Discounts earned by maintaining a minimum monthly spend commitment. |
-| [Subscription credits](https://cloud.google.com/billing/docs/how-to/credits) | Credits from GCP subscription agreements. |
+| Promotional credits | One-time credits from Google promotions or trials. |
+| Sustained use discounts (SUDs) | Automatic discounts for running Compute Engine resources for a significant portion of the billing month. |
+| Spending-based discounts | Discounts earned by maintaining a minimum monthly spend commitment. |
+| Subscription credits | Credits from GCP subscription agreements. |
 | Negotiated savings | Custom pricing negotiated with Google Cloud. |
-
-{% hint style="info" %}
-### Feature flags
-
-The active cost type for GCP workload recommendations is controlled by account-level feature flags. The default cost type is **Actual**.
-
-| Feature flag | Cost type applied |
-|---|---|
-| None (default) | Actual |
-| `CCM_K8S_COST_TRUE_UP_WITH_CUR_PUBLIC_PRICING` | List price |
-
-Contact your account administrator to enable or disable these flags.
-{% endhint %}
 {% endtab %}
 
 {% tab title="Microsoft Azure" %}
 <figure><img src="../../../.gitbook/assets/recommendations-cost-settings-azure.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-**VM** and **VMSS** recommendations are pulled directly from Azure Advisor. CACM does not recalculate their costs. Nodepool recommendation costs use your account-level default cost settings.
+VM and VMSS recommendations are passthrough. CACM pulls them directly from Azure Advisor without recalculating costs. The cost type you select here controls which Azure billing view those passthrough costs are matched against. Nodepool and Workload costs are calculated by CACM using the selected cost type.
 
-Both **Passthrough (VM, VMSS)** and **Workload** share the same two cost type options:
+All three resource types (**Passthrough (VM, VMSS)**, **Nodepool**, and **Workload**) share the same three cost type options:
 
 | Cost type | Description |
 |---|---|
-| [Actual](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) | The billed cost as it appears on your invoice. For reservations, the full charge appears in the billing period of purchase. |
-| [Amortized](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) | Reservation costs spread evenly across the reservation term. Use this for apples-to-apples comparisons between committed and on-demand spend. |
-
-{% hint style="info" %}
-### Feature flags
-
-The active cost type for Azure workload recommendations is controlled by account-level feature flags. The default cost type is **Actual**.
-
-| Feature flag | Cost type applied |
-|---|---|
-| None (default) | Actual |
-| `CCM_AZURE_K8S_TRUEUP_WITH_AMORTIZED_COST` | Amortized |
-
-Contact your account administrator to enable or disable these flags.
-{% endhint %}
+| List price | Retail price before any enterprise agreements, negotiated discounts, or credits are applied. |
+| Actual | The billed cost as it appears on your invoice. For reservations, the full charge appears in the billing period of purchase. |
+| Amortized | Reservation costs spread evenly across the reservation term. Use this for apples-to-apples comparisons between committed and on-demand spend. |
 {% endtab %}
 {% endtabs %}
 
