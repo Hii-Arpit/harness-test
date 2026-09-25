@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+     
+      class="illustration"
+      viewBox="0 0 860 270"
+      width="860"
+      height="270"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Animated diagram of the Continuous Delivery and GitOps onboarding flow: define your pipeline, deploy across environments, verify deployment health, choose a progressive delivery strategy between a canary and a full rollout, then keep infrastructure continuously synced with GitOps."
+    >
+<style>
+:root{
+  --ifm-color-emphasis-200:#ebedf0; --ifm-color-emphasis-300:#dadde1;
+  --ifm-color-emphasis-400:#ccd0d5; --ifm-color-emphasis-600:#8d949e;
+  --ifm-color-emphasis-700:#606770;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ifm-color-emphasis-200:#303846; --ifm-color-emphasis-300:#3e4553;
+    --ifm-color-emphasis-400:#4e5566; --ifm-color-emphasis-600:#8a8fa3;
+    --ifm-color-emphasis-700:#a3a8bb;
+  }
+}
+svg{
+  font-family: Geist, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;}
+}
+@keyframes dashFlow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  3% {
+    opacity: 0.55;
+  }
+  12% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+}
+@keyframes nodeBgFade {
+  0% {
+    opacity: 0.08;
+  }
+  2% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 0;
+  }
+  14% {
+    opacity: 0.08;
+  }
+  100% {
+    opacity: 0.08;
+  }
+}
+@keyframes pulseRingEarly {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+@keyframes nodeBgFadeEarly {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.08;
+  }
+}
+@keyframes barPulse {
+  0% {
+    transform: scaleY(0.3);
+  }
+  4% {
+    transform: scaleY(0.3);
+  }
+  9% {
+    transform: scaleY(1);
+  }
+  15% {
+    transform: scaleY(0.55);
+  }
+  100% {
+    transform: scaleY(0.55);
+  }
+}
+@keyframes magnifyPulse {
+  0% {
+    transform: scale(1);
+  }
+  3% {
+    transform: scale(1);
+  }
+  8% {
+    transform: scale(1.18);
+  }
+  14% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pushUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  8% {
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+  12% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+@keyframes buildBlock {
+  0% {
+    transform: translateY(8px) scale(0.6);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  11% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  20% {
+    opacity: 1;
+  }
+  24% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+}
+@keyframes decideBlocked {
+  0% {
+    opacity: 0.25;
+  }
+  4% {
+    opacity: 0.8;
+  }
+  14% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+@keyframes decideApproved {
+  0% {
+    opacity: 0.35;
+    transform: scale(0.92);
+  }
+  3% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  8% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes travel {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+    fill: #b0b1c4;
+  }
+  2% {
+    transform: translateX(0);
+    opacity: 0;
+    fill: #b0b1c4;
+  }
+  3% {
+    transform: translateX(15px);
+    opacity: 1;
+    fill: #b0b1c4;
+  }
+  17% {
+    transform: translateX(155px);
+    opacity: 1;
+    fill: #b0b1c4;
+  }
+  18% {
+    transform: translateX(170px);
+    opacity: 0;
+    fill: #b0b1c4;
+  }
+  22% {
+    transform: translateX(170px);
+    opacity: 0;
+    fill: #b0b1c4;
+  }
+  23% {
+    transform: translateX(185px);
+    opacity: 1;
+    fill: #b0b1c4;
+  }
+  37% {
+    transform: translateX(325px);
+    opacity: 1;
+    fill: #b0b1c4;
+  }
+  38% {
+    transform: translateX(340px);
+    opacity: 0;
+    fill: #b0b1c4;
+  }
+  42% {
+    transform: translateX(340px);
+    opacity: 0;
+    fill: #b0b1c4;
+  }
+  43% {
+    transform: translateX(355px);
+    opacity: 1;
+    fill: #b0b1c4;
+  }
+  57% {
+    transform: translateX(485px);
+    opacity: 1;
+    fill: #b0b1c4;
+  }
+  58% {
+    transform: translateX(500px);
+    opacity: 0;
+    fill: #45bd35;
+  }
+  62% {
+    transform: translateX(500px);
+    opacity: 0;
+    fill: #45bd35;
+  }
+  63% {
+    transform: translateX(515px);
+    opacity: 1;
+    fill: #45bd35;
+  }
+  77% {
+    transform: translateX(645px);
+    opacity: 1;
+    fill: #45bd35;
+  }
+  78% {
+    transform: translateX(660px);
+    opacity: 0;
+    fill: #45bd35;
+  }
+  100% {
+    transform: translateX(660px);
+    opacity: 0;
+    fill: #45bd35;
+  }
+}
+
+.illustration {
+  width: 80%;
+  height: auto;
+  overflow: visible;
+}
+
+.paused * {
+  animation-play-state: paused !important;
+}
+
+.nodeBg {
+  fill: #45bd35;
+  opacity: 0.08;
+}
+
+.nodeBgFade {
+  animation: nodeBgFade 8s ease-out infinite backwards;
+}
+
+.iconStroke {
+  fill: none;
+  stroke: url(#cdGrad);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.shaftLine {
+  stroke: #45bd35;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.envLine {
+  stroke: var(--ifm-color-emphasis-400);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.squareOutline {
+  fill: none;
+  stroke: var(--ifm-color-emphasis-400);
+  stroke-width: 1.5;
+}
+
+.shieldOutline {
+  fill: none;
+  stroke: url(#cdGrad);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+@keyframes cdCheckDraw {
+  0% {
+    stroke-dashoffset: 24;
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  11% {
+    stroke-dashoffset: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  24% {
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+.checkMark {
+  fill: none;
+  stroke: #2e8f1f;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  animation: cdCheckDraw 8s ease-in-out infinite backwards;
+  animation-delay: 2.85s;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  fill: var(--ifm-color-emphasis-700);
+}
+
+.connectorLine {
+  stroke: var(--ifm-color-emphasis-300);
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+  animation: dashFlow 1.6s linear infinite;
+}
+
+.forkPathMuted {
+  stroke: var(--ifm-color-emphasis-300);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 4;
+}
+
+.forkPathBright {
+  stroke: #45bd35;
+  stroke-width: 1.5;
+}
+
+.tagBgMuted {
+  fill: var(--ifm-color-emphasis-200);
+}
+
+.tagLabelMuted {
+  font-size: 11px;
+  fill: var(--ifm-color-emphasis-600);
+}
+
+.tagLabelBright {
+  font-size: 11px;
+  font-weight: 600;
+  fill: #ffffff;
+}
+
+.travelDot {
+  fill: #b0b1c4;
+  animation: travel 8s linear infinite backwards;
+}
+
+.pulseRing {
+  fill: none;
+  stroke: #45bd35;
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulseRing 8s ease-out infinite backwards;
+}
+
+.pulse1 {
+  animation-delay: -0.35s;
+}
+
+.pulse2 {
+  animation-delay: 1.25s;
+}
+
+.pulse3 {
+  animation-delay: 2.85s;
+}
+
+.pulse4 {
+  animation-delay: 4.45s;
+}
+
+.pulse5 {
+  animation-delay: 6.05s;
+}
+
+.branchDot {
+  fill: url(#cdGrad);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pushUp 8s ease-in-out infinite backwards;
+}
+
+.branchDot1 {
+  animation-delay: -0.35s;
+}
+
+.branchDot2 {
+  animation-delay: -0.2s;
+}
+
+.envActive {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: magnifyPulse 8s ease-in-out infinite backwards;
+  animation-delay: 1.25s;
+}
+
+.forkDotMuted {
+  fill: var(--ifm-color-emphasis-400);
+  animation: decideBlocked 8s ease-out infinite backwards;
+  animation-delay: 4.45s;
+}
+
+.forkDotBright {
+  fill: url(#cdGrad);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: decideApproved 8s ease-out infinite backwards;
+  animation-delay: 4.45s;
+}
+
+.canaryTag {
+  animation: decideBlocked 8s ease-out infinite backwards;
+  animation-delay: 4.45s;
+}
+
+.rolloutTag {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: decideApproved 8s ease-out infinite backwards;
+  animation-delay: 4.45s;
+}
+
+.syncSpin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: syncSpin 3s linear infinite;
+}
+
+@keyframes syncSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .connectorLine,
+  .travelDot,
+  .pulseRing,
+  .nodeBgFade,
+  .branchDot,
+  .envActive,
+  .checkMark,
+  .forkDotMuted,
+  .forkDotBright,
+  .canaryTag,
+  .rolloutTag,
+  .syncSpin {
+    animation: none !important;
+  }
+  .travelDot {
+    opacity: 0;
+  }
+  .checkMark {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  .forkDotMuted {
+    opacity: 0.3;
+  }
+  .forkDotBright {
+    opacity: 1;
+    transform: none;
+  }
+  .canaryTag {
+    opacity: 0.3;
+  }
+  .rolloutTag {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+
+      <defs>
+        <linearGradient id="cdGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#62F91F" />
+          <stop offset="100%" stop-color="#45BD35" />
+        </linearGradient>
+      </defs>
+
+      
+      <line x1="148" y1="140" x2="242" y2="140" class="connectorLine" />
+      <line x1="318" y1="140" x2="412" y2="140" class="connectorLine" />
+      <line x1="488" y1="140" x2="572" y2="140" class="connectorLine" />
+      <line x1="648" y1="140" x2="732" y2="140" class="connectorLine" />
+
+      
+      <circle cx="110" cy="140" r="6" class="travelDot" />
+
+      
+      <g>
+        <circle cx="110" cy="140" r="38" class="nodeBg nodeBgFade pulse1" />
+        <circle cx="110" cy="140" r="38" class="pulseRing pulse1" />
+        <rect x="102" y="112" width="16" height="10" rx="2" class="squareOutline" />
+        
+        <line x1="110" y1="122" x2="110" y2="132" class="shaftLine" />
+        <path d="M110 132 L98 146 M110 132 L122 146" class="iconStroke" />
+        <circle cx="98" cy="149" r="3" class="branchDot branchDot1" />
+        <circle cx="122" cy="149" r="3" class="branchDot branchDot2" />
+        <text x="110" y="204" text-anchor="middle" class="label">
+          Define your pipeline
+        </text>
+      </g>
+
+      
+      <g>
+        <circle cx="280" cy="140" r="38" class="nodeBg nodeBgFade pulse2" />
+        <circle cx="280" cy="140" r="38" class="pulseRing pulse2" />
+        <rect x="256" y="128" width="10" height="10" rx="2" class="squareOutline" />
+        <rect x="275" y="128" width="10" height="10" rx="2" class="squareOutline" />
+        <rect x="294" y="128" width="10" height="10" rx="2" fill="url(#cdGrad)" class="envActive" />
+        
+        <line x1="266" y1="133" x2="275" y2="133" class="envLine" />
+        <line x1="285" y1="133" x2="294" y2="133" class="envLine" />
+        <text x="280" y="204" text-anchor="middle" class="label">
+          Deploy across environments
+        </text>
+      </g>
+
+      
+      <g>
+        <circle cx="450" cy="140" r="38" class="nodeBg nodeBgFade pulse3" />
+        <circle cx="450" cy="140" r="38" class="pulseRing pulse3" />
+        <path
+          d="M450 118 L438 123 L438 138 C438 148 444 155 450 158 C456 155 462 148 462 138 L462 123 Z"
+          class="shieldOutline"
+        />
+        <path d="M442 138 L448 144 L460 128" class="checkMark" />
+        <text x="450" y="204" text-anchor="middle" class="label">
+          Verify deployment health
+        </text>
+      </g>
+
+      
+      <g>
+        <circle cx="610" cy="140" r="38" class="nodeBg nodeBgFade pulse4" />
+        <circle cx="610" cy="140" r="38" class="pulseRing pulse4" />
+        <line x1="610" y1="118" x2="610" y2="130" class="shaftLine" />
+        <path d="M610 130 L598 146 M610 130 L622 146" class="iconStroke" />
+        <circle cx="598" cy="149" r="3" class="forkDotMuted" />
+        <circle cx="622" cy="149" r="3" class="forkDotBright" />
+        <text x="610" y="204" text-anchor="middle" class="label">
+          Progressive delivery
+        </text>
+
+        
+        <path
+          d="M598 110 C 566 92, 546 82, 526 72"
+          class="forkPathMuted"
+          fill="none"
+        />
+        <path
+          d="M622 110 C 654 92, 674 82, 694 72"
+          class="forkPathBright"
+          fill="none"
+        />
+        <g class="canaryTag">
+          <rect x="466" y="46" width="120" height="26" rx="13" class="tagBgMuted" />
+          <text x="526" y="63" text-anchor="middle" class="tagLabelMuted">
+            Canary
+          </text>
+        </g>
+        <g class="rolloutTag">
+          <rect x="634" y="46" width="120" height="26" rx="13" fill="url(#cdGrad)" />
+          <text x="694" y="63" text-anchor="middle" class="tagLabelBright">
+            Full rollout
+          </text>
+        </g>
+      </g>
+
+      
+      <g>
+        <circle cx="770" cy="140" r="38" class="nodeBg nodeBgFade pulse5" />
+        <circle cx="770" cy="140" r="38" class="pulseRing pulse5" />
+        <g class="syncSpin">
+          <path d="M756 134 A16 16 0 1 1 772 124" class="iconStroke" fill="none" />
+          <path d="M768 118 L772 124 L778 119" class="iconStroke" fill="none" />
+          <path d="M784 146 A16 16 0 1 1 768 156" class="iconStroke" fill="none" />
+          <path d="M772 162 L768 156 L762 161" class="iconStroke" fill="none" />
+        </g>
+        <text x="770" y="204" text-anchor="middle" class="label">
+          GitOps continuous sync
+        </text>
+      </g>
+    </svg>
