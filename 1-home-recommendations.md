@@ -256,8 +256,6 @@ Nodepool recommendation costs use your account-level default cost settings.
 
 ### Workload recommendation costs
 
-1. 
-
 | Cost type | Description |
 |---|---|
 | List price | The published retail rate from GCP with no discounts or credits applied. This is what you would pay with no savings programs or commitments in place. No additional toggles available. |
