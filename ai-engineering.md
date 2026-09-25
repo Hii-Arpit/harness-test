@@ -36,6 +36,7 @@ The following video provides an overview of the AI Engineering Insights dashboar
 On first load, you see an organization-level view of all AI activity across all developers in your organization.
 
 ![AI Engineering Insights organization view](../../.gitbook/assets/ai-eng-5.png)
+
 _Organization-level view showing AI activity across all developers with the Harness AI DLC Agent installed._
 
 If your account has multiple Org Trees configured, they appear as tiles at the top of the dashboard. Select an Org Tree tile to filter all metrics to the teams and developers within that tree.
