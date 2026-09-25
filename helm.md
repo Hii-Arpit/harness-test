@@ -1,3 +1,0 @@
-# Helm
-
-{% @harness-feedback/feedback %}

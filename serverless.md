@@ -1,3 +1,0 @@
-# Serverless
-
-{% @harness-feedback/feedback %}
