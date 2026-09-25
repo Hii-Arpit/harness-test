@@ -279,7 +279,9 @@ When a feature shows ❌ (not supported), Harness can still compute costs for fi
 
 When you click on **Refresh** button on the screen, CACM refreshes or updates the cost of all resources in the evaluation. It is exposed to resolve cases where the cost for any resource is not yet part of CUR, Billing Report, or Billing Data (due to newly deployed resources, etc.). You can hit the refresh cost button only once every 30 minutes for any evaluation.
 
-{% hint style="info" %}
+{% hint style="success" %}
+### Cost settings
+
 * Cost co-relation for GCP requires detailed billing export to be set up.
 * Costs shown in evaluations use your account-level default cost settings. To change the cost type, navigate to **Account Settings** → **Cloud & AI Cost Management** → **Cost Settings**. Changes may take up to 30 minutes to be reflected.
 {% endhint %}
