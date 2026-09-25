@@ -247,6 +247,20 @@ Changes made in the AWS Console reflect in Harness CACM after the next scheduled
 | Amortized | Reserved Instance and Savings Plan upfront costs spread evenly over the reservation term. For example, a $1,200 annual RI upfront charge shows as $100/month instead of a lump sum in month one. |
 | Net-amortized | Same as Amortized, with any additional enterprise discounts and credits applied on top. Reflects your true effective monthly cost. Recommended for organizations with enterprise agreements. |
 
+{% hint style="info" %}
+### Feature flags
+
+The active cost type for AWS workload recommendations is controlled by account-level feature flags. The default cost type is **Amortized**.
+
+| Feature flag | Cost type applied |
+|---|---|
+| None (default) | Amortized |
+| `CCM_K8S_COST_TRUE_UP_WITH_CUR_PUBLIC_PRICING` | List price |
+| `CCM_K8S_COST_TRUE_UP_WITH_CUR_NET_AMORTIZED_PRICING` | Net-amortized (only when `CCM_K8S_COST_TRUE_UP_WITH_CUR_PUBLIC_PRICING` is off) |
+
+Contact your account administrator to enable or disable these flags.
+{% endhint %}
+
 {% endtab %}
 
 {% tab title="Google Cloud Provider" %}
@@ -286,6 +300,19 @@ When you select **Actual**, choose which credits and discounts to include in the
 | Spending-based discounts | Discounts earned by maintaining a minimum monthly spend commitment. |
 | Subscription credits | Credits from GCP subscription agreements. |
 | Negotiated savings | Custom pricing negotiated with Google Cloud. |
+
+{% hint style="info" %}
+### Feature flags
+
+The active cost type for GCP workload recommendations is controlled by account-level feature flags. The default cost type is **Actual**.
+
+| Feature flag | Cost type applied |
+|---|---|
+| None (default) | Actual |
+| `CCM_K8S_COST_TRUE_UP_WITH_CUR_PUBLIC_PRICING` | List price |
+
+Contact your account administrator to enable or disable these flags.
+{% endhint %}
 {% endtab %}
 
 {% tab title="Microsoft Azure" %}
@@ -299,6 +326,19 @@ Both **Passthrough (VM, VMSS)** and **Workload** share the same two cost type op
 |---|---|
 | Actual | The billed cost as it appears on your invoice. For reservations, the full charge appears in the billing period of purchase. |
 | Amortized | Reservation costs spread evenly across the reservation term. Use this for apples-to-apples comparisons between committed and on-demand spend. |
+
+{% hint style="info" %}
+### Feature flags
+
+The active cost type for Azure workload recommendations is controlled by account-level feature flags. The default cost type is **Actual**.
+
+| Feature flag | Cost type applied |
+|---|---|
+| None (default) | Actual |
+| `CCM_AZURE_K8S_TRUEUP_WITH_AMORTIZED_COST` | Amortized |
+
+Contact your account administrator to enable or disable these flags.
+{% endhint %}
 {% endtab %}
 {% endtabs %}
 
