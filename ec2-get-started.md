@@ -150,6 +150,8 @@ For example, if your eligible on-demand spend is $100/hr and you set this to $25
 This cap applies to net-new Savings Plan recommendations only. Renewals of existing Savings Plans are not governed by this limit in the same way.
 {% endhint %}
 
+<figure><img src="../../../.gitbook/assets/co-sp-max-commitment.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+
 ### Atomization 
 
 Atomization helps with restricting all RI based transactions to a specified date. To extend on this approach, Harness Commitment Orchestrator intends to buy a Atom RI on a monthly basis in each of the regions to create a situation where in the future there would be a Atom RI expiring on a monthly basis.
@@ -175,6 +177,8 @@ Each orchestrator run calculates how much of your on-demand spend remains uncove
 {% hint style="info" %}
 Harness SP Staggering applies to net-new Savings Plan purchases only. It does not affect Reserved Instance purchases or renewals of existing Savings Plans.
 {% endhint %}
+
+<figure><img src="../../../.gitbook/assets/co-sp-staggering.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 ### (Optional) Savings Plan Renewal Reduction % (Roll-Down Policy)
 

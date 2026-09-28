@@ -53,6 +53,22 @@ The dashboard will show:
 
     <figure><img src="../../../.gitbook/assets/action-state.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
+    **SP purchase approval workflow**
+
+    When the Commitment Orchestrator is configured in Manual orchestration mode, it generates Compute Savings Plan purchase recommendations automatically based on your on-demand spend analysis. Each recommendation appears under **Pending approvals** in the Actions tab.
+
+    * The orchestrator analyzes your EC2 on-demand spend at regular intervals. When your coverage is below the configured target, a Compute SP purchase recommendation is generated.
+    * If **Harness SP Staggering** is enabled, the orchestrator generates a series of smaller recommendations over time instead of one large commitment. Each recommendation covers a fraction of your remaining uncovered demand.
+    * If you configured **Pending Approval Notifications**, you receive an email alert when a new recommendation is ready for review.
+    * Each recommendation expires after 24 hours. If not approved within this window, the orchestrator automatically regenerates it on the next run.
+
+    To review a pending SP recommendation:
+
+    1. Go to **Cloud & AI Cost Management** > **Commitments** > **Commitment orchestration**.
+    2. Select **Go to EC2 orchestrator** on the AWS Elastic Compute Cloud card.
+    3. Select the **Actions** tab.
+    4. Under **Pending approvals**, locate the SP purchase recommendation. Each row displays the commitment type, AWS service, hourly spend, and estimated monthly savings.
+
     **Approving a Savings Plan purchase**
 
     When you approve a pending Compute Savings Plan recommendation, you can override the term and payment strategy before the purchase is submitted to AWS.
