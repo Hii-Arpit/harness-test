@@ -1,0 +1,14 @@
+ec2-get-started.md
+  h_59fd564719da3b 121-127,135-137,140-143,154-157,163-167
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "7befd198c033a70588e74d64386f840ded07fcbf",
+  "prompts": {},
+  "humans": {
+    "h_59fd564719da3b": {
+      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+    }
+  }
+}
