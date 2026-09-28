@@ -1,6 +1,6 @@
 ---
 description: "Get started with Commitment Orchestrator for EC2 to automate Reserved Instance and Savings Plan purchases and reduce AWS compute costs"
-hidden: false
+hidden: true
 ---
 
 
@@ -119,6 +119,12 @@ The purchases will happen only at master account level and thus will be in turn 
 
 {% tab title="Orchestration Preferences" %}
 * **Target Coverage:** The maximum percentage of your compute spend that you want covered by Savings Plans and/or Reserved Instances. Any remaining spend will continue to run on On-Demand. The Commitment Orchestrator automatically adjusts coverage levels based on evolving usage patterns.
+*   **Preferred commitment type**: Select whether the orchestrator prioritizes Reserved Instances or Savings Plans when both can cover the same EC2 usage.
+
+    * **Reserved Instances** (default): The orchestrator prioritizes reserved instances. Savings plans are used only when reserved instances aren't a good fit for the usage pattern.
+    * **Savings Plans**: The orchestrator prioritizes savings plans. Reserved instances are used only when savings plans aren't a good fit for the usage pattern.
+
+    This preference controls which commitment type spends the shared coverage budget first. Both types may still be purchased — selecting one does not disable the other.
 *   **Atomization:** Atomization helps with restricting all RI based transactions to a specified date. To extend on this approach, Harness Commitment Orchestrator intends to buy a Atom RI on a monthly basis in each of the regions to create a situation where in the future there would be a Atom RI expiring on a monthly basis.
 
     You can select the Atom purchase frequency and select the Atom purchase terms and you can also see the cost implications of Atomization. By default, CACM sets it for one year, but you can also set it for three years.
@@ -133,23 +139,6 @@ The purchases will happen only at master account level and thus will be in turn 
     * **Balanced flexibility**: Maintains cost savings while introducing more flexibility into your commitment portfolio through a mix of SPs and RIs
 
     <figure><img src="../../../.gitbook/assets/sp-rolldown.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
-*   **(Optional) SP Layering**: Enable SP Layering to spread Savings Plan purchases across multiple smaller steps rather than purchasing the full recommended amount at once. This reduces upfront commitment risk while still capturing savings early in the month.
-
-    **How it works**: When enabled, the orchestrator uses a decaying ladder algorithm. Each purchase step acquires approximately 8.3% of the remaining SP-addressable spend. Purchases are spaced every 4 days to allow billing data to settle, resulting in roughly 8 purchase steps per month. Across those steps, the orchestrator covers approximately 50% of SP-addressable spend in the first month, with each subsequent step purchasing a smaller amount as coverage grows.
-
-    **Benefits**:
-
-    * **Avoids over-commitment**: Builds coverage incrementally so you never lock in more than current usage supports.
-    * **Early savings capture**: Targets faster coverage early in the month rather than back-loading purchases.
-    * **Billing data alignment**: The 4-day cadence ensures each recommendation is based on settled billing data.
-
-*   **(Optional) Preferred Commitment Type**: Choose whether the orchestrator should prefer **Savings Plans (SP)** or **Reserved Instances (RI)** when both commitment types could cover a given usage. This preference applies when Harness calculates new purchases and the workload is eligible for either type.
-
-    * **SP (default)**: Favors Compute Savings Plans for their flexibility across instance families and regions.
-    * **RI**: Favors Convertible Reserved Instances, which may offer higher discounts for stable, predictable workloads tied to a specific instance family.
-
-*   **(Optional) Max SP Commitment per Recommendation**: Set a maximum hourly dollar value that a single Savings Plan recommendation can reach. This caps the size of any individual SP purchase recommendation, preventing large one-time commitments. Recommendations that exceed the cap are split into smaller increments.
-
 *   **Orchestration Mode:** Select how the orchestrator executes recommended commitment purchases:
 
     * **Fully Automated**: Commitment purchases are executed automatically without requiring manual approval.
