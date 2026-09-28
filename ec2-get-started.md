@@ -133,6 +133,8 @@ Select whether the orchestrator prioritizes Reserved Instances or Savings Plans 
 This preference controls which commitment type spends the shared coverage budget first. Both types may still be purchased; selecting one does not disable the other.
 {% endhint %}
 
+<figure><img src="../../../.gitbook/assets/co-sp-preferences.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+
 ### Maximum commitment per savings plan
 
 Set an upper limit (in USD per hour) on the size of any single Savings Plan recommendation. The orchestrator will not recommend or purchase a Savings Plan with an hourly commitment above this amount.

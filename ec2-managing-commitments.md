@@ -55,12 +55,24 @@ The dashboard will show:
 
     **Approving a Savings Plan purchase**
 
-    When you approve a pending Compute Savings Plan recommendation, you can override the term and payment strategy before the purchase is submitted to AWS. Select the approve icon on an SP purchase action to open the confirmation dialog.
+    When you approve a pending Compute Savings Plan recommendation, you can override the term and payment strategy before the purchase is submitted to AWS.
+
+    To approve a Savings Plan purchase:
+
+    1. Go to **Cloud & AI Cost Management** > **Commitments** > **Commitment orchestration**.
+    2. Select **Go to EC2 orchestrator** on the AWS Elastic Compute Cloud card.
+    3. Select the **Actions** tab.
+    4. Under **Pending approvals**, locate the SP purchase recommendation.
+    5. Select the approve icon on the SP purchase row. The **Approve SP purchase?** dialog opens.
+    6. Optionally update the **Purchase term** and **Payment strategy**.
+    7. Select **Approve**.
 
     * **Purchase term**: Select **1-year** (default) or **3-year**.
     * **Payment strategy**: Select **No Upfront** (default), **Partial Upfront**, or **All Upfront**.
 
     The dialog also shows a read-only summary of the recommendation: Savings plan type, AWS service, hourly spend, and estimated monthly savings.
+
+    <figure><img src="../../../.gitbook/assets/co-sp-approve-dialog.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
     {% hint style="warning" %}
     The purchase is submitted to AWS immediately on approval. The commitment is binding for the full term selected.
