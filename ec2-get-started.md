@@ -154,6 +154,26 @@ Atomization helps with restricting all RI based transactions to a specified date
 
 You can select the Atom purchase frequency and select the Atom purchase terms and you can also see the cost implications of Atomization. By default, CACM sets it for one year, but you can also set it for three years.
 
+### Harness SP Staggering
+
+When enabled, the Commitment Orchestrator builds your Savings Plan coverage gradually through a series of smaller purchases instead of one large commitment.
+
+**Why this reduces risk**
+
+A single large Savings Plan locks you into a fixed hourly commitment for 1 or 3 years. If your usage drops after purchase, the unused portion is wasted spend. Harness SP Staggering reduces this risk by:
+
+* Buying only a fraction of your remaining uncovered demand at each step, so early purchases are modest and later ones shrink naturally as coverage grows
+* Spreading purchases over time, creating decision points where the orchestrator can adjust if usage changes
+* Ensuring no single purchase can be oversized when combined with the maximum commitment per savings plan setting
+
+**How it works**
+
+Each orchestrator run calculates how much of your on-demand spend remains uncovered by active and pending Savings Plans. It then purchases a fraction of that remaining amount rather than the full total. By default, Harness SP Staggering uses a balanced pace that covers approximately 50% of your coverable usage within the first month, with several purchases spaced throughout. Steps below a minimum threshold are skipped automatically.
+
+{% hint style="info" %}
+Harness SP Staggering applies to net-new Savings Plan purchases only. It does not affect Reserved Instance purchases or renewals of existing Savings Plans.
+{% endhint %}
+
 ### (Optional) Savings Plan Renewal Reduction % (Roll-Down Policy)
 
 Set a percentage to decide how much of an expiring commitment will be renewed. This feature gives you strategic control over how your expiring AWS Savings Plans are renewed and optimizes your commitment mix over time.
