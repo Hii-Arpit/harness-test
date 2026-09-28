@@ -124,7 +124,9 @@ The purchases will happen only at master account level and thus will be in turn 
     * **Reserved Instances** (default): The orchestrator prioritizes reserved instances. Savings plans are used only when reserved instances aren't a good fit for the usage pattern.
     * **Savings Plans**: The orchestrator prioritizes savings plans. Reserved instances are used only when savings plans aren't a good fit for the usage pattern.
 
-    This preference controls which commitment type spends the shared coverage budget first. Both types may still be purchased — selecting one does not disable the other.
+    {% hint style="success" %}
+    This preference controls which commitment type spends the shared coverage budget first. Both types may still be purchased; selecting one does not disable the other.
+    {% endhint %}
 *   **Atomization:** Atomization helps with restricting all RI based transactions to a specified date. To extend on this approach, Harness Commitment Orchestrator intends to buy a Atom RI on a monthly basis in each of the regions to create a situation where in the future there would be a Atom RI expiring on a monthly basis.
 
     You can select the Atom purchase frequency and select the Atom purchase terms and you can also see the cost implications of Atomization. By default, CACM sets it for one year, but you can also set it for three years.
