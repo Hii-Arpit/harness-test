@@ -118,20 +118,20 @@ The purchases will happen only at master account level and thus will be in turn 
 {% endtab %}
 
 {% tab title="Orchestration Preferences" %}
-### Target 
+### Target Coverage 
 
-Coverage The maximum percentage of your compute spend that you want covered by Savings Plans and/or Reserved Instances. Any remaining spend will continue to run on On-Demand. The Commitment Orchestrator automatically adjusts coverage levels based on evolving usage patterns.
+The maximum percentage of your compute spend that you want covered by Savings Plans and/or Reserved Instances. Any remaining spend will continue to run on On-Demand. The Commitment Orchestrator automatically adjusts coverage levels based on evolving usage patterns.
 
 ### Preferred commitment type 
 
 Select whether the orchestrator prioritizes Reserved Instances or Savings Plans when both can cover the same EC2 usage.
 
-    * **Reserved Instances** (default): The orchestrator prioritizes reserved instances. Savings plans are used only when reserved instances aren't a good fit for the usage pattern.
-    * **Savings Plans**: The orchestrator prioritizes savings plans. Reserved instances are used only when savings plans aren't a good fit for the usage pattern.
+* **Reserved Instances** (default): The orchestrator prioritizes reserved instances. Savings plans are used only when reserved instances aren't a good fit for the usage pattern.
+* **Savings Plans**: The orchestrator prioritizes savings plans. Reserved instances are used only when savings plans aren't a good fit for the usage pattern.
 
-    {% hint style="success" %}
-    This preference controls which commitment type spends the shared coverage budget first. Both types may still be purchased; selecting one does not disable the other.
-    {% endhint %}
+{% hint style="success" %}
+This preference controls which commitment type spends the shared coverage budget first. Both types may still be purchased; selecting one does not disable the other.
+{% endhint %}
 ### Atomization 
 
 Atomization helps with restricting all RI based transactions to a specified date. To extend on this approach, Harness Commitment Orchestrator intends to buy a Atom RI on a monthly basis in each of the regions to create a situation where in the future there would be a Atom RI expiring on a monthly basis.
