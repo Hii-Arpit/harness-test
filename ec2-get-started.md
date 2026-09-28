@@ -132,6 +132,22 @@ Select whether the orchestrator prioritizes Reserved Instances or Savings Plans 
 {% hint style="success" %}
 This preference controls which commitment type spends the shared coverage budget first. Both types may still be purchased; selecting one does not disable the other.
 {% endhint %}
+
+### Maximum commitment per savings plan
+
+Set an upper limit (in USD per hour) on the size of any single Savings Plan recommendation. The orchestrator will not recommend or purchase a Savings Plan with an hourly commitment above this amount.
+
+| Setting | Behavior |
+|---|---|
+| Unset or 0 | No limit applied; the orchestrator sizes recommendations based on your eligible spend. |
+| Greater than 0 | Each net-new SP recommendation is capped at this hourly value. |
+
+For example, if your eligible on-demand spend is $100/hr and you set this to $25/hr, the orchestrator recommends a $25/hr Savings Plan in the first run. After that purchase is approved, the next run recommends another $25/hr, and so on until coverage is built up.
+
+{% hint style="info" %}
+This cap applies to net-new Savings Plan recommendations only. Renewals of existing Savings Plans are not governed by this limit in the same way.
+{% endhint %}
+
 ### Atomization 
 
 Atomization helps with restricting all RI based transactions to a specified date. To extend on this approach, Harness Commitment Orchestrator intends to buy a Atom RI on a monthly basis in each of the regions to create a situation where in the future there would be a Atom RI expiring on a monthly basis.
