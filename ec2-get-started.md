@@ -136,42 +136,41 @@ This preference controls which commitment type spends the shared coverage budget
 
 Atomization helps with restricting all RI based transactions to a specified date. To extend on this approach, Harness Commitment Orchestrator intends to buy a Atom RI on a monthly basis in each of the regions to create a situation where in the future there would be a Atom RI expiring on a monthly basis.
 
-    You can select the Atom purchase frequency and select the Atom purchase terms and you can also see the cost implications of Atomization. By default, CACM sets it for one year, but you can also set it for three years.
+You can select the Atom purchase frequency and select the Atom purchase terms and you can also see the cost implications of Atomization. By default, CACM sets it for one year, but you can also set it for three years.
 
-### (Optional) Savings Plan Renewal Reduction % (Roll-Down Policy) 
+### (Optional) Savings Plan Renewal Reduction % (Roll-Down Policy)
 
 Set a percentage to decide how much of an expiring commitment will be renewed. This feature gives you strategic control over how your expiring AWS Savings Plans are renewed and optimizes your commitment mix over time.
 
-    **How it works**: When a Savings Plan expires, the Roll-Down Policy automatically renews a specified percentage as another Savings Plan, while converting the remaining portion to Reserved Instances. For example, if set to 80% and you have a $10/hr SP expiring, we'll renew $8/hr as SP and shift the remaining $2/hr to RIs.
+**How it works**: When a Savings Plan expires, the Roll-Down Policy automatically renews a specified percentage as another Savings Plan, while converting the remaining portion to Reserved Instances. For example, if set to 80% and you have a $10/hr SP expiring, we'll renew $8/hr as SP and shift the remaining $2/hr to RIs.
 
-    **Benefits**:
+**Benefits**:
 
-    * **Gradual portfolio adjustment**: Allows you to shift your commitment strategy as your workload patterns evolve
-    * **Risk management**: Minimizes commitment risk through monthly expiring Atom RIs, allowing for better adaptation to changing usage patterns.
-    * **Balanced flexibility**: Maintains cost savings while introducing more flexibility into your commitment portfolio through a mix of SPs and RIs
+* **Gradual portfolio adjustment**: Allows you to shift your commitment strategy as your workload patterns evolve
+* **Risk management**: Minimizes commitment risk through monthly expiring Atom RIs, allowing for better adaptation to changing usage patterns.
+* **Balanced flexibility**: Maintains cost savings while introducing more flexibility into your commitment portfolio through a mix of SPs and RIs
 
-    <figure><img src="../../../.gitbook/assets/sp-rolldown.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/sp-rolldown.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 ### Orchestration Mode
 
 Select how the orchestrator executes recommended commitment purchases:
 
-    * **Fully Automated**: Commitment purchases are executed automatically without requiring manual approval.
-    * **Manual**: All commitment purchases require explicit manual approval before execution, giving you complete control over the process. All the recommendations are visible in the **Actions** tab on the dashboard.
+* **Fully Automated**: Commitment purchases are executed automatically without requiring manual approval.
+* **Manual**: All commitment purchases require explicit manual approval before execution, giving you complete control over the process. All the recommendations are visible in the **Actions** tab on the dashboard.
 
-    <figure><img src="../../../.gitbook/assets/stepsix.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
-
+<figure><img src="../../../.gitbook/assets/stepsix.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 ### (Optional) Notifications
 
 Configure alerts to stay informed about commitment-related activities. You can set up the following notification types:
 
-    * **Purchase Notifications:** Receive alerts when Harness successfully executes RI/SP purchases on your behalf. These notifications include details such as commitment type, term length, upfront cost, and estimated savings.
-    * **Pending Approval Notifications:** Get alerted when manual approval is required for RI/SP recommendations. This is particularly useful when using the Manual orchestration mode, ensuring you never miss an opportunity to approve cost-saving commitments.
-    * **Savings Plans Expiry Notifications:** Set a timeframe (up to 7 days before expiry) to receive alerts about your existing Savings Plans that will soon expire. This gives you adequate time to plan for renewals or replacement commitments.
-    * **Email Recipients:** Specify the email addresses that should receive these notifications. You can add multiple recipients by separating email addresses with commas. Notifications can also be configured to be sent to specific teams or distribution lists.
+* **Purchase Notifications:** Receive alerts when Harness successfully executes RI/SP purchases on your behalf. These notifications include details such as commitment type, term length, upfront cost, and estimated savings.
+* **Pending Approval Notifications:** Get alerted when manual approval is required for RI/SP recommendations. This is particularly useful when using the Manual orchestration mode, ensuring you never miss an opportunity to approve cost-saving commitments.
+* **Savings Plans Expiry Notifications:** Set a timeframe (up to 7 days before expiry) to receive alerts about your existing Savings Plans that will soon expire. This gives you adequate time to plan for renewals or replacement commitments.
+* **Email Recipients:** Specify the email addresses that should receive these notifications. You can add multiple recipients by separating email addresses with commas. Notifications can also be configured to be sent to specific teams or distribution lists.
 
-    <figure><img src="../../../.gitbook/assets/notifications.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/notifications.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Review & Complete" %}
