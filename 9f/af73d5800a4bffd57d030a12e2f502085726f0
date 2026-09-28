@@ -1,0 +1,14 @@
+ec2-managing-commitments.md
+  h_59fd564719da3b 56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "9faf73d5800a4bffd57d030a12e2f502085726f0",
+  "prompts": {},
+  "humans": {
+    "h_59fd564719da3b": {
+      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+    }
+  }
+}
