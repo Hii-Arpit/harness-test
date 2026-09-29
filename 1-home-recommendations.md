@@ -120,7 +120,7 @@ Marking a recommendation as "Applied" assumes all resources are actioned and ful
   4. Click **Apply** to add the override
   5. Click **Save Changes** to persist your changes
 
-<figure><img src="../../../.gitbook/assets/set-preset.png" alt=""><figcaption>Click to view full size image</figcaption></figure>
+<figure><img src="../../../.gitbook/assets/set-preset.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 {% hint style="info" %}
 New Recommendation Preferences may take up to 24 hours to fully update across the platform because preferences are applied during the next scheduled batch processing job. However, changes will be reflected immediately on the drill-down page, while the Overview page may take additional time to reflect updates.
@@ -136,7 +136,7 @@ Users can fine-tune recommendations for different resource types by configuring 
 
 {% tabs %}
 {% tab title="Workload" %}
-<figure><img src="../../../.gitbook/assets/workload-preset.png" alt=""><figcaption>Click to view full size image</figcaption></figure>
+<figure><img src="../../../.gitbook/assets/workload-preset.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 | Parameter | Description |
 | --- | --- |
@@ -144,7 +144,7 @@ Users can fine-tune recommendations for different resource types by configuring 
 | **Percentage Buffer for CPU/Memory** | Additional resource margin to handle unexpected spikes in usage. Higher buffer values provide more headroom for workload fluctuations but increase resource allocation. |
 {% endtab %}
 {% tab title="Nodepool" %}
-<figure><img src="../../../.gitbook/assets/nodepool-preset.png" alt=""><figcaption>Click to view full size image</figcaption></figure>
+<figure><img src="../../../.gitbook/assets/nodepool-preset.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 | Parameter | Description |
 | --- | --- |
@@ -152,14 +152,14 @@ Users can fine-tune recommendations for different resource types by configuring 
 | **Percentage Buffer for CPU/Memory** | Additional resource margin to handle unexpected spikes in usage. Helps prevent resource contention during peak loads while maintaining efficient resource utilization. |
 {% endtab %}
 {% tab title="AWS EC2" %}
-<figure><img src="../../../.gitbook/assets/ec-preset.png" alt=""><figcaption>Click to view full size image</figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ec-preset.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 | Parameter | Description |
 | --- | --- |
 | **Instance Family Selection** | <ul><li><strong>Within the Same Instance Family:</strong> Recommendations will suggest optimized instance types within the same instance family, ensuring workload compatibility and minimizing migration complexity.</li><li><strong>Across Instance Families:</strong> Recommendations can suggest optimized instance types across different instance families, potentially unlocking greater cost savings and efficiency improvements.</li></ul> |
 {% endtab %}
 {% tab title="AWS ECS" %}
-<figure><img src="../../../.gitbook/assets/ecs-preset.png" alt=""><figcaption>Click to view full size image</figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ecs-preset.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 | Parameter | Description |
 | --- | --- |
@@ -169,7 +169,7 @@ Users can fine-tune recommendations for different resource types by configuring 
 {% endtab %}
 
 {% tab title="Jira Settings" %}
-<figure><img src="../../../.gitbook/assets/ticketing-tool-mapping.png" alt=""><figcaption>Click to view full size image</figcaption></figure>
+<figure><img src="../../../.gitbook/assets/ticketing-tool-mapping.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 **1. Applied/Ignored Status Mapping**
 
@@ -206,7 +206,7 @@ By mapping cost categories to specific Jira projects, you ensure that recommenda
 
 To configure this feature, click on **+Add mapping** to add a new mapping, then select the cost category, cost bucket, and Jira project.
 
- <figure><img src="../../../.gitbook/assets/cc.png" alt=""><figcaption>Click to view full size image</figcaption></figure>
+<figure><img src="../../../.gitbook/assets/cc.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Cost Settings" %}
