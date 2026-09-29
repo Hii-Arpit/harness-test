@@ -1,137 +1,18 @@
-azure-connectors-and-roles.md
-  human 1-136
-azure.md
-  human 1-352
 SUMMARY.md
-  human 3-6
-1-home-recommendations.md
-  human 1-654
-  human 1-654
-overview.md
-  human 1-110
-ccm-36674-sp-layering-context.md
-  human 1-198
-1-asset-governance.md
-  human 1-401
+  h_59fd564719da3b 3-6
+azure-connectors-and-roles.md
+  h_59fd564719da3b 1-136
+azure.md
+  h_59fd564719da3b 2-3,7,9,11,13,15,17,19,21-24,27,30-350
 ---
 {
-  "attestations": [
-    {
-      "entries": [
-        {
-          "accepted_lines": 136,
-          "added_lines": 136,
-          "deleted_lines": 0,
-          "hash": "human",
-          "lines": "1-136",
-          "overridden_lines": 0
-        }
-      ],
-      "file": "azure-connectors-and-roles.md"
-    },
-    {
-      "entries": [
-        {
-          "accepted_lines": 352,
-          "added_lines": 352,
-          "deleted_lines": 0,
-          "hash": "human",
-          "lines": "1-352",
-          "overridden_lines": 0
-        }
-      ],
-      "file": "azure.md"
-    },
-    {
-      "entries": [
-        {
-          "accepted_lines": 4,
-          "added_lines": 4,
-          "deleted_lines": 4,
-          "hash": "human",
-          "lines": "3-6",
-          "overridden_lines": 0
-        }
-      ],
-      "file": "SUMMARY.md"
-    },
-    {
-      "entries": [
-        {
-          "accepted_lines": 0,
-          "added_lines": 0,
-          "deleted_lines": 654,
-          "hash": "human",
-          "lines": "1-654",
-          "overridden_lines": 0
-        },
-        {
-          "accepted_lines": 0,
-          "added_lines": 0,
-          "deleted_lines": 654,
-          "hash": "human",
-          "lines": "1-654",
-          "overridden_lines": 0
-        }
-      ],
-      "file": "1-home-recommendations.md"
-    },
-    {
-      "entries": [
-        {
-          "accepted_lines": 0,
-          "added_lines": 0,
-          "deleted_lines": 110,
-          "hash": "human",
-          "lines": "1-110",
-          "overridden_lines": 0
-        }
-      ],
-      "file": "overview.md"
-    },
-    {
-      "entries": [
-        {
-          "accepted_lines": 0,
-          "added_lines": 0,
-          "deleted_lines": 198,
-          "hash": "human",
-          "lines": "1-198",
-          "overridden_lines": 0
-        }
-      ],
-      "file": "ccm-36674-sp-layering-context.md"
-    },
-    {
-      "entries": [
-        {
-          "accepted_lines": 0,
-          "added_lines": 0,
-          "deleted_lines": 401,
-          "hash": "human",
-          "lines": "1-401",
-          "overridden_lines": 0
-        }
-      ],
-      "file": "1-asset-governance.md"
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "dcbcbfb9f3d4efa4c0b075f07ec3cadde730f19c",
+  "prompts": {},
+  "humans": {
+    "h_59fd564719da3b": {
+      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
     }
-  ],
-  "base_commit_sha": "0e686bcb4c187f987f0977f90c592c6a9491c0c4",
-  "branch": "azure-connector-fix",
-  "commit_sha": "dcbcbfb9f3d4efa4c0b075f07ec3cadde730f19c",
-  "commit_time": "2026-09-29T22:27:12+05:30",
-  "commit_type": "direct_commit",
-  "harness_aidlc_version": "1.4.34",
-  "prompts": {
-    "human": {
-      "accepted_lines": 492,
-      "agent_id": null,
-      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
-      "overriden_lines": 0,
-      "total_additions": 492,
-      "total_deletions": 1367
-    }
-  },
-  "repo": "https://github.com/Hii-Arpit/harness-test",
-  "schema_version": "authorship/3.0.0"
+  }
 }
