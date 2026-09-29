@@ -1,6 +1,5 @@
 ---
 description: "Get started with Commitment Orchestrator for EC2 to automate Reserved Instance and Savings Plan purchases and reduce AWS compute costs"
-hidden: true
 ---
 
 
@@ -172,7 +171,7 @@ A single large Savings Plan locks you into a fixed hourly commitment for 1 or 3 
 
 **How it works**
 
-Each orchestrator run calculates how much of your on-demand spend remains uncovered by active and pending Savings Plans. It then purchases a fraction of that remaining amount rather than the full total. By default, Harness SP Staggering uses a balanced pace that covers approximately 50% of your coverable usage within the first month, with several purchases spaced throughout. Steps below a minimum threshold are skipped automatically.
+Each orchestrator run calculates how much of your on-demand spend remains uncovered by active and pending Savings Plans. It then purchases a fraction of that remaining amount rather than the full total. By default, Harness SP Staggering uses a balanced pace that covers approximately 50% of your coverable usage within the first month, with several purchases spaced throughout.
 
 {% hint style="info" %}
 Harness SP Staggering applies to net-new Savings Plan purchases only. It does not affect Reserved Instance purchases or renewals of existing Savings Plans.
