@@ -1,20 +1,122 @@
-1-asset-governance.md
-  h_59fd564719da3b 2-3,7,9-11,13,15-23,25,27,29,31,33-37,39-41,43,45-46,48,50,52-55,57-59,61-63,66-67,69,71,73-77,79,81,83-84,86,88,90,92,94,96,98,100-102,104,106,108,110,112-116,119,121-123,125-128,130-134,136,138-141,143,145,147-148,150,152-153,155,157-162,164-166,168-169,172,174,176,178,180,182,184,186,188-189,191-192,194,196-198,200-201,203-211,213,215-219,221,223,225-228,231,233-242,244,246-250,252-256,260-381,383,385,387-393,395,397
-1-home-recommendations.md
-  h_59fd564719da3b 1-654
 SUMMARY.md
-  h_59fd564719da3b 4-6
+  human 4-6
+1-asset-governance.md
+  human 1-401
+1-home-recommendations.md
+  human 1-654
 overview.md
-  h_59fd564719da3b 2,6,8,10,12-14,16-17,19,21-23,25-26,28,30,32,34-36,38-47,49,51-58,60-61,63,65-68,70,72,74-77,79,81,83-84,86-87,89-90,92,94-98,100,102,104,106-108
+  human 1-110
+ec2-get-started.md
+  human 1-251
+  h_59fd564719da3b 174
+ec2-managing-commitments.md
+  human 1-121
 ---
 {
-  "schema_version": "authorship/3.0.0",
-  "git_ai_version": "1.7.4",
-  "base_commit_sha": "6d21c1e9817a2803624afc3688710d4a780b4331",
-  "prompts": {},
-  "humans": {
-    "h_59fd564719da3b": {
-      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+  "attestations": [
+    {
+      "entries": [
+        {
+          "accepted_lines": 3,
+          "added_lines": 3,
+          "deleted_lines": 2,
+          "hash": "human",
+          "lines": "4-6",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "SUMMARY.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 401,
+          "added_lines": 401,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-401",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "1-asset-governance.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 654,
+          "added_lines": 654,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-654",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "1-home-recommendations.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 110,
+          "added_lines": 110,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-110",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "overview.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 251,
+          "hash": "human",
+          "lines": "1-251",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 1,
+          "hash": "h_59fd564719da3b",
+          "lines": "174",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ec2-get-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 121,
+          "hash": "human",
+          "lines": "1-121",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ec2-managing-commitments.md"
     }
-  }
+  ],
+  "base_commit_sha": "e234a22be1259cfa3797f47284343c9f9fa1a8c6",
+  "branch": "global-cost",
+  "commit_sha": "6d21c1e9817a2803624afc3688710d4a780b4331",
+  "commit_time": "2026-09-29T16:27:38+05:30",
+  "commit_type": "direct_commit",
+  "harness_aidlc_version": "1.4.34",
+  "prompts": {
+    "human": {
+      "accepted_lines": 1168,
+      "agent_id": null,
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 1168,
+      "total_deletions": 374
+    }
+  },
+  "repo": "https://github.com/Hii-Arpit/harness-test",
+  "schema_version": "authorship/3.0.0"
 }
