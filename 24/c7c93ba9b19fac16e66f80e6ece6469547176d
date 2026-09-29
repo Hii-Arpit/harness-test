@@ -1,64 +1,455 @@
-5-currency-preferences.md
-  h_59fd564719da3b 1-83
-SUMMARY.md
-  h_59fd564719da3b 3-18,20-27
-ai-cost-management.md
-  h_59fd564719da3b 3-8,12,14-15,17-18,20,22,24,26,28,30-31,33,35-40,42,44,46,48-49,51-52,54,56,58,60-62,64,66,68,70,72,74,76,78,80-81
-aws.md
-  h_59fd564719da3b 1-247
-azure.md
-  h_59fd564719da3b 2-4,11,13,15-20,22,24-35,37-82,84-113,116,119-121,123,125-128,130,132,134,136,138,140-141,143-144,146,148-150,152,154,156-160,163,165-166,168,170-175,177,179,181-183,185-190,193-202,204,206,208-214,216
-ccm-auditing.md
-  h_59fd564719da3b 1-34
-ccm-supported-platforms.md
-  h_59fd564719da3b 1-79
-co-for-rds.md
-  h_59fd564719da3b 1-65
-cost-explorer.md
-  h_59fd564719da3b 1-408
-create-budget-group.md
-  h_59fd564719da3b 1-185
-creating-a-perspective.md
-  h_59fd564719da3b 1-227
-custom-cost-provider.md
-  h_59fd564719da3b 1-139
-data-job-status.md
-  h_59fd564719da3b 1-205
-elasticache-get-started.md
-  h_59fd564719da3b 1-132
-gcp.md
-  h_59fd564719da3b 1-147
-getting-started-with-ccm-anomaly-detection.md
-  h_59fd564719da3b 1-568
-getting-started.md
-  h_59fd564719da3b 1-80
-key-concepts.md
-  h_59fd564719da3b 1-566
-msp.md
-  h_59fd564719da3b 1-82
-oidc-auth.md
-  h_59fd564719da3b 1-77
-overview.md
-  h_59fd564719da3b 1-54
-rds-get-started.md
-  h_59fd564719da3b 1-187
 release-notes.md
-  h_59fd564719da3b 1-70
-unit-costs.md
-  h_59fd564719da3b 1-297
+  human 1-70
+aws.md
+  human 1-247
+ccm-auditing.md
+  human 1-34
+co-for-rds.md
+  human 1-65
 whats-supported.md
-  h_59fd564719da3b 1-127
+  human 1-127
+creating-a-perspective.md
+  human 1-227
+key-concepts.md
+  human 1-566
+msp.md
+  human 1-82
+ai-cost-management.md
+  human 1-83
+gcp.md
+  human 1-147
+ccm-supported-platforms.md
+  human 1-79
+getting-started-with-ccm-anomaly-detection.md
+  human 1-568
 working.md
-  h_59fd564719da3b 1-111
+  human 1-111
+azure.md
+  human 2-4,11,13,15-20,22,24-35,37-82,84-113,116,119-121,123,125-128,130,132,134,136,138,140-141,143-144,146,148-150,152,154,156-160,163,165-166,168,170-175,177,179,181-183,185-190,193-202,204,206,208-214,216
+  h_59fd564719da3b 2-3,7,9,11,13,15,17,19,21-24,27,30-350
+overview.md
+  human 1-54
+create-budget-group.md
+  human 1-185
+getting-started.md
+  human 1-80
+elasticache-get-started.md
+  human 1-132
+data-job-status.md
+  human 1-205
+cost-explorer.md
+  human 1-408
+oidc-auth.md
+  human 1-77
+unit-costs.md
+  human 1-297
+SUMMARY.md
+  human 3-18,20-27
+  h_59fd564719da3b 3-6
+rds-get-started.md
+  human 1-187
+custom-cost-provider.md
+  human 1-139
+5-currency-preferences.md
+  human 1-83
+azure-connectors-and-roles.md
+  human 1-136
+  h_59fd564719da3b 1-136
 ---
 {
-  "schema_version": "authorship/3.0.0",
-  "git_ai_version": "1.7.4",
-  "base_commit_sha": "24c7c93ba9b19fac16e66f80e6ece6469547176d",
-  "prompts": {},
-  "humans": {
-    "h_59fd564719da3b": {
-      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+  "attestations": [
+    {
+      "entries": [
+        {
+          "accepted_lines": 70,
+          "added_lines": 70,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-70",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "release-notes.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 247,
+          "added_lines": 247,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-247",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "aws.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 34,
+          "added_lines": 34,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-34",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ccm-auditing.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 65,
+          "added_lines": 65,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-65",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "co-for-rds.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 127,
+          "added_lines": 127,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-127",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "whats-supported.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 227,
+          "added_lines": 227,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-227",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "creating-a-perspective.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 566,
+          "added_lines": 566,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-566",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "key-concepts.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 82,
+          "added_lines": 82,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-82",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "msp.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 83,
+          "added_lines": 83,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-83",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ai-cost-management.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 147,
+          "added_lines": 147,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-147",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "gcp.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 79,
+          "added_lines": 79,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-79",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ccm-supported-platforms.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 568,
+          "added_lines": 568,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-568",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "getting-started-with-ccm-anomaly-detection.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 111,
+          "added_lines": 111,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-111",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "working.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 170,
+          "added_lines": 170,
+          "deleted_lines": 304,
+          "hash": "human",
+          "lines": "2-4,11,13,15-20,22,24-35,37-82,84-113,116,119-121,123,125-128,130,132,134,136,138,140-141,143-144,146,148-150,152,154,156-160,163,165-166,168,170-175,177,179,181-183,185-190,193-202,204,206,208-214,216",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 20,
+          "added_lines": 0,
+          "deleted_lines": 315,
+          "hash": "h_59fd564719da3b",
+          "lines": "2-3,7,9,11,13,15,17,19,21-24,27,30-350",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "azure.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 54,
+          "added_lines": 54,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-54",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "overview.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 185,
+          "added_lines": 185,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-185",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "create-budget-group.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 80,
+          "added_lines": 80,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-80",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "getting-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 132,
+          "added_lines": 132,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-132",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "elasticache-get-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 205,
+          "added_lines": 205,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-205",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "data-job-status.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 408,
+          "added_lines": 408,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-408",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "cost-explorer.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 77,
+          "added_lines": 77,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-77",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "oidc-auth.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 297,
+          "added_lines": 297,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-297",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "unit-costs.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 24,
+          "added_lines": 24,
+          "deleted_lines": 3,
+          "hash": "human",
+          "lines": "3-18,20-27",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 1,
+          "added_lines": 0,
+          "deleted_lines": 3,
+          "hash": "h_59fd564719da3b",
+          "lines": "3-6",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "SUMMARY.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 187,
+          "added_lines": 187,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-187",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "rds-get-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 139,
+          "added_lines": 139,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-139",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "custom-cost-provider.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 83,
+          "added_lines": 83,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-83",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "5-currency-preferences.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 136,
+          "hash": "human",
+          "lines": "1-136",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 136,
+          "hash": "h_59fd564719da3b",
+          "lines": "1-136",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "azure-connectors-and-roles.md"
     }
-  }
+  ],
+  "base_commit_sha": "dcbcbfb9f3d4efa4c0b075f07ec3cadde730f19c",
+  "branch": "add-ff",
+  "commit_sha": "24c7c93ba9b19fac16e66f80e6ece6469547176d",
+  "commit_time": "2026-09-30T02:22:31+05:30",
+  "commit_type": "direct_commit",
+  "harness_aidlc_version": "1.4.34",
+  "prompts": {
+    "human": {
+      "accepted_lines": 4447,
+      "agent_id": null,
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 4447,
+      "total_deletions": 443
+    }
+  },
+  "repo": "https://github.com/Hii-Arpit/harness-test",
+  "schema_version": "authorship/3.0.0"
 }
