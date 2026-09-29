@@ -25,3 +25,5 @@
 * [What's supported in Harness CACM](whats-supported.md)
 * [Data Job Status](data-job-status.md)
 * [Unit Cost Metrics](unit-costs.md)
+* [New Feature Availability (Internal)](features-internal.md)
+* [New Feature Availability](features.md)
