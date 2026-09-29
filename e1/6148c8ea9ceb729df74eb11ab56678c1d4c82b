@@ -1,0 +1,86 @@
+features.md
+  human 1-337
+features-internal.md
+  human 1-332
+SUMMARY.md
+  human 28-29
+  human 7-18,20-27
+  h_59fd564719da3b 3-6
+---
+{
+  "attestations": [
+    {
+      "entries": [
+        {
+          "accepted_lines": 337,
+          "added_lines": 337,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-337",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "features.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 332,
+          "added_lines": 332,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-332",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "features-internal.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 2,
+          "added_lines": 2,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "28-29",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 20,
+          "added_lines": 0,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "7-18,20-27",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 4,
+          "added_lines": 0,
+          "deleted_lines": 0,
+          "hash": "h_59fd564719da3b",
+          "lines": "3-6",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "SUMMARY.md"
+    }
+  ],
+  "base_commit_sha": "24c7c93ba9b19fac16e66f80e6ece6469547176d",
+  "branch": "add-ff",
+  "commit_sha": "e16148c8ea9ceb729df74eb11ab56678c1d4c82b",
+  "commit_time": "2026-09-30T03:27:54+05:30",
+  "commit_type": "direct_commit",
+  "harness_aidlc_version": "1.4.34",
+  "prompts": {
+    "human": {
+      "accepted_lines": 671,
+      "agent_id": null,
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 671,
+      "total_deletions": 0
+    }
+  },
+  "repo": "https://github.com/Hii-Arpit/harness-test",
+  "schema_version": "authorship/3.0.0"
+}
