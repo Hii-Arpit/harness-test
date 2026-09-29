@@ -1,0 +1,47 @@
+1-home-recommendations.md
+  human 123,139,147,155,162,172,209
+  human 1-654
+---
+{
+  "attestations": [
+    {
+      "entries": [
+        {
+          "accepted_lines": 7,
+          "added_lines": 7,
+          "deleted_lines": 7,
+          "hash": "human",
+          "lines": "123,139,147,155,162,172,209",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 647,
+          "added_lines": 0,
+          "deleted_lines": 7,
+          "hash": "human",
+          "lines": "1-654",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "1-home-recommendations.md"
+    }
+  ],
+  "base_commit_sha": "6d21c1e9817a2803624afc3688710d4a780b4331",
+  "branch": "global-cost",
+  "commit_sha": "0e686bcb4c187f987f0977f90c592c6a9491c0c4",
+  "commit_time": "2026-09-29T16:43:28+05:30",
+  "commit_type": "direct_commit",
+  "harness_aidlc_version": "1.4.34",
+  "prompts": {
+    "human": {
+      "accepted_lines": 7,
+      "agent_id": null,
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 7,
+      "total_deletions": 7
+    }
+  },
+  "repo": "https://github.com/Hii-Arpit/harness-test",
+  "schema_version": "authorship/3.0.0"
+}
