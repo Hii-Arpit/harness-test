@@ -1,5 +1,5 @@
 # Table of contents
 
-* [CCM-36674 — SP Layering & SP Options: Context File](ccm-36674-sp-layering-context.md)
+* [README](README.md)
 * [EC2](ec2-get-started.md)
 * [EC2](ec2-managing-commitments.md)
