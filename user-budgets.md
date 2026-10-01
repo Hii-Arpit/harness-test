@@ -23,7 +23,7 @@ User Budgets are separate from [resource budgets](../budgets/create-a-budget.md)
 
 ## Overview
 
-Select **User Budgets** under **Cost Governance** in the left navigation to see all budgets in your account. Each row shows:
+Select **User Budgets** under **Cost Governance** in the left navigation to see all user budgets configured in your account. Each row shows:
 
 | Column | Description |
 |---|---|
@@ -34,7 +34,13 @@ Select **User Budgets** under **Cost Governance** in the left navigation to see 
 | Notifications and enforcements | Active alert and block rules configured for the budget |
 | Upgrade requests | Pending limit-increase requests submitted by users in the budget |
 
-Use the **Search budgets** bar to find a budget by name. Use the sort dropdown to order the list by name, creation date, or last updated date.
+{% hint style="success" %}
+**Tip:** Use the **Search budgets** bar to find a budget by name. Use the sort dropdown to order the list:
+
+* **Name (A→Z / Z→A)**
+* **Created (newest / oldest)**
+* **Updated (newest / oldest)**
+{% endhint %}
 
 ## Folders
 
