@@ -1,5 +1,5 @@
 ---
-description: Set per-developer AI spend limits across AI providers to control costs and give each developer visibility into their own usage.
+description: Set per-developer spend limits across AI tools, with enforcement, approvals, and self-service increase requests.
 ---
 
 {% if "HAS_FEATURE_FLAG" === true %}
@@ -27,13 +27,14 @@ Select **User Budgets** from the left navigation bar to see all budgets in your 
 
 | Column | Description |
 |---|---|
-| Name | Budget name and folder |
-| Budget | The per-user spend limit and provider scope |
-| Rolled up spend | Aggregate AI spend across all users in the budget for the current period |
-| User health | **OK** — all users within limit; **At risk** — one or more users nearing their threshold; **Exceeded** — one or more users over the limit |
-| Notifications and enforcement | Active alert and block rules configured for the budget |
+| Name | Budget name, folder, and the number of users in the budget |
+| Budget | The per-user spend limit and billing period (for example, $75.00/wk) |
+| Rolled up spend | Aggregate AI spend across all users in the budget for the current period, shown as a percentage and progress bar |
+| User health | **Good** — all users within limit; **At risk** — one or more users nearing their threshold; **Over** — one or more users have exceeded the limit |
+| Notifications and enforcements | Active alert and block rules configured for the budget |
+| Upgrade requests | Pending limit-increase requests submitted by users in the budget |
 
-Use the **Folder** panel on the left to filter budgets by folder. You can also filter the list by user health and enforcement status using the dropdowns above the table.
+Use the **Folders** panel on the left to filter budgets by folder. Use the search bar to find a specific budget by name.
 
 {% content-ref url="manage-user-budgets.md" %}
 [manage-user-budgets.md](manage-user-budgets.md)

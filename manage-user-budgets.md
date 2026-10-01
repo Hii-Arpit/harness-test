@@ -18,7 +18,7 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 {% step %}
 ### Open User Budgets
 
-Select **User Budgets** from the left navigation bar, then click **Create a new Budget**.
+Select **User Budgets** from the left navigation bar, then click **+ Create budget**.
 {% endstep %}
 
 {% step %}
@@ -113,7 +113,7 @@ Select a budget name from the User Budgets list to open its detail page.
 | Budget per user | The per-user limit and provider scope |
 | Total budget | Sum of all users' limits for the current period |
 | Week-to-date spend | Aggregate spend so far; shows the percentage of the budget used and which day of the period it is |
-| Pending requests | Number of outstanding limit-increase requests; click **Review all** to act on them |
+| Upgrade requests | Number of outstanding limit-increase requests; click **Review all** to act on them |
 
 The **Active Enforcements** bar shows the notification and block thresholds configured for this budget.
 
@@ -123,12 +123,12 @@ The **Active Enforcements** bar shows the notification and block thresholds conf
 |---|---|
 | User | User email |
 | Budget | Their current per-period limit, which may exceed the default if a previous increase was approved |
-| Status | **OK** (within limit), **At risk** (approaching the threshold), or **Exceeded** (over the limit) |
+| Status | **Good** (within limit), **At risk** (approaching the threshold), or **Over** (exceeded the limit) |
 | Current spend | Dollar amount spent and percentage of their limit, shown as a progress bar |
 | Enforcements | **Blocked** if an enforcement has been applied to this user |
-| Requests | A pending request appears inline; click **Review** to approve or reject it directly from the table |
+| Upgrade requests | A pending request appears inline; click **Review** to approve or reject it directly from the table |
 
-Use the **Enforcements** and **Requests** filters above the table to narrow the view.
+Use the **Enforcements** and **Upgrade requests** filters above the table to narrow the view.
 
 ## Approve or reject a limit increase request
 
@@ -136,7 +136,7 @@ When a user submits a request, the designated approver receives a notification a
 
 To review requests:
 
-1. On the budget detail page, click **Pending requests** or **Review all**.
+1. On the budget detail page, click the **Upgrade requests** tile or **Review all**.
 2. For each request, you can:
    * **Approve** — accept the request. Optionally enter a different dollar amount to approve (the UI shows the resulting transition, for example $125 → requested $250 → approved $200) and add a note visible to the user.
    * **Reject** — decline the request.
