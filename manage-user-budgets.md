@@ -58,7 +58,7 @@ Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling 
 {% hint style="success" %}
 ### Example
 
-A user has a $125/month budget. Three approval tiers are configured:
+A user has a $125/month budget and needs more. Depending on how much they request, Harness sends the request to the designated approver:
 
 | Tier | Requests up to | Approved by |
 |---|---|---|
