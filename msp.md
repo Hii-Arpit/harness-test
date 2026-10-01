@@ -3,7 +3,7 @@ title: Margin obfuscation for managed service providers (MSP)
 ---
 
 {% hint style="info" %}
-Currently, this feature is behind the `CCM_MSP` feature flag. Contact [Harness Support](mailto:support@harness.io) to enable the feature.
+The feature is behind the `CCM_MSP` feature flag. Contact [Harness Support](mailto:support@harness.io) to enable the feature.
 {% endhint %}
 
 Each managed service provider (MSP) works with multiple end customers who have Harness CACM customer accounts. The MSP has pre-negotiated discounted costs with each cloud service provider (CSP), which are reflected in the AWS CUR and Azure/GCP billing exports. Harness CACM retrieves these discounted costs from the billing exports.

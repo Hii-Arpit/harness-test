@@ -2,16 +2,15 @@
 description: >-
   A comprehensive guide to Harness Cloud & AI Cost Management (CACM) licensing
   plans, feature limitations, and what happens when your license expires.
-title: OIDC Authentication (for AWS and GCP)
 ---
 
 
 # OIDC Authentication (for AWS and GCP)
 
-### AWS OIDC Authentication <a href="#aws-oidc-authentication" id="aws-oidc-authentication"></a>
+### AWS OIDC authentication <a href="#aws-oidc-authentication" id="aws-oidc-authentication"></a>
 
 {% hint style="info" %}
-This feature is behind the `CCM_ENABLE_OIDC_AUTH_AWS` feature flag. Contact [Harness Support](mailto:support@harness.io) to enable it.
+The feature is behind the `CCM_ENABLE_OIDC_AUTH_AWS` feature flag. Contact [Harness Support](mailto:support@harness.io) to enable it.
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/oidc-aws.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
@@ -27,15 +26,15 @@ Use the following Harness OIDC provider endpoint and OIDC audience settings to c
 
 Follow the steps on the **Authentication** page to complete OIDC authentication:
 
-* Launch the CloudFormation Template on the AWS console. You can also preview the template [here](https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSOidcTemplate.yaml).
+* Launch the CloudFormation Template on the AWS console. You can also preview the [HarnessAWSOidcTemplate.yaml](https://continuous-efficiency.s3.us-east-2.amazonaws.com/setup/v1/ng/HarnessAWSOidcTemplate.yaml).
 * Login to your AWS account if not logged in already.
 * Follow [the instructions to create the Cross Account Role](../references/onboarding/aws.md)
 * Enter Cross Account Role ARN and Region in the input boxes on the UI.
 
-### GCP OIDC Authentication <a href="#gcp-oidc-authentication" id="gcp-oidc-authentication"></a>
+### GCP OIDC authentication <a href="#gcp-oidc-authentication" id="gcp-oidc-authentication"></a>
 
 {% hint style="info" %}
-This feature is behind the `CCM_ENABLE_OIDC_AUTH_GCP` feature flag. Contact [Harness Support](mailto:support@harness.io) to enable it.
+The feature is behind the `CCM_ENABLE_OIDC_AUTH_GCP` feature flag. Contact [Harness Support](mailto:support@harness.io) to enable it.
 {% endhint %}
 
 <figure><img src="../.gitbook/assets/oidc-gcp.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>

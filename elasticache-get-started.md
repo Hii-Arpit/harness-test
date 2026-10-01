@@ -6,15 +6,9 @@ hidden: true
 
 # Elasticache
 
-{% hint style="info" %}
-**Behind a Feature Flag**
-
-ElastiCache support in Commitment Orchestrator is controlled by the `CCM_COMMORCH_ELASTICACHE` feature flag. Contact [Harness Support](mailto:support@harness.io) to have it enabled for your account.
-{% endhint %}
-
 {% @harness-package-selector/package-selector platforms="%5B%7B%22label%22%3A%22RDS%22%2C%22slug%22%3A%22rds%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Frds-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22EC2%22%2C%22slug%22%3A%22ec2%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Fec2-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22Elasticache%22%2C%22slug%22%3A%22elasticache%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Felasticache-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%5D" selectedPlatform="elasticache"  iconLibrary="https://developer.harness.io/provider-logos" %}
 
-## Before You Begin
+## Before you begin
 
 To setup Commitment Orchestrator in Harness CACM, you need:
 
@@ -23,7 +17,7 @@ To setup Commitment Orchestrator in Harness CACM, you need:
 
 Below is the Elasticache permissions required:
 
-```
+```yaml
 HarnessCommitmentElastiCachePolicy:
     Type: 'AWS::IAM::ManagedPolicy'
     Condition: CreateHarnessCommitmentElastiCachePolicy
@@ -106,7 +100,7 @@ After all the set-up steps, you can review and finalise your inputs.
 
 ***
 
-### Overview Screen
+### Overview screen
 
 The Orchestration Setup page displays a comprehensive list of all Master Accounts with Commitment Orchestrator connector permissions. From this page, users can enable new orchestration setups and view key metrics including Last 30 Days Coverage, Savings, and the current status of each Orchestrator configuration.
 

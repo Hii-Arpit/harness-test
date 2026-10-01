@@ -14,7 +14,7 @@ tags:
 {% hint style="info" %}
 **Beta Release | Feature Flag Required**
 
-This feature is currently in beta and available behind a feature flag. Contact your Harness account team to enable it for your account.
+The feature is in beta and available behind a feature flag. Contact your Harness account team to enable it for your account.
 {% endhint %}
 
 Harness AI Cost Management extends the Cloud & AI Cost Management (CACM) platform to track AI spend across large language model (LLM) providers, managed AI services, and AI applications. See AI spend next to your cloud costs, attribute it to teams, agents, and outcomes, and govern it with the same FinOps workflow you already use for cloud.

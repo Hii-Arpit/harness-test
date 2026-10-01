@@ -3,13 +3,13 @@ description: How Cluster Orchestrator works and how it's different from other so
 ---
 
 
-# How it works: Cluster Orchestrator for AWS EKS (Beta)
+# How it works: Cluster Orchestrator for AWS EKS
 
-## Working of Cluster Orchestrator <a href="#working-of-cluster-orchestrator" id="working-of-cluster-orchestrator"></a>
+## Cluster Orchestrator internals <a href="#working-of-cluster-orchestrator" id="working-of-cluster-orchestrator"></a>
 
 Cluster Orchestrator primarily performs the action of node provisioning based on workload and pod requirements and removing those nodes when the load and demand declines. But what makes it powerful and flexible is its ability to determine the type of instances or nodes to bring up (whether Spot, or On-Demand) coupled with its built-in Spot instance orchestration capabilities.
 
-### Spot Instance Orchestration: A High-Level Overview of Cluster Orchestrator's Working <a href="#spot-instance-orchestration-a-high-level-overview-of-cluster-orchestrators-working" id="spot-instance-orchestration-a-high-level-overview-of-cluster-orchestrators-working"></a>
+### Spot instance orchestration: a high-level overview of cluster orchestrator's working <a href="#spot-instance-orchestration-a-high-level-overview-of-cluster-orchestrators-working" id="spot-instance-orchestration-a-high-level-overview-of-cluster-orchestrators-working"></a>
 
 <figure><img src="../../.gitbook/assets/working-spot.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -21,9 +21,9 @@ But, in case **Spot capacity is unavailable**, a fallback to On-Demand instances
 
 This entire setup ensures that users remain up-to-date with AWS spot management without manual intervention.
 
-## How is Harness Cluster Orchestrator Different? <a href="#how-is-harness-cluster-orchestrator-different" id="how-is-harness-cluster-orchestrator-different"></a>
+## How is Harness Cluster Orchestrator different? <a href="#how-is-harness-cluster-orchestrator-different" id="how-is-harness-cluster-orchestrator-different"></a>
 
-### Workload Distribution Between Spot and On-Demand for Maximum Efficiency <a href="#workload-distribution-between-spot-and-on-demand-for-maximum-efficiency" id="workload-distribution-between-spot-and-on-demand-for-maximum-efficiency"></a>
+### Workload distribution between spot and on-demand for maximum efficiency <a href="#workload-distribution-between-spot-and-on-demand-for-maximum-efficiency" id="workload-distribution-between-spot-and-on-demand-for-maximum-efficiency"></a>
 
 Spot orchestration is efficient for spot-ready workloads that can tolerate interruptions, but critical workloads cannot afford this risk. To address this, we developed a custom resource: the workload distribution rule. This rule enables three key capabilities:
 
@@ -33,7 +33,7 @@ Spot orchestration is efficient for spot-ready workloads that can tolerate inter
 
 - **Cost-Optimized and Least-Interrupted Configurations:** The workload distribution rule can be set to either:
 
-    - **Cost-Optimized** : All Spot replicas run on the minimum number of nodes, maximizing cost savings but increasing risk. The Spot Instances come from the lowest-priced pool that has available capacity. If the lowest-priced pool doesn't have available capacity, the Spot Instances come from the next-lowest-priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your request by drawing from the next-lowest-priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
+    - **Cost-Optimized** : All Spot replicas run on the minimum number of nodes, maximizing cost savings but increasing risk. The Spot Instances come from the lowest-priced pool that has available capacity. If the lowest-priced pool does not have available capacity, the Spot Instances come from the next-lowest-priced pool that has available capacity. If a pool runs out of capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your request by drawing from the next-lowest-priced pool. To ensure that your desired capacity is met, you might receive Spot Instances from several pools. Because this strategy only considers instance price and not capacity availability, it might lead to high interruption rates.
 
     - **Least-Interrupted** : Cluster Orchestrator identifies the pools with the highest capacity availability for the number of instances that are launching. This means that it will request Spot Instances from the pools that have the lowest chance of interruption in the near term. It also splits the replicas to multiple Spot nodes to minimize disruption. This strategy works well for workloads that may have a higher cost of interruption associated with restarting work or workloads that cannot be interrupted often. By offering the possibility of fewer interruptions, the least-interrupted strategy can lower the overall cost of your workload.
 
@@ -41,11 +41,11 @@ Spot orchestration is efficient for spot-ready workloads that can tolerate inter
 
 - **Base On-Demand Capacity Configuration:** You can define a fixed number of On-Demand replicas, with additional capacity split between On-Demand and Spot nodes according to your preferences.
 
-### Automatic Scaling of Nodes <a href="#automatic-scaling-of-nodes" id="automatic-scaling-of-nodes"></a>
+### Automatic scaling of nodes <a href="#automatic-scaling-of-nodes" id="automatic-scaling-of-nodes"></a>
 
 The Cluster Orchestrator can automatically scale nodes for minimizing costs. When the demand is high and more resources are needed, the Cluster Orchestrator can provision more nodes and when the demand is less, it can scale down as well.
 
-## Dynamic Selection of Node Instance Families <a href="#dynamic-selection-of-node-instance-families" id="dynamic-selection-of-node-instance-families"></a>
+## Dynamic selection of node instance families <a href="#dynamic-selection-of-node-instance-families" id="dynamic-selection-of-node-instance-families"></a>
 
 Node instance families are dynamically selected based on user preferences and workload requirements, eliminating the need to manage auto scaling groups manually.
 
@@ -89,7 +89,7 @@ EKS EC2 Nodes: 10
 * 81% Spot savings over On-Demand for m4.xlarge running in US East (Ohio) on Linux
 * 70% Spot nodes, 30% On-Demand nodes
 
-## Saving Computation for Cluster Orchestrator <a href="#saving-computation-for-cluster-orchestrator" id="saving-computation-for-cluster-orchestrator"></a>
+## Cluster Orchestrator computation savings <a href="#saving-computation-for-cluster-orchestrator" id="saving-computation-for-cluster-orchestrator"></a>
 
 With Cluster Orchestrator, the savings are realized from the spot utilization of the connected EKS cluster.
 

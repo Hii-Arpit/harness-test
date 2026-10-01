@@ -9,12 +9,12 @@ hidden: true
 {% hint style="info" %}
 **Behind a Feature Flag**
 
-Commitment Orchestrator for RDS is currently behind a feature flag. Contact [Harness Support](mailto:support@harness.io) to have the `CCM_COMMORCH_RDS` flag enabled for your account.
+Commitment Orchestrator for RDS is behind a feature flag. Contact [Harness Support](mailto:support@harness.io) to have the `CCM_COMMORCH_RDS` flag enabled for your account.
 {% endhint %}
 
 {% @harness-package-selector/package-selector platforms="%5B%7B%22label%22%3A%22RDS%22%2C%22slug%22%3A%22rds%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Frds-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22EC2%22%2C%22slug%22%3A%22ec2%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Fec2-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22Elasticache%22%2C%22slug%22%3A%22elasticache%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Felasticache-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%5D" selectedPlatform="rds"  iconLibrary="https://developer.harness.io/provider-logos" %}
 
-## Before You Begin
+## Before you begin
 
 To setup Commitment Orchestrator in Harness CACM, you need:
 
@@ -25,7 +25,7 @@ To setup Commitment Orchestrator in Harness CACM, you need:
 
 Available permissions for RDS:
 
-```
+```yaml
 Action:
 - 'ce:GetSavingsPlansCoverage'
 - 'ce:GetReservationCoverage'
@@ -50,7 +50,7 @@ Action:
 
 To enable visibility, in the master account connector, you need to add the following permissions.
 
-```
+```text
 "ec2:DescribeReservedInstancesOfferings",
 "ce:GetSavingsPlansUtilization",
 "ce:GetReservationUtilization",
@@ -67,7 +67,7 @@ To enable visibility, in the master account connector, you need to add the follo
 
 And to enable actual orchestration, you need to add the following permissions.
 
-```
+```text
 "ec2:PurchaseReservedInstancesOffering",
 "ec2:GetReservedInstancesExchangeQuote",
 "ec2:DescribeInstanceTypeOfferings",              
@@ -81,7 +81,7 @@ And to enable actual orchestration, you need to add the following permissions.
 
 For RDS additional permissions are required.
 
-```
+```text
 "rds:PurchaseReservedDBInstancesOffering",
 "rds:DescribeReservedDBInstancesOfferings",
 "pricing:GetProducts"
@@ -94,7 +94,7 @@ For RDS additional permissions are required.
 
 We have rolled out permissions for Elasticache as well. Available permissions for Elasticache:
 
-```
+```yaml
 Action:
 - 'ce:GetSavingsPlansCoverage'
 - 'ce:GetReservationCoverage'
@@ -161,7 +161,7 @@ After all the set-up steps, you can review and finalise your inputs.
 
 ***
 
-### Overview Screen
+### Overview screen
 
 The Orchestration Setup page displays a comprehensive list of all Master Accounts with Commitment Orchestrator connector permissions. From this page, users can enable new orchestration setups and view key metrics including Last 30 Days Coverage, Savings, and the current status of each Orchestrator configuration.
 

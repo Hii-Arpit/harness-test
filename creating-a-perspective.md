@@ -25,9 +25,9 @@ Before getting started with Perspectives, ensure you have:
   * **Azure** - [Complete Azure Connector Setup Guide](../../new-to-cacm/quickstart.md)
   * **GCP** - [Complete GCP Connector Setup Guide](../../new-to-cacm/quickstart.md)
   * **Kubernetes** - [Complete Kubernetes Connector Setup Guide](../../new-to-cacm/quickstart.md)
-  * **External Data** (Beta) - [Custom Cost Provider Guide](../../integrations/custom-cost-provider.md)
+  * **External Data** - [Custom Cost Provider Guide](../../integrations/custom-cost-provider.md)
 
-## Creating a Perspective <a href="#creating-a-perspective" id="creating-a-perspective"></a>
+## Perspective creation <a href="#creating-a-perspective" id="creating-a-perspective"></a>
 
 {% hint style="info" %}
 You can create up to 10,000 Perspectives.
@@ -43,7 +43,7 @@ To create a Perspective, follow these steps:
 2. Click **New Perspective**
 3. Complete the following three steps:
 
-## Perspective Builder <a href="#perspective-builder" id="perspective-builder"></a>
+## Perspective builder <a href="#perspective-builder" id="perspective-builder"></a>
 
 <figure><img src="../../.gitbook/assets/builder.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -55,7 +55,7 @@ To create a Perspective, follow these steps:
    * Last month
    * This month
 
-### Perspective Rules <a href="#perspective-rules" id="perspective-rules"></a>
+### Perspective rules <a href="#perspective-rules" id="perspective-rules"></a>
 
 1. Click **Add rule** in the **Specify rules for the perspective** section. You can add multiple rules in a Perspective and their binding can use either the **AND** operator or the **OR** operator.
 2. Each rule can be set up using Operand, Operator and Values.
@@ -79,7 +79,7 @@ After configuring all rules, click **Next** to proceed to **Budgets, Reports and
 
 ***
 
-## Budgets, Reports and Alerts <a href="#budgets-reports-and-alerts" id="budgets-reports-and-alerts"></a>
+## Budgets, reports and alerts <a href="#budgets-reports-and-alerts" id="budgets-reports-and-alerts"></a>
 
 ### Budgets <a href="#budgets" id="budgets"></a>
 
@@ -89,9 +89,9 @@ Budgets can help you receive alerts when the spend exceeds or is about to exceed
 
 You can add multiple budgets for a single Perspective. Click on **+create a new Budget** to add a new budget and set up Target, Budget Amount and Configure Alerts.
 
-For detailed information about setting up budgets, see [Setting Up Budgets](https://developer.harness.io/docs/cloud-cost-management/use-ccm-cost-governance/ccm-budgets/create-a-budget)
+For detailed information about setting up budgets, navigate to [Setting Up Budgets](https://developer.harness.io/docs/cloud-cost-management/use-ccm-cost-governance/ccm-budgets/create-a-budget)
 
-### Perspective Reports <a href="#perspective-reports" id="perspective-reports"></a>
+### Perspective reports <a href="#perspective-reports" id="perspective-reports"></a>
 
 <figure><img src="../../.gitbook/assets/output.gif" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -114,7 +114,7 @@ Reports can send a cost report to specified users at the specified frequency. Yo
 <img src="../../.gitbook/assets/enabled-ff.png" alt="Click to view full size image" data-size="original">
 {% endhint %}
 
-### Anomaly Alerts <a href="#anomaly-alerts" id="anomaly-alerts"></a>
+### Anomaly alerts <a href="#anomaly-alerts" id="anomaly-alerts"></a>
 
 You can also set up alerts for all anomalies in the current perspective. The scope of the alerts set via this option will be for the current perspective, i.e., the alerts will be set only for anomalies detected on the current perspective data.
 
@@ -123,7 +123,7 @@ You can also set up alerts for all anomalies in the current perspective. The sco
 
 **Additional Resources**
 
-For more detailed information about Anomaly detection in CCM, refer to [Detect Cloud Cost Anomalies with CCM](https://developer.harness.io/docs/cloud-cost-management/use-ccm-cost-reporting/anomaly-detection/getting-started-with-ccm-anomaly-detection)
+For more detailed information about Anomaly detection in CCM, navigate to [Detect Cloud Cost Anomalies with CCM](https://developer.harness.io/docs/cloud-cost-management/use-ccm-cost-reporting/anomaly-detection/getting-started-with-ccm-anomaly-detection)
 
 ***
 
@@ -133,7 +133,7 @@ With perspective preferences, you have the flexibility to tailor the cost data p
 
 Customize how your perspective data is visualized with these options:
 
-### General Preferences <a href="#general-preferences" id="general-preferences"></a>
+### General preferences <a href="#general-preferences" id="general-preferences"></a>
 
 **Show Others**
 
@@ -147,7 +147,7 @@ Highlight unusual spending patterns or sudden cost changes in your visualization
 
 In certain graphs, you may come across an item labeled as Unallocated. This entry is included to provide a comprehensive view of all costs. When you examine the Total Cost in the perspective, it encompasses the costs of all items, including the unallocated cost. This option is available only in perspectives with cluster rules. The Show "unallocated" costs on clusters option is only available in the chart when the Group By is using Cluster and the following options are selected: - Namespace - Namespace ID - Workload - Workload ID - ECS Task - ECS Task ID - ECS Service ID - ECS Service - ECS Launch Type ID - ECS Launch Type
 
-### Cloud-Based Preferences <a href="#cloud-based-preferences" id="cloud-based-preferences"></a>
+### Cloud-Based preferences <a href="#cloud-based-preferences" id="cloud-based-preferences"></a>
 
 {% tabs %}
 {% tab title="AWS" %}

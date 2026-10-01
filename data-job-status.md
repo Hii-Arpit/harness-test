@@ -10,7 +10,7 @@ description: >-
 ## Overview <a href="#overview" id="overview"></a>
 
 {% hint style="info" %}
-Currently, this early access feature is behind a feature flag. Contact [Harness Support](mailto:support@harness.io) to enable the feature.
+The early access feature is behind a feature flag. Contact [Harness Support](mailto:support@harness.io) to enable the feature.
 {% endhint %}
 
 The Data Job Status feature provides real-time visibility into the status of data ingestion and processing jobs across your cloud cost data pipeline in Harness Cloud & AI Cost Management (CACM). It enables you to monitor, track, and troubleshoot data jobs that ingest billing data from cloud providers (AWS, Azure, GCP) into Harness.
@@ -26,7 +26,7 @@ This feature addresses these gaps by providing a centralized view of all data jo
 
 {% embed url="https://app.tango.us/app/embed/video/3251d208-a09f-42c2-853d-aec63d3ce69d?narrationType=voice1" %}
 
-### Key Capabilities <a href="#key-capabilities" id="key-capabilities"></a>
+### Key capabilities <a href="#key-capabilities" id="key-capabilities"></a>
 
 * Real-time job monitoring: Track the current state of all data jobs (QUEUED, RUNNING, SUCCESS, FAILED, etc.)
 * Historical execution tracking: View complete execution history with state transitions and timestamps
@@ -34,7 +34,7 @@ This feature addresses these gaps by providing a centralized view of all data jo
 * Filtering and search: Filter jobs by connector, job kind, status, and billing period
 * Average duration tracking: See historical average execution times per connector/job kind
 
-## Data Job Status Dashboard <a href="#data-job-status-dashboard" id="data-job-status-dashboard"></a>
+## Data job status dashboard <a href="#data-job-status-dashboard" id="data-job-status-dashboard"></a>
 
 {% hint style="info" %}
 **INITIAL DATA POPULATION**
@@ -58,7 +58,7 @@ The page displays three summary widgets at the top:
 * **Requires Attention**: Jobs that have failed or are taking longer than expected.
 * **Completed Jobs**: Jobs that finished successfully.
 
-### Jobs List <a href="#jobs-list" id="jobs-list"></a>
+### Jobs list <a href="#jobs-list" id="jobs-list"></a>
 
 Below the widgets, a table displays all active connectors and their latest job runs with the following columns:
 
@@ -72,7 +72,7 @@ Below the widgets, a table displays all active connectors and their latest job r
   * **Data Load** - Completes core ingestion and final load, after which your data is fresh and available for analysis
 * **Last Successful Run** - Timestamp of the most recent successful job completion for this connector
 
-### Filtering and Search <a href="#filtering-and-search" id="filtering-and-search"></a>
+### Filter and search <a href="#filtering-and-search" id="filtering-and-search"></a>
 
 You can filter the jobs list using:
 
@@ -108,11 +108,11 @@ You can filter the jobs list using:
 As stated earlier, once enabled, it takes approximately 24 hours to display all connector statuses.
 {% endhint %}
 
-## Job Details Drawer <a href="#job-details-drawer" id="job-details-drawer"></a>
+## Job details drawer <a href="#job-details-drawer" id="job-details-drawer"></a>
 
 Clicking on any job row opens a details drawer with two tabs:
 
-### Job Run Details Tab <a href="#job-run-details-tab" id="job-run-details-tab"></a>
+### Job run details tab <a href="#job-run-details-tab" id="job-run-details-tab"></a>
 
 <figure><img src="../.gitbook/assets/jobrun.png" alt=""><figcaption><p>Job Run Details Panel</p></figcaption></figure>
 
@@ -141,7 +141,7 @@ It also shows logs:
 * Any errors or warnings encountered
 * Processing details based on the billing month
 
-### Run History Tab <a href="#run-history-tab" id="run-history-tab"></a>
+### Run history tab <a href="#run-history-tab" id="run-history-tab"></a>
 
 <figure><img src="../.gitbook/assets/logs.png" alt=""><figcaption><p>Run History Tab</p></figcaption></figure>
 
@@ -159,7 +159,7 @@ The history table displays the following columns:
 
 Click the expand icon to view detailed logs for any historical run.
 
-## Good to Know <a href="#good-to-know" id="good-to-know"></a>
+## Good to know <a href="#good-to-know" id="good-to-know"></a>
 
 **Enterprise Edition Only**
 

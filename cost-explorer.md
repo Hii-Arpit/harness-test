@@ -11,15 +11,11 @@ description: >-
 
 Cost Explorer is built on top of the existing Perspectives infrastructure but offers a redesigned user experience focused on faster exploration and easier view management.
 
-{% hint style="info" %}
-Cost Explorer is enabled via the `CCM_PERSPECTIVES_V2` feature flag. When enabled, users can switch between the new Cost Explorer and the classic Perspectives interface.
-{% endhint %}
-
 To switch and use, jump directly to [Switching between Cost Explorer and Perspectives](cost-explorer.md#switching-between-cost-explorer-and-perspectives).
 
 ## Drilldown <a href="#drilldown" id="drilldown"></a>
 
-### View-Based Navigation <a href="#view-based-navigation" id="view-based-navigation"></a>
+### View-Based navigation <a href="#view-based-navigation" id="view-based-navigation"></a>
 
 Cost Explorer introduces a **view-centric** approach to cost analysis:
 
@@ -30,7 +26,7 @@ Cost Explorer introduces a **view-centric** approach to cost analysis:
 
 <figure><img src="../.gitbook/assets/home.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-### Views Explorer Drawer <a href="#views-explorer-drawer" id="views-explorer-drawer"></a>
+### Views Explorer drawer <a href="#views-explorer-drawer" id="views-explorer-drawer"></a>
 
 Access all your views through the **Views Explorer Drawer**:
 
@@ -41,7 +37,7 @@ Access all your views through the **Views Explorer Drawer**:
 
 <figure><img src="../.gitbook/assets/cost-explorer-one.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-### Advanced Filter Rule Builder <a href="#advanced-filter-rule-builder" id="advanced-filter-rule-builder"></a>
+### Advanced filter rule builder <a href="#advanced-filter-rule-builder" id="advanced-filter-rule-builder"></a>
 
 <figure><img src="../.gitbook/assets/ce-three.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -66,7 +62,7 @@ Create complex filter logic using the **Advanced Filter Drawer**:
 4. Add multiple rules (OR logic between rules)
 5. Click **"Apply Filters"** to execute
 
-### Inline Filter Chips <a href="#inline-filter-chips" id="inline-filter-chips"></a>
+### Inline filter chips <a href="#inline-filter-chips" id="inline-filter-chips"></a>
 
 For simple filtering, use the **inline filter chips**:
 
@@ -78,7 +74,7 @@ For simple filtering, use the **inline filter chips**:
 
 <figure><img src="../.gitbook/assets/inline.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-### Unit Costs <a href="#unit-costs" id="unit-costs"></a>
+### Unit costs <a href="#unit-costs" id="unit-costs"></a>
 
 {% embed url="https://app.tango.us/app/embed/8095a7d6-2410-4081-ab1b-1f3c74aa43cd" %}
 
@@ -102,7 +98,7 @@ Check [Unit Cost Metrics](../use-cacm/unit-costs.md) documentation for more deta
 2. In the toolbar, look for the **Unit Costs (N)** picker next to filters.
 3. Click **+ Add Unit Cost** and configure the metric:
    * Give it a **display name**.
-   * Choose a **result type** — Cost or Percentage.
+   * Choose a **result type** - Cost or Percentage.
    * Configure the **numerator** (and optionally the **denominator**).
 4. **Apply** the metric. It appears immediately as a chart overlay and summary card.
 5. Click **Save view** to persist the metric set with the Perspective.
@@ -113,9 +109,9 @@ Up to **5 unit metrics** can be attached to a single Perspective.
 
 For each operand (numerator and denominator), choose one of:
 
-* **Cost** — Optionally add filters (cloud provider, account, service, label, etc.) to scope which cost goes into this side of the calculation. With no filters, the operand uses the Perspective's cost total. This kind tells Harness to use **cloud or AI cost** as the operand value, scoped to the current Perspective.
-* **Metric** — Select a registered business metric from the list. The metric's default aggregation is used unless overridden. This kind references a **business metric** you've already registered under **Cloud Integrations → Unit Cost**. (See the [separate setup guide](../use-cacm/unit-costs.md); Cost Explorer can only consume metrics that already exist.)
-*   **Formula** — Combine multiple cost and/or metric inputs (see [Formula Rules](cost-explorer.md#formula-rules). Use this when no single Cost or Metric value is enough — e.g., chargeback splits, weighted blends, or "subtract one slice from another". Each input is itself an operand row and can be **Cost** or **Metric** but **not another Formula**
+* **Cost** - Optionally add filters (cloud provider, account, service, label, etc.) to scope which cost goes into this side of the calculation. With no filters, the operand uses the Perspective's cost total. This kind tells Harness to use **cloud or AI cost** as the operand value, scoped to the current Perspective.
+* **Metric** - Select a registered business metric from the list. The metric's default aggregation is used unless overridden. This kind references a **business metric** you have already registered under **Cloud Integrations → Unit Cost**. (See the [separate setup guide](../use-cacm/unit-costs.md); Cost Explorer can only consume metrics that already exist.)
+*   **Formula** - Combine multiple cost and/or metric inputs (navigate to [Formula Rules](cost-explorer.md#formula-rules). Use this when no single Cost or Metric value is enough - e.g., chargeback splits, weighted blends, or "subtract one slice from another". Each input is itself an operand row and can be **Cost** or **Metric** but **not another Formula**
 
     In the **Formula bar** you can input single-line text input where you write the expression using the input letters. **Allowed syntax**
 
@@ -145,7 +141,7 @@ When you build a **Formula** operand, the expression is restricted to keep resul
 
 **Valid examples**
 
-```
+```text
 a + b
 a - b + c
 (a * 0.7) + (b * 0.3)
@@ -154,7 +150,7 @@ a * 1.5 + b - c
 
 **Invalid examples**
 
-```
+```text
 a / b           // division not allowed
 a * b           // multiplying two inputs not allowed
 b + a           // out of declaration order
@@ -162,15 +158,15 @@ a + a           // input referenced twice
 a + b + b       // duplicate reference
 ```
 
-### Group By Options <a href="#group-by-options" id="group-by-options"></a>
+### Group by options <a href="#group-by-options" id="group-by-options"></a>
 
 <figure><img src="../.gitbook/assets/group.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 You can create a Perspective for your resources using rules and filters. The filters are used to group the resources. The following are the supported filters:
 
-* **Cost Categories**: You can create a perspective by filtering based on the cost categories you have created. To create cost categories, see [Use Cost Categories](cost-categories/cost-categories.md).
+* **Cost Categories**: You can create a perspective by filtering based on the cost categories you have created. To create cost categories, navigate to [Use Cost Categories](cost-categories/cost-categories.md).
 * **Generic**:
-  * **Region**: Each AWS, GCP, or Azure region you're currently running services in.
+  * **Region**: Each AWS, GCP, or Azure region you are currently running services in.
   * **Product**: Each of your active products with its cloud costs.
   * **Cloud Provider**: Filter and group costs by the cloud service provider (AWS, GCP, Azure, or Kubernetes clusters) to analyze spending across different cloud platforms.
   * **Sub Account Id**:
@@ -179,9 +175,9 @@ You can create a Perspective for your resources using rules and filters. The fil
     | Grouping Option    | Description                                                                                                                                                              |
     | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
     | **Account**        | Cost by AWS account connected via Harness AWS Cloud Provider, showing account name and ID                                                                                |
-    | **Billing Entity** | Distinguishes between AWS Marketplace transactions and other AWS service purchases ([Learn more](https://docs.aws.amazon.com/cur/latest/userguide/billing-columns.html)) |
+    | **Billing Entity** | Distinguishes between AWS Marketplace transactions and other AWS service purchases ([documentation](https://docs.aws.amazon.com/cur/latest/userguide/billing-columns.html)) |
     | **Instance Type**  | Cost by [Amazon EC2 instance type](https://aws.amazon.com/ec2/instance-types/) (e.g., t2.micro, m5.large)                                                                |
-    | **Line Item Type** | Cost by charge type (Usage, Tax, Credit, etc.) ([Learn more](https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html))                                    |
+    | **Line Item Type** | Cost by charge type (Usage, Tax, Credit, etc.) ([documentation](https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html))                                    |
     | **Payer Account**  | Cost by AWS account that pays for member accounts in an AWS Organization                                                                                                 |
     | **Resource Id**    | Cost by unique AWS resource identifier (ARN), enabling granular tracking of individual resources like specific EC2 instances, S3 buckets, or RDS databases               |
     | **Service**        | Cost by AWS service (EC2, S3, RDS, etc.)                                                                                                                                 |
@@ -223,7 +219,7 @@ You can create a Perspective for your resources using rules and filters. The fil
     | **Subscription ID**      | Cost by subscription identifier                                                                   |
     | **Subscription Name**    | Cost by subscription name                                                                         |
     | **Tenant ID**            | Cost by Azure Active Directory tenant identifier, useful for organizations with multiple tenants  |
-*   **External Data Grouping Options**: Analyze costs from external data sources that you've integrated with CACM:
+*   **External Data Grouping Options**: Analyze costs from external data sources that you have integrated with CACM:
 
     | Grouping Option          | Description                                              |
     | ------------------------ | -------------------------------------------------------- |
@@ -239,7 +235,7 @@ You can create a Perspective for your resources using rules and filters. The fil
   * For the AWS system tags, `aws_` prefix is added.
   * The characters that do not follow regex `[a-zA-Z0-9_]` are changed to `_`.
   * The tags are case-sensitive. If the tags are specified as `UserName` and `username`, then the number suffix `_<Number>`is added to the tag. For example, `UserName` and `username_1`.
-* **Label V2**: Preserves the original structure from AWS similar to how GCP, Azure and Cluster tags are stored. See [Understanding the Difference: Label vs. Label V2](perspectives/key-concepts.md#understanding-the-difference-label-vs-label-v2-and-migration) and [Migrate from Label to Label V2](perspectives/key-concepts.md#migration-from-label-to-label-v2).
+* **Label V2**: Preserves the original structure from AWS similar to how GCP, Azure and Cluster tags are stored. For more information, go to [Understanding the Difference: Label vs. Label V2](perspectives/key-concepts.md#understanding-the-difference-label-vs-label-v2-and-migration) and [Migrate from Label to Label V2](perspectives/key-concepts.md#migration-from-label-to-label-v2).
 *   **\[NEW] AI**: Analyze costs for AI and machine learning workloads across providers:
 
     | Grouping Option    | Description                                                       |
@@ -267,7 +263,7 @@ You can create a Perspective for your resources using rules and filters. The fil
     | **Project Name**      | Cost by Anthropic project name                                           |
     | **Token Type**        | Cost by token type (input tokens, output tokens, cache tokens)           |
 
-### Time Period & Granularity <a href="#time-period-and-granularity" id="time-period-and-granularity"></a>
+### Time period & granularity <a href="#time-period-and-granularity" id="time-period-and-granularity"></a>
 
 <figure><img src="../.gitbook/assets/ce-four.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -328,7 +324,7 @@ Configure cost calculation preferences per cloud provider:
 * [GCP Preferences](perspectives/creating-a-perspective.md)
 * [Azure Preferences](perspectives/creating-a-perspective.md)
 
-### Cost Summary Cards <a href="#cost-summary-cards" id="cost-summary-cards"></a>
+### Cost summary cards <a href="#cost-summary-cards" id="cost-summary-cards"></a>
 
 View key metrics at a glance:
 
@@ -340,7 +336,7 @@ View key metrics at a glance:
 
 <figure><img src="../.gitbook/assets/summary.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-### Save & Manage Views <a href="#save-and-manage-views" id="save-and-manage-views"></a>
+### Save & manage views <a href="#save-and-manage-views" id="save-and-manage-views"></a>
 
 **Save Current Configuration**
 
@@ -360,7 +356,7 @@ View key metrics at a glance:
 
 <figure><img src="../.gitbook/assets/edit.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-### Reports and Alerts <a href="#reports-and-alerts" id="reports-and-alerts"></a>
+### Reports and alerts <a href="#reports-and-alerts" id="reports-and-alerts"></a>
 
 <figure><img src="../.gitbook/assets/ce-six.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -374,7 +370,7 @@ View key metrics at a glance:
 
 <figure><img src="../.gitbook/assets/report-two.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-### Dynamic vs Stored Data Toggle <a href="#dynamic-vs-stored-data-toggle" id="dynamic-vs-stored-data-toggle"></a>
+### Dynamic vs stored data toggle <a href="#dynamic-vs-stored-data-toggle" id="dynamic-vs-stored-data-toggle"></a>
 
 Toggle between data calculation modes:
 
@@ -383,7 +379,7 @@ Toggle between data calculation modes:
 
 Read More here: [Dynamic Cost Categories Toggle](perspectives/key-concepts.md#dynamic-cost-categories-toggle)
 
-## Switching Between Cost Explorer and Perspectives <a href="#switching-between-cost-explorer-and-perspectives" id="switching-between-cost-explorer-and-perspectives"></a>
+## Cost Explorer and Perspectives <a href="#switching-between-cost-explorer-and-perspectives" id="switching-between-cost-explorer-and-perspectives"></a>
 
 ### Enable Cost Explorer <a href="#enable-cost-explorer" id="enable-cost-explorer"></a>
 
@@ -393,7 +389,7 @@ Read More here: [Dynamic Cost Categories Toggle](perspectives/key-concepts.md#dy
 2. Click **"Switch"** to enable Cost Explorer
 3. The page will reload with the new interface
 
-### Switch Back to Perspectives <a href="#switch-back-to-perspectives" id="switch-back-to-perspectives"></a>
+### Switch back to Perspectives <a href="#switch-back-to-perspectives" id="switch-back-to-perspectives"></a>
 
 <figure><img src="../.gitbook/assets/switch-back.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 

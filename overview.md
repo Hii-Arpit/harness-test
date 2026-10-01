@@ -1,54 +1,32 @@
 ---
-description: This topic introduces Cluster Orchestrator
-title: Overview
+description: "Harness Cloud & AI Cost Management: one place to see and control cloud, AI, and external spend across all providers."
 ---
 
 
 # Overview
 
-{% hint style="info" %}
-Currently, this early access feature is behind a feature flag. Contact [Harness Support](mailto:support@harness.io) to enable the feature.
-{% endhint %}
+Harness Cloud & AI Cost Management (CACM) gives you one place to see and control what you spend across cloud, AI, and external sources. Whether you use AWS, Azure, GCP, OpenAI, Anthropic, or external tools like SaaS and data centers, all your costs flow into a single view so you can analyze, allocate, and act without jumping between dashboards.
 
-Harness’ Cloud & AI Cost Management (CACM) is built on three pillars: **Cost Visibility**, **Cost Optimization**, and **Cost Governance**. Within the Cost Optimization pillar, **Cluster Orchestrator for Amazon EKS** adds Karpenter-based autoscaling that balances cost and performance across Spot, On-Demand, and committed capacity.
+<figure><img src="../.gitbook/assets/cacm-overview-hero.png" alt=""><figcaption><p>Harness Cloud &#x26; AI Cost Management</p></figcaption></figure>
 
-### Harness CACM Cluster Orchestrator for Amazon Elastic Kubernetes Service (EKS) <a href="#harness-cacm-cluster-orchestrator-for-amazon-elastic-kubernetes-service-eks" id="harness-cacm-cluster-orchestrator-for-amazon-elastic-kubernetes-service-eks"></a>
+***
 
-The **Harness Cluster Orchestrator** for EKS dynamically provisions the optimal mix of Spot, On-Demand, and committed capacity, guided by real-time workload demand and business constraints. Powered by Karpenter, it:
+### Cloud and AI Cost challenges <a href="#cloud-and-ai-cost-challenges" id="cloud-and-ai-cost-challenges"></a>
 
-* Launches exactly-right nodes in seconds; no warm buffer required.
-* Packs pods tightly using sophisticated bin-packing algorithms and disruption budgets.
-* Automatically shifts workloads between Spot and On-Demand capacity with fallback and reverse-fallback.
-* Prioritises pre-purchased Reserved Instances and Savings Plans to maximise commitment utilisation.
-* Surfaces detailed, per-workload cost metrics directly in CACM Perspectives.
+Cloud and AI spend share the same core problems: costs are fragmented, hard to attribute, and discovered late. CACM solves each of them across both.
 
-Combined, these capabilities can drive **up to 90 % cost savings** while maintaining application reliability.
+| Problem                                                                                                                               | How CACM Solves It                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Spend is fragmented across cloud providers like AWS, Azure, and GCP and AI providers like OpenAI and Anthropic, with no unified view. | One **Cost Explorer** for every provider.                                                               |
+| No way to attribute cost to a team, workload, agent, or request.                                                                      | **Cost Categories** and **AI trace attribution** link every dollar to its source.                       |
+| Chargeback is manual with no link to business outcomes.                                                                               | **Allocation rules** and **trace-level attribution** let you report by team, feature, or agent session. |
+| Spikes are discovered only after the invoice arrives.                                                                                 | **Budgets** and **Anomaly Detection** alert you the moment spend deviates.                              |
 
-#### Key capabilities at a glance <a href="#key-capabilities-at-a-glance" id="key-capabilities-at-a-glance"></a>
+***
 
-* **Karpenter-based autoscaling** with quick, one-click migration for existing Karpenter users.
-* **Advanced bin-packing & replacement schedules** to maximise node utilisation without over-provisioning.
-* **Workload-level Spot/On-Demand distribution** with automated fallback and reverse-fallback.
-* **Commitment-aware scheduling** that leverages Reserved Instances and Savings Plans before purchasing new capacity.
-* **True workload cost attribution** and real-time cost tracking in CACM Perspectives.
+### Next steps <a href="#next-steps" id="next-steps"></a>
 
-### Key challenges solved <a href="#key-challenges-solved" id="key-challenges-solved"></a>
-
-Harness Cluster Orchestrator tackles the most common obstacles teams face when running production workloads on EKS:
-
-| Challenge                                         | How Harness CACM Cluster Orchestrator solves it                                                                                                                                                                                                             |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Unpredictable Spot interruptions                  | Automated fallback & reverse-fallback seamlessly migrate workloads between Spot and On-Demand with minimal disruption while maintaining high cost-savings.                                                                                                  |
-| Idle or over-provisioned nodes                    | Advanced bin-packing and replacement schedules right-size the cluster continuously, eliminating waste.                                                                                                                                                      |
-| Slow, manual scaling                              | Karpenter-based engine launches exactly right nodes based on unscheduled pod resources in few seconds.                                                                                                                                                      |
-| Under-utilised Reserved Instances / Savings Plans | When new nodes are required, Cluster Orchestrator automatically creates nodes using under-utilized instance types to maximise committed-usage efficiency.                                                                                                   |
-| Complex multi-workload requirements               | NodePools & NodeClasses shape the node supply, while WorkloadDistributionRules specify the desired Spot/On-Demand split per cluster or per namespace (override) with automatic fallback. Together they give fine-grained, policy-driven workload placement. |
-| Limited cost visibility                           | Per-workload, Per-namespace, per-node, etc. cost metrics are surfaced in CACM Perspectives for true-up and showback.                                                                                                                                        |
-
-### AWS Service Ready Partner <a href="#aws-service-ready-partner" id="aws-service-ready-partner"></a>
-
-Harness is a part of [**AWS Service Ready Program**](https://aws.amazon.com/blogs/apn/optimize-cost-and-performance-with-amazon-ec2-spot-ready-partners/) for Amazon EC2 Spot instances. This recognition acknowledges that Harness CACM with Cluster Orchestrator adheres to **industry best practices** and provides **robust API support** for effectively managing Amazon EC2 Spot instances in customers' cloud environments.
-
-Being part of the Amazon EC2 Spot Service Ready Program distinguishes Harness as an esteemed member of the AWS Partner Network (APN) with a solution that seamlessly integrates with Amazon EC2 Spot instances. This ensures that our product is widely accessible and fully supports AWS customers, enabling them to leverage the **cost-saving benefits** of Amazon EC2 Spot instances for their workloads. In the upcoming time, **not only AWS but other cloud providers will be supported** too.
+* Go to [Get Started](quickstart.md) to connect your first cloud or AI provider.
+* Go to [Navigating CACM](navigating-cacm.md) to understand what CACM offers across visibility, governance, and optimization.
 
 {% @harness-feedback/feedback %}

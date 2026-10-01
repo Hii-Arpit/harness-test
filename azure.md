@@ -1,218 +1,336 @@
 ---
-description: Connect Azure to bring your cloud spend into Cloud & AI Cost Management.
-tags:
-  - cloud-cost-management
-title: Azure
+description: Cloud & AI Cost Management - Accelerator
 ---
 
 
 # Azure
 
-### Before You Start <a href="#before-you-start" id="before-you-start"></a>
+In your Azure tenant there should be a billing scope that covers your entire tenant. We will need to create a billing export from this root billing scope, to be placed into a storage account in some subscription in the tenant.
 
-To ensure a smooth and error-free setup experience, set up Azure billing Export before launching the Harness wizard. This will allow you to progress through the setup without delays or missing prerequisites.
+If you do not have a root billing scope, you will need to locate some other location to create the billing export from, either a management group level, or even at the subscription level.
 
-| Required Info                       | Where to Find It                             | Why It’s Needed                                       |
-| ----------------------------------- | -------------------------------------------- | ----------------------------------------------------- |
-| **Storage Account Name**            | Azure Portal → Storage accounts              | Source location of exported billing data.             |
-| **Subscription ID**                 | Azure Portal → Subscriptions                 | Identifies the subscription being monitored.          |
-| **Storage Container**               | Azure Portal → Storage accounts → Containers | Target location for billing export data.              |
-| **Storage Directory & Export Name** | When configuring Billing Export in Azure     | Required to locate and identify billing data exports. |
+You may end up with one to many billing exports depending on your Azure configuration.
 
-#### Set Up Azure Billing Export <a href="#set-up-azure-billing-export" id="set-up-azure-billing-export"></a>
+## Add Harness application to Azure tenant <a href="#add-harness-application-to-azure-tenant" id="add-harness-application-to-azure-tenant"></a>
 
-1. Go to **Azure Portal → Cost Management → Exports**.
-2. Click **+ Create** to create a new export.
-3. Configure your export:
-   * 📝 **Name**: Enter a descriptive name (e.g., `ccm-harness-export`)
-   * 📊 **Type**: Choose **Actual cost** or **Amortized cost**
-   * 🕒 **Frequency**: Set to **Daily**
-4. Set up storage destination:
-   * Choose your **Storage account** (or create new)
-   * Specify **Container** and **Directory path**
-   * 📄 **Format**: CSV (recommended)
-   * 🗜️ **Compression**: Gzip
-5. Click **Create** to complete setup.
+To give Harness access to billing information and resources in your Azure tenant you will need to add the Harness Azure Enterprise Application to your Azure tenant.
 
-{% hint style="info" %}
-**CHOOSE YOUR BILLING TYPE**
+This can be done in the UI or using the Azure CLI. The CLI command to do so is:
 
-Harness supports two billing types:
-
-* **Actual**: Reflects real-time incurred charges.
-* **Amortised**: Spreads out charges (e.g., reserved instances) evenly over usage.
-
-Choose the one that aligns best with your internal reporting strategy. This cannot be changed later.
-{% endhint %}
-
-{% hint style="warning" %}
-**TIME FOR DATA DELIVERY**
-
-It may take up to **24 hours** for Azure to begin delivering cost and usage data. You can still proceed through the wizard, but the connection test may fail if data isn’t yet available.
-
-In the meantime, explore the optional requirements and feature integrations available in Harness CACM, these will be available to select in your **Choose Requirements** step of the connection wizard:
-
-* [Resource Inventory Management](../../cost-reporting/bi-dashboards/overview/).
-* [Optimization by AutoStopping](../../cost-optimization/autostopping-rules/1-auto-stopping-rules.md).
-* [Cloud Governance](../../cost-governance/asset-governance/1-asset-governance.md).
-{% endhint %}
-
-***
-
-### Interactive Guide <a href="#interactive-guide" id="interactive-guide"></a>
-
-Connect your Azure account to Harness using the connector wizard. Watch the walkthrough below, or follow the [Step-by-Step Guide](azure.md#step-by-step-guide) for the full detail on each step.
-
-{% embed url="https://app.tango.us/app/embed/e313dd8b-99ad-4fb0-a7f3-459d3a3ca5f6?skipCover=false&defaultListView=false&skipBranding=false&makeViewOnly=true&hideAuthorAndDetails=true" %}
-Add Azure Cloud Cost Connector in Harness
-{% endembed %}
-
-### Step-by-Step Guide <a href="#step-by-step-guide" id="step-by-step-guide"></a>
-
-#### Step 1: Overview <a href="#step-1-overview" id="step-1-overview"></a>
-
-1. Launch the wizard and select **Azure** as the cloud provider.
-2. Provide the following required information:
-   * **Name**: Enter a descriptive name for your connector
-   * **Azure Tenant ID**: Find your [Azure Tenant ID](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant)
-   * **Azure Subscription ID**: Find your [Azure Subscription ID](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id#find-your-azure-subscription)
-   * (Optional)**Description**: Add a description for your connector
-3. Click **Continue** to proceed to the next step.
-
-#### Step 2: Azure Billing Exports <a href="#step-2-azure-billing-exports" id="step-2-azure-billing-exports"></a>
-
-1. If you have not created a Billing Export, follow the [instructions to create a Billing Export](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-export-acm-data).
-2. Enter the following:
-
-| Required Info                       | Where to Find It                             | Why It’s Needed                                       |
-| ----------------------------------- | -------------------------------------------- | ----------------------------------------------------- |
-| **Storage Account Name**            | Azure Portal → Storage accounts              | Source location of exported billing data.             |
-| **Subscription ID**                 | Azure Portal → Subscriptions                 | Identifies the subscription being monitored.          |
-| **Storage Container**               | Azure Portal → Storage accounts → Containers | Target location for billing export data.              |
-| **Storage Directory & Export Name** | When configuring Billing Export in Azure     | Required to locate and identify billing data exports. |
-
-4. Select your **Metric (Billing Type)**:
-   * `Actual` or `Amortised`
-5. Click **Continue**.
-
-#### Step 3: Choose Requirements <a href="#step-3-choose-requirements" id="step-3-choose-requirements"></a>
-
-1. **Cost Visibility** is selected by default.
-2. (Optional) You can enable any of the following features (they can also be added later):
-   * Resource Inventory Management
-   * Optimization by AutoStopping. If selected, you can select granular permissions for AutoStopping by clicking **Continue**
-   * Cloud Governance
-3. Click **Continue**.
-
-#### Step 4: Create Service Principal <a href="#step-4-create-service-principal" id="step-4-create-service-principal"></a>
-
-Harness uses a multi-tenant application to securely access your billing data and enable the features you selected.
-
-1. The wizard displays customized Azure CLI commands based on your feature selections from **Step 3: Choose Requirements**.
-2. Copy and execute these commands in **Azure Cloud Shell** or your local terminal with Azure CLI.
-3. After successful execution, click **Continue**.
-
-{% hint style="info" %}
-The displayed commands are dependent on your specific feature selections. Always use the commands shown in your wizard interface.
-{% endhint %}
-
-{% hint style="info" %}
-Review [Feature Permissions](../../resources/feature-permissions.md) for CACM to understand the minimum roles or permissions needed for every CACM feature.
-{% endhint %}
-
-#### Step 5: Verify the Connection <a href="#step-5-verify-the-connection" id="step-5-verify-the-connection"></a>
-
-1. Harness will attempt to validate the connection using your inputs.
-2. If this step fails, it's usually because Azure has not yet delivered the first billing export.
-   * Wait up to **24 hours** after setting up the billing export before trying again.
-3. Once validated, click **Finish Setup**.
-
-***
-
-🎉 You’ve now connected your Azure account and enabled cost visibility in Harness.
-
-***
-
-### On-Demand Cost Export Triggering (Enterprise) <a href="#on-demand-cost-export-triggering-enterprise" id="on-demand-cost-export-triggering-enterprise"></a>
-
-Harness CACM can trigger Azure Cost Management exports on demand to provide fresher billing data. By default, Azure only updates cost exports once per day. With on-demand triggering enabled, Harness can request new export files multiple times per day, allowing more fresher billing data for current month.
-
-{% hint style="info" %}
-**AVAILABILITY**
-
-This feature requires **Enterprise** edition and the `CCM_TRIGGER_AZURE_COST_EXPORT` feature flag enabled for your account. Contact your Harness account team to enable it.
-{% endhint %}
-
-#### Prerequisites <a href="#prerequisites" id="prerequisites"></a>
-
-* **Harness CACM Enterprise plan**
-* Azure connector configured with billing export
-* `CCM_TRIGGER_AZURE_COST_EXPORT` feature flag enabled for your account
-
-#### Assigning the Role via Azure CLI <a href="#assigning-the-role-via-azure-cli" id="assigning-the-role-via-azure-cli"></a>
-
-Run the following command in Azure Cloud Shell or Azure CLI:
-
-```bash
-az role assignment create \
-  --assignee <Harness-Service-Principal-App-ID> \
-  --role "Cost Management Contributor" \
-  --scope /subscriptions/<Your-Subscription-ID>
+```sh
+az ad sp create --id 0211763d-24fb-4d63-865d-92f86f77e908
 ```
 
-Replace:
+Once added you should have an identity in your tenant named `Harness Continuous Efficiency App`.
 
-* `<Harness-Service-Principal-App-ID>` — The App ID shown in the Harness connector setup wizard
-* `<Your-Subscription-ID>` — Your Azure subscription ID
+## Billing data <a href="#billing-data" id="billing-data"></a>
 
-#### Assigning the Role via Azure Portal <a href="#assigning-the-role-via-azure-portal" id="assigning-the-role-via-azure-portal"></a>
+The first step is to [create a billing export](https://developer.harness.io/docs/cloud-cost-management/get-started/onboarding-guide/set-up-cost-visibility-for-azure/#azure-billing-exports) at the billing scope, management group, or subscription level. When you create the billing export, you will need to specify a storage account in some subscription for the export to be placed in. Once the billing export has been created, we will need give Harness access to read the export in the storage account.
 
-1. Navigate to **Subscriptions** → Select your subscription
-2. Go to **Access control (IAM)** → **Add** → **Add role assignment**
-3. Search for and select **Cost Management Contributor**
-4. Click **Next**, then **Select members**
-5. Search for the Harness service principal by its App ID
-6. Select it and click **Review + assign**
+To do this, assign `Storage Blob Data Reader` to the `Harness Continuous Efficiency App` identity for the container in the storage account which holds the billing export.
 
-#### Connector Setup <a href="#connector-setup" id="connector-setup"></a>
+![](../../.gitbook/assets/azure-export.png)
 
-When creating or editing an Azure CACM connector with billing enabled, the setup wizard automatically displays the required CLI commands. For Enterprise accounts with the `CCM_TRIGGER_AZURE_COST_EXPORT` feature flag enabled, you'll see an additional command for the Cost Management Contributor role:
+### Harness CACM Azure connector <a href="#harness-cacm-azure-connector" id="harness-cacm-azure-connector"></a>
 
-```bash
-# Register the Harness app
-az ad sp create --id <app-id>
+Now that the app has been added to your tenant and the export has been created we need to create a corresponding CACM Azure connector in your Harness account to start billing data ingestion.
 
-# Role assignment for enabling Cost Visibility
-SCOPE=`az storage account show --name <storage-account-name> --query "id" | xargs`
-az role assignment create --assignee <app-id> --role 'Storage Blob Data Reader' --scope $SCOPE
+You can create this connector through the UI or via the API with a tool like Terraform. Using Terraform is the recommended approach and there is a [Harness Terraform provider here](https://registry.terraform.io/providers/harness/harness/latest/docs).
 
-# Role assignment for enabling on-demand cost export triggering
-az role assignment create --assignee <app-id> --role 'Cost Management Contributor' --scope /subscriptions/<subscription-id>
+To configure the connector you will need the following information:
+
+* Tenant ID: The ID of your Azure Tenant
+* Subscription ID: The ID of the subscription where the storage account is located
+* Storage account name: The name of the storage account where the billing export is being delivered to
+* Storage account subscription ID: The ID of the subscription where the storage account is located
+* Storage container: The container in the storage account where the billing export is being delivered to
+* Storage directory: The folder in the container in the storage account where the billing export is being delivered to
+* Report name: The name of the billing export
+* Features enabled: The CACM features that you want to use in this subscription
+  * At minimum this should be `BILLING`
+  * You should additionally enable any other features you want to use in this subscription
+    * `VISIBILITY`: This enables the inventory management feature
+      * This will enable VM recommendations and metadata gathering
+    * `OPTIMIZATION`: This enables the optimization feature
+      * This will enable you to use the auto stopping feature for VMs
+
+```terraform
+resource "harness_platform_connector_azure_cloud_cost" "billing" {
+  identifier = "billing"
+  name       = "billing"
+
+  features_enabled = ["BILLING", "VISIBILITY", "OPTIMIZATION"]
+  tenant_id        = "3e93deba-142a-459a-ab89-eea28bdb589c"
+  subscription_id  = "e9ce099c-531b-4f97-b681-e7a02e032e4f"
+  billing_export_spec {
+    storage_account_name = "harnesscostexportstorage"
+    container_name       = "harness"
+    directory_name       = "export"
+    report_name          = "harnesscostexport"
+    subscription_id      = "e9ce099c-531b-4f97-b681-e7a02e032e4f"
+  }
+}
 ```
 
-<figure><img src="../../.gitbook/assets/rerun.png" alt="Azure Connector Setup"><figcaption></figcaption></figure>
+## Other subscriptions <a href="#other-subscriptions" id="other-subscriptions"></a>
 
-#### Data Freshness Expectations <a href="#data-freshness-expectations" id="data-freshness-expectations"></a>
+Enabling CACM for your subscription that holds the billing export gets your cost data into Harness and enables you to start creating perspectives, budgets, alerts, and dashboards. To leverage the other features like auto stopping, and recommendations we need to give access and create connectors for each subscription where you want to use these other features.
 
-| Scenario        | Expected Data Latency                                                                    |
-| --------------- | ---------------------------------------------------------------------------------------- |
-| Without feature | Consumes exports available at source with default export frequency of once a day         |
-| With feature    | Consumes exports three times a day. Thus giving more fresher cost data for current month |
+For the inventory management feature you need to give the Harness application `Reader` access to the subscription. If you utilized management groups in your tenant it can be easier to assign this access at the management group level so that access cascades down to all the subscriptions in the tenant.
 
-***
+For the optimization feature you need to give the Harness application `Contributor` access to the subscription. If you utilized management groups in your tenant it can be easier to assign this access at the management group level so that access cascades down to all the subscriptions in the tenant.
 
-### Next Steps <a href="#next-steps" id="next-steps"></a>
+### Fine-grain auto stopping permissions <a href="#fine-grain-auto-stopping-permissions" id="fine-grain-auto-stopping-permissions"></a>
 
-Once your Azure billing data is flowing into Harness, explore these features to enhance your cloud & AI cost management:
+If you do not wish to give Contributor access to the Harness application here is the fine grain actions needed for auto stopping. You can create a custom policy with these actions and assign it to the Harness application.
 
-* [View and Create Perspectives](https://developer.harness.io/docs/cloud-cost-management/use-ccm-cost-reporting/ccm-perspectives/creating-a-perspective) to visualize cloud usage and trends.
-* Create [Budgets and Alerts](../../cost-governance/budgets/create-a-budget.md) to monitor spend thresholds.
-* Use [BI Dashboards](../../cost-reporting/bi-dashboards/overview/) to visualize cloud usage and trends.
-* Revisit optional integrations:
-  * [Resource Inventory Management](../../cost-reporting/bi-dashboards/overview/).
-  * [Optimization by AutoStopping](../../cost-optimization/autostopping-rules/1-auto-stopping-rules.md).
-  * [Cloud Governance](../../cost-governance/asset-governance/1-asset-governance.md).
+```json
+{
+    [
+        {
+            "actions": [
+                "Microsoft.Authorization/operations/read",
+                "Microsoft.Authorization/permissions/read",
+                "Microsoft.Authorization/providerOperations/read",
+                "Microsoft.Authorization/roleAssignments/read",
+                "Microsoft.Authorization/roleDefinitions/read",
+                "Microsoft.Commerce/RateCard/read",
+                "Microsoft.Compute/availabilitySets/vmSizes/read",
+                "Microsoft.Compute/diskAccesses/read",
+                "Microsoft.Compute/disks/delete",
+                "Microsoft.Compute/disks/read",
+                "Microsoft.Compute/disks/write",
+                "Microsoft.Compute/locations/diskOperations/read",
+                "Microsoft.Compute/locations/vmSizes/read",
+                "Microsoft.Compute/locations/vsmOperations/read",
+                "Microsoft.Compute/sshPublicKeys/read",
+                "Microsoft.Compute/virtualMachines/capture/action",
+                "Microsoft.Compute/virtualMachines/convertToManagedDisks/action",
+                "Microsoft.Compute/virtualMachines/deallocate/action",
+                "Microsoft.Compute/virtualMachines/delete",
+                "Microsoft.Compute/virtualMachines/generalize/action",
+                "Microsoft.Compute/virtualMachines/instanceView/read",
+                "Microsoft.Compute/virtualMachines/powerOff/action",
+                "Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/read",
+                "Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/write",
+                "Microsoft.Compute/virtualMachines/providers/Microsoft.Insights/logDefinitions/read",
+                "Microsoft.Compute/virtualMachines/read",
+                "Microsoft.Compute/virtualMachines/reapply/action",
+                "Microsoft.Compute/virtualMachines/redeploy/action",
+                "Microsoft.Compute/virtualMachines/restart/action",
+                "Microsoft.Compute/virtualMachines/retrieveBootDiagnosticsData/action",
+                "Microsoft.Compute/virtualMachines/runCommand/action",
+                "Microsoft.Compute/virtualMachines/runCommands/read",
+                "Microsoft.Compute/virtualMachines/runCommands/write",
+                "Microsoft.Compute/virtualMachines/simulateEviction/action",
+                "Microsoft.Compute/virtualMachines/start/action",
+                "Microsoft.Compute/virtualMachines/vmSizes/read",
+                "Microsoft.Compute/virtualMachines/write",
+                "microsoft.insights/diagnosticSettings/read",
+                "microsoft.insights/diagnosticSettings/write",
+                "Microsoft.Network/applicationGatewayAvailableRequestHeaders/read",
+                "Microsoft.Network/applicationGatewayAvailableResponseHeaders/read",
+                "Microsoft.Network/applicationGatewayAvailableServerVariables/read",
+                "Microsoft.Network/applicationGatewayAvailableSslOptions/predefinedPolicies/read",
+                "Microsoft.Network/applicationGatewayAvailableSslOptions/read",
+                "Microsoft.Network/applicationGateways/backendAddressPools/join/action",
+                "Microsoft.Network/applicationGateways/backendhealth/action",
+                "Microsoft.Network/applicationGateways/delete",
+                "Microsoft.Network/applicationGateways/effectiveRouteTable/action",
+                "Microsoft.Network/applicationGateways/getBackendHealthOnDemand/action",
+                "Microsoft.Network/applicationGateways/getMigrationStatus/action",
+                "Microsoft.Network/applicationGateways/migrateV1ToV2/action",
+                "Microsoft.Network/applicationGateways/privateEndpointConnections/read",
+                "Microsoft.Network/applicationGateways/privateEndpointConnections/write",
+                "Microsoft.Network/applicationGateways/privateLinkConfigurations/read",
+                "Microsoft.Network/applicationGateways/privateLinkResources/read",
+                "Microsoft.Network/applicationGateways/providers/Microsoft.Insights/logDefinitions/read",
+                "Microsoft.Network/applicationGateways/providers/Microsoft.Insights/metricDefinitions/read",
+                "Microsoft.Network/applicationGateways/read",
+                "Microsoft.Network/applicationGateways/restart/action",
+                "Microsoft.Network/applicationGateways/start/action",
+                "Microsoft.Network/applicationGateways/stop/action",
+                "Microsoft.Network/applicationGateways/write",
+                "Microsoft.Network/applicationSecurityGroups/delete",
+                "Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action",
+                "Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action",
+                "Microsoft.Network/applicationSecurityGroups/listIpConfigurations/action",
+                "Microsoft.Network/applicationSecurityGroups/read",
+                "Microsoft.Network/applicationSecurityGroups/write",
+                "Microsoft.Network/internalPublicIpAddresses/read",
+                "Microsoft.Network/ipAllocations/read",
+                "Microsoft.Network/ipAllocations/write",
+                "Microsoft.Network/networkInterfaces/delete",
+                "Microsoft.Network/networkInterfaces/diagnosticIdentity/read",
+                "Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action",
+                "Microsoft.Network/networkInterfaces/effectiveRouteTable/action",
+                "Microsoft.Network/networkInterfaces/ipconfigurations/join/action",
+                "Microsoft.Network/networkInterfaces/ipconfigurations/read",
+                "Microsoft.Network/networkInterfaces/join/action",
+                "Microsoft.Network/networkInterfaces/read",
+                "Microsoft.Network/networkInterfaces/UpdateParentNicAttachmentOnElasticNic/action",
+                "Microsoft.Network/networkInterfaces/write",
+                "Microsoft.Network/networkProfiles/read",
+                "Microsoft.Network/networkProfiles/write",
+                "Microsoft.Network/networkSecurityGroups/defaultSecurityRules/read",
+                "Microsoft.Network/networkSecurityGroups/delete",
+                "Microsoft.Network/networkSecurityGroups/join/action",
+                "Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read",
+                "Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write",
+                "Microsoft.Network/networkSecurityGroups/read",
+                "Microsoft.Network/networkSecurityGroups/securityRules/delete",
+                "Microsoft.Network/networkSecurityGroups/securityRules/read",
+                "Microsoft.Network/networkSecurityGroups/securityRules/write",
+                "Microsoft.Network/networkSecurityGroups/write",
+                "Microsoft.Network/operations/read",
+                "Microsoft.Network/publicIPAddresses/ddosProtectionStatus/action",
+                "Microsoft.Network/publicIPAddresses/delete",
+                "Microsoft.Network/publicIPAddresses/dnsAliases/read",
+                "Microsoft.Network/publicIPAddresses/dnsAliases/write",
+                "Microsoft.Network/publicIPAddresses/join/action",
+                "Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read",
+                "Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write",
+                "Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read",
+                "Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read",
+                "Microsoft.Network/publicIPAddresses/read",
+                "Microsoft.Network/publicIPAddresses/write",
+                "Microsoft.Network/publicIPPrefixes/read",
+                "Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read",
+                "Microsoft.Network/virtualNetworks/customViews/get/action",
+                "Microsoft.Network/virtualNetworks/customViews/read",
+                "Microsoft.Network/virtualNetworks/join/action",
+                "Microsoft.Network/virtualNetworks/joinLoadBalancer/action",
+                "Microsoft.Network/virtualNetworks/listDnsForwardingRulesets/action",
+                "Microsoft.Network/virtualNetworks/listDnsResolvers/action",
+                "Microsoft.Network/virtualNetworks/peer/action",
+                "Microsoft.Network/virtualNetworks/privateDnsZoneLinks/read",
+                "Microsoft.Network/virtualNetworks/read",
+                "Microsoft.Network/virtualNetworks/remoteVirtualNetworkPeeringProxies/read",
+                "Microsoft.Network/virtualNetworks/remoteVirtualNetworkPeeringProxies/write",
+                "Microsoft.Network/virtualNetworks/subnets/join/action",
+                "Microsoft.Network/virtualNetworks/subnets/joinLoadBalancer/action",
+                "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action",
+                "Microsoft.Network/virtualNetworks/subnets/read",
+                "Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/details/read",
+                "Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/read",
+                "Microsoft.Network/virtualNetworks/subnets/serviceAssociationLinks/write",
+                "Microsoft.Network/virtualNetworks/subnets/virtualMachines/read",
+                "Microsoft.Network/virtualNetworks/subnets/write",
+                "Microsoft.Network/virtualNetworks/virtualMachines/read",
+                "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read",
+                "Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write",
+                "Microsoft.Resources/subscriptions/resourceGroups/read",
+                "Microsoft.Storage/checknameavailability/read",
+                "Microsoft.Storage/locations/checknameavailability/read",
+                "Microsoft.Storage/locations/usages/read",
+                "Microsoft.Storage/register/action",
+                "Microsoft.Storage/skus/read",
+                "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+                "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+                "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+                "Microsoft.Storage/storageAccounts/blobServices/read",
+                "Microsoft.Storage/storageAccounts/blobServices/write",
+                "Microsoft.Storage/storageAccounts/delete",
+                "Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read",
+                "Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read",
+                "Microsoft.Storage/storageAccounts/fileServices/read",
+                "Microsoft.Storage/storageAccounts/fileServices/shares/action",
+                "Microsoft.Storage/storageAccounts/fileServices/shares/delete",
+                "Microsoft.Storage/storageAccounts/fileServices/shares/read",
+                "Microsoft.Storage/storageAccounts/fileServices/shares/write",
+                "Microsoft.Storage/storageAccounts/fileServices/write",
+                "Microsoft.Storage/storageAccounts/listAccountSas/action",
+                "Microsoft.Storage/storageAccounts/listkeys/action",
+                "Microsoft.Storage/storageAccounts/listServiceSas/action",
+                "Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/read",
+                "Microsoft.Storage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/write",
+                "Microsoft.Storage/storageAccounts/read",
+                "Microsoft.Storage/storageAccounts/regeneratekey/action",
+                "Microsoft.Storage/storageAccounts/rotateKey/action",
+                "Microsoft.Storage/storageAccounts/services/diagnosticSettings/write",
+                "Microsoft.Storage/storageAccounts/storageTasks/read",
+                "Microsoft.Storage/storageAccounts/storageTasks/write",
+                "Microsoft.Storage/storageAccounts/tableServices/read",
+                "Microsoft.Storage/storageAccounts/tableServices/tables/read",
+                "Microsoft.Storage/storageAccounts/tableServices/tables/write",
+                "Microsoft.Storage/storageAccounts/tableServices/write",
+                "Microsoft.Storage/storageAccounts/updateInternalProperties/action",
+                "Microsoft.Storage/storageAccounts/write",
+                "Microsoft.Storage/storageTasks/read",
+                "Microsoft.Storage/storageTasks/write",
+                "Microsoft.Web/certificates/Read",
+                "Microsoft.Web/certificates/Write",
+                "microsoft.web/sites/functions/action",
+                "microsoft.web/sites/functions/delete",
+                "microsoft.web/sites/functions/keys/delete",
+                "microsoft.web/sites/functions/keys/write",
+                "microsoft.web/sites/functions/listkeys/action",
+                "microsoft.web/sites/functions/listsecrets/action",
+                "microsoft.web/sites/functions/masterkey/read",
+                "microsoft.web/sites/functions/read",
+                "microsoft.web/sites/functions/token/read",
+                "microsoft.web/sites/functions/write",
+                "microsoft.web/sites/host/functionkeys/delete",
+                "microsoft.web/sites/host/functionkeys/write",
+                "microsoft.web/sites/host/listkeys/action",
+                "microsoft.web/sites/host/systemkeys/delete",
+                "microsoft.web/sites/host/systemkeys/write",
+                "microsoft.web/sites/hostruntime/functions/keys/read",
+                "Microsoft.Web/sites/hostruntime/host/action",
+                "microsoft.web/sites/publiccertificates/read",
+                "microsoft.web/sites/publiccertificates/write",
+                "Microsoft.Web/sites/read",
+                "Microsoft.Web/sites/write",
+                "Microsoft.Web/staticSites/builds/functions/Read",
+                "Microsoft.Web/staticSites/functions/Read"
+            ],
+            "notActions": [],
+            "dataActions": [
+                "Microsoft.KeyVault/vaults/secrets/getSecret/action"
+            ],
+            "notDataActions": []
+        }
+    ]
+}
+```
 
-Turn visibility into action and unlock cost efficiency across your Azure cloud infrastructure.
+### Harness CACM Azure connector <a href="#harness-cacm-azure-connector" id="harness-cacm-azure-connector"></a>
+
+Now that the Harness application has been granted access to your subscriptions we need to create a corresponding CACM Azure connector in your Harness account for each subscription.
+
+You can create these connectors through the UI or via the API with a tool like Terraform. Using Terraform is the recommended approach and there is a [Harness Terraform provider here](https://registry.terraform.io/providers/harness/harness/latest/docs).
+
+To configure the connector you will need the following information:
+
+* Tenant ID: The ID of your Azure Tenant
+* Subscription ID: The ID of the subscription where the storage account is located
+* Features enabled: The CACM features that you want to use in this subscription
+  * You should not set `BILLING` as enabled
+  * You should enable the features you want to use in this subscription
+    * `VISIBILITY`: This enables the inventory management feature
+      * This will enable VM recommendations and metadata gathering
+    * `OPTIMIZATION`: This enables the optimization feature
+      * This will enable you to use the auto stopping feature for VMs
+
+```terraform
+resource "harness_platform_connector_azure_cloud_cost" "subscription" {
+  identifier = "subscription"
+  name       = "subscription"
+
+  features_enabled = ["VISIBILITY", "OPTIMIZATION"]
+  tenant_id        = "3e93deba-142a-459a-ab89-eea28bdb589c"
+  subscription_id  = "e9ce099c-531b-4f97-b681-e7a02e032e4f"
+}
+```
+
+## Overview <a href="#overview" id="overview"></a>
+
+![](../../.gitbook/assets/azure.png)
+
+## VM recommendations <a href="#vm-recommendations" id="vm-recommendations"></a>
+
+To get VM recommendations, you needs to [enable Azure Advisor VM/VMSS recommendations](../../new-to-cacm/quickstart.md#enable-azure-recommendations) for every subscription (that you want recommendations for.
+
+To enable VM recommendations you must have [Azure Advisor](https://developer.harness.io/docs/cloud-cost-management/get-started/onboarding-guide/set-up-cost-visibility-for-azure/#enable-azure-recommendations) turned on in the subscription with VMs that you want recommendations for. Harness does not compute recommendations but pulls them from Azure Advisor across your subscriptions and centralizes them in CACM.
 
 {% @harness-feedback/feedback %}

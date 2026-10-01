@@ -1,6 +1,5 @@
 ---
 description: This topic describes how to create a new budget group.
-title: Budget Groups
 ---
 
 
@@ -9,7 +8,7 @@ title: Budget Groups
 {% hint style="info" %}
 **Behind a Feature Flag**
 
-Budget Groups are currently behind the `CCM_BUDGET_CASCADES` feature flag. Contact [Harness Support](mailto:support@harness.io) to have the flag enabled for your account.
+Budget Groups are behind the `CCM_BUDGET_CASCADES` feature flag. Contact [Harness Support](mailto:support@harness.io) to have the flag enabled for your account.
 {% endhint %}
 
 Budget Groups aggregate related budgets and budget groups into one consolidated entity, giving you a unified view of spend. **A given Budget Group can contain&#x20;**_**either**_**&#x20;Budgets&#x20;**_**or**_**&#x20;Budget Groups.**
@@ -25,14 +24,14 @@ Budget Groups aggregate related budgets and budget groups into one consolidated 
 
 * [Budgets](create-a-budget.md): A Budget groups is a collection of Budgets or collection of Budget Groups.
 
-### Create a Budget Group <a href="#create-a-budget-group" id="create-a-budget-group"></a>
+### Create a budget group <a href="#create-a-budget-group" id="create-a-budget-group"></a>
 
 {% tabs %}
 {% tab title="Step-by-Step Guide" %}
 1. Navigate to the **Cloud & AI Cost Management** module and click **Budgets**
 2. Click **Create a new Budget Group**.
 
-#### Step 1: Define Group <a href="#step-1-define-group" id="step-1-define-group"></a>
+#### Step 1: Define group <a href="#step-1-define-group" id="step-1-define-group"></a>
 
 <figure><img src="../../.gitbook/assets/step-one-bg.png" alt=""><figcaption><p>Click to view full-size image</p></figcaption></figure>
 
@@ -45,7 +44,7 @@ Budget Groups aggregate related budgets and budget groups into one consolidated 
 
 ***
 
-#### Step 2: Configure Group <a href="#step-2-configure-group" id="step-2-configure-group"></a>
+#### Step 2: Configure group <a href="#step-2-configure-group" id="step-2-configure-group"></a>
 
 <figure><img src="../../.gitbook/assets/step-two-bg.png" alt=""><figcaption><p>Click to view full-size image</p></figcaption></figure>
 
@@ -57,7 +56,7 @@ Budget Groups aggregate related budgets and budget groups into one consolidated 
 
 ***
 
-#### Step 3: (Optional) Set Alerts <a href="#step-3-optional-set-alerts" id="step-3-optional-set-alerts"></a>
+#### Step 3: (Optional) set alerts <a href="#step-3-optional-set-alerts" id="step-3-optional-set-alerts"></a>
 
 <figure><img src="../../.gitbook/assets/step-three-bg.png" alt=""><figcaption><p>Click to view full-size image</p></figcaption></figure>
 
@@ -79,13 +78,13 @@ Add AWS Cloud Cost Connector in Harness
 {% endtab %}
 {% endtabs %}
 
-### Tracking Budget Group <a href="#tracking-budget-group" id="tracking-budget-group"></a>
+### Budget group tracking <a href="#tracking-budget-group" id="tracking-budget-group"></a>
 
 {% tabs %}
 {% tab title="Budget Group Insights" %}
-When you click on a specific budget group, you'll see a detailed view containing:
+When you click on a specific budget group, you will see a detailed view containing:
 
-#### Budget Groups Overview Cards <a href="#budget-groups-overview-cards" id="budget-groups-overview-cards"></a>
+#### Budget groups overview cards <a href="#budget-groups-overview-cards" id="budget-groups-overview-cards"></a>
 
 <figure><img src="../../.gitbook/assets/bg-one.gif" alt=""><figcaption><p>Click to view full-size image</p></figcaption></figure>
 
@@ -93,12 +92,12 @@ Each budget displays the following key metrics:
 
 * **Budget Period**: The time frame for your budget group (daily, weekly, monthly, quarterly, or yearly)
 * **Spend Till Date**: The actual amount spent from the budget group start date to the current date
-* **Budget Amount**: The total budget limit you've set for the specified period
+* **Budget Amount**: The total budget limit you have set for the specified period
 * **Forecasted Cost**: Predicted spending based on current usage patterns and historical data
-* **Alerts At**: The threshold percentages and notification settings you've configured
+* **Alerts At**: The threshold percentages and notification settings you have configured
 * **Budget Group Contents**: Details about the budgets or budget groups that are part of the budget group.
 
-#### Budget History Graph and Table <a href="#budget-history-graph-and-table" id="budget-history-graph-and-table"></a>
+#### Budget history graph and table <a href="#budget-history-graph-and-table" id="budget-history-graph-and-table"></a>
 
 <figure><img src="../../.gitbook/assets/bg-two.gif" alt=""><figcaption><p>Click to view full-size image</p></figcaption></figure>
 
@@ -135,7 +134,7 @@ Budget Dashboard Navigation Guide
 {% endtab %}
 {% endtabs %}
 
-#### Edit/Delete Budget Groups <a href="#editdelete-budget-groups" id="editdelete-budget-groups"></a>
+#### Edit/Delete budget groups <a href="#editdelete-budget-groups" id="editdelete-budget-groups"></a>
 
 **Edit a Budget Group**
 

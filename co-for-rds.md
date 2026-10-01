@@ -3,11 +3,11 @@ description: Learn how to use Commitment Orchestrator to optimize your AWS RDS c
 ---
 
 
-# Commitment Orchestrator for RDS (Beta)
+# Commitment Orchestrator For RDS
 
 Commitment Orchestrator for RDS helps you optimize your Amazon RDS (Relational Database Service) costs by automatically managing your Reserved Instance (RI) commitments. It analyzes your RDS usage patterns and recommends the most cost-effective combination of Reserved Instances.
 
-## Key Features <a href="#key-features" id="key-features"></a>
+## Key features <a href="#key-features" id="key-features"></a>
 
 * **Automated RI Management**: Automatically purchases and exchanges RDS Reserved Instances based on your usage patterns
 * **Multi-Account Support**: Manages RDS commitments across all your AWS accounts from a single master account
@@ -25,7 +25,7 @@ Before setting up Commitment Orchestrator for RDS, ensure you have:
 
 ### Permissions for visibility <a href="#permissions-for-visibility" id="permissions-for-visibility"></a>
 
-```
+```text
 "ec2:DescribeReservedInstancesOfferings",
 "ce:GetSavingsPlansUtilization",
 "ce:GetReservationUtilization",
@@ -40,9 +40,9 @@ Before setting up Commitment Orchestrator for RDS, ensure you have:
 "ce:GetCostAndUsage"
 ```
 
-### Permissions for Orchestration <a href="#permissions-for-orchestration" id="permissions-for-orchestration"></a>
+### Permissions for orchestration <a href="#permissions-for-orchestration" id="permissions-for-orchestration"></a>
 
-```
+```text
 "ec2:PurchaseReservedInstancesOffering",
 "ec2:GetReservedInstancesExchangeQuote",
 "ec2:DescribeInstanceTypeOfferings",              
@@ -56,7 +56,7 @@ Before setting up Commitment Orchestrator for RDS, ensure you have:
 
 ### Permissions for RDS <a href="#permissions-for-rds" id="permissions-for-rds"></a>
 
-```
+```text
 "rds:PurchaseReservedDBInstancesOffering",
 "rds:DescribeReservedDBInstancesOfferings",
 "pricing:GetProducts"

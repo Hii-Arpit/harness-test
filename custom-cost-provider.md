@@ -2,7 +2,6 @@
 description: >-
   Bring cost data from third-party vendors into Cloud & AI Cost Management using
   the FOCUS CSV format.
-title: Custom Cost Provider
 ---
 
 
@@ -10,15 +9,15 @@ title: Custom Cost Provider
 
 The Custom Cost Provider lets you bring cost data from any third-party vendor, such as SaaS tools, data centers, or cloud resellers, into Cloud & AI Cost Management (CACM). Once ingested, the data appears alongside your cloud and AI costs in Cost Explorer, Perspectives, Budgets, and Cost Categories.
 
-You upload cost data in the [FOCUS](https://focus.finops.org/what-is-focus/) CSV format — a standard billing schema that maps any vendor's data into a consistent structure CACM can process.
+You upload cost data in the [FOCUS](https://focus.finops.org/what-is-focus/) CSV format - a standard billing schema that maps any vendor's data into a consistent structure CACM can process.
 
 {% hint style="info" %}
-This feature is currently in early access and behind the `CCM_EXTERNAL_DATA_INGESTION` feature flag. Contact [Harness Support](mailto:support@harness.io) to enable it for your account.
+The feature is in early access and behind the `CCM_EXTERNAL_DATA_INGESTION` feature flag. Contact [Harness Support](mailto:support@harness.io) to enable it for your account.
 {% endhint %}
 
 ***
 
-### Before You Begin <a href="#before-you-begin" id="before-you-begin"></a>
+### Before you begin <a href="#before-you-begin" id="before-you-begin"></a>
 
 * A Harness account with Cloud & AI Cost Management enabled.
 * Cost data from your vendor exported as a CSV file. Go to [Report Format](custom-cost-provider.md#report-format) to review the required fields.
@@ -26,7 +25,7 @@ This feature is currently in early access and behind the `CCM_EXTERNAL_DATA_INGE
 
 ***
 
-### Add a Custom Cost Source <a href="#add-a-custom-cost-source" id="add-a-custom-cost-source"></a>
+### Add a custom Cost source <a href="#add-a-custom-cost-source" id="add-a-custom-cost-source"></a>
 
 1. In Harness, go to **Cloud & AI Cost Management** > **Account Settings** > **Integration for cloud & AI cost**.
 2. Select the **External Cost Data Sources** tab.
@@ -36,7 +35,7 @@ This feature is currently in early access and behind the `CCM_EXTERNAL_DATA_INGE
 
 ***
 
-### Supported Features <a href="#supported-features" id="supported-features"></a>
+### Supported features <a href="#supported-features" id="supported-features"></a>
 
 | Feature         | Supported   |
 | --------------- | ----------- |
@@ -51,12 +50,12 @@ This feature is currently in early access and behind the `CCM_EXTERNAL_DATA_INGE
 {% hint style="info" %}
 **DASHBOARD SUPPORT MEANS UNIFIED EXPLORE FIELDS**
 
-Dashboard support for external cost data means ingested rows are queryable through the **Unified** data source in BI Dashboards Explore, not that an existing out-of-the-box dashboard automatically adds rows from a new source. Out-of-the-box dashboards built against cloud-provider fields don't reference a source you add later. To see external data in a dashboard, build or edit a widget, select the **Unified** tab, and choose fields from there. Go to [CACM Explore](../cost-reporting/bi-dashboards/ccm-explore.md) to see the full list of available Unified fields.
+Dashboard support for external cost data means ingested rows are queryable through the **Unified** data source in BI Dashboards Explore, not that an existing out-of-the-box dashboard automatically adds rows from a new source. Out-of-the-box dashboards built against cloud-provider fields do not reference a source you add later. To see external data in a dashboard, build or edit a widget, select the **Unified** tab, and choose fields from there. Go to [CACM Explore](../cost-reporting/bi-dashboards/ccm-explore.md) to see the full list of available Unified fields.
 {% endhint %}
 
 ***
 
-### Report Format <a href="#report-format" id="report-format"></a>
+### Report format <a href="#report-format" id="report-format"></a>
 
 All uploads must follow the [FOCUSv1 specification](https://focus.finops.org/wp-content/uploads/2024/11/FOCUS-spec-v1_1.pdf). The following fields are mandatory.
 
@@ -69,7 +68,7 @@ All uploads must follow the [FOCUSv1 specification](https://focus.finops.org/wp-
 | **ChargeCategory**     | Highest-level classification of the charge.                                           | MUST be present, no nulls. Allowed values: `Usage`, `Purchase`, `Tax`, `Credit`, `Adjustment`.                                                            |
 | **ChargePeriodStart**  | Inclusive start date and time of the charge period.                                   | MUST be present, type Date/Time, inclusive, no nulls.                                                                                                     |
 | **ChargePeriodEnd**    | Exclusive end date and time of the charge period.                                     | MUST be present, type Date/Time, exclusive, no nulls.                                                                                                     |
-| **ConsumedQuantity**   | Volume of a metered SKU consumed.                                                     | See [FOCUSv1 spec](https://focus.finops.org/wp-content/uploads/2024/11/FOCUS-spec-v1_1.pdf) for details.                                                  |
+| **ConsumedQuantity**   | Volume of a metered SKU consumed.                                                     | For more information, go to [FOCUSv1 spec](https://focus.finops.org/wp-content/uploads/2024/11/FOCUS-spec-v1_1.pdf).                                                  |
 | **EffectiveCost**      | Amortized cost after discounts and prepaid purchases.                                 | MUST be present, type Decimal, no nulls. MUST be 0 when ChargeCategory is "Purchase" covering future charges.                                             |
 | **ProviderName**       | Entity that makes resources or services available.                                    | MUST be present, type String, no nulls. Should match the `ProviderType` used when setting up the integration.                                             |
 | **RegionName**         | Display name for the geographic area where the resource is provisioned.               | MUST be present when the provider supports regions. Type String. MAY be null when the resource is not region-specific.                                    |
@@ -78,7 +77,7 @@ All uploads must follow the [FOCUSv1 specification](https://focus.finops.org/wp-
 | **SkuId**              | Unique identifier for a SKU.                                                          | MUST be present when the provider publishes a SKU list. Type String. MUST NOT be null for Usage or Purchase charges (unless ChargeClass is "Correction"). |
 | **SubAccountId**       | Provider-assigned identifier for a sub account.                                       | MUST be present when the provider supports sub accounts. Type String. Null if the charge does not apply to a sub account.                                 |
 | **SubAccountName**     | Display name for a sub account.                                                       | MUST be present when the provider supports sub accounts. Type String. Null if the charge does not apply to a sub account.                                 |
-| **Tags**               | Tags assigned to tag sources for cost allocation.                                     | See [FOCUSv1 spec](https://focus.finops.org/wp-content/uploads/2024/11/FOCUS-spec-v1_1.pdf) for details.                                                  |
+| **Tags**               | Tags assigned to tag sources for cost allocation.                                     | For more information, go to [FOCUSv1 spec](https://focus.finops.org/wp-content/uploads/2024/11/FOCUS-spec-v1_1.pdf).                                                  |
 
 {% hint style="info" %}
 For the complete specification, go to [FOCUSv1 Specification](https://focus.finops.org/wp-content/uploads/2024/11/FOCUS-spec-v1_1.pdf).
@@ -122,9 +121,9 @@ Split the file into multiple CSV files under 20 MB each using a CSV splitting to
 
 <details>
 
-<summary>My external data source shows up in Perspectives, but rows don't appear in a Unified BI Dashboard widget. Why?</summary>
+<summary>My external data source shows up in Perspectives, but rows do not appear in a Unified BI Dashboard widget. Why?</summary>
 
-Perspectives and the Unified dashboard explore query ingested data differently. Confirm the widget itself was built or edited by selecting fields from the Unified explore tab rather than a cloud-provider-specific tab, since out-of-the-box dashboards don't automatically reference a source added after they were built. If a widget already scoped to Unified still doesn't show the row, check that every mandatory FOCUS field in your upload is valid, in particular ChargeCategory (must be one of Usage, Purchase, Tax, Credit, or Adjustment) and ChargePeriodStart/ChargePeriodEnd (must be ISO-conformant per the FOCUS spec).
+Perspectives and the Unified dashboard explore query ingested data differently. Confirm the widget itself was built or edited by selecting fields from the Unified explore tab rather than a cloud-provider-specific tab, since out-of-the-box dashboards do not automatically reference a source added after they were built. If a widget already scoped to Unified still does not show the row, check that every mandatory FOCUS field in your upload is valid, in particular ChargeCategory (must be one of Usage, Purchase, Tax, Credit, or Adjustment) and ChargePeriodStart/ChargePeriodEnd (must be ISO-conformant per the FOCUS spec).
 
 </details>
 

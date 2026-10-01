@@ -7,13 +7,9 @@ description: Unit Cost Metrics documentation for Harness Cloud & AI Cost Managem
 
 ## Overview <a href="#overview" id="overview"></a>
 
-{% hint style="info" %}
-The Unit Cost Metrics feature is controlled by the `CCM_UNIT_COST_METRICS` feature flag. Contact your Harness account team to enable this feature.
-{% endhint %}
+Unit Cost Metrics is a feature in Harness Cloud & AI Cost Management (CACM) that allows you to track and analyze custom business metrics over time. These metrics help you correlate cloud costs with business drivers like headcount, transactions, users, or any other quantifiable measure that is meaningful to your organization.
 
-Unit Cost Metrics is a feature in Harness Cloud & AI Cost Management (CACM) that allows you to track and analyze custom business metrics over time. These metrics help you correlate cloud costs with business drivers like headcount, transactions, users, or any other quantifiable measure that's meaningful to your organization.
-
-By tracking unit metrics alongside your cloud costs, you can calculate **unit economics** — understanding not just how much you're spending, but how efficiently you're spending relative to business growth.
+By tracking unit metrics alongside your cloud costs, you can calculate **unit economics** - understanding not just how much you are spending, but how efficiently you are spending relative to business growth.
 
 **What you can do with Unit Cost Metrics:**
 
@@ -23,11 +19,11 @@ By tracking unit metrics alongside your cloud costs, you can calculate **unit ec
 * Monitor key statistics (totals, averages, date ranges)
 * Calculate cost per unit
 
-### What is a Unit Metric? <a href="#what-is-a-unit-metric" id="what-is-a-unit-metric"></a>
+### What is a unit metric? <a href="#what-is-a-unit-metric" id="what-is-a-unit-metric"></a>
 
 A unit metric is a time-series measurement of any quantifiable business value that helps you understand your cloud spending efficiency. Instead of just knowing you spent USD50,000 last month, you can calculate that you spent USD1,000 per developer or USD0.05 per transaction.
 
-### Metric Components <a href="#metric-components" id="metric-components"></a>
+### Metric components <a href="#metric-components" id="metric-components"></a>
 
 Each unit metric consists of:
 
@@ -48,9 +44,9 @@ Each unit metric consists of:
 5. **Aggregation Type**: How multiple values should be combined when viewing data at different time ranges
    * More on this in the next section - this is critical to get right!
 
-### Understanding Aggregation Types <a href="#understanding-aggregation-types" id="understanding-aggregation-types"></a>
+### Aggregation types <a href="#understanding-aggregation-types" id="understanding-aggregation-types"></a>
 
-Aggregation determines how your metric values are combined when you're viewing data over longer time periods or when multiple records exist for the same time period.
+Aggregation determines how your metric values are combined when you are viewing data over longer time periods or when multiple records exist for the same time period.
 
 **When does aggregation matter?**
 
@@ -66,7 +62,7 @@ Aggregation determines how your metric values are combined when you're viewing d
     * Total headcount across teams: Platform (45) + Frontend (32) + Mobile (18) = **95 total employees**
     * Total API calls across regions: US (1M) + EU (800K) + APAC (500K) = **2.3M total calls**
 * **Average** - Calculate the average
-  * **Use when:** Your metric represents a **rate or intensity** that shouldn't be added together.
+  * **Use when:** Your metric represents a **rate or intensity** that should not be added together.
   * **Examples:**
     * Average CPU utilization across servers: Server1 (80%) + Server2 (60%) + Server3 (40%) = **60% average** (not 180%)
 * **MAX** - Show the maximum value
@@ -157,7 +153,7 @@ The following metrics are derived by combining cost data with your Git provider 
 
 ***
 
-## Creating a Unit Metric <a href="#creating-a-unit-metric" id="creating-a-unit-metric"></a>
+## Unit metric creation <a href="#creating-a-unit-metric" id="creating-a-unit-metric"></a>
 
 Go to **CACM > Account Settings > Unit Metrics >Create New** to create a new metric.
 
@@ -173,10 +169,10 @@ When creating a new metric, add:
   * `AVG`: Calculate average (useful for rate metrics)
   * `MIN`: Show minimum value
   * `MAX`: Show maximum value
-* **Missing Data Handling**: Real-world data collection isn't perfect. Your data pipeline might fail, your source system might have downtime, or you simply might not have data for weekends. Missing data handling tells Harness what to do with those gaps.
-  * `Show previous value`: Carry forward the last known value. If there's no data for a day, use the last known value.
-  * `Show as 0`: Fill gaps with zero. If there's no data for a day, assume the value was zero.
-  * `Leave blank`: Don't fill gaps (not recommended). This simply skips that day in charts and calculations.
+* **Missing Data Handling**: Real-world data collection is not perfect. Your data pipeline might fail, your source system might have downtime, or you simply might not have data for weekends. Missing data handling tells Harness what to do with those gaps.
+  * `Show previous value`: Carry forward the last known value. If there is no data for a day, use the last known value.
+  * `Show as 0`: Fill gaps with zero. If there is no data for a day, assume the value was zero.
+  * `Leave blank`: Do not fill gaps (not recommended). This simply skips that day in charts and calculations.
 {% endtab %}
 
 {% tab title="Ingestion Method" %}
@@ -191,7 +187,7 @@ CACM supports three ways to ingest metric data:
 
     **API Endpoint:**
 
-    ```
+    ```text
     PUT https://app.harness.io/ccm/api/unit-metric?accountIdentifier={accountId}
     ```
 2.  **Upload .CSV/Paste JSON**: Upload CSV files or paste JSON data directly through the UI for quick imports or historical data loads.
@@ -200,7 +196,7 @@ CACM supports three ways to ingest metric data:
 
     Expected format
 
-    ```
+    ```text
     usageTimeStamp,value
     2025-02-01T00:00:00Z,12345
     2025-03-01T00:00:00Z,12389
@@ -209,7 +205,7 @@ CACM supports three ways to ingest metric data:
 
     With a label column (optional)
 
-    ```
+    ```text
     usageTimeStamp,team,value
     2025-02-01T00:00:00Z,ccm,12345
     2025-02-01T00:00:00Z,ci,8920
@@ -248,9 +244,9 @@ CACM supports three ways to ingest metric data:
 
 ***
 
-## Viewing Unit Metrics <a href="#viewing-unit-metrics" id="viewing-unit-metrics"></a>
+## Unit metrics <a href="#viewing-unit-metrics" id="viewing-unit-metrics"></a>
 
-### Metrics List View <a href="#metrics-list-view" id="metrics-list-view"></a>
+### Metrics list view <a href="#metrics-list-view" id="metrics-list-view"></a>
 
 The main Cloud Integration page shows all your unit metrics in a table with:
 
@@ -258,7 +254,7 @@ The main Cloud Integration page shows all your unit metrics in a table with:
 * **Labels**: Tag-based segmentation
 * **Last Updated**: Timestamp of most recent data ingestion
 
-### Metric Details Page <a href="#metric-details-page" id="metric-details-page"></a>
+### Metric details page <a href="#metric-details-page" id="metric-details-page"></a>
 
 <figure><img src="../.gitbook/assets/unit-cost-dashboard.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -269,7 +265,7 @@ Each metric has a dedicated details page showing:
 
 3. **Metric Over Time Chart**: Time-series visualization of metric values with adjustable time range (default: last 6 months)
 
-## Editing and Managing Metrics <a href="#editing-and-managing-metrics" id="editing-and-managing-metrics"></a>
+## Metric management <a href="#editing-and-managing-metrics" id="editing-and-managing-metrics"></a>
 
 **Edit Metric Configuration**
 

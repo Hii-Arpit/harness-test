@@ -1,16 +1,15 @@
 ---
 description: Supported platforms and feature support matrix for Harness CACM.
-title: What's supported in Harness CACM
 ---
 
 
-# What's supported in Harness CACM
+# What is supported in Harness CACM
 
 {% include "../.gitbook/includes/__shared/shared/ccm-supported-platforms.md" %}
 
 ***
 
-### Supported AI Providers and Capabilities <a href="#supported-ai-providers-and-capabilities" id="supported-ai-providers-and-capabilities"></a>
+### Supported AI providers and capabilities <a href="#supported-ai-providers-and-capabilities" id="supported-ai-providers-and-capabilities"></a>
 
 The following table displays which Cloud & AI Cost Management capabilities are available for each AI provider. Core capabilities (GenAI costs, AI traces, Cost Explorer, Dashboards, Cost Categories, and Budgets) are supported across every provider. **AWS Bedrock** has the widest coverage, supporting every capability.
 
@@ -32,11 +31,11 @@ For **Anthropic Developer Platform** and **OpenAI**, costs by principal are attr
 
 ***
 
-### Supported Environments <a href="#supported-environments" id="supported-environments"></a>
+### Supported environments <a href="#supported-environments" id="supported-environments"></a>
 
 Harness CACM supports the following platforms and orchestration systems:
 
-#### Cloud Platforms <a href="#cloud-platforms" id="cloud-platforms"></a>
+#### Cloud platforms <a href="#cloud-platforms" id="cloud-platforms"></a>
 
 * AWS
 * GCP
@@ -47,7 +46,7 @@ Harness CACM supports the following platforms and orchestration systems:
 * Kubernetes: EKS (AWS), GKE (GCP), AKS (Azure)
 * ECS Clusters
 
-#### Deployment Model <a href="#deployment-model" id="deployment-model"></a>
+#### Deployment model <a href="#deployment-model" id="deployment-model"></a>
 
 * Harness SaaS
 
@@ -57,7 +56,7 @@ Go to [Data Sources and Refresh Rates](data-ingestion-reference.md) to review wh
 
 ***
 
-#### Supported Kubernetes Management Platform <a href="#supported-kubernetes-management-platform" id="supported-kubernetes-management-platform"></a>
+#### Supported Kubernetes management platform <a href="#supported-kubernetes-management-platform" id="supported-kubernetes-management-platform"></a>
 
 The following section lists the support for Kubernetes management platform for CACM:
 
@@ -75,7 +74,7 @@ The following section lists the support for Kubernetes management platform for C
 
 ## CACM Feature Flags <a href="#cacm-feature-flags" id="cacm-feature-flags"></a>
 
-Some Harness CACM features are released behind feature flags to get feedback from specific customers before releasing the features to the general audience.
+Some Harness CACM features are released behind feature flags to get feedback from specific users before releasing the features to the general audience.
 
 {% hint style="info" %}
 To enable a feature flag in your Harness account, contact [Harness Support](mailto:support@harness.io).

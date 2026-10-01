@@ -8,15 +8,13 @@ description: >-
 
 # Detect Anomalies using Harness CACM
 
-## Introduction <a href="#introduction" id="introduction"></a>
-
 Infrastructure changes, new services, or inefficient resource utilization can lead to **unexpected fluctuations in cloud expenses**. Harness Cloud & AI Cost Management (CACM) anomaly detection identifies **unusually high cost spikes** and promptly **notifies users**, ensuring better **cost control** and **transparency**.
 
 Harness CACM leverages **advanced detection mechanisms** to monitor cost anomalies across your **Kubernetes clusters** and **cloud accounts**. This feature acts as a safeguard for **managing cloud costs effectively**. Additionally, it includes **built-in alerting capabilities**, sending notifications through notification channels including **email** and **Slack** to ensure stakeholders are informed as soon as anomalies are detected.
 
 ***
 
-## Get Started <a href="#get-started" id="get-started"></a>
+## Get started <a href="#get-started" id="get-started"></a>
 
 Getting started with CACM anomaly detection is straightforward and requires just a few steps:
 
@@ -34,7 +32,7 @@ Harness CACM uses the **Prophet Model** for anomaly detection:
 
 ***
 
-## Anomaly Detection Process <a href="#anomaly-detection-process" id="anomaly-detection-process"></a>
+## Anomaly detection process <a href="#anomaly-detection-process" id="anomaly-detection-process"></a>
 
 CACM's anomaly detection process works through four key steps:
 
@@ -59,7 +57,7 @@ CACM's anomaly detection process works through four key steps:
 
 Detected anomalies are automatically classified by severity:
 
-| Severity        | When It's Triggered                    |
+| Severity        | When It is Triggered                    |
 | --------------- | -------------------------------------- |
 | 🔴 **CRITICAL** | Cost impact ≥ $5,000 OR ≥100% increase |
 | 🟡 **MEDIUM**   | Cost impact ≥ $1,000 OR ≥50% increase  |
@@ -77,9 +75,9 @@ Detected anomalies are automatically classified by severity:
 When anomalies are detected, [alerts](getting-started-with-ccm-anomaly-detection.md#anomaly-alerts) are sent through configured channels (email and Slack)
 
 {% hint style="info" %}
-**EVENT-DRIVEN ANOMALY DETECTION (BEHIND FEATURE FLAG)**
+**EVENT-DRIVEN ANOMALY DETECTION**
 
-CACM also offers an advanced feature under a feature flag for AWS, GCP, and Azure that enables real-time anomaly detection:
+CACM also offers an advanced feature for AWS, GCP, and Azure that enables real-time anomaly detection:
 
 * Anomaly detection runs immediately when cost data is ingested, without waiting for the next day
 * Works with partial cost data as it becomes available throughout the day
@@ -89,7 +87,7 @@ CACM also offers an advanced feature under a feature flag for AWS, GCP, and Azur
 **Example**: If today is November 1st and a cost ingestion event is received, anomaly detection runs immediately for November 1st data for that specific cloud account. If complete data becomes available the next day, regular jobs will still process it to ensure accuracy.
 {% endhint %}
 
-### Anomaly Lookback Support <a href="#anomaly-lookback-support" id="anomaly-lookback-support"></a>
+### Anomaly lookback support <a href="#anomaly-lookback-support" id="anomaly-lookback-support"></a>
 
 \[Released: Feb 2026]
 
@@ -118,15 +116,9 @@ With Anomaly Lookback Support we now have:
   * Anomaly severity (Critical/High/Medium) is automatically recalculated
   * Example: A "Critical" anomaly might be downgraded to "Medium" after billing corrections
 
-{% hint style="info" %}
-**Feature Flag**
-
-The Anomaly Lookback Support feature is controlled by the `CCM_ANOMALIES_COST_TYPES_CALCULATION` feature flag. Contact your Harness account team to enable this feature.
-{% endhint %}
-
 ***
 
-## Anomalies Overview Page <a href="#anomalies-overview-page" id="anomalies-overview-page"></a>
+## Anomalies overview page <a href="#anomalies-overview-page" id="anomalies-overview-page"></a>
 
 The Anomalies Overview page provides a comprehensive view of all detected anomalies across your cloud infrastructure.
 
@@ -159,19 +151,19 @@ On Overview page:
   * [Preferences](getting-started-with-ccm-anomaly-detection.md#anomaly-preferences) (customize detection thresholds)
   * Cost Settings (configure how costs are displayed for AWS and Azure).
 
-### Anomaly Tabs <a href="#anomaly-tabs" id="anomaly-tabs"></a>
+### Anomaly tabs <a href="#anomaly-tabs" id="anomaly-tabs"></a>
 
 The page is organized into three main tabs to help you manage and track anomalies effectively.
 
 {% tabs %}
 {% tab title="Active Tab" %}
-### Active Anomalies <a href="#active-anomalies" id="active-anomalies"></a>
+### Active anomalies <a href="#active-anomalies" id="active-anomalies"></a>
 
 <figure><img src="../../.gitbook/assets/active.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-The **Active** tab displays newly detected anomalies that require attention and haven't been addressed yet.
+The **Active** tab displays newly detected anomalies that require attention and have not been addressed yet.
 
-When you navigate to the Active tab, you'll see key metrics that provide insights into your current anomaly landscape:
+When you navigate to the Active tab, you will see key metrics that provide insights into your current anomaly landscape:
 
 * **Active Anomalies**: The total count of currently active anomalies requiring your attention
 * **Unusual Spend**: The total additional cost incurred due to active anomalies (difference between actual and expected spend)
@@ -182,7 +174,7 @@ When you navigate to the Active tab, you'll see key metrics that provide insight
     * **Number of Anomalies**: Shows the frequency of anomalies
 * **Unusual Spend in the Past Year**: Total additional costs incurred from all anomalies over the last 12 months
 
-Below the summary metrics, you'll find a detailed table listing all active anomalies with the following columns:
+Below the summary metrics, you will find a detailed table listing all active anomalies with the following columns:
 
 | Column                                                             | Description                                                                              |
 | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
@@ -211,19 +203,19 @@ For each anomaly in the table, you have the following options:
 {% endtab %}
 
 {% tab title="Resolved Tab" %}
-### Resolved Anomalies <a href="#resolved-anomalies" id="resolved-anomalies"></a>
+### Resolved anomalies <a href="#resolved-anomalies" id="resolved-anomalies"></a>
 
 <figure><img src="../../.gitbook/assets/resolved.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 The **Resolved** tab shows anomalies that have been reviewed and marked as resolved by your team.
 
-When you navigate to the Resolved tab, you'll see key metrics that provide insights into your resolved anomalies:
+When you navigate to the Resolved tab, you will see key metrics that provide insights into your resolved anomalies:
 
 * **Resolved Anomalies**: The total count of anomalies that have been marked as resolved
 * **Estimated Savings**: The potential cost savings achieved by addressing and resolving these anomalies
 * **Mean Resolution Time**: The average time taken to resolve anomalies from detection to resolution
 
-Below the summary metrics, you'll find a detailed table listing all resolved anomalies with the following columns:
+Below the summary metrics, you will find a detailed table listing all resolved anomalies with the following columns:
 
 | Column                 | Description                                                            |
 | ---------------------- | ---------------------------------------------------------------------- |
@@ -247,19 +239,19 @@ For each anomaly in the table, you have the following options:
 {% endtab %}
 
 {% tab title="Archived/Ignored Tab" %}
-### Archived and Ignored Anomalies <a href="#archived-and-ignored-anomalies" id="archived-and-ignored-anomalies"></a>
+### Archived and ignored anomalies <a href="#archived-and-ignored-anomalies" id="archived-and-ignored-anomalies"></a>
 
 <figure><img src="../../.gitbook/assets/archived.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-The **Archived/Ignored** tab contains anomalies that have been either manually ignored or automatically archived once they are 90 days old. This tab serves as a long-term repository for anomalies that don't require active attention.
+The **Archived/Ignored** tab contains anomalies that have been either manually ignored or automatically archived once they are 90 days old. This tab serves as a long-term repository for anomalies that do not require active attention.
 
-When you navigate to the Archived/Ignored tab, you'll see key metrics:
+When you navigate to the Archived/Ignored tab, you will see key metrics:
 
 * **Estimated Cost Impact**: The total financial impact of all archived and ignored anomalies
 * **Anomalies Ignored**: The count of anomalies that have been manually marked as ignored
 * **Anomalies Archived**: The count of anomalies that have been automatically archived after 90 days
 
-Below the summary metrics, you'll find a detailed table listing all archived and ignored anomalies with the following columns:
+Below the summary metrics, you will find a detailed table listing all archived and ignored anomalies with the following columns:
 
 | Column                 | Description                                                                                                 |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -283,22 +275,22 @@ For each anomaly in the table, you have the following options:
 
 ***
 
-## Managing Anomalies <a href="#managing-anomalies" id="managing-anomalies"></a>
+## Anomaly management <a href="#managing-anomalies" id="managing-anomalies"></a>
 
-### Anomaly States <a href="#anomaly-states" id="anomaly-states"></a>
+### Anomaly states <a href="#anomaly-states" id="anomaly-states"></a>
 
 Anomalies exist in one of four states:
 
-* **Active**: Newly detected anomalies that haven't been addressed yet
+* **Active**: Newly detected anomalies that have not been addressed yet
 * **Resolved**: Anomalies that have been reviewed and marked as resolved
 * **Ignored**: Anomalies that have been marked as ignored but remain visible for reference
 * **Archived**: Anomalies automatically moved to archive after 90 days
 
-### Anomaly Drilldown <a href="#anomaly-drilldown" id="anomaly-drilldown"></a>
+### Anomaly drilldown <a href="#anomaly-drilldown" id="anomaly-drilldown"></a>
 
 Once an anomaly is detected, for each of the anomaly detected, CACM provides insights into what are the resources which might be causing the anomaly.
 
-When you select an anomaly, you'll see detailed information organized into the following sections:
+When you select an anomaly, you will see detailed information organized into the following sections:
 
 * **ID**: Unique identifier for the anomaly
 * **Severity**: The severity level (Low, Medium, Critical) based on cost impact
@@ -308,10 +300,10 @@ When you select an anomaly, you'll see detailed information organized into the f
 
     | Score   | Confidence | What it tells you                                     |
     | ------- | ---------- | ----------------------------------------------------- |
-    | 1–25%   | Low        | Small deviation — could be normal day-to-day variance |
-    | 25–50%  | Moderate   | Noticeable deviation — likely a real anomaly          |
+    | 1–25%   | Low        | Small deviation - could be normal day-to-day variance |
+    | 25–50%  | Moderate   | Noticeable deviation - likely a real anomaly          |
     | 50–75%  | High       | Clear deviation from historical pattern               |
-    | 75–100% | Very High  | Unmistakable anomaly — far beyond expected cost range |
+    | 75–100% | Very High  | Unmistakable anomaly - far beyond expected cost range |
 * **Spend Breakdown:**
   * **Expected Spend**: The predicted cost based on historical patterns (e.g., $116.16)
   * **Actual Spend**: The actual amount spent during the anomaly period (e.g., $280.52)
@@ -335,9 +327,9 @@ When you select an anomaly, you'll see detailed information organized into the f
 
 ***
 
-## Advanced Settings <a href="#advanced-settings" id="advanced-settings"></a>
+## Advanced settings <a href="#advanced-settings" id="advanced-settings"></a>
 
-### Anomaly Alerts <a href="#anomaly-alerts" id="anomaly-alerts"></a>
+### Anomaly alerts <a href="#anomaly-alerts" id="anomaly-alerts"></a>
 
 Set up alerts to receive notifications when anomalies are detected without having to check the dashboard. Configuration Options available:
 
@@ -349,7 +341,7 @@ Set up alerts to receive notifications when anomalies are detected without havin
 
 ***
 
-### Anomaly Preferences <a href="#anomaly-preferences" id="anomaly-preferences"></a>
+### Anomaly preferences <a href="#anomaly-preferences" id="anomaly-preferences"></a>
 
 Configure system-wide anomaly detection settings to ensure only significant anomalies are flagged:
 
@@ -363,7 +355,7 @@ Configure system-wide anomaly detection settings to ensure only significant anom
 
 ***
 
-### Anomaly Ignore List <a href="#anomaly-ignore-list" id="anomaly-ignore-list"></a>
+### Anomaly ignore list <a href="#anomaly-ignore-list" id="anomaly-ignore-list"></a>
 
 <figure><img src="../../.gitbook/assets/anomaly-ignore-list.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -477,7 +469,7 @@ Rules match based on a hierarchical structure:
 
 ***
 
-### Cost Settings <a href="#cost-settings" id="cost-settings"></a>
+### Cost settings <a href="#cost-settings" id="cost-settings"></a>
 
 <figure><img src="../../.gitbook/assets/cost-settings.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -553,7 +545,7 @@ Anomalies are categorized by severity based on deviation from expected behaviour
 
 <summary>I received an anomaly alert for a particular day, but not on that day, it came later in the month. Why?</summary>
 
-This can happen because anomaly alerts are triggered when the anomaly is detected, not when it occurred. There's no delay between detection and alerting. However, if the cost data available at the time didn't indicate an anomaly, the system wouldn't have flagged it initially. Later in the month, once cost data was refreshed and a spike became apparent, the anomaly was detected. To account for such cases, we rerun the anomaly detection job for the past 3 days — which is likely why the alert was sent at a later time.
+This can happen because anomaly alerts are triggered when the anomaly is detected, not when it occurred. There is no delay between detection and alerting. However, if the cost data available at the time did not indicate an anomaly, the system would not have flagged it initially. Later in the month, once cost data was refreshed and a spike became apparent, the anomaly was detected. To account for such cases, we rerun the anomaly detection job for the past 3 days - which is likely why the alert was sent at a later time.
 
 </details>
 
