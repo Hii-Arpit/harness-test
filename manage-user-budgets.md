@@ -85,15 +85,28 @@ Expand **Advanced settings** to set limits on when users can request an increase
 
 #### Notifications
 
-Click **+ Add percentage threshold** to add a notification rule. For each rule:
+Click **+ Add percentage threshold** to define when Harness should act. For each threshold:
 
-* Set the spend percentage that triggers the rule in the **When spend reaches** field (for example, `90`).
-* Click **+ Notify** to send an email notification to the affected user. You can add more recipients.
-* Click **+ Block** to revoke the user's access to the covered AI providers once the threshold is crossed.
+* Set the spend percentage in the **When spend reaches** field.
+* Click **+ Notify** to send an email to the affected user when the threshold is crossed. You can add more recipients.
+* Click **+ Block** to revoke the user's access to the covered AI providers when the threshold is crossed.
 
-You can add multiple thresholds. For example, notify at 90% and block at 100%.
+You can enable both **Notify** and **Block** on the same threshold, or add multiple thresholds with different actions.
 
-<figure><img src="../../.gitbook/assets/user-budgets-step2-notifications.png" alt="Notification rules configured with Notify and Block thresholds"><figcaption><p>Example: notify at 90% and block at 100%</p></figcaption></figure>
+{% hint style="success" %}
+### Example
+
+Two thresholds are configured on the same budget:
+
+| When spend reaches | Action |
+|---|---|
+| 90% | Notify the affected user |
+| 100% | Block access for the affected user |
+
+Alternatively, enable both **Notify** and **Block** on the same threshold — for example, notify and block access at 90% in one rule.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/user-budgets-step2-notifications.png" alt="Notification rules configured with Notify and Block thresholds"><figcaption><p>Notify and Block configured on separate thresholds</p></figcaption></figure>
 
 {% hint style="info" %}
 **Connector permission required for block enforcement**
