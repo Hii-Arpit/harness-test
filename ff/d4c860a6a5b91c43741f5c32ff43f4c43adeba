@@ -1,0 +1,113 @@
+user-budgets.md
+  human 1-42
+manage-user-budgets.md
+  human 1-187
+SUMMARY.md
+  human 3-4
+  human 3-5,8-167
+  90a1a6f2-8501-4f84-a38f-c45ffa423182 6-7
+ai-user-budgets.md
+  human 1-194
+---
+{
+  "attestations": [
+    {
+      "entries": [
+        {
+          "accepted_lines": 42,
+          "added_lines": 42,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-42",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "user-budgets.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 187,
+          "added_lines": 187,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-187",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "manage-user-budgets.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 2,
+          "added_lines": 2,
+          "deleted_lines": 1,
+          "hash": "human",
+          "lines": "3-4",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 162,
+          "added_lines": 0,
+          "deleted_lines": 1,
+          "hash": "human",
+          "lines": "3-5,8-167",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 2,
+          "added_lines": 0,
+          "deleted_lines": 0,
+          "hash": "90a1a6f2-8501-4f84-a38f-c45ffa423182",
+          "lines": "6-7",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "SUMMARY.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 194,
+          "hash": "human",
+          "lines": "1-194",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ai-user-budgets.md"
+    }
+  ],
+  "base_commit_sha": "cdf1436f23573b12e2b5c0a7360f03582b489d37",
+  "branch": "user-budgets",
+  "commit_sha": "ffd4c860a6a5b91c43741f5c32ff43f4c43adeba",
+  "commit_time": "2026-10-01T23:43:21+05:30",
+  "commit_type": "direct_commit",
+  "harness_aidlc_version": "1.4.34",
+  "prompts": {
+    "90a1a6f2-8501-4f84-a38f-c45ffa423182": {
+      "accepted_lines": 2,
+      "agent_id": {
+        "id": "90a1a6f2-8501-4f84-a38f-c45ffa423182",
+        "model": "claude-sonnet-4-6",
+        "tool": "claude"
+      },
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 2,
+      "total_deletions": 0
+    },
+    "human": {
+      "accepted_lines": 231,
+      "agent_id": null,
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 231,
+      "total_deletions": 195
+    }
+  },
+  "repo": "https://github.com/Hii-Arpit/harness-test",
+  "schema_version": "authorship/3.0.0"
+}
