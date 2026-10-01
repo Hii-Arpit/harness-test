@@ -34,7 +34,25 @@ Select **User Budgets** from the left navigation bar to see all budgets in your 
 | Notifications and enforcements | Active alert and block rules configured for the budget |
 | Upgrade requests | Pending limit-increase requests submitted by users in the budget |
 
-Use the **Folders** panel on the left to filter budgets by folder. Use the search bar to find a specific budget by name.
+## Finding and filtering budgets
+
+Use the **Search budgets** bar at the top of the list to find a budget by name. Use the sort dropdown to order the list by:
+
+* **Name (A→Z / Z→A)**
+* **Created (newest / oldest)**
+* **Updated (newest / oldest)**
+
+## Folders
+
+Folders organize user budgets and control access. People with access to a folder can see the budgets inside it — use folders to scope visibility by team or org unit.
+
+The **Folders** panel on the left lists all available folders. Select a folder to filter the list to budgets in that folder only; select **All budgets** to return to the full list.
+
+**To create a folder:** Click **+** next to the **Folders** heading, enter a folder name, and click **Save**.
+
+**To edit or delete a folder:** Hover over it in the panel to reveal the edit (pencil) and delete (trash) icons.
+
+You can assign a budget to a folder at creation time, or move it to a different folder later from the budget's detail page.
 
 {% content-ref url="manage-user-budgets.md" %}
 [manage-user-budgets.md](manage-user-budgets.md)
