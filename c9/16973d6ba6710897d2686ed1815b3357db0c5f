@@ -1,316 +1,2384 @@
-.gitbook/assets/aws-logo.svg
-  h_59fd564719da3b 1-9
-.gitbook/assets/azure-logo.svg
-  h_59fd564719da3b 1
-.gitbook/assets/gcp-logo.svg
-  h_59fd564719da3b 1-2
-1-asset-governance.md
-  h_59fd564719da3b 1-399
-1-auto-stopping-rules.md
-  h_59fd564719da3b 1-59
-1-home-recommendations.md
-  h_59fd564719da3b 1-537
-1-smp-ccm-roadmap.md
-  h_59fd564719da3b 2-4,8,10,12,14,24,35-39,41,44,48
-2-configure-ecg-for-auto-stopping-rules.md
-  h_59fd564719da3b 1-195
-5-currency-preferences.md
-  h_59fd564719da3b 12,37,57
-SUMMARY.md
-  h_59fd564719da3b 4,6-11,13-32,35,37-41,43,45-56,58-66,70-74,79-87,89-148,150-152,154-161,163-164
-account-level-tags.md
-  h_59fd564719da3b 1-265
-ai-cost-management.md
-  h_59fd564719da3b 17
-ai-cost-troubleshooting.md
-  h_59fd564719da3b 1-101
-ai-features.md
-  h_59fd564719da3b 1-206
-alb-lambda-migration.md
-  h_59fd564719da3b 1-169
-anthropic.md
-  h_59fd564719da3b 1-121
-as-savings.md
-  h_59fd564719da3b 1-310
-ask-ai.md
-  h_59fd564719da3b 1-295
-asset-governance-autostopping-pipeline-ec2.md
-  h_59fd564719da3b 1-889
-asset-governance-pipeline.md
-  h_59fd564719da3b 1-97
-autostopping-dashboard.md
-  h_59fd564719da3b 1-175
-autostopping-dry-run-mode.md
-  h_59fd564719da3b 1-28
-autostopping-for-gcp-vms-and-instance-groups.md
-  h_59fd564719da3b 1-30
-autostopping-page-drilldown.md
-  h_59fd564719da3b 1-65
-autostopping-proxy-alb-usecase.md
-  h_59fd564719da3b 1-39
-autostopping-rules.md
-  h_59fd564719da3b 1-18
-autostopping.md
-  h_59fd564719da3b 1-31
-autostopping_for_aws_ec2.md
-  h_59fd564719da3b 1-34
-autostopping_for_aws_ecs_and_auto_scaling_groups.md
-  h_59fd564719da3b 1-32
-autostopping_for_azure_vms.md
-  h_59fd564719da3b 1-34
-aws-1-home-recommendations.md
-  h_59fd564719da3b 1-349
-aws-autostopping-rules.md
-  h_59fd564719da3b 1-559
-aws-connectors-and-roles.md
-  h_59fd564719da3b 1-157
-aws-overview.md
-  h_59fd564719da3b 1-188
-aws-permissions.md
-  h_59fd564719da3b 1-540
-aws-smp.md
-  h_59fd564719da3b 1-971
-aws.md
-  h_59fd564719da3b 2,8,10,12,14-16,18-35,37-40,42-48,50,52,54,56,58,60,62-86,88,90,92,94,96,98-179
-azure-1-home-recommendations.md
-  h_59fd564719da3b 1-125
-azure-autostopping-rules.md
-  h_59fd564719da3b 1-414
-azure-connectors-and-roles.md
-  h_59fd564719da3b 1-134
-azure-overview.md
-  h_59fd564719da3b 1-45
-azure-permissions.md
-  h_59fd564719da3b 1-126
-azure-smp.md
-  h_59fd564719da3b 1-463
-azure.md
-  h_59fd564719da3b 2,8,10,12,14,16,18,20-22,24,26,28,30,32,34,36,38,40,42-55,57-60,62-72,75-295,297,299,301,303,305-313,315-318,320-323,326,328,330,332,334
-best-practices.md
-  h_59fd564719da3b 1-76
-ccm-auditing.md
-  h_59fd564719da3b 11,16
-ccm-connectors-via-code-repo-and-iacm.md
-  h_59fd564719da3b 1-177
-ccm-explore.md
-  h_59fd564719da3b 2,6,8,10-11,13,15,18,21-1104,1106
-ccm-only-delegate.md
-  h_59fd564719da3b 1-89
-ccm-roles-and-permissions.md
-  h_59fd564719da3b 1-81
-ccm-saas-architecture.md
-  h_59fd564719da3b 1-36
-claude-code.md
-  h_59fd564719da3b 1-77
-cloud-ai-cost-management.md
-  h_59fd564719da3b 1-19
-cloud_asset_governance_architecture.md
-  h_59fd564719da3b 1-74
-cluster-orchestrator-components.md
-  h_59fd564719da3b 1-76
-cluster-vs-karpenter.md
-  h_59fd564719da3b 1-55
-co-exist-with-karpenter.md
-  h_59fd564719da3b 1-185
-co-for-ec.md
-  h_59fd564719da3b 2,6,8-10,12-71,73-88,91-93,96-115,118-253,257
-co-for-rds.md
-  h_59fd564719da3b 6,10,28,43,45,59
-cost-categories.md
-  h_59fd564719da3b 1-557
-cost-explorer.md
-  h_59fd564719da3b 18,29,40,65,77,101,112-114,144,153,161,167,169,178,180,222,238,266,327,339,359,373,382,392
-create-a-budget.md
-  h_59fd564719da3b 1-250
-create-autostopping-proxy-as-downstream-alb.md
-  h_59fd564719da3b 1-43
-create-budget-group.md
-  h_59fd564719da3b 11,27,34,47,59,81,85,87,95,97,100,137
-creating-a-perspective.md
-  h_59fd564719da3b 28,30,46,58,82,92,94,117,126,136,150
-cursor.md
-  h_59fd564719da3b 1-64
-custom-cost-provider.md
-  h_59fd564719da3b 12,15,20,28,38,53,58,71,80,124,126
-dashboard-reports.md
-  h_59fd564719da3b 1-30
-data-ingestion-reference.md
-  h_59fd564719da3b 1-86
-data-job-status.md
-  h_59fd564719da3b 13,29,37,61,75,111,115,144,162
-delete.md
-  h_59fd564719da3b 1-46
-devin.md
-  h_59fd564719da3b 1-68
-ec2-get-started.md
-  h_59fd564719da3b 1-186
-ec2-managing-commitments.md
-  h_59fd564719da3b 1-89
-ec2-scheduled-stopping-tf.md
-  h_59fd564719da3b 1-141
-elasticache-get-started.md
-  h_59fd564719da3b 11,20,103
-existing-eks.md
-  h_59fd564719da3b 1-234
-faq.md
-  h_59fd564719da3b 1-1691
-feature-of-co.md
-  h_59fd564719da3b 1-113
-feature-permissions.md
-  h_59fd564719da3b 1-1149
-gcp-1-home-recommendations.md
-  h_59fd564719da3b 1-27
-gcp-autostopping-rules.md
-  h_59fd564719da3b 1-245
 gcp-connectors-and-roles.md
-  h_59fd564719da3b 1-158
-gcp-overview.md
-  h_59fd564719da3b 1-61
-gcp-permissions.md
-  h_59fd564719da3b 1-137
-gcp-smp.md
-  h_59fd564719da3b 1-516
-gcp.md
-  h_59fd564719da3b 2,8,10,12,14,16,18-323
-gen-ai-overview.md
-  h_59fd564719da3b 1-12
-gen-ai-use.md
-  h_59fd564719da3b 1-24
-genai-span-attribute-reference.md
-  h_59fd564719da3b 1-95
-get-started.md
-  h_59fd564719da3b 1-10
-getting-started-with-ccm-anomaly-detection.md
-  h_59fd564719da3b 17,35,60,78,80,90,121,154,160,164,166,177,206,212,218,242,246,248,254,278,280,284,289,293,303-304,306,330,332,344,358,472,548
-getting-started.md
-  h_59fd564719da3b 2,8,10,12-14,16,18-19,21-22,24,26,28,30-31,33,35-55,57-85
-github-copilot.md
-  h_59fd564719da3b 1-69
-google-adk.md
-  h_59fd564719da3b 1-95
-harness-sdk.md
-  h_59fd564719da3b 1-395
-how-ai-traces-work.md
-  h_59fd564719da3b 1-156
-ingesting-china-region-costs.md
-  h_59fd564719da3b 1-41
-installation-guide.md
-  h_59fd564719da3b 1-206
-k8s-and-ccm-k8s-connectors.md
-  h_59fd564719da3b 1-75
-k8s-coverage-setup.md
-  h_59fd564719da3b 1-190
-k8s-coverage.md
-  h_59fd564719da3b 1-68
-k8s.md
-  h_59fd564719da3b 1-268
-key-concepts.md
-  h_59fd564719da3b 2,6,8,10,12,14,16,18,20-25,27,29,31-33,35,37,39,41-43,45,47-52,54,56,58,60,62,64-66,68,70,72,74-76,78-80,82,84,86,88-96,98,100,102-111,113,115,117,119,121-123,125,127,129,131-136,138,140,142-149,152,154-159,161,163,165,167,169,171,173,175,177-179,182-192
-kubectl.md
-  h_59fd564719da3b 1-128
-kubernetes-1-home-recommendations.md
-  h_59fd564719da3b 1-278
-kubernetes-autostopping-ambassador.md
-  h_59fd564719da3b 1-84
-kubernetes-autostopping-for-istio.md
-  h_59fd564719da3b 1-100
-kubernetes-autostopping-quick-start-guide.md
-  h_59fd564719da3b 1-181
-kubernetes-autostopping-rules.md
-  h_59fd564719da3b 1-245
-kubernetes-autostopping-traefik.md
-  h_59fd564719da3b 1-125
-kubernetes-overview.md
-  h_59fd564719da3b 1-63
-kubernetes-v.md
-  h_59fd564719da3b 1-100
-kubernetes.md
-  h_59fd564719da3b 1-465
-kubernetes_autostopping_workflow.md
-  h_59fd564719da3b 1-20
-langchain.md
-  h_59fd564719da3b 1-127
-litellm-proxy.md
-  h_59fd564719da3b 1-105
-llamaindex.md
-  h_59fd564719da3b 1-92
-manage-access-control-for-ccm-dashboards.md
-  h_59fd564719da3b 1-97
-manage-access-control-perspective-folders.md
-  h_59fd564719da3b 1-73
-managing-commitments.md
-  h_59fd564719da3b 1-15
+  human 1-158
 manual-instrumentation.md
-  h_59fd564719da3b 1-83
-margin-obfuscation-for-msps.md
-  h_59fd564719da3b 1-11
-msp.md
-  h_59fd564719da3b 6
-navigating-cacm.md
-  h_59fd564719da3b 1-54
-oidc-auth.md
-  h_59fd564719da3b 10,13,29,34,37
-openai-agents.md
-  h_59fd564719da3b 1-94
-openai.md
-  h_59fd564719da3b 1-63
-overview.md
-  h_59fd564719da3b 2,8,10,12,14,16,18-23,25,27,29-30
-post-enablement.md
-  h_59fd564719da3b 1-137
-product-behaviour.md
-  h_59fd564719da3b 1-114
-proxy.md
-  h_59fd564719da3b 1-93
-quickstart.md
-  h_59fd564719da3b 1-70
-rbac-asset-gov.md
-  h_59fd564719da3b 1-67
-rbac-autostopping.md
-  h_59fd564719da3b 1-44
-rbac.md
-  h_59fd564719da3b 1-90
-rds-get-started.md
-  h_59fd564719da3b 12,17,28,53,70,84,97,164
-rds.md
-  h_59fd564719da3b 1-126
-recommendations.md
-  h_59fd564719da3b 1-1713
-release-notes.md
-  h_59fd564719da3b 9,27,30,32,35,64
-review-autostopping-rules-reqs.md
-  h_59fd564719da3b 1-161
-scad.md
-  h_59fd564719da3b 1-173
-setting-up-co-helm.md
-  h_59fd564719da3b 1-536
-single-multi-workload-rules.md
-  h_59fd564719da3b 1-136
-spot-orchestration-for-aws-ec2.md
-  h_59fd564719da3b 1-11
+  human 1-83
+ai-features.md
+  human 1-206
+installation-guide.md
+  human 1-206
+getting-started.md
+  human 2,8,10,12-14,16,18-19,21-22,24,26,28,30-31,33,35-55,57-85
+ccm-saas-architecture.md
+  human 1-36
 supported-providers-and-frameworks.md
-  h_59fd564719da3b 1-69
-troubleshooting.md
-  h_59fd564719da3b 1-108
+  human 1-69
+ask-ai.md
+  human 1-295
+aws-smp.md
+  human 1-971
+autostopping-dry-run-mode.md
+  human 1-28
+ec2-scheduled-stopping-tf.md
+  human 1-141
+co-for-rds.md
+  human 6,10,28,43,45,59
+msp.md
+  human 6
+anthropic.md
+  human 1-121
+5-currency-preferences.md
+  human 12,37,57
+kubernetes-autostopping-quick-start-guide.md
+  human 1-181
+spot-orchestration-for-aws-ec2.md
+  human 1-11
+co-exist-with-karpenter.md
+  human 1-185
+autostopping.md
+  human 1-31
+azure-1-home-recommendations.md
+  human 1-125
+kubernetes-v.md
+  human 1-100
+claude-code.md
+  human 1-77
+k8s-and-ccm-k8s-connectors.md
+  human 1-75
+scad.md
+  human 1-173
+key-concepts.md
+  human 2,6,8,10,12,14,16,18,20-25,27,29,31-33,35,37,39,41-43,45,47-52,54,56,58,60,62,64-66,68,70,72,74-76,78-80,82,84,86,88-96,98,100,102-111,113,115,117,119,121-123,125,127,129,131-136,138,140,142-149,152,154-159,161,163,165,167,169,171,173,175,177-179,182-192
+azure.md
+  human 2,8,10,12,14,16,18,20-22,24,26,28,30,32,34,36,38,40,42-55,57-60,62-72,75-295,297,299,301,303,305-313,315-318,320-323,326,328,330,332,334
+azure-autostopping-rules.md
+  human 1-414
+gen-ai-use.md
+  human 1-24
+cloud-ai-cost-management.md
+  human 1-19
+1-home-recommendations.md
+  human 1-537
+single-multi-workload-rules.md
+  human 1-136
+post-enablement.md
+  human 1-137
+create-a-budget.md
+  human 1-250
+creating-a-perspective.md
+  human 28,30,46,58,82,92,94,117,126,136,150
+ccm-roles-and-permissions.md
+  human 1-81
+langchain.md
+  human 1-127
+managing-commitments.md
+  human 1-15
+kubernetes-autostopping-ambassador.md
+  human 1-84
+alb-lambda-migration.md
+  human 1-169
+asset-governance-pipeline.md
+  human 1-97
+litellm-proxy.md
+  human 1-105
+kubectl.md
+  human 1-128
+autostopping_for_azure_vms.md
+  human 1-34
+aws-autostopping-rules.md
+  human 1-559
+gcp-overview.md
+  human 1-61
+rds-get-started.md
+  human 12,17,28,53,70,84,97,164
+autostopping-dashboard.md
+  human 1-175
 unit-costs.md
-  h_59fd564719da3b 10,12,22,26,47,49,65,156,172-175,190,199,208,247,249,257,268
+  human 10,12,22,26,47,49,65,156,172-175,190,199,208,247,249,257,268
+autostopping_for_aws_ec2.md
+  human 1-34
+custom-cost-provider.md
+  human 12,15,20,28,38,53,58,71,80,124,126
+aws.md
+  human 2,8,10,12,14-16,18-35,37-40,42-48,50,52,54,56,58,60,62-86,88,90,92,94,96,98-179
+feature-of-co.md
+  human 1-113
 videos.md
-  h_59fd564719da3b 1-61
-vm-reverse-proxy.md
-  h_59fd564719da3b 1-89
+  human 1-61
+cluster-orchestrator-components.md
+  human 1-76
+llamaindex.md
+  human 1-92
+asset-governance-autostopping-pipeline-ec2.md
+  human 1-889
+1-asset-governance.md
+  human 1-399
+.gitbook/assets/azure-logo.svg
+  human 1
+create-budget-group.md
+  human 11,27,34,47,59,81,85,87,95,97,100,137
+azure-overview.md
+  human 1-45
+quickstart.md
+  human 1-70
+kubernetes-1-home-recommendations.md
+  human 1-278
+as-savings.md
+  human 1-310
+k8s-coverage.md
+  human 1-68
+genai-span-attribute-reference.md
+  human 1-95
+.gitbook/assets/aws-logo.svg
+  human 1-9
+ccm-connectors-via-code-repo-and-iacm.md
+  human 1-177
+troubleshooting.md
+  human 1-108
+ccm-explore.md
+  human 1-1106
+ccm-auditing.md
+  human 11,16
 whats-supported.md
-  h_59fd564719da3b 6,12,34,38,49,59,77
+  human 6,12,34,38,49,59,77
+feature-permissions.md
+  human 1-1149
+1-smp-ccm-roadmap.md
+  human 1-48
+co-for-ec.md
+  human 1-257
+autostopping-proxy-alb-usecase.md
+  human 1-39
+azure-connectors-and-roles.md
+  human 1-134
+autostopping-page-drilldown.md
+  human 1-65
+azure-smp.md
+  human 1-463
+autostopping-rules.md
+  human 1-18
+existing-eks.md
+  human 1-234
+delete.md
+  human 1-46
+oidc-auth.md
+  human 10,13,29,34,37
+best-practices.md
+  human 1-76
+cost-categories.md
+  human 1-557
+cursor.md
+  human 1-64
+product-behaviour.md
+  human 1-114
+google-adk.md
+  human 1-95
+setting-up-co-helm.md
+  human 1-536
+SUMMARY.md
+  human 4,6-11,13-32,35,37-41,43,45-56,58-66,70-74,79-87,89-148,150-152,154-161,163-164
+  h_59fd564719da3b 3-6
+  human 7-18,20-29
+k8s.md
+  human 1-268
+kubernetes-autostopping-rules.md
+  human 1-245
+k8s-coverage-setup.md
+  human 1-190
+.gitbook/assets/gcp-logo.svg
+  human 1-2
+gcp-1-home-recommendations.md
+  human 1-27
+rbac-asset-gov.md
+  human 1-67
+gcp-autostopping-rules.md
+  human 1-245
+kubernetes-autostopping-for-istio.md
+  human 1-100
+how-ai-traces-work.md
+  human 1-156
+azure-permissions.md
+  human 1-126
+harness-sdk.md
+  human 1-395
+kubernetes-overview.md
+  human 1-63
+aws-1-home-recommendations.md
+  human 1-349
+data-ingestion-reference.md
+  human 1-86
+margin-obfuscation-for-msps.md
+  human 1-11
+1-auto-stopping-rules.md
+  human 1-59
+rbac-autostopping.md
+  human 1-44
+overview.md
+  human 2,8,10,12,14,16,18-23,25,27,29-30
+ccm-only-delegate.md
+  human 1-89
+navigating-cacm.md
+  human 1-54
+ai-cost-management.md
+  human 17
+faq.md
+  human 1-1691
+ingesting-china-region-costs.md
+  human 1-41
+cost-explorer.md
+  human 18,29,40,65,77,101,112-114,144,153,161,167,169,178,180,222,238,266,327,339,359,373,382,392
+gcp-smp.md
+  human 1-516
+kubernetes-autostopping-traefik.md
+  human 1-125
+gcp.md
+  human 2,8,10,12,14,16,18-323
+devin.md
+  human 1-68
+autostopping_for_aws_ecs_and_auto_scaling_groups.md
+  human 1-32
+manage-access-control-for-ccm-dashboards.md
+  human 1-97
+openai.md
+  human 1-63
+ai-cost-troubleshooting.md
+  human 1-101
+vm-reverse-proxy.md
+  human 1-89
 working.md
-  h_59fd564719da3b 6,8,12,24,26,36,44,48,92
+  human 6,8,12,24,26,36,44,48,92
+ec2-get-started.md
+  human 1-186
+autostopping-for-gcp-vms-and-instance-groups.md
+  human 1-30
+manage-access-control-perspective-folders.md
+  human 1-73
+recommendations.md
+  human 1-1713
+github-copilot.md
+  human 1-69
+getting-started-with-ccm-anomaly-detection.md
+  human 17,35,60,78,80,90,121,154,160,164,166,177,206,212,218,242,246,248,254,278,280,284,289,293,303-304,306,330,332,344,358,472,548
+aws-connectors-and-roles.md
+  human 1-157
+get-started.md
+  human 1-10
+gen-ai-overview.md
+  human 1-12
+openai-agents.md
+  human 1-94
+kubernetes_autostopping_workflow.md
+  human 1-20
+2-configure-ecg-for-auto-stopping-rules.md
+  human 1-195
+account-level-tags.md
+  human 1-265
+rds.md
+  human 1-126
+cluster-vs-karpenter.md
+  human 1-55
+aws-overview.md
+  human 1-188
+review-autostopping-rules-reqs.md
+  human 1-161
+release-notes.md
+  human 9,27,30,32,35,64
+proxy.md
+  human 1-93
+gcp-permissions.md
+  human 1-137
+kubernetes.md
+  human 1-465
+cloud_asset_governance_architecture.md
+  human 1-74
+dashboard-reports.md
+  human 1-30
+create-autostopping-proxy-as-downstream-alb.md
+  human 1-43
+rbac.md
+  human 1-90
+elasticache-get-started.md
+  human 11,20,103
+aws-permissions.md
+  human 1-540
+data-job-status.md
+  human 13,29,37,61,75,111,115,144,162
+ec2-managing-commitments.md
+  human 1-89
+ccm-supported-platforms.md
+  human 1-79
+features.md
+  human 1-337
+  human 1-337
+features-internal.md
+  human 1-332
+  human 1-332
 ---
 {
-  "schema_version": "authorship/3.0.0",
-  "git_ai_version": "1.7.4",
-  "base_commit_sha": "c916973d6ba6710897d2686ed1815b3357db0c5f",
-  "prompts": {},
-  "humans": {
-    "h_59fd564719da3b": {
-      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+  "attestations": [
+    {
+      "entries": [
+        {
+          "accepted_lines": 158,
+          "added_lines": 158,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-158",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "gcp-connectors-and-roles.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 83,
+          "added_lines": 83,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-83",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "manual-instrumentation.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 206,
+          "added_lines": 206,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-206",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ai-features.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 206,
+          "added_lines": 206,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-206",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "installation-guide.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 67,
+          "added_lines": 67,
+          "deleted_lines": 60,
+          "hash": "human",
+          "lines": "2,8,10,12-14,16,18-19,21-22,24,26,28,30-31,33,35-55,57-85",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "getting-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 36,
+          "added_lines": 36,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-36",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ccm-saas-architecture.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 69,
+          "added_lines": 69,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-69",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "supported-providers-and-frameworks.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 295,
+          "added_lines": 295,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-295",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ask-ai.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 971,
+          "added_lines": 971,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-971",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "aws-smp.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 28,
+          "added_lines": 28,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-28",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "autostopping-dry-run-mode.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 141,
+          "added_lines": 141,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-141",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ec2-scheduled-stopping-tf.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 6,
+          "added_lines": 6,
+          "deleted_lines": 6,
+          "hash": "human",
+          "lines": "6,10,28,43,45,59",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "co-for-rds.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 1,
+          "added_lines": 1,
+          "deleted_lines": 1,
+          "hash": "human",
+          "lines": "6",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "msp.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 121,
+          "added_lines": 121,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-121",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "anthropic.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 3,
+          "added_lines": 3,
+          "deleted_lines": 5,
+          "hash": "human",
+          "lines": "12,37,57",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "5-currency-preferences.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 181,
+          "added_lines": 181,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-181",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubernetes-autostopping-quick-start-guide.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 11,
+          "added_lines": 11,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-11",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "spot-orchestration-for-aws-ec2.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 185,
+          "added_lines": 185,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-185",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "co-exist-with-karpenter.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 31,
+          "added_lines": 31,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-31",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "autostopping.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 125,
+          "added_lines": 125,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-125",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "azure-1-home-recommendations.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 100,
+          "added_lines": 100,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-100",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubernetes-v.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 77,
+          "added_lines": 77,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-77",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "claude-code.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 75,
+          "added_lines": 75,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-75",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "k8s-and-ccm-k8s-connectors.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 173,
+          "added_lines": 173,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-173",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "scad.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 128,
+          "added_lines": 128,
+          "deleted_lines": 499,
+          "hash": "human",
+          "lines": "2,6,8,10,12,14,16,18,20-25,27,29,31-33,35,37,39,41-43,45,47-52,54,56,58,60,62,64-66,68,70,72,74-76,78-80,82,84,86,88-96,98,100,102-111,113,115,117,119,121-123,125,127,129,131-136,138,140,142-149,152,154-159,161,163,165,167,169,171,173,175,177-179,182-192",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "key-concepts.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 295,
+          "added_lines": 295,
+          "deleted_lines": 177,
+          "hash": "human",
+          "lines": "2,8,10,12,14,16,18,20-22,24,26,28,30,32,34,36,38,40,42-55,57-60,62-72,75-295,297,299,301,303,305-313,315-318,320-323,326,328,330,332,334",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "azure.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 414,
+          "added_lines": 414,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-414",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "azure-autostopping-rules.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 24,
+          "added_lines": 24,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-24",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "gen-ai-use.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 19,
+          "added_lines": 19,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-19",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "cloud-ai-cost-management.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 537,
+          "added_lines": 537,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-537",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "1-home-recommendations.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 136,
+          "added_lines": 136,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-136",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "single-multi-workload-rules.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 137,
+          "added_lines": 137,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-137",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "post-enablement.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 250,
+          "added_lines": 250,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-250",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "create-a-budget.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 11,
+          "added_lines": 11,
+          "deleted_lines": 11,
+          "hash": "human",
+          "lines": "28,30,46,58,82,92,94,117,126,136,150",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "creating-a-perspective.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 81,
+          "added_lines": 81,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-81",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ccm-roles-and-permissions.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 127,
+          "added_lines": 127,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-127",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "langchain.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 15,
+          "added_lines": 15,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-15",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "managing-commitments.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 84,
+          "added_lines": 84,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-84",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubernetes-autostopping-ambassador.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 169,
+          "added_lines": 169,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-169",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "alb-lambda-migration.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 97,
+          "added_lines": 97,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-97",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "asset-governance-pipeline.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 105,
+          "added_lines": 105,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-105",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "litellm-proxy.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 128,
+          "added_lines": 128,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-128",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubectl.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 34,
+          "added_lines": 34,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-34",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "autostopping_for_azure_vms.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 559,
+          "added_lines": 559,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-559",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "aws-autostopping-rules.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 61,
+          "added_lines": 61,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-61",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "gcp-overview.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 8,
+          "added_lines": 8,
+          "deleted_lines": 8,
+          "hash": "human",
+          "lines": "12,17,28,53,70,84,97,164",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "rds-get-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 175,
+          "added_lines": 175,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-175",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "autostopping-dashboard.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 19,
+          "added_lines": 19,
+          "deleted_lines": 23,
+          "hash": "human",
+          "lines": "10,12,22,26,47,49,65,156,172-175,190,199,208,247,249,257,268",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "unit-costs.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 34,
+          "added_lines": 34,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-34",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "autostopping_for_aws_ec2.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 11,
+          "added_lines": 11,
+          "deleted_lines": 12,
+          "hash": "human",
+          "lines": "12,15,20,28,38,53,58,71,80,124,126",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "custom-cost-provider.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 154,
+          "added_lines": 154,
+          "deleted_lines": 220,
+          "hash": "human",
+          "lines": "2,8,10,12,14-16,18-35,37-40,42-48,50,52,54,56,58,60,62-86,88,90,92,94,96,98-179",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "aws.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 113,
+          "added_lines": 113,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-113",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "feature-of-co.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 61,
+          "added_lines": 61,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-61",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "videos.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 76,
+          "added_lines": 76,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-76",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "cluster-orchestrator-components.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 92,
+          "added_lines": 92,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-92",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "llamaindex.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 889,
+          "added_lines": 889,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-889",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "asset-governance-autostopping-pipeline-ec2.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 399,
+          "added_lines": 399,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-399",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "1-asset-governance.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 1,
+          "added_lines": 1,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1",
+          "overridden_lines": 0
+        }
+      ],
+      "file": ".gitbook/assets/azure-logo.svg"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 12,
+          "added_lines": 12,
+          "deleted_lines": 13,
+          "hash": "human",
+          "lines": "11,27,34,47,59,81,85,87,95,97,100,137",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "create-budget-group.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 45,
+          "added_lines": 45,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-45",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "azure-overview.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 70,
+          "added_lines": 70,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-70",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "quickstart.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 278,
+          "added_lines": 278,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-278",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubernetes-1-home-recommendations.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 310,
+          "added_lines": 310,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-310",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "as-savings.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 68,
+          "added_lines": 68,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-68",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "k8s-coverage.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 95,
+          "added_lines": 95,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-95",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "genai-span-attribute-reference.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 9,
+          "added_lines": 9,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-9",
+          "overridden_lines": 0
+        }
+      ],
+      "file": ".gitbook/assets/aws-logo.svg"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 177,
+          "added_lines": 177,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-177",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ccm-connectors-via-code-repo-and-iacm.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 108,
+          "added_lines": 108,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-108",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "troubleshooting.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 1106,
+          "added_lines": 1106,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-1106",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ccm-explore.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 2,
+          "added_lines": 2,
+          "deleted_lines": 3,
+          "hash": "human",
+          "lines": "11,16",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ccm-auditing.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 7,
+          "added_lines": 7,
+          "deleted_lines": 8,
+          "hash": "human",
+          "lines": "6,12,34,38,49,59,77",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "whats-supported.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 1149,
+          "added_lines": 1149,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-1149",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "feature-permissions.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 48,
+          "added_lines": 48,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-48",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "1-smp-ccm-roadmap.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 257,
+          "added_lines": 257,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-257",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "co-for-ec.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 39,
+          "added_lines": 39,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-39",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "autostopping-proxy-alb-usecase.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 134,
+          "added_lines": 134,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-134",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "azure-connectors-and-roles.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 65,
+          "added_lines": 65,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-65",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "autostopping-page-drilldown.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 463,
+          "added_lines": 463,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-463",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "azure-smp.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 18,
+          "added_lines": 18,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-18",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "autostopping-rules.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 234,
+          "added_lines": 234,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-234",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "existing-eks.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 46,
+          "added_lines": 46,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-46",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "delete.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 5,
+          "added_lines": 5,
+          "deleted_lines": 6,
+          "hash": "human",
+          "lines": "10,13,29,34,37",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "oidc-auth.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 76,
+          "added_lines": 76,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-76",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "best-practices.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 557,
+          "added_lines": 557,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-557",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "cost-categories.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 64,
+          "added_lines": 64,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-64",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "cursor.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 114,
+          "added_lines": 114,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-114",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "product-behaviour.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 95,
+          "added_lines": 95,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-95",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "google-adk.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 536,
+          "added_lines": 536,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-536",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "setting-up-co-helm.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 142,
+          "added_lines": 142,
+          "deleted_lines": 6,
+          "hash": "human",
+          "lines": "4,6-11,13-32,35,37-41,43,45-56,58-66,70-74,79-87,89-148,150-152,154-161,163-164",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 3,
+          "added_lines": 0,
+          "deleted_lines": 1,
+          "hash": "h_59fd564719da3b",
+          "lines": "3-6",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 17,
+          "added_lines": 0,
+          "deleted_lines": 5,
+          "hash": "human",
+          "lines": "7-18,20-29",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "SUMMARY.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 268,
+          "added_lines": 268,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-268",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "k8s.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 245,
+          "added_lines": 245,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-245",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubernetes-autostopping-rules.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 190,
+          "added_lines": 190,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-190",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "k8s-coverage-setup.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 2,
+          "added_lines": 2,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-2",
+          "overridden_lines": 0
+        }
+      ],
+      "file": ".gitbook/assets/gcp-logo.svg"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 27,
+          "added_lines": 27,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-27",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "gcp-1-home-recommendations.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 67,
+          "added_lines": 67,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-67",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "rbac-asset-gov.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 245,
+          "added_lines": 245,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-245",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "gcp-autostopping-rules.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 100,
+          "added_lines": 100,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-100",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubernetes-autostopping-for-istio.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 156,
+          "added_lines": 156,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-156",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "how-ai-traces-work.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 126,
+          "added_lines": 126,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-126",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "azure-permissions.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 395,
+          "added_lines": 395,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-395",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "harness-sdk.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 63,
+          "added_lines": 63,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-63",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubernetes-overview.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 349,
+          "added_lines": 349,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-349",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "aws-1-home-recommendations.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 86,
+          "added_lines": 86,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-86",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "data-ingestion-reference.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 11,
+          "added_lines": 11,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-11",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "margin-obfuscation-for-msps.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 59,
+          "added_lines": 59,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-59",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "1-auto-stopping-rules.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 44,
+          "added_lines": 44,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-44",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "rbac-autostopping.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 16,
+          "added_lines": 16,
+          "deleted_lines": 38,
+          "hash": "human",
+          "lines": "2,8,10,12,14,16,18-23,25,27,29-30",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "overview.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 89,
+          "added_lines": 89,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-89",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ccm-only-delegate.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 54,
+          "added_lines": 54,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-54",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "navigating-cacm.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 1,
+          "added_lines": 1,
+          "deleted_lines": 1,
+          "hash": "human",
+          "lines": "17",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ai-cost-management.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 1691,
+          "added_lines": 1691,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-1691",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "faq.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 41,
+          "added_lines": 41,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-41",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ingesting-china-region-costs.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 25,
+          "added_lines": 25,
+          "deleted_lines": 29,
+          "hash": "human",
+          "lines": "18,29,40,65,77,101,112-114,144,153,161,167,169,178,180,222,238,266,327,339,359,373,382,392",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "cost-explorer.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 516,
+          "added_lines": 516,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-516",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "gcp-smp.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 125,
+          "added_lines": 125,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-125",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubernetes-autostopping-traefik.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 312,
+          "added_lines": 312,
+          "deleted_lines": 134,
+          "hash": "human",
+          "lines": "2,8,10,12,14,16,18-323",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "gcp.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 68,
+          "added_lines": 68,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-68",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "devin.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 32,
+          "added_lines": 32,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-32",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "autostopping_for_aws_ecs_and_auto_scaling_groups.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 97,
+          "added_lines": 97,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-97",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "manage-access-control-for-ccm-dashboards.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 63,
+          "added_lines": 63,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-63",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "openai.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 101,
+          "added_lines": 101,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-101",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ai-cost-troubleshooting.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 89,
+          "added_lines": 89,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-89",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "vm-reverse-proxy.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 9,
+          "added_lines": 9,
+          "deleted_lines": 9,
+          "hash": "human",
+          "lines": "6,8,12,24,26,36,44,48,92",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "working.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 186,
+          "added_lines": 186,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-186",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ec2-get-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 30,
+          "added_lines": 30,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-30",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "autostopping-for-gcp-vms-and-instance-groups.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 73,
+          "added_lines": 73,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-73",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "manage-access-control-perspective-folders.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 1713,
+          "added_lines": 1713,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-1713",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "recommendations.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 69,
+          "added_lines": 69,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-69",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "github-copilot.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 33,
+          "added_lines": 33,
+          "deleted_lines": 41,
+          "hash": "human",
+          "lines": "17,35,60,78,80,90,121,154,160,164,166,177,206,212,218,242,246,248,254,278,280,284,289,293,303-304,306,330,332,344,358,472,548",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "getting-started-with-ccm-anomaly-detection.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 157,
+          "added_lines": 157,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-157",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "aws-connectors-and-roles.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 10,
+          "added_lines": 10,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-10",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "get-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 12,
+          "added_lines": 12,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-12",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "gen-ai-overview.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 94,
+          "added_lines": 94,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-94",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "openai-agents.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 20,
+          "added_lines": 20,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-20",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubernetes_autostopping_workflow.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 195,
+          "added_lines": 195,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-195",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "2-configure-ecg-for-auto-stopping-rules.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 265,
+          "added_lines": 265,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-265",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "account-level-tags.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 126,
+          "added_lines": 126,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-126",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "rds.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 55,
+          "added_lines": 55,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-55",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "cluster-vs-karpenter.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 188,
+          "added_lines": 188,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-188",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "aws-overview.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 161,
+          "added_lines": 161,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-161",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "review-autostopping-rules-reqs.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 6,
+          "added_lines": 6,
+          "deleted_lines": 6,
+          "hash": "human",
+          "lines": "9,27,30,32,35,64",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "release-notes.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 93,
+          "added_lines": 93,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-93",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "proxy.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 137,
+          "added_lines": 137,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-137",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "gcp-permissions.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 465,
+          "added_lines": 465,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-465",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "kubernetes.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 74,
+          "added_lines": 74,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-74",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "cloud_asset_governance_architecture.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 30,
+          "added_lines": 30,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-30",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "dashboard-reports.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 43,
+          "added_lines": 43,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-43",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "create-autostopping-proxy-as-downstream-alb.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 90,
+          "added_lines": 90,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-90",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "rbac.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 3,
+          "added_lines": 3,
+          "deleted_lines": 9,
+          "hash": "human",
+          "lines": "11,20,103",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "elasticache-get-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 540,
+          "added_lines": 540,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-540",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "aws-permissions.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 9,
+          "added_lines": 9,
+          "deleted_lines": 9,
+          "hash": "human",
+          "lines": "13,29,37,61,75,111,115,144,162",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "data-job-status.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 89,
+          "added_lines": 89,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-89",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ec2-managing-commitments.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 79,
+          "hash": "human",
+          "lines": "1-79",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "ccm-supported-platforms.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 337,
+          "hash": "human",
+          "lines": "1-337",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 337,
+          "hash": "human",
+          "lines": "1-337",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "features.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 332,
+          "hash": "human",
+          "lines": "1-332",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 332,
+          "hash": "human",
+          "lines": "1-332",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "features-internal.md"
     }
-  }
+  ],
+  "base_commit_sha": "e16148c8ea9ceb729df74eb11ab56678c1d4c82b",
+  "branch": "cacm-score-fix",
+  "commit_sha": "c916973d6ba6710897d2686ed1815b3357db0c5f",
+  "commit_time": "2026-10-01T14:22:01+05:30",
+  "commit_type": "direct_commit",
+  "harness_aidlc_version": "1.4.34",
+  "prompts": {
+    "human": {
+      "accepted_lines": 25849,
+      "agent_id": null,
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 25849,
+      "total_deletions": 2082
+    }
+  },
+  "repo": "https://github.com/Hii-Arpit/harness-test",
+  "schema_version": "authorship/3.0.0"
 }
