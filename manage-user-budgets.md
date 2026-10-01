@@ -14,9 +14,9 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 ## Create a user budget
 
-Select **User Budgets** from the left navigation bar, then click **+ Create budget**.
-
 ### Step 1: Budget setup
+
+Select **User Budgets** from the left navigation bar, then click **+ Create budget**.
 
 Configure who this budget applies to and what it covers.
 
