@@ -131,7 +131,7 @@ Select a budget name from the User Budgets list to open its detail page.
 | Week-to-date spend | Aggregate spend so far, shown as a percentage of the total budget and which day of the period it is |
 | Pending Requests | Number of outstanding limit-increase requests |
 
-The **Active Enforcements** bar shows the notification and block thresholds configured for this budget (for example, Notify at 80%, Notify at 100%, Block all access at 100%).
+The **Active Enforcements** bar lists the notification and block rules currently applied to this budget. Each tag shows the action and the spend threshold that triggers it. For example, **Notify at 80%** sends an email when a user reaches 80% of their limit, and **Block all access at 100%** revokes their access when they hit the cap.
 
 ### Per-user table
 
@@ -144,20 +144,49 @@ The **Active Enforcements** bar shows the notification and block thresholds conf
 | Enforcements | Active enforcement applied to this user |
 | Request details | Details of any pending limit-increase request for this user |
 
-Use the **Enforcements** and **Requests** filters above the table to narrow the view.
+{% hint style="success" %}
+Use the **Enforcements** and **Requests** filters above the table to narrow the view to users with active enforcements or pending requests.
+{% endhint %}
 
 ## Approve or reject a limit increase request
 
-When a user submits a request, the designated approver receives a notification and a direct share link they can open to act on the request immediately. Only the approver for the matching tier can approve or reject from the share link; anyone else sees a "not your approval" message.
+When a user submits a request, the designated approver receives a notification and a direct share link to act on it immediately. Only the approver for the matching tier can approve or reject; anyone else sees a "not your approval" message.
 
-To review requests:
+There are two ways to review requests:
 
-1. On the budget detail page, click the **Upgrade requests** tile or **Review all**.
-2. For each request, you can:
-   * **Approve**: accept the request. Optionally enter a different dollar amount to approve (the UI shows the resulting transition, for example $125, requested $250, approved $200) and add a note visible to the user.
-   * **Reject**: decline the request.
+**From the Pending Requests tile**
 
-Pending requests also appear inline in the per-user table, where you can click **Review** to act on them without leaving the budget detail page.
+On the budget detail page, click **Review all** in the **Pending Requests** tile. This opens a two-panel view: the left panel lists all pending requests, and the right panel shows the details for the selected request.
+
+<figure><img src="../../.gitbook/assets/user-budgets-request-details-history.png" alt="Pending requests panel with Request history tab"><figcaption><p>Pending requests panel showing Request history</p></figcaption></figure>
+
+The detail panel shows:
+
+| Field | Description |
+|---|---|
+| Current budget | The user's current per-period limit |
+| WTD spend | How much the user has spent so far this period, and the percentage of their current limit |
+| Requested upgrade | The transition from current to requested amount (for example, $125.00 → $130.00) |
+| Approve for | The amount to approve. Defaults to the requested amount; you can change it to approve a different amount. |
+
+The panel also includes two tabs:
+
+* **Request history**: shows the user's past requests grouped by budget period.
+* **Spend breakdown**: shows a bar chart of the user's daily AI spend. Use the **By providers** dropdown (By providers, By models, By accounts, By model family, By token type) and **By days** dropdown (By days, By weeks, By months) to change the view. Click **View on explorer** to open the full Cost Explorer.
+
+<figure><img src="../../.gitbook/assets/user-budgets-request-details-spend.png" alt="Request details panel with Spend breakdown tab"><figcaption><p>Spend breakdown tab showing daily AI spend by provider</p></figcaption></figure>
+
+At the bottom, choose one of:
+
+* **Approve**: confirm the amount in the **Approve for** field and approve the request.
+* **Reject**: decline the request.
+* **Skip for now**: defer the decision and move to the next request.
+
+**From the per-user table**
+
+Pending requests also appear inline in the **Request details** column. Click **Review ↗** to open the same review panel for that user, or use the inline approve (✓) and reject (✗) buttons to act without opening the panel.
+
+<figure><img src="../../.gitbook/assets/user-budgets-pending-requests-inline.png" alt="Budget detail page showing Review all and inline Review button"><figcaption><p>Review all in the Pending Requests tile and inline Review in the Request details column</p></figcaption></figure>
 
 {% hint style="info" %}
 Admins who are also listed as an approver for their own budget can approve their own requests.
