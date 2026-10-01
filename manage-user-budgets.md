@@ -24,7 +24,7 @@ Select **Harness user groups** to reuse an existing Harness user group.
 
 #### Select user groups
 
-From the **Select user groups** dropdown, choose one or more groups. To create a new group, click **+ Create new**. For details on creating and managing user groups, see [Manage user groups](#references).
+From the **Select user groups** dropdown, choose one or more groups. To create a new group, click **+ Create new**. To create a new user group, go to [Manage user groups](#references).
 
 #### Applies to
 
