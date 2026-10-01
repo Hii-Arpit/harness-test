@@ -18,44 +18,15 @@ Select **User Budgets** from the left navigation bar, then click **+ Create budg
 
 ### Step 1: Budget setup
 
-#### Specify users to apply budget
-
-Select **Harness user groups** to reuse an existing Harness user group.
-
-#### Select user groups
-
-From the **Select user groups** dropdown, choose one or more groups. To create a new group, click **+ Create new**. To create a new user group, go to [Manage user groups](#references).
-
-#### Applies to
-
-Choose which AI providers this budget governs:
-
-| Option | What it covers |
+| Field | Description |
 |---|---|
-| All AI spend | Every connected AI provider, including new providers you connect in the future |
-| Cursor | Cursor only |
-| Claude | Claude (Anthropic) only |
-| Amazon Bedrock | Amazon Bedrock only |
-
-{% hint style="info" %}
-To apply different limits per provider, create a separate budget for each provider.
-{% endhint %}
-
-#### Budget name
-
-Enter a descriptive name for the budget (for example, `CCM Team - Cursor`).
-
-#### Folder
-
-Select a folder to organize the budget. The dropdown lists all existing folders in your account and includes a search bar to filter by name. Defaults to **Default**.
-
-#### Budget period
-
-Choose **Weekly**, **Monthly**, or **Quarterly**. Spend resets at the start of each new period; unused allowance does not roll over.
-
-#### Starts
-
-Use the date picker to select the start date for the first budget period. Defaults to today's date.
+| Specify users to apply budget | Select **Harness user groups** to reuse an existing Harness user group. |
+| Select user groups | Choose one or more groups from the **Select user groups** dropdown. To create a new group, click **+ Create new**. To create a new user group, go to [Manage user groups](#references). |
+| Applies to | Choose which AI providers this budget governs: <ul><li>**All AI spend**: Every connected AI provider, including new providers you connect in the future</li><li>**Cursor**: Cursor only</li><li>**Claude**: Claude (Anthropic) only</li><li>**Amazon Bedrock**: Amazon Bedrock only</li></ul> To apply different limits per provider, create a separate budget for each provider. |
+| Budget name * | Descriptive name for the budget (for example, `CCM Team - Cursor`) |
+| Folder * | Select a folder to organize the budget. The dropdown lists all existing folders with a search bar to filter by name. Defaults to **Default**. |
+| Budget period * | Choose the billing cycle: <ul><li>**Weekly**</li><li>**Monthly** (default)</li><li>**Quarterly**</li></ul> Spend resets at the start of each new period; unused allowance does not roll over. |
+| Starts | Use the date picker to select the start date for the first budget period. Defaults to today's date. |
 
 Click **Next** to continue.
 
