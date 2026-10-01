@@ -32,10 +32,7 @@ User Budgets are separate from [resource budgets](../budgets/create-a-budget.md)
 
 ## Before you begin
 
-* The feature flag `CCM_USER_BUDGETS` must be enabled on your account. Contact [Harness Support](https://support.harness.io) if you do not see User Budgets in the navigation.
 * You need the **Cost Governance** permission or the dedicated User Budgets RBAC role.
-
-## Overview
 
 Select **User Budgets** under **Cost Governance** in the left navigation to see all user budgets configured in your account.
 
