@@ -46,14 +46,14 @@ Enter the dollar amount each user in the group is allowed to spend per period. T
 
 Turn this on to allow users to request a higher spending limit from their profile. You must then set up at least one approval tier to define who approves requests and the maximum amount they can approve.
 
-<figure><img src="../../.gitbook/assets/user-budgets-step2-approval-tiers.png" alt="Approval tiers with Requests up to and Approved by fields"><figcaption><p>Configure approval tiers when limit increase requests are enabled</p></figcaption></figure>
-
 | Field | Description |
 |---|---|
 | Requests up to | The maximum amount this approver can approve. Harness sends the request to the approver whose tier ceiling matches or exceeds the requested amount. |
 | Approved by | The approver for requests at this tier. |
 
 Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling is the maximum any user can ever request.
+
+<figure><img src="../../.gitbook/assets/user-budgets-step2-approval-tiers.png" alt="Approval tiers with Requests up to and Approved by fields"><figcaption><p>Configure approval tiers when limit increase requests are enabled</p></figcaption></figure>
 
 {% hint style="success" %}
 ### Example
