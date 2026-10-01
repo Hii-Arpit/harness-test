@@ -1,0 +1,47 @@
+user-budgets.md
+  human 57-65
+  human 1-55
+---
+{
+  "attestations": [
+    {
+      "entries": [
+        {
+          "accepted_lines": 9,
+          "added_lines": 9,
+          "deleted_lines": 1,
+          "hash": "human",
+          "lines": "57-65",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 55,
+          "added_lines": 0,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-55",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "user-budgets.md"
+    }
+  ],
+  "base_commit_sha": "9924a21f9c43ad79c7f68af711353fcbec1ec66b",
+  "branch": "user-budgets",
+  "commit_sha": "5374f184aab75f1b34b2e251bb21320edfaa16e1",
+  "commit_time": "2026-10-02T00:05:12+05:30",
+  "commit_type": "direct_commit",
+  "harness_aidlc_version": "1.4.34",
+  "prompts": {
+    "human": {
+      "accepted_lines": 9,
+      "agent_id": null,
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 9,
+      "total_deletions": 1
+    }
+  },
+  "repo": "https://github.com/Hii-Arpit/harness-test",
+  "schema_version": "authorship/3.0.0"
+}
