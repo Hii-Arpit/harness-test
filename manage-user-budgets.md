@@ -68,6 +68,7 @@ A user has a $125/month budget and needs more. Three approval tiers are configur
 
 * A request for $200 goes to the team lead (Tier 1).
 * A request for $400 goes to the engineering manager (Tier 2).
+* A request for $700 goes to the VP of Engineering (Tier 3).
 * No user can request more than $750, the ceiling of the highest tier.
 {% endhint %}
 
