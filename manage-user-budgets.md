@@ -14,14 +14,8 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 ## Create a user budget
 
-{% stepper %}
-{% step %}
-### Open User Budgets
+1. Select **User Budgets** from the left navigation bar, then click **+ Create budget**.
 
-Select **User Budgets** from the left navigation bar, then click **+ Create budget**.
-{% endstep %}
-
-{% step %}
 ### Step 1: Budget setup
 
 Configure who this budget applies to and what it covers.
@@ -52,10 +46,8 @@ Give the budget a descriptive name (for example, `CCM Team - Cursor`). Select a 
 
 Choose **Weekly**, **Monthly**, or **Quarterly**. The spend amount resets at the start of each new period; unused allowance does not roll over.
 
-Click **Next** to continue.
-{% endstep %}
+2. Click **Next** to continue.
 
-{% step %}
 ### Step 2: Enforcements and notifications
 
 Configure the per-user limit, approval workflow, and what happens when a user reaches their cap.
@@ -86,9 +78,9 @@ Expand **Advanced settings** to configure two per-budget guardrails:
 
 Click **+ Add percentage threshold** to add one or more rules. For each rule:
 
-1. Enter the spend percentage that triggers the rule (for example, `80`).
-2. Choose **Notify** to send an email to the affected user (and any additional recipients you add).
-3. Choose **Block** to revoke the user's access to the covered AI providers once the threshold is crossed.
+* Enter the spend percentage that triggers the rule (for example, `80`).
+* Choose **Notify** to send an email to the affected user (and any additional recipients you add).
+* Choose **Block** to revoke the user's access to the covered AI providers once the threshold is crossed.
 
 You can add multiple rules. For example, notify at 80% and block at 100%.
 
@@ -98,9 +90,7 @@ You can add multiple rules. For example, notify at 80% and block at 100%.
 Block enforcement requires an AI Governance permission on the relevant connector. Go to the connector settings and enable the AI Governance checkbox to allow User Budgets to enforce against it. Without this permission, notifications still work, but access will not be blocked.
 {% endhint %}
 
-Click **Create** to save the budget.
-{% endstep %}
-{% endstepper %}
+3. Click **Create** to save the budget.
 
 ## Monitor a user budget
 
