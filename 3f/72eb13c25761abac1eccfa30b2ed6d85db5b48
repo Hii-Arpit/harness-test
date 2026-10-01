@@ -1,0 +1,89 @@
+rds-get-started.md
+  90a1a6f2-8501-4f84-a38f-c45ffa423182 1-230
+elasticache-get-started.md
+  90a1a6f2-8501-4f84-a38f-c45ffa423182 1-177
+SUMMARY.md
+  90a1a6f2-8501-4f84-a38f-c45ffa423182 4-7
+  human 4-5
+---
+{
+  "attestations": [
+    {
+      "entries": [
+        {
+          "accepted_lines": 230,
+          "added_lines": 230,
+          "deleted_lines": 1,
+          "hash": "90a1a6f2-8501-4f84-a38f-c45ffa423182",
+          "lines": "1-230",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "rds-get-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 177,
+          "added_lines": 177,
+          "deleted_lines": 0,
+          "hash": "90a1a6f2-8501-4f84-a38f-c45ffa423182",
+          "lines": "1-177",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "elasticache-get-started.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 4,
+          "added_lines": 4,
+          "deleted_lines": 1,
+          "hash": "90a1a6f2-8501-4f84-a38f-c45ffa423182",
+          "lines": "4-7",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 2,
+          "hash": "human",
+          "lines": "4-5",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "SUMMARY.md"
+    }
+  ],
+  "base_commit_sha": "8d0000acca498b3a3cbbba5ac0fc127badc3e55d",
+  "branch": "spl",
+  "commit_sha": "3f72eb13c25761abac1eccfa30b2ed6d85db5b48",
+  "commit_time": "2026-10-01T16:29:21+05:30",
+  "commit_type": "direct_commit",
+  "harness_aidlc_version": "1.4.34",
+  "prompts": {
+    "90a1a6f2-8501-4f84-a38f-c45ffa423182": {
+      "accepted_lines": 411,
+      "agent_id": {
+        "id": "90a1a6f2-8501-4f84-a38f-c45ffa423182",
+        "model": "claude-sonnet-4-6",
+        "tool": "claude"
+      },
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 411,
+      "total_deletions": 2
+    },
+    "human": {
+      "accepted_lines": 0,
+      "agent_id": null,
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 0,
+      "total_deletions": 2
+    }
+  },
+  "repo": "https://github.com/Hii-Arpit/harness-test",
+  "schema_version": "authorship/3.0.0"
+}
