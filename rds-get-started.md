@@ -1,13 +1,20 @@
 ---
 description: "Get started with Commitment Orchestrator for RDS to automate Reserved Instance and Savings Plan purchases and reduce AWS database costs"
+hidden: true
 ---
 
 
 # RDS
 
+{% hint style="info" %}
+**Behind a Feature Flag**
+
+Commitment Orchestrator for RDS is behind a feature flag. Contact [Harness Support](mailto:support@harness.io) to have the `CCM_COMMORCH_RDS` flag enabled for your account.
+{% endhint %}
+
 {% @harness-package-selector/package-selector platforms="%5B%7B%22label%22%3A%22RDS%22%2C%22slug%22%3A%22rds%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Frds-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22EC2%22%2C%22slug%22%3A%22ec2%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Fec2-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22Elasticache%22%2C%22slug%22%3A%22elasticache%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Felasticache-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%5D" selectedPlatform="rds"  iconLibrary="https://developer.harness.io/provider-logos" %}
 
-## Before You Begin
+## Before you begin
 
 To setup Commitment Orchestrator in Harness CACM, you need:
 
@@ -18,7 +25,7 @@ To setup Commitment Orchestrator in Harness CACM, you need:
 
 Available permissions for RDS:
 
-```
+```yaml
 Action:
 - 'ce:GetSavingsPlansCoverage'
 - 'ce:GetReservationCoverage'
@@ -43,7 +50,7 @@ Action:
 
 To enable visibility, in the master account connector, you need to add the following permissions.
 
-```
+```text
 "ec2:DescribeReservedInstancesOfferings",
 "ce:GetSavingsPlansUtilization",
 "ce:GetReservationUtilization",
@@ -60,7 +67,7 @@ To enable visibility, in the master account connector, you need to add the follo
 
 And to enable actual orchestration, you need to add the following permissions.
 
-```
+```text
 "ec2:PurchaseReservedInstancesOffering",
 "ec2:GetReservedInstancesExchangeQuote",
 "ec2:DescribeInstanceTypeOfferings",              
@@ -74,7 +81,7 @@ And to enable actual orchestration, you need to add the following permissions.
 
 For RDS additional permissions are required.
 
-```
+```text
 "rds:PurchaseReservedDBInstancesOffering",
 "rds:DescribeReservedDBInstancesOfferings",
 "pricing:GetProducts"
@@ -87,7 +94,7 @@ For RDS additional permissions are required.
 
 We have rolled out permissions for Elasticache as well. Available permissions for Elasticache:
 
-```
+```yaml
 Action:
 - 'ce:GetSavingsPlansCoverage'
 - 'ce:GetReservationCoverage'
@@ -137,62 +144,12 @@ The purchases will happen only at master account level and thus will be in turn 
 {% endtab %}
 
 {% tab title="Orchestration Preferences" %}
-### Target Coverage
+* **Target Coverage:** The maximum percentage of your compute spend that you want covered by Reserved Instances. Any remaining spend will continue to run on On-Demand. The Commitment Orchestrator automatically adjusts coverage levels based on evolving usage patterns.
+* **Orchestration Mode:** Select how the orchestrator executes recommended commitment purchases:
+  * **Fully Automated**: Commitment purchases are executed automatically without requiring manual approval.
+  * **Manual**: All commitment purchases require explicit manual approval before execution, giving you complete control over the process. All the recommendations are visible in the **Actions** tab on the dashboard.
 
-The maximum percentage of your compute spend that you want covered by Savings Plans and/or Reserved Instances. Any remaining spend will continue to run on On-Demand. The Commitment Orchestrator automatically adjusts coverage levels based on evolving usage patterns.
-
-### Preferred commitment type
-
-Select whether the orchestrator prioritizes Reserved Instances or Savings Plans when both can cover the same usage.
-
-* **Reserved Instances** (default): The orchestrator prioritizes reserved instances. Savings plans are used only when reserved instances aren't a good fit for the usage pattern.
-* **Savings Plans**: The orchestrator prioritizes savings plans. Reserved instances are used only when savings plans aren't a good fit for the usage pattern.
-
-{% hint style="success" %}
-This preference controls which commitment type spends the shared coverage budget first. Both types may still be purchased; selecting one does not disable the other.
-{% endhint %}
-
-### Maximum commitment per savings plan
-
-Set an upper limit (in USD per hour) on the size of any single Savings Plan recommendation. The orchestrator will not recommend or purchase a Savings Plan with an hourly commitment above this amount.
-
-| Setting | Behavior |
-|---|---|
-| Unset or 0 | No limit applied; the orchestrator sizes recommendations based on your eligible spend. |
-| Greater than 0 | Each net-new SP recommendation is capped at this hourly value. |
-
-{% hint style="info" %}
-This cap applies to net-new Savings Plan recommendations only. Renewals of existing Savings Plans are not governed by this limit in the same way.
-{% endhint %}
-
-### Harness SP Staggering
-
-When enabled, the Commitment Orchestrator builds your Savings Plan coverage gradually through a series of smaller purchases instead of one large commitment.
-
-**Why this reduces risk**
-
-A single large Savings Plan locks you into a fixed hourly commitment for 1 or 3 years. If your usage drops after purchase, the unused portion is wasted spend. Harness SP Staggering reduces this risk by:
-
-* Buying only a fraction of your remaining uncovered demand at each step, so early purchases are modest and later ones shrink naturally as coverage grows
-* Spreading purchases over time, creating decision points where the orchestrator can adjust if usage changes
-* Ensuring no single purchase can be oversized when combined with the maximum commitment per savings plan setting
-
-**How it works**
-
-Each orchestrator run calculates how much of your on-demand spend remains uncovered by active and pending Savings Plans. It then purchases a fraction of that remaining amount rather than the full total. By default, Harness SP Staggering uses a balanced pace that covers approximately 50% of your coverable usage within the first month, with several purchases spaced throughout.
-
-{% hint style="info" %}
-Harness SP Staggering applies to net-new Savings Plan purchases only. It does not affect Reserved Instance purchases or renewals of existing Savings Plans.
-{% endhint %}
-
-<figure><img src="../../../.gitbook/assets/co-rds-preferences.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
-
-### Orchestration Mode
-
-Select how the orchestrator executes recommended commitment purchases:
-
-* **Fully Automated**: Commitment purchases are executed automatically without requiring manual approval.
-* **Manual**: All commitment purchases require explicit manual approval before execution, giving you complete control over the process. All the recommendations are visible in the **Actions** tab on the dashboard.
+<figure><img src="../../../.gitbook/assets/rds-three.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Review & Complete" %}
@@ -204,7 +161,7 @@ After all the set-up steps, you can review and finalise your inputs.
 
 ***
 
-### Overview Screen
+### Overview screen
 
 The Orchestration Setup page displays a comprehensive list of all Master Accounts with Commitment Orchestrator connector permissions. From this page, users can enable new orchestration setups and view key metrics including Last 30 Days Coverage, Savings, and the current status of each Orchestrator configuration.
 
