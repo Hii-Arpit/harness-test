@@ -23,7 +23,11 @@ User Budgets are separate from [resource budgets](../budgets/create-a-budget.md)
 
 ## Overview
 
-Select **User Budgets** under **Cost Governance** in the left navigation to see all user budgets configured in your account. Each row shows:
+Select **User Budgets** under **Cost Governance** in the left navigation to see all user budgets configured in your account.
+
+<figure><img src="../../.gitbook/assets/user-budgets-list.png" alt="User Budgets list view"><figcaption><p>User Budgets list view</p></figcaption></figure>
+
+Each row shows:
 
 | Column | Description |
 |---|---|
