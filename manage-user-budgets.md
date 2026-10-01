@@ -32,13 +32,14 @@ Choose which AI providers this budget governs:
 
 | Option | What it covers |
 |---|---|
-| All AI spend | Every connected AI provider, including providers you add in the future |
+| All AI spend | Every connected AI provider, including new providers you connect in the future |
 | Cursor | Cursor only |
-| Claude Enterprise | Claude (Anthropic) only |
+| Claude | Claude (Anthropic) only |
 | Amazon Bedrock | Amazon Bedrock only |
-| GitHub Copilot | GitHub Copilot (enforcement in progress) |
 
+{% hint style="info" %}
 To apply different limits per provider, create a separate budget for each provider.
+{% endhint %}
 
 #### Budget name
 
