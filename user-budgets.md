@@ -39,7 +39,9 @@ Each row shows:
 | Upgrade requests | Pending limit-increase requests submitted by users in the budget |
 
 {% hint style="success" %}
-**Tip:** Use the **Search budgets** bar to find a budget by name. Use the sort dropdown to order the list:
+### Finding and filtering budgets
+
+Use the **Search budgets** bar to find a budget by name. Use the sort dropdown to order the list:
 
 * **Name (A→Z / Z→A)**
 * **Created (newest / oldest)**
