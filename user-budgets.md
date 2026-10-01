@@ -34,7 +34,7 @@ Each row shows:
 | Name | Budget name, folder, and the number of users in the budget |
 | Budget | Per-user spend limit and billing period (for example, $500.00/wk) |
 | Rolled up spend | Aggregate AI spend across all users in the budget for the current period, shown as a percentage and progress bar |
-| User health | **Good** — all users within limit; **At risk** — one or more users nearing their threshold; **Over** — one or more users have exceeded the limit |
+| User health | <ul><li><strong>Good</strong> — all users within limit</li><li><strong>At risk</strong> — one or more users nearing their threshold</li><li><strong>Over</strong> — one or more users have exceeded the limit</li></ul> |
 | Notifications and enforcements | Active alert and block rules configured for the budget |
 | Upgrade requests | Pending limit-increase requests submitted by users in the budget |
 
