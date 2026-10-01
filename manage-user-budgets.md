@@ -41,12 +41,21 @@ Choose which AI providers this budget governs:
 To apply different limits per provider, create a separate budget for each provider.
 {% endhint %}
 
-| Field | Description |
-|---|---|
-| Budget name * | Descriptive name for the budget (for example, `CCM Team - Cursor`) |
-| Folder * | Organizes the budget. Defaults to **Default** |
-| Budget period * | **Weekly**, **Monthly**, or **Quarterly**. Spend resets each period; unused allowance does not roll over |
-| Starts | Start date for the first budget period. Defaults to today |
+#### Budget name
+
+Enter a descriptive name for the budget (for example, `CCM Team - Cursor`).
+
+#### Folder
+
+Select a folder to organize the budget. The dropdown lists all existing folders in your account and includes a search bar to filter by name. Defaults to **Default**.
+
+#### Budget period
+
+Choose **Weekly**, **Monthly**, or **Quarterly**. Spend resets at the start of each new period; unused allowance does not roll over.
+
+#### Starts
+
+Use the date picker to select the start date for the first budget period. Defaults to today's date.
 
 Click **Next** to continue.
 
