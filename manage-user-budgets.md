@@ -18,11 +18,15 @@ Select **User Budgets** from the left navigation bar, then click **+ Create budg
 
 ### Step 1: Budget setup
 
-**Harness user groups**
+#### Specify users to apply budget
 
-Select one or more existing user groups from the **Select user groups** dropdown. To create a new group, click **+ Create new**.
+Select **Harness user groups** to reuse an existing Harness user group.
 
-**Applies to**
+#### Select user groups
+
+From the **Select user groups** dropdown, choose one or more groups. To create a new group, click **+ Create new**. For details on creating and managing user groups, see [Manage user groups](#references).
+
+#### Applies to
 
 Choose which AI providers this budget governs:
 
@@ -36,13 +40,21 @@ Choose which AI providers this budget governs:
 
 To apply different limits per provider, create a separate budget for each provider.
 
-**Budget name and folder**
+#### Budget name
 
-Give the budget a descriptive name (for example, `CCM Team - Cursor`). Select a folder to keep budgets organized.
+Enter a descriptive name for the budget (for example, `CCM Team - Cursor`).
 
-**Budget period and start date**
+#### Folder
+
+Select a folder to keep budgets organized. Defaults to **Default** if no folder is selected.
+
+#### Budget period
 
 Choose **Weekly**, **Monthly**, or **Quarterly**. The spend amount resets at the start of each new period; unused allowance does not roll over.
+
+#### Starts
+
+Select the date the budget period begins. Defaults to today's date.
 
 Click **Next** to continue.
 
@@ -50,11 +62,11 @@ Click **Next** to continue.
 
 Configure the per-user limit, approval workflow, and what happens when a user reaches their cap.
 
-**Budget per user**
+#### Budget per user
 
 Enter the dollar amount each user in the group is allowed to spend per period. The scope shown in the top-right corner (for example, **All AI spend**) reflects what you selected in Step 1.
 
-**Allow users to request a higher limit**
+#### Allow users to request a higher limit
 
 Toggle this on to let users request an increase from their profile. When enabled, configure one or more approval tiers:
 
@@ -65,14 +77,14 @@ Toggle this on to let users request an increase from their profile. When enabled
 
 Click **+ Add approval tier** to stack multiple tiers. The highest tier's ceiling is the maximum any user can ever request. Approvers can approve at a different amount than requested and add a note explaining the change.
 
-**Advanced settings (optional)**
+#### Advanced settings (optional)
 
 Expand **Advanced settings** to configure two per-budget guardrails:
 
 * **Users can request an increase once spend reaches**: the percentage of their current budget they must consume before they can request more (default: 80%).
 * **Maximum increase per request**: the largest single-request increase allowed (default: $125).
 
-**Notifications and enforcement**
+#### Notifications and enforcement
 
 Click **+ Add percentage threshold** to add one or more rules. For each rule:
 
@@ -171,5 +183,9 @@ On the budget detail page, click **Edit Budget** to reopen the two-step wizard a
 {% hint style="danger" %}
 Deleting a user budget removes all enforcement rules immediately. Users who were blocked regain access.
 {% endhint %}
+
+## References
+
+* [Manage user groups](https://developer.harness.io/docs/platform/use-harness-platform/platform-access-control/add-user-groups) — Create and manage Harness user groups to use with User Budgets.
 
 {% @harness-feedback/feedback %}
