@@ -62,9 +62,17 @@ Enter a folder name and click **Save**.
 
 <figure><img src="../../.gitbook/assets/user-budgets-folder-modal.png" alt="Create new folder modal"><figcaption><p>Create new folder dialog</p></figcaption></figure>
 
-To edit or delete a folder, hover over it to reveal the pencil and trash icons.
+To manage an existing folder, hover over it in the panel to reveal three actions:
 
-You can assign a budget to a folder at creation time, or move it to a different folder later.
+| Action | Description |
+|---|---|
+| Edit (pencil) | Rename the folder |
+| Delete (trash) | Permanently remove the folder |
+| Pin (pin icon) | Pin the folder to the top of the Folders panel for quick access |
+
+You can assign a budget to a folder when you create it. To move an existing budget to a different folder, click the three-dot menu on the budget row and select **Move to folder**.
+
+<figure><img src="../../.gitbook/assets/user-budgets-row-menu.png" alt="Budget row three-dot menu"><figcaption><p>Each budget row has a three-dot menu with Edit, Move to folder, and Delete options</p></figcaption></figure>
 
 {% content-ref url="manage-user-budgets.md" %}
 [manage-user-budgets.md](manage-user-budgets.md)
