@@ -93,6 +93,8 @@ Click **+ Add percentage threshold** to define when Harness should act. For each
 
 For each threshold, you can choose to notify the user, block their access, or both. Add multiple thresholds to trigger different actions at different spend levels.
 
+<figure><img src="../../.gitbook/assets/user-budgets-step2-notifications.png" alt="Notification rules configured with Notify and Block thresholds"><figcaption><p>Notify and Block configured on separate thresholds</p></figcaption></figure>
+
 {% hint style="success" %}
 ### Example
 
@@ -105,8 +107,6 @@ Two thresholds are configured on the same budget:
 
 Alternatively, enable both **Notify** and **Block** on the same threshold — for example, notify and block access at 100% in one rule.
 {% endhint %}
-
-<figure><img src="../../.gitbook/assets/user-budgets-step2-notifications.png" alt="Notification rules configured with Notify and Block thresholds"><figcaption><p>Notify and Block configured on separate thresholds</p></figcaption></figure>
 
 {% hint style="info" %}
 **Connector permission required for block enforcement**
