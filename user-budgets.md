@@ -15,11 +15,25 @@ description: Set per-developer spend limits across AI tools, with enforcement, a
 ```
 {% endif %}
 
+# User Budgets
+
 User Budgets let you define a spending cap for each developer on AI tools such as Cursor, Claude Enterprise, and Amazon Bedrock. When a developer approaches or exceeds their limit, Harness notifies them and, optionally, blocks their access. Developers who need more can request a limit increase directly from their profile without filing a support ticket.
 
 {% hint style="info" %}
 User Budgets are separate from [resource budgets](../budgets/create-a-budget.md), which track cloud infrastructure spend against cost perspectives.
 {% endhint %}
+
+## What you will learn from this topic
+
+* How the User Budgets list is organized and what each column shows
+* How to search, sort, and filter budgets
+* How to use folders to organize budgets and control access
+* How to create, move, and delete budgets from the list view
+
+## Before you begin
+
+* The feature flag `CCM_USER_BUDGETS` must be enabled on your account. Contact [Harness Support](https://support.harness.io) if you do not see User Budgets in the navigation.
+* You need the **Cost Governance** permission or the dedicated User Budgets RBAC role.
 
 ## Overview
 
@@ -74,8 +88,8 @@ You can assign a budget to a folder when you create it. To change the folder for
 
 <figure><img src="../../.gitbook/assets/user-budgets-row-menu.png" alt="Budget row three-dot menu"><figcaption><p>Each budget row has a three-dot menu with Edit, Move to folder, and Delete options</p></figcaption></figure>
 
-{% content-ref url="manage-user-budgets.md" %}
-[manage-user-budgets.md](manage-user-budgets.md)
-{% endcontent-ref %}
+## Next steps
+
+Go to [Create and manage user budgets](manage-user-budgets.md) to set up a budget, configure enforcement rules and an approval workflow, and manage limit increase requests.
 
 {% @harness-feedback/feedback %}
