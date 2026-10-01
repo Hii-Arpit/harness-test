@@ -1,6 +1,5 @@
 ---
 description: "Get started with Commitment Orchestrator for EC2 to automate Reserved Instance and Savings Plan purchases and reduce AWS compute costs"
-hidden: true
 ---
 
 
@@ -8,7 +7,7 @@ hidden: true
 
 {% @harness-package-selector/package-selector platforms="%5B%7B%22label%22%3A%22RDS%22%2C%22slug%22%3A%22rds%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Frds-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22EC2%22%2C%22slug%22%3A%22ec2%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Fec2-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22Elasticache%22%2C%22slug%22%3A%22elasticache%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fcommitment-orchestrator%2Fget-started%2Felasticache-get-started%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%5D" selectedPlatform="ec2"  iconLibrary="https://developer.harness.io/provider-logos" %}
 
-## Before you begin
+## Before You Begin
 
 To setup Commitment Orchestrator in Harness CACM, you need:
 
@@ -19,7 +18,7 @@ To setup Commitment Orchestrator in Harness CACM, you need:
 
 Available permissions for EC2:
 
-```yaml
+```
 Action:
 - 'ec2:ModifyReservedInstances'
 - 'ec2:GetReservedInstancesExchangeQuote'
@@ -50,7 +49,7 @@ Resource: '*'
 
 To enable visibility, in the master account connector, you need to add the following permissions.
 
-```text
+```
 "ec2:DescribeReservedInstancesOfferings",
 "ce:GetSavingsPlansUtilization",
 "ce:GetReservationUtilization",
@@ -67,7 +66,7 @@ To enable visibility, in the master account connector, you need to add the follo
 
 And to enable actual orchestration, you need to add the following permissions.
 
-```text
+```
 "ec2:PurchaseReservedInstancesOffering",
 "ec2:GetReservedInstancesExchangeQuote",
 "ec2:DescribeInstanceTypeOfferings",
@@ -118,35 +117,101 @@ The purchases will happen only at master account level and thus will be in turn 
 {% endtab %}
 
 {% tab title="Orchestration Preferences" %}
-* **Target Coverage:** The maximum percentage of your compute spend that you want covered by Savings Plans and/or Reserved Instances. Any remaining spend will continue to run on On-Demand. The Commitment Orchestrator automatically adjusts coverage levels based on evolving usage patterns.
-*   **Atomization:** Atomization helps with restricting all RI based transactions to a specified date. To extend on this approach, Harness Commitment Orchestrator intends to buy a Atom RI on a monthly basis in each of the regions to create a situation where in the future there would be a Atom RI expiring on a monthly basis.
+### Target Coverage 
 
-    You can select the Atom purchase frequency and select the Atom purchase terms and you can also see the cost implications of Atomization. By default, CACM sets it for one year, but you can also set it for three years.
-*   **(Optional) Savings Plan Renewal Reduction % (Roll-Down Policy)**: Set a percentage to decide how much of an expiring commitment will be renewed. This feature gives you strategic control over how your expiring AWS Savings Plans are renewed and optimizes your commitment mix over time.
+The maximum percentage of your compute spend that you want covered by Savings Plans and/or Reserved Instances. Any remaining spend will continue to run on On-Demand. The Commitment Orchestrator automatically adjusts coverage levels based on evolving usage patterns.
 
-    **How it works**: When a Savings Plan expires, the Roll-Down Policy automatically renews a specified percentage as another Savings Plan, while converting the remaining portion to Reserved Instances. For example, if set to 80% and you have a $10/hr SP expiring, we will renew $8/hr as SP and shift the remaining $2/hr to RIs.
+### Preferred commitment type 
 
-    **Benefits**:
+Select whether the orchestrator prioritizes Reserved Instances or Savings Plans when both can cover the same EC2 usage.
 
-    * **Gradual portfolio adjustment**: Allows you to shift your commitment strategy as your workload patterns evolve
-    * **Risk management**: Minimizes commitment risk through monthly expiring Atom RIs, allowing for better adaptation to changing usage patterns.
-    * **Balanced flexibility**: Maintains cost savings while introducing more flexibility into your commitment portfolio through a mix of SPs and RIs
+* **Reserved Instances** (default): The orchestrator prioritizes reserved instances. Savings plans are used only when reserved instances aren't a good fit for the usage pattern.
+* **Savings Plans**: The orchestrator prioritizes savings plans. Reserved instances are used only when savings plans aren't a good fit for the usage pattern.
 
-    <figure><img src="../../../.gitbook/assets/sp-rolldown.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
-*   **Orchestration Mode:** Select how the orchestrator executes recommended commitment purchases:
+{% hint style="success" %}
+This preference controls which commitment type spends the shared coverage budget first. Both types may still be purchased; selecting one does not disable the other.
+{% endhint %}
 
-    * **Fully Automated**: Commitment purchases are executed automatically without requiring manual approval.
-    * **Manual**: All commitment purchases require explicit manual approval before execution, giving you complete control over the process. All the recommendations are visible in the **Actions** tab on the dashboard.
+<figure><img src="../../../.gitbook/assets/co-sp-preferences.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-    <figure><img src="../../../.gitbook/assets/stepsix.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
-*   **(Optional) Notifications:** Configure alerts to stay informed about commitment-related activities. You can set up the following notification types:
+### Maximum commitment per savings plan
 
-    * **Purchase Notifications:** Receive alerts when Harness successfully executes RI/SP purchases on your behalf. These notifications include details such as commitment type, term length, upfront cost, and estimated savings.
-    * **Pending Approval Notifications:** Get alerted when manual approval is required for RI/SP recommendations. This is particularly useful when using the Manual orchestration mode, ensuring you never miss an opportunity to approve cost-saving commitments.
-    * **Savings Plans Expiry Notifications:** Set a timeframe (up to 7 days before expiry) to receive alerts about your existing Savings Plans that will soon expire. This gives you adequate time to plan for renewals or replacement commitments.
-    * **Email Recipients:** Specify the email addresses that should receive these notifications. You can add multiple recipients by separating email addresses with commas. Notifications can also be configured to be sent to specific teams or distribution lists.
+Set an upper limit (in USD per hour) on the size of any single Savings Plan recommendation. The orchestrator will not recommend or purchase a Savings Plan with an hourly commitment above this amount.
 
-    <figure><img src="../../../.gitbook/assets/notifications.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+| Setting | Behavior |
+|---|---|
+| Unset or 0 | No limit applied; the orchestrator sizes recommendations based on your eligible spend. |
+| Greater than 0 | Each net-new SP recommendation is capped at this hourly value. |
+
+For example, if your eligible on-demand spend is $100/hr and you set this to $25/hr, the orchestrator recommends a $25/hr Savings Plan in the first run. After that purchase is approved, the next run recommends another $25/hr, and so on until coverage is built up.
+
+{% hint style="info" %}
+This cap applies to net-new Savings Plan recommendations only. Renewals of existing Savings Plans are not governed by this limit in the same way.
+{% endhint %}
+
+<figure><img src="../../../.gitbook/assets/co-sp-max-commitment.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+
+### Atomization 
+
+Atomization helps with restricting all RI based transactions to a specified date. To extend on this approach, Harness Commitment Orchestrator intends to buy a Atom RI on a monthly basis in each of the regions to create a situation where in the future there would be a Atom RI expiring on a monthly basis.
+
+You can select the Atom purchase frequency and select the Atom purchase terms and you can also see the cost implications of Atomization. By default, CACM sets it for one year, but you can also set it for three years.
+
+### Harness SP Staggering
+
+When enabled, the Commitment Orchestrator builds your Savings Plan coverage gradually through a series of smaller purchases instead of one large commitment.
+
+**Why this reduces risk**
+
+A single large Savings Plan locks you into a fixed hourly commitment for 1 or 3 years. If your usage drops after purchase, the unused portion is wasted spend. Harness SP Staggering reduces this risk by:
+
+* Buying only a fraction of your remaining uncovered demand at each step, so early purchases are modest and later ones shrink naturally as coverage grows
+* Spreading purchases over time, creating decision points where the orchestrator can adjust if usage changes
+* Ensuring no single purchase can be oversized when combined with the maximum commitment per savings plan setting
+
+**How it works**
+
+Each orchestrator run calculates how much of your on-demand spend remains uncovered by active and pending Savings Plans. It then purchases a fraction of that remaining amount rather than the full total. By default, Harness SP Staggering uses a balanced pace that covers approximately 50% of your coverable usage within the first month, with several purchases spaced throughout.
+
+{% hint style="info" %}
+Harness SP Staggering applies to net-new Savings Plan purchases only. It does not affect Reserved Instance purchases or renewals of existing Savings Plans.
+{% endhint %}
+
+<figure><img src="../../../.gitbook/assets/co-sp-staggering.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+
+### (Optional) Savings Plan Renewal Reduction % (Roll-Down Policy)
+
+Set a percentage to decide how much of an expiring commitment will be renewed. This feature gives you strategic control over how your expiring AWS Savings Plans are renewed and optimizes your commitment mix over time.
+
+**How it works**: When a Savings Plan expires, the Roll-Down Policy automatically renews a specified percentage as another Savings Plan, while converting the remaining portion to Reserved Instances. For example, if set to 80% and you have a $10/hr SP expiring, we'll renew $8/hr as SP and shift the remaining $2/hr to RIs.
+
+**Benefits**:
+
+* **Gradual portfolio adjustment**: Allows you to shift your commitment strategy as your workload patterns evolve
+* **Risk management**: Minimizes commitment risk through monthly expiring Atom RIs, allowing for better adaptation to changing usage patterns.
+* **Balanced flexibility**: Maintains cost savings while introducing more flexibility into your commitment portfolio through a mix of SPs and RIs
+
+<figure><img src="../../../.gitbook/assets/sp-rolldown.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+
+### Orchestration Mode
+
+Select how the orchestrator executes recommended commitment purchases:
+
+* **Fully Automated**: Commitment purchases are executed automatically without requiring manual approval.
+* **Manual**: All commitment purchases require explicit manual approval before execution, giving you complete control over the process. All the recommendations are visible in the **Actions** tab on the dashboard.
+
+<figure><img src="../../../.gitbook/assets/stepsix.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+
+### (Optional) Notifications
+
+Configure alerts to stay informed about commitment-related activities. You can set up the following notification types:
+
+* **Purchase Notifications:** Receive alerts when Harness successfully executes RI/SP purchases on your behalf. These notifications include details such as commitment type, term length, upfront cost, and estimated savings.
+* **Pending Approval Notifications:** Get alerted when manual approval is required for RI/SP recommendations. This is particularly useful when using the Manual orchestration mode, ensuring you never miss an opportunity to approve cost-saving commitments.
+* **Savings Plans Expiry Notifications:** Set a timeframe (up to 7 days before expiry) to receive alerts about your existing Savings Plans that will soon expire. This gives you adequate time to plan for renewals or replacement commitments.
+* **Email Recipients:** Specify the email addresses that should receive these notifications. You can add multiple recipients by separating email addresses with commas. Notifications can also be configured to be sent to specific teams or distribution lists.
+
+<figure><img src="../../../.gitbook/assets/notifications.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Review & Complete" %}
@@ -160,7 +225,7 @@ After all the set-up steps, you can review and finalise your inputs.
 
 ***
 
-### Overview screen
+### Overview Screen
 
 The Orchestration Setup page displays a comprehensive list of all Master Accounts with Commitment Orchestrator connector permissions. From this page, users can enable new orchestration setups and view key metrics including Last 30 Days Coverage, Savings, and the current status of each Orchestrator configuration.
 
