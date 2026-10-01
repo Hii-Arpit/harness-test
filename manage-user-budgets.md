@@ -32,48 +32,48 @@ Select **User Budgets** from the left navigation bar, then click **+ Create budg
 To apply different limits per provider, create a separate budget for each provider.
 {% endhint %}
 
-Click **Next** to continue.
-
 ### Step 2: Enforcements and notifications
 
-Configure the per-user limit, approval workflow, and what happens when a user reaches their cap.
+Configure the per-user spending limit, approval workflow, and notification rules.
 
 #### Budget per user
 
-Enter the dollar amount each user in the group is allowed to spend per period. The scope shown in the top-right corner (for example, **All AI spend**) reflects what you selected in Step 1.
+Enter the dollar amount each user in the group is allowed to spend per period. The provider scope badge (for example, **All AI spend**) in the top-right reflects what you selected in Step 1.
 
 #### Allow users to request a higher limit
 
-Toggle this on to let users request an increase from their profile. When enabled, configure one or more approval tiers:
+Toggle this on to let users submit a limit increase request from their profile. When enabled, configure one or more approval tiers:
 
 | Field | Description |
 |---|---|
 | Requests up to | The dollar ceiling for this tier. A request routes to the lowest tier whose ceiling covers the requested amount. |
-| Approved by | The person who approves requests at this tier. Select **Auto-approve** to approve requests automatically up to this ceiling without human review. |
+| Approved by | The approver for requests at this tier. |
 
-Click **+ Add approval tier** to stack multiple tiers. The highest tier's ceiling is the maximum any user can ever request. Approvers can approve at a different amount than requested and add a note explaining the change.
+Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling is the maximum any user can ever request.
 
 #### Advanced settings (optional)
 
-Expand **Advanced settings** to configure two per-budget guardrails:
+Expand **Advanced settings** to configure two guardrails:
 
-* **Users can request an increase once spend reaches**: the percentage of their current budget they must consume before they can request more (default: 80%).
-* **Maximum increase per request**: the largest single-request increase allowed (default: $125).
+| Field | Description |
+|---|---|
+| Users can request an increase once spend reaches | The percentage of their current budget a user must consume before they can submit a request. |
+| Maximum increase per request | The largest single-request increase allowed. |
 
-#### Notifications and enforcement
+#### Notifications
 
-Click **+ Add percentage threshold** to add one or more rules. For each rule:
+Click **+ Add percentage threshold** to add a notification rule. For each rule:
 
-* Enter the spend percentage that triggers the rule (for example, `80`).
-* Choose **Notify** to send an email to the affected user (and any additional recipients you add).
-* Choose **Block** to revoke the user's access to the covered AI providers once the threshold is crossed.
+* Set the spend percentage that triggers the rule in the **When spend reaches** field (for example, `90`).
+* Click **+ Notify** to send an email notification to the affected user. You can add more recipients.
+* Click **+ Block** to revoke the user's access to the covered AI providers once the threshold is crossed.
 
-You can add multiple rules. For example, notify at 80% and block at 100%.
+You can add multiple thresholds. For example, notify at 90% and block at 100%.
 
 {% hint style="info" %}
-**Connector permission required for enforcement**
+**Connector permission required for block enforcement**
 
-Block enforcement requires an AI Governance permission on the relevant connector. Go to the connector settings and enable the AI Governance checkbox to allow User Budgets to enforce against it. Without this permission, notifications still work, but access will not be blocked.
+Block enforcement requires the AI Governance permission on the relevant connector. Go to the connector settings and enable the AI Governance checkbox to allow User Budgets to enforce against it. Without this permission, notifications still work, but access will not be blocked.
 {% endhint %}
 
 Click **Create** to save the budget.
