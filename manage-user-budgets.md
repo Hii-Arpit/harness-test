@@ -36,6 +36,8 @@ To apply different limits per provider, create a separate budget for each provid
 
 Configure the per-user spending limit, approval workflow, and notification rules.
 
+<figure><img src="../../.gitbook/assets/user-budgets-step2-overview.png" alt="Step 2: Enforcements and notifications"><figcaption><p>Step 2: Enforcements and notifications</p></figcaption></figure>
+
 #### Budget per user
 
 Enter the dollar amount each user in the group is allowed to spend per period. The provider scope badge (for example, **All AI spend**) in the top-right reflects what you selected in Step 1.
@@ -43,6 +45,8 @@ Enter the dollar amount each user in the group is allowed to spend per period. T
 #### Allow users to request a higher limit
 
 Toggle this on to let users submit a limit increase request from their profile. When enabled, configure one or more approval tiers:
+
+<figure><img src="../../.gitbook/assets/user-budgets-step2-approval-tiers.png" alt="Approval tiers with Requests up to and Approved by fields"><figcaption><p>Configure approval tiers when limit increase requests are enabled</p></figcaption></figure>
 
 | Field | Description |
 |---|---|
@@ -54,6 +58,8 @@ Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling 
 #### Advanced settings (optional)
 
 Expand **Advanced settings** to configure two guardrails:
+
+<figure><img src="../../.gitbook/assets/user-budgets-step2-advanced-settings.png" alt="Advanced settings expanded"><figcaption><p>Advanced settings: request threshold and maximum increase per request</p></figcaption></figure>
 
 | Field | Description |
 |---|---|
@@ -69,6 +75,8 @@ Click **+ Add percentage threshold** to add a notification rule. For each rule:
 * Click **+ Block** to revoke the user's access to the covered AI providers once the threshold is crossed.
 
 You can add multiple thresholds. For example, notify at 90% and block at 100%.
+
+<figure><img src="../../.gitbook/assets/user-budgets-step2-notifications.png" alt="Notification rules configured with Notify and Block thresholds"><figcaption><p>Example: notify at 90% and block at 100%</p></figcaption></figure>
 
 {% hint style="info" %}
 **Connector permission required for block enforcement**
