@@ -36,11 +36,11 @@ To apply different limits per provider, create a separate budget for each provid
 
 Configure the per-user spending limit, approval workflow, and notification rules.
 
-<figure><img src="../../.gitbook/assets/user-budgets-step2-overview.png" alt="Step 2: Enforcements and notifications"><figcaption><p>Step 2: Enforcements and notifications</p></figcaption></figure>
-
 #### Budget per user
 
 Enter the dollar amount each user in the group is allowed to spend per period. The provider scope badge (for example, **All AI spend**) in the top-right reflects what you selected in Step 1.
+
+<figure><img src="../../.gitbook/assets/user-budgets-step2-overview.png" alt="Step 2: Enforcements and notifications"><figcaption><p>Step 2: Enforcements and notifications</p></figcaption></figure>
 
 #### Allow users to request a higher limit
 
@@ -54,6 +54,16 @@ Toggle this on to let users submit a limit increase request from their profile. 
 | Approved by | The approver for requests at this tier. |
 
 Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling is the maximum any user can ever request.
+
+**Example:** A user has a $125/month budget. Three approval tiers are configured:
+
+| Tier | Requests up to | Approved by |
+|---|---|---|
+| 1 | $250 | Team lead |
+| 2 | $500 | Engineering manager |
+| 3 | $750 | VP of Engineering |
+
+If the user requests $200, it routes to Tier 1 (team lead). If they request $400, it skips Tier 1 and routes to Tier 2 (engineering manager). No user can request more than $750, the ceiling of the highest tier.
 
 #### Advanced settings (optional)
 
