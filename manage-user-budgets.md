@@ -120,29 +120,31 @@ Click **Create** to save the budget.
 
 Select a budget name from the User Budgets list to open its detail page.
 
+<figure><img src="../../.gitbook/assets/user-budgets-detail-page.png" alt="Budget detail page"><figcaption><p>Budget detail page showing summary tiles, active enforcements, and per-user table</p></figcaption></figure>
+
 ### Summary tiles
 
 | Tile | Description |
 |---|---|
-| Budget per user | The per-user limit and provider scope |
-| Total budget | Sum of all users' limits for the current period |
-| Week-to-date spend | Aggregate spend so far; shows the percentage of the budget used and which day of the period it is |
-| Upgrade requests | Number of outstanding limit-increase requests; click **Review all** to act on them |
+| Budget per user | The per-user limit, provider scope, and total number of users in the budget |
+| Total weekly budget | Sum of all users' limits for the current period, with a breakdown of OK, At risk, and Exceeded users |
+| Week-to-date spend | Aggregate spend so far, shown as a percentage of the total budget and which day of the period it is |
+| Pending Requests | Number of outstanding limit-increase requests |
 
-The **Active Enforcements** bar shows the notification and block thresholds configured for this budget.
+The **Active Enforcements** bar shows the notification and block thresholds configured for this budget (for example, Notify at 80%, Notify at 100%, Block all access at 100%).
 
 ### Per-user table
 
 | Column | Description |
 |---|---|
 | User | User email |
-| Budget | Their current per-period limit, which may exceed the default if a previous increase was approved |
-| Status | **Good** (within limit), **At risk** (approaching the threshold), or **Over** (exceeded the limit) |
+| Weekly budget | Their current per-period limit, which may exceed the default if a previous increase was approved |
+| Status | **OK** (within limit), **At risk** (approaching the threshold), or **Exceeded** (over the limit) |
 | Current spend | Dollar amount spent and percentage of their limit, shown as a progress bar |
-| Enforcements | **Blocked** if an enforcement has been applied to this user |
-| Upgrade requests | A pending request appears inline; click **Review** to approve or reject it directly from the table |
+| Enforcements | Active enforcement applied to this user |
+| Request details | Details of any pending limit-increase request for this user |
 
-Use the **Enforcements** and **Upgrade requests** filters above the table to narrow the view.
+Use the **Enforcements** and **Requests** filters above the table to narrow the view.
 
 ## Approve or reject a limit increase request
 
