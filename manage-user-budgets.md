@@ -14,7 +14,7 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 ## Create a user budget
 
-1. Select **User Budgets** from the left navigation bar, then click **+ Create budget**.
+Select **User Budgets** from the left navigation bar, then click **+ Create budget**.
 
 ### Step 1: Budget setup
 
@@ -46,7 +46,7 @@ Give the budget a descriptive name (for example, `CCM Team - Cursor`). Select a 
 
 Choose **Weekly**, **Monthly**, or **Quarterly**. The spend amount resets at the start of each new period; unused allowance does not roll over.
 
-2. Click **Next** to continue.
+Click **Next** to continue.
 
 ### Step 2: Enforcements and notifications
 
@@ -90,7 +90,7 @@ You can add multiple rules. For example, notify at 80% and block at 100%.
 Block enforcement requires an AI Governance permission on the relevant connector. Go to the connector settings and enable the AI Governance checkbox to allow User Budgets to enforce against it. Without this permission, notifications still work, but access will not be blocked.
 {% endhint %}
 
-3. Click **Create** to save the budget.
+Click **Create** to save the budget.
 
 ## Monitor a user budget
 
