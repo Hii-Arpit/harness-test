@@ -1,0 +1,86 @@
+user-budgets.md
+  human 18-19
+  human 1-55,57-65,67-75,91-93
+manage-user-budgets.md
+  human 17,49,81-83,93
+SUMMARY.md
+  human 3
+  human 3
+---
+{
+  "attestations": [
+    {
+      "entries": [
+        {
+          "accepted_lines": 2,
+          "added_lines": 2,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "18-19",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 76,
+          "added_lines": 0,
+          "deleted_lines": 0,
+          "hash": "human",
+          "lines": "1-55,57-65,67-75,91-93",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "user-budgets.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 6,
+          "added_lines": 6,
+          "deleted_lines": 16,
+          "hash": "human",
+          "lines": "17,49,81-83,93",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "manage-user-budgets.md"
+    },
+    {
+      "entries": [
+        {
+          "accepted_lines": 1,
+          "added_lines": 1,
+          "deleted_lines": 1,
+          "hash": "human",
+          "lines": "3",
+          "overridden_lines": 0
+        },
+        {
+          "accepted_lines": 0,
+          "added_lines": 0,
+          "deleted_lines": 1,
+          "hash": "human",
+          "lines": "3",
+          "overridden_lines": 0
+        }
+      ],
+      "file": "SUMMARY.md"
+    }
+  ],
+  "base_commit_sha": "169ed572f66ead5c5b44720b59b40d9c10a20136",
+  "branch": "user-budgets",
+  "commit_sha": "d010bd5ca97a0bf381131f0c415445d79a3be385",
+  "commit_time": "2026-10-02T01:21:14+05:30",
+  "commit_type": "direct_commit",
+  "harness_aidlc_version": "1.4.34",
+  "prompts": {
+    "human": {
+      "accepted_lines": 9,
+      "agent_id": null,
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>",
+      "overriden_lines": 0,
+      "total_additions": 9,
+      "total_deletions": 17
+    }
+  },
+  "repo": "https://github.com/Hii-Arpit/harness-test",
+  "schema_version": "authorship/3.0.0"
+}
