@@ -74,7 +74,7 @@ A user has a $125/month budget and needs more. Three approval tiers are configur
 
 #### Advanced settings (optional)
 
-Expand **Advanced settings** to configure two guardrails:
+Expand **Advanced settings** to set limits on when users can request an increase and how much they can request:
 
 <figure><img src="../../.gitbook/assets/user-budgets-step2-advanced-settings.png" alt="Advanced settings expanded"><figcaption><p>Advanced settings: request threshold and maximum increase per request</p></figcaption></figure>
 
