@@ -18,9 +18,9 @@ Select **User Budgets** from the left navigation bar, then click **+ Create budg
 
 ### Step 1: Budget setup
 
-**Specify users**
+**Harness user groups**
 
-Select **Harness user groups** and choose one or more existing user groups from the dropdown. To create a new group immediately, click **+ Create new**.
+Select one or more existing user groups from the **Select user groups** dropdown. To create a new group, click **+ Create new**.
 
 **Applies to**
 
