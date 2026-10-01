@@ -44,18 +44,21 @@ Enter the dollar amount each user in the group is allowed to spend per period. T
 
 #### Allow users to request a higher limit
 
-Toggle this on to let users submit a limit increase request from their profile. When enabled, configure one or more approval tiers:
+Turn this on to allow users to request a higher spending limit from their profile. You must then set up at least one approval tier to define who approves requests and the maximum amount they can approve.
 
 <figure><img src="../../.gitbook/assets/user-budgets-step2-approval-tiers.png" alt="Approval tiers with Requests up to and Approved by fields"><figcaption><p>Configure approval tiers when limit increase requests are enabled</p></figcaption></figure>
 
 | Field | Description |
 |---|---|
-| Requests up to | The dollar ceiling for this tier. A request routes to the lowest tier whose ceiling covers the requested amount. |
+| Requests up to | The maximum amount this approver can approve. Harness sends the request to the approver whose tier ceiling matches or exceeds the requested amount. |
 | Approved by | The approver for requests at this tier. |
 
 Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling is the maximum any user can ever request.
 
-**Example:** A user has a $125/month budget. Three approval tiers are configured:
+{% hint style="success" %}
+### Example
+
+A user has a $125/month budget. Three approval tiers are configured:
 
 | Tier | Requests up to | Approved by |
 |---|---|---|
@@ -63,7 +66,8 @@ Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling 
 | 2 | $500 | Engineering manager |
 | 3 | $750 | VP of Engineering |
 
-If the user requests $200, it routes to Tier 1 (team lead). If they request $400, it skips Tier 1 and routes to Tier 2 (engineering manager). No user can request more than $750, the ceiling of the highest tier.
+If the user requests $200, the team lead approves it. If they request $400, it goes to the engineering manager. No user can request more than $750, the ceiling of the highest tier.
+{% endhint %}
 
 #### Advanced settings (optional)
 
