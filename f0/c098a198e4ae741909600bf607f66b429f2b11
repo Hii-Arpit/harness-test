@@ -1,0 +1,22 @@
+SUMMARY.md
+  h_59fd564719da3b 5
+ec2-get-started.md
+  h_59fd564719da3b 10,21,52,69,120-192,194,196,198,200-201,203,205,207,209-212,214,228
+ec2-managing-commitments.md
+  h_59fd564719da3b 12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46-51,53,55,57,59-61,63,65-71,73-74,76,78,80-82,84-113,115,117
+elasticache-get-started.md
+  h_59fd564719da3b 10,19,77-132,154
+rds-get-started.md
+  h_59fd564719da3b 10,21,46,63,77,90,140-192,194-195,207
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f0c098a198e4ae741909600bf607f66b429f2b11",
+  "prompts": {},
+  "humans": {
+    "h_59fd564719da3b": {
+      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+    }
+  }
+}
