@@ -58,7 +58,7 @@ Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling 
 {% hint style="success" %}
 ### Example
 
-A user has a $125/month budget and needs more. Depending on how much they request, Harness sends the request to the designated approver:
+A user has a $125/month budget and needs more. Three approval tiers are configured as follows, and Harness sends the request to the designated approver based on the amount requested:
 
 | Tier | Requests up to | Approved by |
 |---|---|---|
@@ -66,7 +66,9 @@ A user has a $125/month budget and needs more. Depending on how much they reques
 | 2 | $500 | Engineering manager |
 | 3 | $750 | VP of Engineering |
 
-If the user requests $200, the team lead approves it. If they request $400, it goes to the engineering manager. No user can request more than $750, the ceiling of the highest tier.
+* A request for $200 goes to the team lead (Tier 1).
+* A request for $400 goes to the engineering manager (Tier 2).
+* No user can request more than $750, the ceiling of the highest tier.
 {% endhint %}
 
 #### Advanced settings (optional)
