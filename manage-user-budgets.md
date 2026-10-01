@@ -46,7 +46,7 @@ To apply different limits per provider, create a separate budget for each provid
 
 **Budget name and folder**
 
-Give the budget a descriptive name (for example, `CCM Team — Cursor`). Select a folder to keep budgets organized.
+Give the budget a descriptive name (for example, `CCM Team - Cursor`). Select a folder to keep budgets organized.
 
 **Budget period and start date**
 
@@ -79,8 +79,8 @@ Click **+ Add approval tier** to stack multiple tiers. The highest tier's ceilin
 
 Expand **Advanced settings** to configure two per-budget guardrails:
 
-* **Users can request an increase once spend reaches** — the percentage of their current budget they must consume before they can request more (default: 80%).
-* **Maximum increase per request** — the largest single-request increase allowed (default: $125).
+* **Users can request an increase once spend reaches**: the percentage of their current budget they must consume before they can request more (default: 80%).
+* **Maximum increase per request**: the largest single-request increase allowed (default: $125).
 
 **Notifications and enforcement**
 
@@ -90,7 +90,7 @@ Click **+ Add percentage threshold** to add one or more rules. For each rule:
 2. Choose **Notify** to send an email to the affected user (and any additional recipients you add).
 3. Choose **Block** to revoke the user's access to the covered AI providers once the threshold is crossed.
 
-You can add multiple rules — for example, notify at 80% and block at 100%.
+You can add multiple rules. For example, notify at 80% and block at 100%.
 
 {% hint style="info" %}
 **Connector permission required for enforcement**
@@ -138,8 +138,8 @@ To review requests:
 
 1. On the budget detail page, click the **Upgrade requests** tile or **Review all**.
 2. For each request, you can:
-   * **Approve** — accept the request. Optionally enter a different dollar amount to approve (the UI shows the resulting transition, for example $125 → requested $250 → approved $200) and add a note visible to the user.
-   * **Reject** — decline the request.
+   * **Approve**: accept the request. Optionally enter a different dollar amount to approve (the UI shows the resulting transition, for example $125, requested $250, approved $200) and add a note visible to the user.
+   * **Reject**: decline the request.
 
 Pending requests also appear inline in the per-user table, where you can click **Review** to act on them without leaving the budget detail page.
 
@@ -157,11 +157,11 @@ Users can see their AI budget allocation and spending history from their profile
 
 The page shows every budget you belong to. For each budget you can see:
 
-* **Budget allocated** — your current per-period limit and provider scope.
-* **Spend so far** — how much you have spent in the current period, with a progress bar and the days remaining.
-* **Enforcements** — any active notify or block rules on your account.
-* **Spend history** — a bar chart of your daily AI spend broken down by model and provider.
-* **My requests** — a history of your limit-increase requests with status, approver, and any note the approver added.
+* **Budget allocated**: your current per-period limit and provider scope.
+* **Spend so far**: how much you have spent in the current period, with a progress bar and the days remaining.
+* **Enforcements**: any active notify or block rules on your account.
+* **Spend history**: a bar chart of your daily AI spend broken down by model and provider.
+* **My requests**: a history of your limit-increase requests with status, approver, and any note the approver added.
 
 ### Request a limit increase
 

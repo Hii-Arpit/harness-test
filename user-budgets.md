@@ -15,7 +15,7 @@ description: Set per-developer spend limits across AI tools, with enforcement, a
 ```
 {% endif %}
 
-User Budgets let you define a spending cap for each developer on AI tools such as Cursor, Claude Enterprise, and Amazon Bedrock. When a developer approaches or exceeds their limit, Harness notifies them and, optionally, blocks their access. Developers who need more can request a limit increase directly from their profile — no support ticket required.
+User Budgets let you define a spending cap for each developer on AI tools such as Cursor, Claude Enterprise, and Amazon Bedrock. When a developer approaches or exceeds their limit, Harness notifies them and, optionally, blocks their access. Developers who need more can request a limit increase directly from their profile without filing a support ticket.
 
 {% hint style="info" %}
 User Budgets are separate from [resource budgets](../budgets/create-a-budget.md), which track cloud infrastructure spend against cost perspectives.
@@ -34,7 +34,7 @@ Each row shows:
 | Name | Budget name, folder, and the number of users in the budget |
 | Budget | Per-user spend limit and billing period (for example, $500.00/wk) |
 | Rolled up spend | Aggregate AI spend across all users in the budget for the current period, shown as a percentage and progress bar |
-| User health | <ul><li><strong>Good</strong> — all users within limit</li><li><strong>At risk</strong> — one or more users nearing their threshold</li><li><strong>Over</strong> — one or more users have exceeded the limit</li></ul> |
+| User health | <ul><li><strong>Good</strong>: all users within limit</li><li><strong>At risk</strong>: one or more users nearing their threshold</li><li><strong>Over</strong>: one or more users have exceeded the limit</li></ul> |
 | Notifications and enforcements | Active alert and block rules configured for the budget |
 | Upgrade requests | Pending limit-increase requests submitted by users in the budget |
 
@@ -50,7 +50,7 @@ Use the **Search budgets** bar to find a budget by name. Use the sort dropdown t
 
 ## Folders
 
-Folders organize user budgets and control access. People with access to a folder can see the budgets inside it — use folders to scope visibility by team or org unit.
+Folders organize user budgets and control access. People with access to a folder can see the budgets inside it. Use folders to scope visibility by team or org unit.
 
 Select a folder in the **Folders** panel to filter the list. Select **All budgets** to return to the full list.
 
@@ -70,7 +70,7 @@ To manage an existing folder, hover over it in the panel to reveal three actions
 | Delete (trash) | Permanently remove the folder |
 | Pin (pin icon) | Pin the folder to the top of the Folders panel for quick access |
 
-You can assign a budget to a folder when you create it. To move an existing budget to a different folder, click the three-dot menu on the budget row and select **Move to folder**.
+You can assign a budget to a folder when you create it. To change the folder for an existing budget, use the three-dot menu on the budget row. Select **Move to folder** to change only the folder, or select **Edit** to update the folder along with other budget settings.
 
 <figure><img src="../../.gitbook/assets/user-budgets-row-menu.png" alt="Budget row three-dot menu"><figcaption><p>Each budget row has a three-dot menu with Edit, Move to folder, and Delete options</p></figcaption></figure>
 
