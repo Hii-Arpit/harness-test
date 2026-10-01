@@ -1,3 +1,4 @@
 # Table of contents
 
-* [AI user budgets](ai-user-budgets.md)
+* [User Budgets](user-budgets.md)
+* [Create and manage user budgets](manage-user-budgets.md)
