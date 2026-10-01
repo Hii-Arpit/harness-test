@@ -54,7 +54,15 @@ Folders organize user budgets and control access. People with access to a folder
 
 Select a folder in the **Folders** panel to filter the list. Select **All budgets** to return to the full list.
 
-To create a folder, click **+** next to the **Folders** heading, enter a name, and click **Save**. To edit or delete a folder, hover over it to reveal the pencil and trash icons.
+To create a folder, click **+** next to the **Folders** heading.
+
+<figure><img src="../../.gitbook/assets/user-budgets-folders-create.png" alt="Click + to create a new folder"><figcaption><p>Click + next to Folders to create a new folder</p></figcaption></figure>
+
+Enter a folder name and click **Save**.
+
+<figure><img src="../../.gitbook/assets/user-budgets-folder-modal.png" alt="Create new folder modal"><figcaption><p>Create new folder dialog</p></figcaption></figure>
+
+To edit or delete a folder, hover over it to reveal the pencil and trash icons.
 
 You can assign a budget to a folder at creation time, or move it to a different folder later.
 
