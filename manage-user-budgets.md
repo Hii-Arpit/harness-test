@@ -150,17 +150,11 @@ Use the **Enforcements** and **Requests** filters above the table to narrow the 
 
 ## Approve or reject a limit increase request
 
-When a user submits a request, the designated approver receives a notification and a direct share link to act on it immediately. Only the approver for the matching tier can approve or reject; anyone else sees a "not your approval" message.
+When a user submits a limit increase request, it goes to the approver assigned to the matching tier. As an approver, you can open the review panel in two ways: click **Review all** in the **Pending Requests** tile, or click **Review ↗** in the **Request details** column of the per-user table. You can also approve or reject directly from the table using the inline (✓) and (✗) buttons without opening the panel.
 
-There are two ways to review requests:
+<figure><img src="../../.gitbook/assets/user-budgets-pending-requests-inline.png" alt="Budget detail page showing Review all and inline Review button"><figcaption><p>Review all in the Pending Requests tile and inline Review in the Request details column</p></figcaption></figure>
 
-**From the Pending Requests tile**
-
-On the budget detail page, click **Review all** in the **Pending Requests** tile. This opens a two-panel view: the left panel lists all pending requests, and the right panel shows the details for the selected request.
-
-<figure><img src="../../.gitbook/assets/user-budgets-request-details-history.png" alt="Pending requests panel with Request history tab"><figcaption><p>Pending requests panel showing Request history</p></figcaption></figure>
-
-The detail panel shows:
+The review panel shows the following details for the selected request:
 
 | Field | Description |
 |---|---|
@@ -168,6 +162,8 @@ The detail panel shows:
 | WTD spend | How much the user has spent so far this period, and the percentage of their current limit |
 | Requested upgrade | The transition from current to requested amount (for example, $125.00 → $130.00) |
 | Approve for | The amount to approve. Defaults to the requested amount; you can change it to approve a different amount. |
+
+<figure><img src="../../.gitbook/assets/user-budgets-request-details-history.png" alt="Request details panel with Request history tab"><figcaption><p>Request details panel showing Request history</p></figcaption></figure>
 
 The panel also includes two tabs:
 
@@ -181,12 +177,6 @@ At the bottom, choose one of:
 * **Approve**: confirm the amount in the **Approve for** field and approve the request.
 * **Reject**: decline the request.
 * **Skip for now**: defer the decision and move to the next request.
-
-**From the per-user table**
-
-Pending requests also appear inline in the **Request details** column. Click **Review ↗** to open the same review panel for that user, or use the inline approve (✓) and reject (✗) buttons to act without opening the panel.
-
-<figure><img src="../../.gitbook/assets/user-budgets-pending-requests-inline.png" alt="Budget detail page showing Review all and inline Review button"><figcaption><p>Review all in the Pending Requests tile and inline Review in the Request details column</p></figcaption></figure>
 
 {% hint style="info" %}
 Admins who are also listed as an approver for their own budget can approve their own requests.
