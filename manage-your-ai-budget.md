@@ -63,7 +63,7 @@ Harness sends the request to the right approver based on the amount. Your budget
 
 <figure><img src="../../.gitbook/assets/user-budgets-pending-request-card.png" alt="Budget card showing a pending limit increase request"><figcaption><p>Budget card showing a pending request with the upgrade amount, approver, and actions</p></figcaption></figure>
 
-While you wait, you can:
+You do not need to do anything else. Your approver will be notified. If you need to follow up or withdraw the request:
 
 * **Share with approver**: Send a direct link to the approver to speed up the review.
 * **Revoke my request**: Cancel the request if you no longer need the increase. Harness confirms with a "Request revoked" notification.
