@@ -4,10 +4,17 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 # Create and manage user budgets
 
+## What you will learn from this topic
+
+* How to create a user budget and configure its scope, period, and spending limit
+* How to set up approval tiers so users can request limit increases
+* How to configure notification and block enforcement rules
+* How to monitor spend and user health across your team
+* How to review and approve limit increase requests
+
 ## Before you begin
 
 * Harness Cloud & AI Cost Management must be enabled on your account.
-* The feature flag `CCM_USER_BUDGETS` must be enabled. Contact [Harness Support](https://support.harness.io) if you do not see User Budgets in the navigation.
 * The users you want to budget must belong to a Harness user group.
 * At least one AI connector with observed spend must exist for the user group. Harness blocks budget creation for users who have no AI spend data on any connected provider.
 * To create or manage budgets, you need the **Cost Governance** permission or the dedicated User Budgets RBAC role (if enabled on your account).
