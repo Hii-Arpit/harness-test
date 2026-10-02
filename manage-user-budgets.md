@@ -150,7 +150,7 @@ Use the **Enforcements** and **Requests** filters above the table to narrow the 
 
 ## Approve or reject a limit increase request
 
-When a user submits a limit increase request, it goes to the approver assigned to the matching tier. Approvers can review requests in t
+When a user submits a limit increase request, it goes to the approver assigned to the matching tier. Approvers can [review the full request details before approving](#review-request-through-review-panel), or [approve directly from the table](#approve-directly).
 
 ### Review request through review panel 
 
@@ -171,7 +171,7 @@ The panel also includes two tabs:
 
 * **Request history**: shows the user's past requests grouped by budget period.
 
-   <figure><img src="../../.gitbook/assets/user-budgets-request-details-history.png" alt="Request details panel with Request history tab"><figcaption><p>Request history tab showing past requests by budget period</p></figcaption></‘figure>
+   <figure><img src="../../.gitbook/assets/user-budgets-request-details-history.png" alt="Request details panel with Request history tab"><figcaption><p>Request history tab showing past requests by budget period</p></figcaption></figure>
 
 * **Spend breakdown**: shows a bar chart of the user's daily AI spend. Use the **By providers** dropdown (By providers, By models, By accounts, By model family, By token type) and **By days** dropdown (By days, By weeks, By months) to change the view. Click **View on explorer** to open the full Cost Explorer.
 
