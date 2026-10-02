@@ -46,7 +46,12 @@ The **My requests** tab shows a history of your limit-increase requests with sta
 ## Request a limit increase
 
 1. Click **Request limit increase** on the budget card.
-2. In the **Requested new budget** field, enter the total budget amount you need. It must be higher than your current limit and no higher than the ceiling of the highest approver tier.
+
+   The panel shows your current limit and the approval tiers configured for this budget, so you can see who will approve your request based on the amount you enter.
+
+   <figure><img src="../../.gitbook/assets/user-budgets-request-limit-increase.png" alt="Request to increase AI budget panel"><figcaption><p>Request to increase AI budget panel showing approval tiers and the request form</p></figcaption></figure>
+
+2. In the **Requested new weekly budget** field, enter the total budget amount you need. It must be higher than your current limit and no higher than the ceiling of the highest approver tier.
 3. Enter a **Reason** for the request.
 4. Click **Submit request**.
 
