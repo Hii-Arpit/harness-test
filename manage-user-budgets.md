@@ -153,7 +153,9 @@ Use the **Enforcements** and **Requests** filters above the table to narrow the 
 When a user submits a limit increase request, it goes to the approver assigned to the matching tier. You can act on it in two ways:
 
 * **Open the review panel**: click **Review all** in the **Pending Requests** tile to see all users who have submitted a limit increase request for this budget. Alternatively, click **Review ↗** next to a specific user in the **Request details** column to go directly to their request.
-* **Act directly from the table**: use the inline buttons in the **Request details** column — **Review ↗** to open the panel, (✓) to approve, or (✗) to reject without leaving the page.
+* **Act directly from the table**: use the inline buttons next to the specific user in the **Request details** column to act without reviewing the request.
+  * (✓) to approve the request.
+  * (✗) to reject the request.
 
 <figure><img src="../../.gitbook/assets/user-budgets-pending-requests-inline.png" alt="Budget detail page showing Review all and inline Review button"><figcaption><p>Review all in the Pending Requests tile and inline Review in the Request details column</p></figcaption></figure>
 
