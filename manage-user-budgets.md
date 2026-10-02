@@ -150,7 +150,7 @@ Use the **Enforcements** and **Requests** filters above the table to narrow the 
 
 ## Approve or reject a limit increase request
 
-When a user submits a limit increase request, it goes to the approver assigned to the matching tier. Approvers can [review the full request details before approving](#review-request-through-review-panel), or [approve directly from the table](#approve-directly).
+When a user submits a limit increase request, it goes to the approver assigned to the matching tier. Approvers can [review the full request details before approving](#review-request-through-review-panel), or [approve directly](#approve-directly) without reviewing the full request.
 
 ### Review request through review panel 
 
@@ -193,35 +193,6 @@ Use the inline buttons next to the specific user in the **Request details** colu
 Admins who are also listed as an approver for their own budget can approve their own requests.
 {% endhint %}
 
-## View your AI budget (end user)
-
-Users can see their AI budget allocation and spending history from their profile.
-
-1. Click your avatar or name in the bottom-left corner.
-2. Select **Profile**.
-3. Select the **AI Budgets** tab.
-
-The page shows every budget you belong to. For each budget you can see:
-
-* **Budget allocated**: your current per-period limit and provider scope.
-* **Spend so far**: how much you have spent in the current period, with a progress bar and the days remaining.
-* **Enforcements**: any active notify or block rules on your account.
-* **Spend history**: a bar chart of your daily AI spend broken down by model and provider.
-* **My requests**: a history of your limit-increase requests with status, approver, and any note the approver added.
-
-### Request a limit increase
-
-The **Request limit increase** button is available once your spend reaches the threshold configured on the budget (default: 80% of your limit).
-
-1. On the **AI Budgets** tab, click **Request limit increase**.
-2. In the **Requested new budget** field, enter the total budget amount you need. It must be higher than your current limit, and no higher than the ceiling of the highest approver tier.
-3. Enter a **Reason** for the request.
-4. Click **Submit request**.
-
-The request routes to the appropriate approver tier based on the amount requested. If the amount falls within an auto-approve tier, the limit updates immediately.
-
-To cancel a pending request, click **Revoke** next to it in the **My requests** list.
-
 ## Edit or delete a user budget
 
 On the budget detail page, click **Edit Budget** to reopen the two-step wizard and change any setting. Click the three-dot menu for additional options including **Delete**.
@@ -229,6 +200,10 @@ On the budget detail page, click **Edit Budget** to reopen the two-step wizard a
 {% hint style="danger" %}
 Deleting a user budget removes all enforcement rules immediately. Users who were blocked regain access.
 {% endhint %}
+
+## Next steps
+
+* Go to [Manage your AI budget](manage-your-ai-budget.md) to see what your team members experience: how to view their spend and submit a limit increase request.
 
 ## References
 
