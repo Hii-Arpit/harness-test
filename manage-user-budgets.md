@@ -153,6 +153,9 @@ Use the **Enforcements** and **Requests** filters above the table to narrow the 
 When a user submits a limit increase request, it goes to the approver assigned to the matching tier. You can act on it in two ways:
 
 * **Open the review panel**: click **Review all** in the **Pending Requests** tile to see all users who have submitted a limit increase request for this budget. Alternatively, click **Review ↗** next to a specific user in the **Request details** column to go directly to their request.
+
+<figure><img src="../../.gitbook/assets/user-budgets-review-panel-inline.png" alt="Review panel opened from the per-user table"><figcaption><p>Review request panel opened from the Request details column</p></figcaption></figure>
+
 * **Act directly from the table**: use the inline buttons next to the specific user in the **Request details** column to act without reviewing the request.
   * (✓) to approve the request.
   * (✗) to reject the request.
@@ -168,12 +171,12 @@ The review panel shows the following details for the selected request:
 | Requested upgrade | The transition from current to requested amount (for example, $125.00 → $130.00) |
 | Approve for | The amount to approve. Defaults to the requested amount; you can change it to approve a different amount. |
 
-<figure><img src="../../.gitbook/assets/user-budgets-request-details-history.png" alt="Request details panel with Request history tab"><figcaption><p>Request details panel showing Request history</p></figcaption></figure>
-
 The panel also includes two tabs:
 
 * **Request history**: shows the user's past requests grouped by budget period.
 * **Spend breakdown**: shows a bar chart of the user's daily AI spend. Use the **By providers** dropdown (By providers, By models, By accounts, By model family, By token type) and **By days** dropdown (By days, By weeks, By months) to change the view. Click **View on explorer** to open the full Cost Explorer.
+
+<figure><img src="../../.gitbook/assets/user-budgets-request-details-history.png" alt="Request details panel with Request history tab"><figcaption><p>Request history tab showing past requests by budget period</p></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/user-budgets-request-details-spend.png" alt="Request details panel with Spend breakdown tab"><figcaption><p>Spend breakdown tab showing daily AI spend by provider</p></figcaption></figure>
 
