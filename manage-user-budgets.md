@@ -15,7 +15,7 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 ## Before you begin
 
 * Harness Cloud & AI Cost Management must be enabled on your account.
-* The users you want to budget must belong to a Harness user group.
+* The users you want to budget must belong to a Harness user group. Go to [Create a user group](#create-a-user-group) if you need to set one up.
 * At least one AI connector with observed spend must exist for the user group. Harness blocks budget creation for users who have no AI spend data on any connected provider.
 * To create or manage budgets, you need the **Cost Governance** permission or the dedicated User Budgets RBAC role (if enabled on your account).
 
@@ -28,7 +28,7 @@ Select **User Budgets** from the left navigation bar, then click **+ Create budg
 | Field | Description |
 |---|---|
 | Specify users to apply budget | Select **Harness user groups** to reuse an existing Harness user group. |
-| Select user groups | Choose one or more groups from the **Select user groups** dropdown. To create a new group, click **+ Create new**. To create a new user group, go to [Manage user groups](#references). |
+| Select user groups | Choose one or more groups from the **Select user groups** dropdown. To create a new group, click **+ Create new**. Go to [Create a user group](#create-a-user-group) for steps. |
 | Applies to | Choose which AI providers this budget governs: <ul><li>**All AI spend**: Every connected AI provider, including new providers you connect in the future</li><li>**Cursor**: Spend from Cursor IDE</li><li>**Claude**: Spend from Claude (Anthropic)</li><li>**Amazon Bedrock**: Spend from Amazon Bedrock</li></ul> |
 | Budget name | Descriptive name for the budget (for example, `CCM Team - Cursor`) |
 | Folder | Select a folder to organize the budget. The dropdown lists all existing folders with a search bar to filter by name. If no folder is selected, the budget is placed in the **Default** folder. |
@@ -51,7 +51,7 @@ Enter the dollar amount each user in the group is allowed to spend per period. T
 
 #### Allow users to request a higher limit
 
-Turn this on to allow users to request a higher spending limit from their profile. You must then set up at least one approval tier to define who approves requests and the maximum amount they can approve.
+Turn this on to allow users to request a higher spending limit from their profile. Go to [Request a limit increase](manage-your-ai-budget.md#request-a-limit-increase) to see what the experience looks like for users. You must then set up at least one approval tier to define who approves requests and the maximum amount they can approve.
 
 | Field | Description |
 |---|---|

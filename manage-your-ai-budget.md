@@ -66,7 +66,7 @@ If you need more budget, you can submit a request directly from your profile. Yo
 3. Enter a **Reason** for the request so your approver has context.
 4. Click **Submit request**.
 
-Harness sends the request to the right approver based on the amount. Your budget card updates so you can track the request: you can see the amount you asked for, when you submitted it, and who is currently reviewing it.
+Harness sends the request to the right approver based on the amount. Go to [Approve or reject a limit increase request](manage-user-budgets.md#approve-or-reject-a-limit-increase-request) to see how approvers review and action requests. Your budget card updates so you can track the request: you can see the amount you asked for, when you submitted it, and who is currently reviewing it.
 
 <figure><img src="../../.gitbook/assets/user-budgets-pending-request-card.png" alt="Budget card showing a pending limit increase request"><figcaption><p>Budget card showing a pending request with the upgrade amount, approver, and actions</p></figcaption></figure>
 
