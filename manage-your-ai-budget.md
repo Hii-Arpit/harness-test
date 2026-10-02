@@ -15,7 +15,7 @@ description: View your AI spending budget, track usage, and request a limit incr
 2. Select **Profile**.
 3. Select the **AI Budgets** tab.
 
-<figure><img src="../../.gitbook/assets/user-budgets-my-ai-budgets.png" alt="AI Budgets tab in your Harness profile"><figcaption><p>AI Budgets tab showing budget allocation, spend, and enforcements</p></figcaption></figure>
+
 
 The **My AI budgets** page lists every budget you belong to. Each budget card shows:
 
@@ -46,6 +46,8 @@ The **My requests** tab shows a history of your limit-increase requests with sta
 ## Request a limit increase
 
 1. Click **Request limit increase** on the budget card.
+
+    <figure><img src="../../.gitbook/assets/user-budgets-my-ai-budgets.png" alt="AI Budgets tab in your Harness profile"><figcaption><p>AI Budgets tab showing budget allocation, spend, and enforcements</p></figcaption></figure>
 
    The panel shows your current limit and the approval tiers configured for this budget, so you can see who will approve your request based on the amount you enter.
 
