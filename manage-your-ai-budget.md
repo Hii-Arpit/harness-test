@@ -11,31 +11,46 @@ description: View your AI spending budget, track usage, and request a limit incr
 
 ## View your AI budget
 
-You can see your AI budget allocation and spending history from your profile.
-
-1. Click your avatar or name in the bottom-left corner.
+1. Click your name or avatar in the bottom-left corner of Harness.
 2. Select **Profile**.
 3. Select the **AI Budgets** tab.
 
-The page shows every budget you belong to. For each budget you can see:
+The **My AI budgets** page lists every budget you belong to. Each budget card shows:
 
-* **Budget allocated**: your current per-period limit and provider scope.
-* **Spend so far**: how much you have spent in the current period, with a progress bar and the days remaining.
-* **Enforcements**: any active notify or block rules on your account.
-* **Spend history**: a bar chart of your daily AI spend broken down by model and provider.
-* **My requests**: a history of your limit-increase requests with status, approver, and any note the approver added.
+| Field | Description |
+|---|---|
+| Budget allocated | Your current per-period limit and provider scope (for example, **All AI spend**) |
+| Resets on | The date the current period ends and your spend counter resets |
+| Spend so far | How much you have spent in the current period, the amount remaining, and which day of the period it is |
+| Progress bar | Your spend as a percentage of your total limit |
+| Enforcements | Active notify and block rules on your account (for example, **Notify at 80%**, **Block all access at 100%**) |
+
+### Spend history tab
+
+The **Spend history** tab shows a bar chart of your AI spend. Use the filters to change the view:
+
+| Filter | Options |
+|---|---|
+| Group by | Providers, Models, Accounts, Model family, Token type |
+| Provider | Filter by provider: AWS, Azure, Claude Enterprise, Cursor, Devin, GCP |
+| Model | Filter by model |
+| Time Range | Select the date range |
+| Breakdown | Daily breakdown, Weekly breakdown, Monthly breakdown |
+
+### My requests tab
+
+The **My requests** tab shows a history of your limit-increase requests with status, approver, and any note the approver added.
 
 ## Request a limit increase
 
-The **Request limit increase** button is available once your spend reaches the threshold configured on the budget (default: 80% of your limit).
+Click **Request limit increase** on the budget card.
 
-1. On the **AI Budgets** tab, click **Request limit increase**.
-2. In the **Requested new budget** field, enter the total budget amount you need. It must be higher than your current limit, and no higher than the ceiling of the highest approver tier.
-3. Enter a **Reason** for the request.
-4. Click **Submit request**.
+1. In the **Requested new budget** field, enter the total budget amount you need. It must be higher than your current limit and no higher than the ceiling of the highest approver tier.
+2. Enter a **Reason** for the request.
+3. Click **Submit request**.
 
 The request goes to the designated approver tier based on the amount requested. If the amount falls within an auto-approve tier, the limit updates immediately.
 
-To cancel a pending request, click **Revoke** next to it in the **My requests** list.
+To cancel a pending request, click **Revoke** next to it in the **My requests** tab. Harness confirms with a "Request revoked" notification.
 
 {% @harness-feedback/feedback %}
