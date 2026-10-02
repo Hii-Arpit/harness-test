@@ -214,6 +214,23 @@ Deleting a user budget removes all enforcement rules immediately. Users who were
 
 ## References
 
-* [Manage user groups](https://developer.harness.io/docs/platform/use-harness-platform/platform-access-control/add-user-groups) — Create and manage Harness user groups to use with User Budgets.
+### Create a user group
+
+You can create a user group directly from the **Select user groups** field in the budget wizard, without leaving the page. Click **+ Create new** to open the **Add User Group** panel.
+
+<figure><img src="../../.gitbook/assets/user-budgets-add-user-group.png" alt="Add User Group panel"><figcaption><p>Add User Group panel opened from the budget wizard</p></figcaption></figure>
+
+| Field | Description |
+|---|---|
+| Name | A display name for the group. Harness auto-generates an identifier from it. |
+| Users | Click **Select** to pick users from your account. Search by name or email and select one or more, then click **Select** to confirm. |
+| Role Bindings | Assign a **Role** and **Resource Group** to the group. Click **+ Add** to add more role bindings. |
+| Metadata | Optional description and tags for the group. |
+
+<figure><img src="../../.gitbook/assets/user-budgets-select-users.png" alt="Select Users picker"><figcaption><p>Select Users picker — search and select the members to add to the group</p></figcaption></figure>
+
+Click **Add** to create the group. It appears immediately in the **Select user groups** dropdown.
+
+For full user group management, go to [Manage user groups](https://developer.harness.io/docs/platform/use-harness-platform/platform-access-control/add-user-groups).
 
 {% @harness-feedback/feedback %}
