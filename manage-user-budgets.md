@@ -154,13 +154,7 @@ When a user submits a limit increase request, it goes to the approver assigned t
 
 * **Open the review panel**: click **Review all** in the **Pending Requests** tile to see all users who have submitted a limit increase request for this budget. Alternatively, click **Review ↗** next to a specific user in the **Request details** column to go directly to their request.
 
-<figure><img src="../../.gitbook/assets/user-budgets-review-panel-inline.png" alt="Review panel opened from the per-user table"><figcaption><p>Review request panel opened from the Request details column</p></figcaption></figure>
-
-* **Act directly from the table**: use the inline buttons next to the specific user in the **Request details** column to act without reviewing the request.
-  * (✓) to approve the request.
-  * (✗) to reject the request.
-
-<figure><img src="../../.gitbook/assets/user-budgets-pending-requests-inline.png" alt="Budget detail page showing Review all and inline Review button"><figcaption><p>Review all in the Pending Requests tile and inline Review in the Request details column</p></figcaption></figure>
+   <figure><img src="../../.gitbook/assets/user-budgets-pending-requests-inline.png" alt="Budget detail page showing Review all and inline Review button"><figcaption><p>Review all in the Pending Requests tile and inline Review in the Request details column</p></figcaption></figure>
 
 The review panel shows the following details for the selected request:
 
@@ -175,17 +169,21 @@ The panel also includes two tabs:
 
 * **Request history**: shows the user's past requests grouped by budget period.
 
-<figure><img src="../../.gitbook/assets/user-budgets-request-details-history.png" alt="Request details panel with Request history tab"><figcaption><p>Request history tab showing past requests by budget period</p></figcaption></figure>
+   <figure><img src="../../.gitbook/assets/user-budgets-request-details-history.png" alt="Request details panel with Request history tab"><figcaption><p>Request history tab showing past requests by budget period</p></figcaption></‘figure>
 
 * **Spend breakdown**: shows a bar chart of the user's daily AI spend. Use the **By providers** dropdown (By providers, By models, By accounts, By model family, By token type) and **By days** dropdown (By days, By weeks, By months) to change the view. Click **View on explorer** to open the full Cost Explorer.
 
-<figure><img src="../../.gitbook/assets/user-budgets-request-details-spend.png" alt="Request details panel with Spend breakdown tab"><figcaption><p>Spend breakdown tab showing daily AI spend by provider</p></figcaption></figure>
+   <figure><img src="../../.gitbook/assets/user-budgets-request-details-spend.png" alt="Request details panel with Spend breakdown tab"><figcaption><p>Spend breakdown tab showing daily AI spend by provider</p></figcaption></figure>
 
 At the bottom, choose one of:
 
 * **Approve**: confirm the amount in the **Approve for** field and approve the request.
 * **Reject**: decline the request.
 * **Skip for now**: defer the decision and move to the next request.
+
+* **Act directly from the table**: use the inline buttons next to the specific user in the **Request details** column to act without reviewing the request.
+  * (✓) to approve the request.
+  * (✗) to reject the request.
 
 {% hint style="info" %}
 Admins who are also listed as an approver for their own budget can approve their own requests.
