@@ -15,6 +15,8 @@ description: View your AI spending budget, track usage, and request a limit incr
 2. Select **Profile**.
 3. Select the **AI Budgets** tab.
 
+<figure><img src="../../.gitbook/assets/user-budgets-my-ai-budgets.png" alt="AI Budgets tab in your Harness profile"><figcaption><p>AI Budgets tab showing budget allocation, spend, and enforcements</p></figcaption></figure>
+
 The **My AI budgets** page lists every budget you belong to. Each budget card shows:
 
 | Field | Description |
@@ -25,7 +27,7 @@ The **My AI budgets** page lists every budget you belong to. Each budget card sh
 | Progress bar | Your spend as a percentage of your total limit |
 | Enforcements | Active notify and block rules on your account (for example, **Notify at 80%**, **Block all access at 100%**) |
 
-### Spend history tab
+### Spend history
 
 The **Spend history** tab shows a bar chart of your AI spend. Use the filters to change the view:
 
@@ -37,17 +39,16 @@ The **Spend history** tab shows a bar chart of your AI spend. Use the filters to
 | Time Range | Select the date range |
 | Breakdown | Daily breakdown, Weekly breakdown, Monthly breakdown |
 
-### My requests tab
+### My requests
 
 The **My requests** tab shows a history of your limit-increase requests with status, approver, and any note the approver added.
 
 ## Request a limit increase
 
-Click **Request limit increase** on the budget card.
-
-1. In the **Requested new budget** field, enter the total budget amount you need. It must be higher than your current limit and no higher than the ceiling of the highest approver tier.
-2. Enter a **Reason** for the request.
-3. Click **Submit request**.
+1. Click **Request limit increase** on the budget card.
+2. In the **Requested new budget** field, enter the total budget amount you need. It must be higher than your current limit and no higher than the ceiling of the highest approver tier.
+3. Enter a **Reason** for the request.
+4. Click **Submit request**.
 
 The request goes to the designated approver tier based on the amount requested. If the amount falls within an auto-approve tier, the limit updates immediately.
 
