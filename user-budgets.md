@@ -1,3 +1,4 @@
+# User Budgets
 ---
 description: Set per-developer spend limits across AI tools, with enforcement, approvals, and self-service increase requests.
 ---
@@ -14,8 +15,6 @@ description: Set per-developer spend limits across AI tools, with enforcement, a
 }
 ```
 {% endif %}
-
-# User Budgets
 
 User Budgets let you define a spending cap for each developer on AI tools such as Cursor, Claude Enterprise, and Amazon Bedrock. When a developer approaches or exceeds their limit, Harness notifies them and, optionally, blocks their access. Developers who need more can request a limit increase directly from their profile without filing a support ticket.
 
