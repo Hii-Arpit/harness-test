@@ -1,0 +1,13 @@
+---
+{
+  "attestations": [],
+  "base_commit_sha": "9869998284d489c3ca4ecdc9d109a159485a63cd",
+  "branch": "user-budgets",
+  "commit_sha": "7056c4d82c578b29a38fe0e11a44be2087aa6702",
+  "commit_time": "2026-10-02T06:49:41+05:30",
+  "commit_type": "direct_commit",
+  "harness_aidlc_version": "1.4.34",
+  "prompts": {},
+  "repo": "https://github.com/Hii-Arpit/harness-test",
+  "schema_version": "authorship/3.0.0"
+}
