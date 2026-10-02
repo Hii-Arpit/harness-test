@@ -227,7 +227,7 @@ You can create a user group directly from the **Select user groups** field in th
 | Role Bindings | Assign a **Role** and **Resource Group** to the group. Click **+ Add** to add more role bindings. |
 | Metadata | Optional description and tags for the group. |
 
-<figure><img src="../../.gitbook/assets/user-budgets-select-users.png" alt="Select Users picker"><figcaption><p>Select Users picker — search and select the members to add to the group</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/user-budgets-select-users.png" alt="Add User Group panel with users and role bindings filled in"><figcaption><p>Add User Group panel with a user selected, a role binding configured, and a description added</p></figcaption></figure>
 
 Click **Add** to create the group. It appears immediately in the **Select user groups** dropdown.
 
