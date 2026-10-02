@@ -174,9 +174,10 @@ The review panel shows the following details for the selected request:
 The panel also includes two tabs:
 
 * **Request history**: shows the user's past requests grouped by budget period.
-* **Spend breakdown**: shows a bar chart of the user's daily AI spend. Use the **By providers** dropdown (By providers, By models, By accounts, By model family, By token type) and **By days** dropdown (By days, By weeks, By months) to change the view. Click **View on explorer** to open the full Cost Explorer.
 
 <figure><img src="../../.gitbook/assets/user-budgets-request-details-history.png" alt="Request details panel with Request history tab"><figcaption><p>Request history tab showing past requests by budget period</p></figcaption></figure>
+
+* **Spend breakdown**: shows a bar chart of the user's daily AI spend. Use the **By providers** dropdown (By providers, By models, By accounts, By model family, By token type) and **By days** dropdown (By days, By weeks, By months) to change the view. Click **View on explorer** to open the full Cost Explorer.
 
 <figure><img src="../../.gitbook/assets/user-budgets-request-details-spend.png" alt="Request details panel with Spend breakdown tab"><figcaption><p>Spend breakdown tab showing daily AI spend by provider</p></figcaption></figure>
 
