@@ -1,0 +1,18 @@
+manage-user-budgets.md
+  h_59fd564719da3b 19,24-25,33,36-39,49,55,57,62,85,96,106-109,122,138-139,149,176-178,237
+manage-your-ai-budget.md
+  h_59fd564719da3b 65
+user-budgets.md
+  h_59fd564719da3b 22,36,63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b2f2cd186c2b1e2f4d9af4b6f9fc8d7505d915b6",
+  "prompts": {},
+  "humans": {
+    "h_59fd564719da3b": {
+      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+    }
+  }
+}
