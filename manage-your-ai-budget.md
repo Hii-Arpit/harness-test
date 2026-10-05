@@ -6,6 +6,8 @@ description: View your AI spending budget, track usage, and request a limit incr
 
 ## What you will learn from this topic
 
+---
+
 * How to find your AI budget in your Harness profile
 * What each field on your budget card means
 * How to read your spend history and past requests
@@ -13,10 +15,14 @@ description: View your AI spending budget, track usage, and request a limit incr
 
 ## Before you begin
 
+---
+
 * Your Harness account must have the `CCM_USER_BUDGETS` feature flag enabled.
 * You must be part of a Harness user group that has an AI budget assigned to it.
 
 ## View your AI budget
+
+---
 
 1. Click your name or avatar in the bottom-left corner of Harness.
 2. Select **Profile**.
@@ -52,6 +58,8 @@ The **My requests** tab shows all your past limit increase requests — includin
 
 ## Request a limit increase
 
+---
+
 If you need more budget, you can submit a request directly from your profile. Your admin has set approval tiers, so Harness automatically routes your request to the right person based on the amount you ask for.
 
 1. Click **Request limit increase** on the budget card.
@@ -76,6 +84,8 @@ You do not need to do anything else. Your approver will be notified. If you need
 * **Revoke my request**: Cancel the request if you no longer need the increase. Harness confirms with a "Request revoked" notification.
 
 ## Next steps
+
+---
 
 * Go to [Create and manage user budgets](manage-user-budgets.md) if you are an admin who needs to set up budgets, configure approval tiers, or review and approve requests from your team.
 

@@ -6,6 +6,8 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 ## What you will learn from this topic
 
+---
+
 * How to create a user budget and configure its scope, period, and spending limit
 * How to set up approval tiers so users can request limit increases
 * How to configure notification and block enforcement rules
@@ -14,12 +16,16 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 ## Before you begin
 
+---
+
 * Harness Cloud & AI Cost Management must be enabled on your account.
 * The users you want to budget must belong to a Harness user group. Go to [Create a user group](#create-a-user-group) if you need to set one up.
 * At least one AI connector must exist with AI Governance enabled. Go to the connector settings and enable the **AI Governance** checkbox to allow User Budgets to enforce against it.
 * To create or manage budgets, you need the **Cost Governance** permission or the dedicated User Budgets RBAC role (if enabled on your account).
 
 ## Create a user budget
+
+---
 
 1. On the left navigation bar, select **User Budgets**.
 2. Click **+ Create budget** to open the **Create a new Budget** wizard.
@@ -126,6 +132,8 @@ Click **Create** to save the budget.
 
 ## Monitor a user budget
 
+---
+
 Select a budget name from the User Budgets list to open its detail page.
 
 <figure><img src="../../.gitbook/assets/user-budgets-detail-page.png" alt="Budget detail page"><figcaption><p>Budget detail page showing summary tiles, active enforcements, and per-user table</p></figcaption></figure>
@@ -157,6 +165,8 @@ Use the **Enforcements** and **Requests** filters above the table to narrow the 
 {% endhint %}
 
 ## Review limit increase requests
+
+---
 
 When a user submits a limit increase request, it goes to the approver assigned to the matching tier. Approvers can [approve directly](#approve-directly) without opening the review panel, or [review the full request details](#review-request-through-review-panel) before deciding.
 
@@ -205,6 +215,8 @@ At the bottom, choose one of:
 
 ## Edit or delete a user budget
 
+---
+
 On the budget detail page, click **Edit Budget** to reopen the two-step wizard and change any setting. Click the three-dot menu for additional options including **Delete**.
 
 {% hint style="danger" %}
@@ -213,9 +225,13 @@ Deleting a user budget removes all enforcement rules immediately. Users who were
 
 ## Next steps
 
+---
+
 * Go to [Manage your AI budget](manage-your-ai-budget.md) to see what your team members experience: how to view their spend and submit a limit increase request.
 
 ## References
+
+---
 
 ### Create a user group
 

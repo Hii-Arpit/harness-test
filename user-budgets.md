@@ -24,12 +24,16 @@ User Budgets are separate from [Resource Budgets](../budgets/create-a-budget.md)
 
 ## What you will learn from this topic
 
+---
+
 * How the User Budgets list is organized and what each column shows
 * How to search, sort, and filter budgets
 * How to use folders to organize budgets and control access
 * How to create, move, and delete budgets from the list view
 
 ## Before you begin
+
+---
 
 * You need the **Cost Governance** permission or the dedicated User Budgets RBAC role.
 
@@ -60,6 +64,8 @@ Use the **Search budgets** bar to find a budget by name. Use the sort dropdown t
 
 ## Folders
 
+---
+
 Folders organize user budgets and control access. Users with access to a folder can see the budgets inside it. Use folders to scope visibility by team or org unit.
 
 Select a folder in the **Folders** panel to filter the list. Select **All budgets** to return to the full list.
@@ -85,6 +91,8 @@ You can assign a budget to a folder when you create it. To change the folder for
 <figure><img src="../../.gitbook/assets/user-budgets-row-menu.png" alt="Budget row three-dot menu"><figcaption><p>Each budget row has a three-dot menu with Edit, Move to folder, and Delete options</p></figcaption></figure>
 
 ## Next steps
+
+---
 
 Go to [Create and manage user budgets](manage-user-budgets.md) to set up a budget, configure enforcement rules and an approval workflow, and manage limit increase requests.
 
