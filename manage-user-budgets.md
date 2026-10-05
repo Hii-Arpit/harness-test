@@ -26,6 +26,8 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 ### Step 1: Budget setup
 
+<figure><img src="../../.gitbook/assets/user-budgets-step1-budget-setup.png" alt="Step 1: Budget setup"><figcaption><p>Step 1: Budget setup</p></figcaption></figure>
+
 | Field | Description |
 |---|---|
 | Specify users to apply budget | Select **Harness user groups** to reuse an existing Harness user group. |
@@ -35,8 +37,6 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 | Folder | Select a folder to organize the budget. The dropdown lists all existing folders with a search bar to filter by name. If no folder is selected, the budget is placed in the **Default** folder. |
 | Budget period | Choose the billing cycle: <ul><li>**Weekly**</li><li>**Monthly**</li><li>**Quarterly**</li></ul> Spend resets at the start of each new period; unused allowance does not roll over. |
 | Start date | Use the date picker to select the start date for the first budget period. |
-
-<figure><img src="../../.gitbook/assets/user-budgets-step1-budget-setup.png" alt="Step 1: Budget setup"><figcaption><p>Step 1: Budget setup</p></figcaption></figure>
 
 {% hint style="info" %}
 To apply different limits per provider, create a separate budget for each provider.
