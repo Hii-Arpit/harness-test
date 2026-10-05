@@ -16,12 +16,13 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 * Harness Cloud & AI Cost Management must be enabled on your account.
 * The users you want to budget must belong to a Harness user group. Go to [Create a user group](#create-a-user-group) if you need to set one up.
-* At least one AI connector with observed spend must exist for the user group. Harness blocks budget creation for users who have no AI spend data on any connected provider.
+* At least one AI connector must exist with AI Governance enabled. Go to the connector settings and enable the **AI Governance** checkbox to allow User Budgets to enforce against it.
 * To create or manage budgets, you need the **Cost Governance** permission or the dedicated User Budgets RBAC role (if enabled on your account).
 
 ## Create a user budget
 
-Select **User Budgets** from the left navigation bar, then click **+ Create budget** to open the **Create a new Budget** wizard.
+1. On the left navigation bar, select **User Budgets**.
+2. Click **+ Create budget** to open the **Create a new Budget** wizard.
 
 ### Step 1: Budget setup
 
@@ -29,11 +30,13 @@ Select **User Budgets** from the left navigation bar, then click **+ Create budg
 |---|---|
 | Specify users to apply budget | Select **Harness user groups** to reuse an existing Harness user group. |
 | Select user groups | Choose one or more groups from the **Select user groups** dropdown. To create a new group, click **+ Create new**. Go to [Create a user group](#create-a-user-group) for steps. |
-| Applies to | Choose which AI providers this budget governs: <ul><li>**All AI spend**: Every connected AI provider, including new providers you connect in the future</li><li>**Cursor**: Spend from Cursor IDE</li><li>**Claude**: Spend from Claude (Anthropic)</li><li>**Amazon Bedrock**: Spend from Amazon Bedrock</li></ul> |
+| Applies to | Choose which AI providers this budget governs. You can select all providers, a single provider, or any combination: <ul><li>**All AI spend**: Every connected AI provider, including new providers you connect in the future</li><li>**Cursor**: Spend from Cursor IDE</li><li>**Claude**: Spend from Claude (Anthropic)</li><li>**Amazon Bedrock**: Spend from Amazon Bedrock</li></ul> |
 | Budget name | Descriptive name for the budget (for example, `CCM Team - Cursor`) |
 | Folder | Select a folder to organize the budget. The dropdown lists all existing folders with a search bar to filter by name. If no folder is selected, the budget is placed in the **Default** folder. |
-| Budget period | Choose the billing cycle: <ul><li>**Weekly**</li><li>**Monthly** (default)</li><li>**Quarterly**</li></ul> Spend resets at the start of each new period; unused allowance does not roll over. |
-| Start date | Use the date picker to select the start date for the first budget period. Defaults to today's date. |
+| Budget period | Choose the billing cycle: <ul><li>**Weekly**</li><li>**Monthly**</li><li>**Quarterly**</li></ul> Spend resets at the start of each new period; unused allowance does not roll over. |
+| Start date | Use the date picker to select the start date for the first budget period. |
+
+<figure><img src="../../.gitbook/assets/user-budgets-step1-budget-setup.png" alt="Step 1: Budget setup"><figcaption><p>Step 1: Budget setup</p></figcaption></figure>
 
 {% hint style="info" %}
 To apply different limits per provider, create a separate budget for each provider.
@@ -43,20 +46,20 @@ To apply different limits per provider, create a separate budget for each provid
 
 Configure the per-user spending limit, approval workflow, and notification rules.
 
-#### Budget per user
+**Budget per user**
 
 Enter the dollar amount each user in the group is allowed to spend per period. The provider scope badge (for example, **All AI spend**) in the top-right reflects what you selected in Step 1.
 
 <figure><img src="../../.gitbook/assets/user-budgets-step2-overview.png" alt="Step 2: Enforcements and notifications"><figcaption><p>Step 2: Enforcements and notifications</p></figcaption></figure>
 
-#### Allow users to request a higher limit
+**Allow users to request a higher limit**
 
-Turn this on to allow users to request a higher spending limit from their profile. Go to [Request a limit increase](manage-your-ai-budget.md#request-a-limit-increase) to see what the experience looks like for users. You must then set up at least one approval tier to define who approves requests and the maximum amount they can approve.
+Enable this to allow users to request a higher spending limit from their profile. You must then set up at least one approval tier to define who approves requests and the maximum amount they can approve.
 
 | Field | Description |
 |---|---|
 | Requests up to | The maximum amount this approver can approve. Harness sends the request to the approver whose tier ceiling matches or exceeds the requested amount. |
-| Approved by | The approver for requests at this tier. |
+| Approved by | Who approves requests at this tier. Select **Auto-approve** to approve requests automatically without manual review. Otherwise, select one or more individual users or a user group. |
 
 Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling is the maximum any user can ever request.
 
@@ -79,7 +82,7 @@ A user has a $125/month budget and needs more. Three approval tiers are configur
 * No user can request more than $750, the ceiling of the highest tier.
 {% endhint %}
 
-#### Advanced settings (optional)
+**Advanced settings (optional)**
 
 Expand **Advanced settings** to set limits on when users can request an increase and how much they can request:
 
@@ -90,7 +93,7 @@ Expand **Advanced settings** to set limits on when users can request an increase
 
 <figure><img src="../../.gitbook/assets/user-budgets-step2-advanced-settings.png" alt="Advanced settings expanded"><figcaption><p>Advanced settings: request threshold and maximum increase per request</p></figcaption></figure>
 
-#### Notifications
+**Notifications**
 
 Click **+ Add percentage threshold** to define when Harness should act. For each threshold:
 
@@ -99,6 +102,10 @@ Click **+ Add percentage threshold** to define when Harness should act. For each
 * Click **+ Block** to revoke the user's access to the covered AI providers when the threshold is crossed.
 
 For each threshold, you can choose to notify the user, block their access, or both. Add multiple thresholds to trigger different actions at different spend levels.
+
+{% hint style="info" %}
+Harness automatically sends an email to the affected user when they are blocked, when they submit a limit increase request, and when they are unblocked. These emails are sent regardless of the notification thresholds configured here.
+{% endhint %}
 
 <figure><img src="../../.gitbook/assets/user-budgets-step2-notifications.png" alt="Notification rules configured with Notify and Block thresholds"><figcaption><p>Notify and Block configured on separate thresholds</p></figcaption></figure>
 
@@ -112,13 +119,7 @@ Two thresholds are configured on the same budget:
 | 90% | Notify the affected user |
 | 100% | Block access for the affected user |
 
-Alternatively, enable both **Notify** and **Block** on the same threshold — for example, notify and block access at 100% in one rule.
-{% endhint %}
-
-{% hint style="info" %}
-**Connector permission required for block enforcement**
-
-Block enforcement requires the AI Governance permission on the relevant connector. Go to the connector settings and enable the AI Governance checkbox to allow User Budgets to enforce against it. Without this permission, notifications still work, but access will not be blocked.
+Alternatively, enable both **Notify** and **Block** on the same threshold, for example, notify and block access at 100% in one rule.
 {% endhint %}
 
 Click **Create** to save the budget.
@@ -134,8 +135,8 @@ Select a budget name from the User Budgets list to open its detail page.
 | Tile | Description |
 |---|---|
 | Budget per user | The per-user limit, provider scope, and total number of users in the budget |
-| Total weekly budget | Sum of all users' limits for the current period, with a breakdown of OK, At risk, and Exceeded users |
-| Week-to-date spend | Aggregate spend so far, shown as a percentage of the total budget and which day of the period it is |
+| Total budget for period | Sum of all users' limits for the current period, with a breakdown of OK, At risk, and Exceeded users |
+| Period-to-date spend | Aggregate spend so far, shown as a percentage of the total budget and how far into the period it is |
 | Pending Requests | Number of outstanding limit-increase requests |
 
 The **Active Enforcements** bar lists the notification and block rules currently applied to this budget. Each tag shows the action and the spend threshold that triggers it. For example, **Notify at 80%** sends an email when a user reaches 80% of their limit, and **Block all access at 100%** revokes their access when they hit the cap.
@@ -145,7 +146,7 @@ The **Active Enforcements** bar lists the notification and block rules currently
 | Column | Description |
 |---|---|
 | User | User email |
-| Weekly budget | Their current per-period limit, which may exceed the default if a previous increase was approved |
+| Budget | Their current per-period limit, which may exceed the default if a previous increase was approved |
 | Status | **OK** (within limit), **At risk** (approaching the threshold), or **Exceeded** (over the limit) |
 | Current spend | Dollar amount spent and percentage of their limit, shown as a progress bar |
 | Enforcements | Active enforcement applied to this user |
@@ -172,7 +173,9 @@ The review panel shows the following details for the selected request:
 | Current budget | The user's current per-period limit |
 | WTD spend | How much the user has spent so far this period, and the percentage of their current limit |
 | Requested upgrade | The transition from current to requested amount (for example, $125.00 → $130.00) |
-| Approve for | The amount to approve. Defaults to the requested amount; you can change it to approve a different amount. |
+| Approve for | The amount to approve. Defaults to the requested amount. You can change it to approve a lesser amount than the user requested. |
+
+<figure><img src="../../.gitbook/assets/user-budgets-review-panel-inline.png" alt="Review panel showing request details and Approve for field"><figcaption><p>Review panel with current budget, WTD spend, requested upgrade, and Approve for field</p></figcaption></figure>
 
 The panel also includes two tabs:
 
@@ -231,6 +234,6 @@ You can create a user group directly from the **Select user groups** field in th
 
 Click **Add** to create the group. It appears immediately in the **Select user groups** dropdown.
 
-For full user group management, go to [Manage user groups](https://developer.harness.io/docs/platform/use-harness-platform/platform-access-control/add-user-groups).
+For full user group management, go to [Manage user groups](https://developer.harness.io/harness-ai/use-harness-platform/platform-access-control/add-user-groups).
 
 {% @harness-feedback/feedback %}

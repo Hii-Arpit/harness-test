@@ -19,7 +19,7 @@ description: Set per-developer spend limits across AI tools, with enforcement, a
 User Budgets let you define a spending cap for each developer on AI tools such as Cursor, Claude Enterprise, and Amazon Bedrock. When a developer approaches or exceeds their limit, Harness notifies them and, optionally, blocks their access. Developers who need more can request a limit increase directly from their profile without filing a support ticket.
 
 {% hint style="info" %}
-User Budgets are separate from [resource budgets](../budgets/create-a-budget.md), which track cloud infrastructure spend against cost perspectives.
+User Budgets are separate from [Resource Budgets](../budgets/create-a-budget.md), which track cloud infrastructure spend against cost perspectives.
 {% endhint %}
 
 ## What you will learn from this topic
@@ -33,7 +33,7 @@ User Budgets are separate from [resource budgets](../budgets/create-a-budget.md)
 
 * You need the **Cost Governance** permission or the dedicated User Budgets RBAC role.
 
-Select **User Budgets** under **Cost Governance** in the left navigation to see all user budgets configured in your account.
+On the left navigation bar, select **Cost Governance** > **User Budgets** to see all user budgets configured in your account.
 
 <figure><img src="../../.gitbook/assets/user-budgets-list.png" alt="User Budgets list view"><figcaption><p>User Budgets list view</p></figcaption></figure>
 
@@ -60,7 +60,7 @@ Use the **Search budgets** bar to find a budget by name. Use the sort dropdown t
 
 ## Folders
 
-Folders organize user budgets and control access. People with access to a folder can see the budgets inside it. Use folders to scope visibility by team or org unit.
+Folders organize user budgets and control access. Users with access to a folder can see the budgets inside it. Use folders to scope visibility by team or org unit.
 
 Select a folder in the **Folders** panel to filter the list. Select **All budgets** to return to the full list.
 

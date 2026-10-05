@@ -62,7 +62,7 @@ If you need more budget, you can submit a request directly from your profile. Yo
 
    <figure><img src="../../.gitbook/assets/user-budgets-request-limit-increase.png" alt="Request to increase AI budget panel"><figcaption><p>Request panel showing approval tiers and the request form</p></figcaption></figure>
 
-2. In the **Requested new weekly budget** field, enter the amount you need. It must be higher than your current limit.
+2. In the **Requested new budget** field, enter the amount you need. It must be higher than your current limit.
 3. Enter a **Reason** for the request so your approver has context.
 4. Click **Submit request**.
 
