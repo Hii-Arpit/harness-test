@@ -35,7 +35,8 @@ User Budgets are separate from [Resource Budgets](../budgets/create-a-budget.md)
 
 ---
 
-* You need the **Cost Governance** permission or the dedicated User Budgets RBAC role.
+* You must have permissions to create User Budgets. If not, ask your admin to provide the **Cost Governance** permission or the dedicated User Budgets RBAC role.
+* Your AI connectors must have **AI Cost Governance** enabled in the integration setup. If not, ask your admin to enable it.
 
 On the left navigation bar, select **Cost Governance** > **User Budgets** to see all user budgets configured in your account.
 
