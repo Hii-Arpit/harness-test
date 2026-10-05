@@ -1,7 +1,7 @@
 ---
 description: Set per-developer spend limits across AI tools, with enforcement, approvals, and self-service increase requests.
 ---
-# User Budgets
+# Overview
 
 {% if "HAS_FEATURE_FLAG" === true %}
 ```

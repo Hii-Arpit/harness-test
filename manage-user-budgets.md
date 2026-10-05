@@ -156,9 +156,19 @@ The **Active Enforcements** bar lists the notification and block rules currently
 Use the **Enforcements** and **Requests** filters above the table to narrow the view to users with active enforcements or pending requests.
 {% endhint %}
 
-## Approve or reject a limit increase request
+## Review limit increase requests
 
-When a user submits a limit increase request, it goes to the approver assigned to the matching tier. Approvers can [review the full request details before approving](#review-request-through-review-panel), or [approve directly](#approve-directly) without reviewing the full request.
+When a user submits a limit increase request, it goes to the approver assigned to the matching tier. Approvers can [approve directly](#approve-directly) without opening the review panel, or [review the full request details](#review-request-through-review-panel) before deciding.
+
+### Approve directly 
+
+Use the inline buttons next to the specific user in the **Request details** column to act without reviewing the request.
+  * (✓) to approve the request.
+  * (✗) to reject the request.
+
+{% hint style="info" %}
+Admins who are also listed as an approver for their own budget can approve their own requests.
+{% endhint %}
 
 ### Review request through review panel 
 
@@ -192,16 +202,6 @@ At the bottom, choose one of:
 * **Approve**: confirm the amount in the **Approve for** field and approve the request.
 * **Reject**: decline the request.
 * **Skip for now**: defer the decision and move to the next request.
-
-### Approve directly 
-
-Use the inline buttons next to the specific user in the **Request details** column to act without reviewing the request.
-  * (✓) to approve the request.
-  * (✗) to reject the request.
-
-{% hint style="info" %}
-Admins who are also listed as an approver for their own budget can approve their own requests.
-{% endhint %}
 
 ## Edit or delete a user budget
 
