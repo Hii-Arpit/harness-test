@@ -20,8 +20,8 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 * Harness Cloud & AI Cost Management must be enabled on your account.
 * The users you want to budget must belong to a Harness user group. Go to [Create a user group](#create-a-user-group) if you need to set one up.
-* At least one AI connector must exist with AI Governance enabled. Go to the connector settings and enable the **AI Governance** checkbox to allow User Budgets to enforce against it.
-* To create or manage budgets, you need the **Cost Governance** permission or the dedicated User Budgets RBAC role (if enabled on your account).
+* Your AI connectors must have **AI Cost Governance** enabled in the integration setup. If not, ask your admin to enable it.
+* You must have permissions to create User Budgets. If not, ask your admin to provide the **Cost Governance** permission or the dedicated User Budgets RBAC role.
 
 ## Create a user budget
 
