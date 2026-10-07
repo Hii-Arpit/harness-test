@@ -423,6 +423,8 @@ With Auto Inference enabled, the daily batch job detects the change and:
 
 This applies to **ECS services**, **Node Pools**, and **Kubernetes Workloads**.
 
+<figure><img src="../../../.gitbook/assets/auto-inference-nodepool-partial-change.jpg" alt="Node pool auto-inferred applied recommendation showing Recommended vs Applied change columns (node count 15 → 13, recommended 12)"><figcaption><p>Click to view full size image</p></figcaption></figure>
+
 When a recommendation is auto-inferred, it shows up with a banner.
 
 <figure><img src="../../../.gitbook/assets/auto-inference-banner.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
@@ -438,6 +440,8 @@ Upon clicking verify, you can confirm whether the inferred savings matched the a
 
 <figure><img src="../../../.gitbook/assets/verify-inference.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
+<figure><img src="../../../.gitbook/assets/auto-inference-workload-inferred.jpg" alt="Workload auto-inferred recommendation showing the Recommended vs Applied resource changes comparison and Verify / Reject buttons"><figcaption><p>Click to view full size image</p></figcaption></figure>
+
 Rejected inferences appear under **Rejected Auto-Inferences** in **Ignore and Reject Lists**, where you can review the reason and identify resources that may need to be ignored.
 
 <figure><img src="../../../.gitbook/assets/rejected-inference.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
@@ -452,6 +456,8 @@ Filters under **Verification Status** on the Applied tab help you manage inferre
 When you click **Mark as Applied** on an ECS, Node Pool, or Workload recommendation, the same inference logic runs immediately (within 15–20 minutes) rather than waiting for the next daily batch job. The system fetches the current infrastructure state, records what actually changed, and creates the Applied Recommendation accordingly.
 
 Manually applied recommendations show an **Undo Apply** button instead of the Verify/Reject options that appear on auto-inferred ones.
+
+<figure><img src="../../../.gitbook/assets/auto-inference-ecs-undo-apply.jpg" alt="ECS recommendation manually applied, showing the Undo Apply button and Recommended vs Applied resource changes"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 **Enabling Auto Inference for ECS, Node Pool, and Workload**
 
