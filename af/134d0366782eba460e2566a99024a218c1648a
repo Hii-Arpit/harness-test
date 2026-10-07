@@ -1,0 +1,18 @@
+1-home-recommendations.md
+  h_59fd564719da3b 1-671
+SUMMARY.md
+  h_59fd564719da3b 3-4
+whats-supported.md
+  h_59fd564719da3b 2,6,8,10,12,14,16-26,29,32,34,36,38,40-42,44,46-47,49,51,54,57,59,61,63-68,70-71,73,75,77,80,83-127
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "af134d0366782eba460e2566a99024a218c1648a",
+  "prompts": {},
+  "humans": {
+    "h_59fd564719da3b": {
+      "author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+    }
+  }
+}
