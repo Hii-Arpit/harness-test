@@ -7,6 +7,29 @@ description: >-
 
 # Recommendations in Harness CACM
 
+{% if "HAS_FEATURE_FLAG" === true %}
+```
+{
+    "featureFlags": [{
+        "key": "CCM_NODEPOOL_RECOMMENDATION_AUTO_INFERENCE",
+        "name": "Node Pool Auto Inference",
+        "status": "LIMITED_GA",
+        "description": "Enables automatic detection and capture of partial node pool recommendation changes. The daily batch job detects incremental infrastructure changes and records realized savings accordingly."
+    }, {
+        "key": "CCM_WORKLOAD_RECOMMENDATION_AUTO_INFERENCE",
+        "name": "Workload Auto Inference",
+        "status": "LIMITED_GA",
+        "description": "Enables automatic detection and capture of partial Kubernetes workload recommendation changes. The daily batch job detects incremental infrastructure changes and records realized savings accordingly."
+    }, {
+        "key": "CCM_ECS_RECOMMENDATION_AUTO_INFERENCE",
+        "name": "ECS Auto Inference",
+        "status": "LIMITED_GA",
+        "description": "Enables automatic detection and capture of partial ECS service recommendation changes. The daily batch job detects incremental infrastructure changes and records realized savings accordingly."
+    }]
+}
+```
+{% endif %}
+
 {% hint style="info" %}
 After you enable CACM, it may take up to 48 hours for the recommendations to appear in Cloud Costs. It depends on the time at which CACM receives the utilization data for the service.
 {% endhint %}
@@ -406,7 +429,7 @@ Applying recommendations is easy! You just need to:
 3. **Implement Changes and Track using Jira/ServiceNow** - Apply the optimizations manually in your cloud environment. [Create and manage Jira or ServiceNow tickets](./#managing-recommendations-via-jira-servicenow-tickets) to monitor implementation progress.
 4. **Update Status** - Mark recommendations as applied in the CACM platform once implemented. Once applied, recommendations show up in the **Applied** tab.
 
-### Auto inferences <a href="#auto-inferences" id="auto-inferences"></a>
+### Auto Inference <a href="#auto-inference" id="auto-inference"></a>
 
 Auto Inference is a Harness Cloud & AI Cost Management feature that automatically detects and records infrastructure changes related to your recommendations, including partial adjustments, so that realized savings are tracked without requiring you to manually mark each recommendation as applied.
 
@@ -419,37 +442,37 @@ You might make incremental adjustments rather than implementing a full recommend
 With Auto Inference enabled, the daily batch job detects the change and:
 
 1. Creates an **Applied Recommendation** that shows two columns: **Recommended** (the original suggestion) and **Applied change** (what actually changed in your infrastructure, such as 15 → 13 nodes), along with the realized savings for that partial reduction.
-2. Updates the original **Open Recommendation** to use the new state as the baseline (for example, it now reads "currently 13 nodes, recommended 12 nodes").
+2. Updates the original **Open Recommendation** to use the new state as the baseline (for example, the open recommendation now reads "currently 13 nodes, recommended 12 nodes").
 
 This applies to **ECS services**, **Node Pools**, and **Kubernetes Workloads**.
 
 <figure><img src="../../../.gitbook/assets/auto-inference-nodepool-partial-change.jpg" alt="Node pool auto-inferred applied recommendation showing Recommended vs Applied change columns (node count 15 → 13, recommended 12)"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-When a recommendation is auto-inferred, it shows up with a banner.
+An auto-inferred recommendation displays a banner at the top of the detail page.
 
 <figure><img src="../../../.gitbook/assets/auto-inference-banner.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 **Verify and reject auto-inferred recommendations**
 
-Auto-inferred recommendations appear under the **Applied** tab labeled "inferred as applied." You can:
+Auto-inferred recommendations appear under the **Applied** tab with the status "Inferred as applied." You can:
 
 * **Verify**: Confirm the inferred savings are accurate.
-* **Reject**: Flag the inference if the savings calculation is incorrect or the change was not intentional. You will be prompted to enter a reason, which is stored and visible under **Rejected Auto-Inferences** in **Ignore and Reject Lists**.
+* **Reject**: Flag the inference if the savings calculation is incorrect or the change was not intentional. You will be prompted to enter a reason, which is stored and visible under **Rejected Auto-Inferences** in **Ignore & Reject Lists**.
 
-Upon clicking verify, you can confirm whether the inferred savings matched the actual amount saved for more accurate savings calculations.
+When you click **Verify**, you can confirm whether the inferred savings matched the actual amount saved for more accurate savings calculations.
 
 <figure><img src="../../../.gitbook/assets/verify-inference.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/auto-inference-workload-inferred.jpg" alt="Workload auto-inferred recommendation showing the Recommended vs Applied resource changes comparison and Verify / Reject buttons"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-Rejected inferences appear under **Rejected Auto-Inferences** in **Ignore and Reject Lists**, where you can review the reason and identify resources that may need to be ignored.
+Rejected inferences appear under **Rejected Auto-Inferences** in **Ignore & Reject Lists**, where you can review the reason and identify resources that may need to be ignored.
 
 <figure><img src="../../../.gitbook/assets/rejected-inference.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 Filters under **Verification Status** on the Applied tab help you manage inferred recommendations:
 
 * **Inferred - Pending Review**: Automatically detected as implemented but awaiting your verification. You can verify, reject, or edit the savings amount.
-* **Inferred - Verified**: Confirmed as accurately applied by a user.
+* **Inferred - Verified**: Confirmed as accurately applied.
 
 <figure><img src="../../../.gitbook/assets/auto-inference-applied-list.jpg" alt="Applied Recommendations list showing Inferred - pending review status in the Applied By column for node pool and workload recommendations"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -457,29 +480,17 @@ Filters under **Verification Status** on the Applied tab help you manage inferre
 
 When you click **Mark as Applied** on an ECS, Node Pool, or Workload recommendation, the same inference logic runs immediately (within 15–20 minutes) rather than waiting for the next daily batch job. Harness fetches the current infrastructure state, records what actually changed, and creates the Applied Recommendation accordingly.
 
-Manually applied recommendations show an **Undo Apply** button instead of the Verify/Reject options that appear on auto-inferred ones.
+Manually applied recommendations show an **Undo Apply** button instead of the Verify/Reject options that appear on auto-inferred recommendations.
 
 <figure><img src="../../../.gitbook/assets/auto-inference-ecs-undo-apply.jpg" alt="ECS recommendation manually applied, showing the Undo Apply button and Recommended vs Applied resource changes"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 **Enable Auto Inference for ECS, Node Pool, and Workload**
 
-Auto Inference for Harness-generated recommendations is controlled by account-level feature flags. Contact your account administrator to enable the appropriate flags for your account:
-
-| Resource type | Feature flag |
-|---|---|
-| Node Pool | `CCM_NODEPOOL_RECOMMENDATION_AUTO_INFERENCE` |
-| Kubernetes Workload | `CCM_WORKLOAD_RECOMMENDATION_AUTO_INFERENCE` |
-| ECS | `CCM_ECS_RECOMMENDATION_AUTO_INFERENCE` |
+Auto Inference is controlled by account-level feature flags. Customers cannot enable these flags directly. Contact [Harness Support](mailto:support@harness.io) with your Harness Account ID to request enablement for Node Pool, Kubernetes Workload, or ECS.
 
 Once a flag is enabled, the daily batch job automatically begins capturing changes for that resource type. No additional configuration is required.
 
-{% hint style="info" %}
-**EC2 and Azure VM passthrough support**
-
-Auto Inference also supports passthrough recommendations for **AWS EC2 instances** and **Azure Virtual Machines**. To enable detection for those resource types, navigate to **Cloud & AI Cost Management** → **Recommendations** → **Settings** → **Preferences** and enable the **Automatically detect when recommendations are applied** toggle under General Preferences.
-
 Manual actions always take precedence. Once you manually mark a recommendation as applied or ignored, Auto Inference does not override your action.
-{% endhint %}
 
 ***
 

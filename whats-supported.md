@@ -109,9 +109,6 @@ To enable a feature flag in your Harness account, contact [Harness Support](mail
 | `CCM_RECOMMENDATION_COST_TYPES`               | Enables cost type support for recommendations                                                               |
 | `CCM_NODE_POOL_RECOMMENDATIONS_V2`            | Enables node pool recommendations V2                                                                        |
 | `CCM_FILTER_AUTOSCALED_NODEPOOLS`             | Filters out autoscaled node pools from recommendations                                                      |
-| `CCM_NODEPOOL_RECOMMENDATION_AUTO_INFERENCE`  | Enables automatic detection and capture of partial node pool recommendation changes                         |
-| `CCM_WORKLOAD_RECOMMENDATION_AUTO_INFERENCE`  | Enables automatic detection and capture of partial Kubernetes workload recommendation changes               |
-| `CCM_ECS_RECOMMENDATION_AUTO_INFERENCE`       | Enables automatic detection and capture of partial ECS recommendation changes                               |
 | `CCM_WORKLOAD_RECOMMENDATIONS_V2`             | Enables workload recommendations V2                                                                         |
 | `CCM_INVENTORY_V2`                            | Enables cloud asset inventory for AWS resources in Asset Governance                                         |
 | `CCM_GCP_INVENTORY_V2`                        | Enables cloud asset inventory for GCP resources in Asset Governance                                         |
