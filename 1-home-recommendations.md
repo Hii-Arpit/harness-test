@@ -408,17 +408,17 @@ Applying recommendations is easy! You just need to:
 
 ### Auto inferences <a href="#auto-inferences" id="auto-inferences"></a>
 
-Auto Inference is a Harness Cloud & AI Cost Management feature that automatically detects and records infrastructure changes related to your recommendations — including partial adjustments — so that realized savings are tracked without requiring you to manually mark each recommendation as applied.
+Auto Inference is a Harness Cloud & AI Cost Management feature that automatically detects and records infrastructure changes related to your recommendations, including partial adjustments, so that realized savings are tracked without requiring you to manually mark each recommendation as applied.
 
 Auto Inference runs as a daily batch job. Changes are typically detected within 24 hours.
 
 **How partial changes are captured**
 
-Users often make incremental adjustments rather than implementing a full recommendation in one step. For example, if Harness recommends reducing a node pool from 15 nodes to 12, a user might first scale it down to 13. Previously, this partial change was not captured and zero savings were recorded.
+You might make incremental adjustments rather than implementing a full recommendation in one step. For example, if Harness recommends reducing a node pool from 15 nodes to 12, you might first scale it down to 13. Previously, this partial change was not captured and zero savings were recorded.
 
 With Auto Inference enabled, the daily batch job detects the change and:
 
-1. Creates an **Applied Recommendation** that shows two columns — **Recommended** (the original suggestion) and **Applied change** (what actually changed in your infrastructure, such as 15 → 13 nodes) — along with the realized savings for that partial reduction.
+1. Creates an **Applied Recommendation** that shows two columns: **Recommended** (the original suggestion) and **Applied change** (what actually changed in your infrastructure, such as 15 → 13 nodes), along with the realized savings for that partial reduction.
 2. Updates the original **Open Recommendation** to use the new state as the baseline (for example, it now reads "currently 13 nodes, recommended 12 nodes").
 
 This applies to **ECS services**, **Node Pools**, and **Kubernetes Workloads**.
@@ -455,13 +455,13 @@ Filters under **Verification Status** on the Applied tab help you manage inferre
 
 **Manual Mark as Applied**
 
-When you click **Mark as Applied** on an ECS, Node Pool, or Workload recommendation, the same inference logic runs immediately (within 15–20 minutes) rather than waiting for the next daily batch job. The system fetches the current infrastructure state, records what actually changed, and creates the Applied Recommendation accordingly.
+When you click **Mark as Applied** on an ECS, Node Pool, or Workload recommendation, the same inference logic runs immediately (within 15–20 minutes) rather than waiting for the next daily batch job. Harness fetches the current infrastructure state, records what actually changed, and creates the Applied Recommendation accordingly.
 
 Manually applied recommendations show an **Undo Apply** button instead of the Verify/Reject options that appear on auto-inferred ones.
 
 <figure><img src="../../../.gitbook/assets/auto-inference-ecs-undo-apply.jpg" alt="ECS recommendation manually applied, showing the Undo Apply button and Recommended vs Applied resource changes"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-**Enabling Auto Inference for ECS, Node Pool, and Workload**
+**Enable Auto Inference for ECS, Node Pool, and Workload**
 
 Auto Inference for Harness-generated recommendations is controlled by account-level feature flags. Contact your account administrator to enable the appropriate flags for your account:
 
@@ -474,9 +474,11 @@ Auto Inference for Harness-generated recommendations is controlled by account-le
 Once a flag is enabled, the daily batch job automatically begins capturing changes for that resource type. No additional configuration is required.
 
 {% hint style="info" %}
+**EC2 and Azure VM passthrough support**
+
 Auto Inference also supports passthrough recommendations for **AWS EC2 instances** and **Azure Virtual Machines**. To enable detection for those resource types, navigate to **Cloud & AI Cost Management** → **Recommendations** → **Settings** → **Preferences** and enable the **Automatically detect when recommendations are applied** toggle under General Preferences.
 
-Manual actions always take precedence. Once you manually mark a recommendation as applied or ignored, Auto Inference will not override your action.
+Manual actions always take precedence. Once you manually mark a recommendation as applied or ignored, Auto Inference does not override your action.
 {% endhint %}
 
 ***
