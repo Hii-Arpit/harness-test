@@ -433,7 +433,9 @@ Applying recommendations is easy! You just need to:
 
 Auto Inference is a Harness Cloud & AI Cost Management feature that automatically detects and records infrastructure changes related to your recommendations, including partial adjustments, so that realized savings are tracked without requiring you to manually mark each recommendation as applied.
 
+{% hint style="success" %}
 Auto Inference runs as a daily batch job. Changes are typically detected within 24 hours.
+{% endhint %}
 
 **How partial changes are captured**
 
