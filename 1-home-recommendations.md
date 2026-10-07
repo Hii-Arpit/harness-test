@@ -434,7 +434,7 @@ When a recommendation is auto-inferred, it shows up with a banner.
 Auto-inferred recommendations appear under the **Applied** tab labeled "inferred as applied." You can:
 
 * **Verify**: Confirm the inferred savings are accurate.
-* **Reject**: Flag the inference if the savings calculation is incorrect or the change was not intentional.
+* **Reject**: Flag the inference if the savings calculation is incorrect or the change was not intentional. You will be prompted to enter a reason, which is stored and visible under **Rejected Auto-Inferences** in **Ignore and Reject Lists**.
 
 Upon clicking verify, you can confirm whether the inferred savings matched the actual amount saved for more accurate savings calculations.
 
@@ -450,6 +450,8 @@ Filters under **Verification Status** on the Applied tab help you manage inferre
 
 * **Inferred - Pending Review**: Automatically detected as implemented but awaiting your verification. You can verify, reject, or edit the savings amount.
 * **Inferred - Verified**: Confirmed as accurately applied by a user.
+
+<figure><img src="../../../.gitbook/assets/auto-inference-applied-list.jpg" alt="Applied Recommendations list showing Inferred - pending review status in the Applied By column for node pool and workload recommendations"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
 **Manual Mark as Applied**
 
