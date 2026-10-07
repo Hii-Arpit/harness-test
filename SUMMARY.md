@@ -1,6 +1,4 @@
 # Table of contents
 
-* [User Budgets](user-budgets.md)
-* [Create and manage user budgets](manage-user-budgets.md)
-* [Manage your AI budget](manage-your-ai-budget.md)
-* [Overview](user-budgets.md)
+* [Recommendations in Harness CACM](1-home-recommendations.md)
+* [What is supported in Harness CACM](whats-supported.md)
