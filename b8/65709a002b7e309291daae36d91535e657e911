@@ -1,0 +1,19 @@
+1-home-recommendations.md
+  s_a9ebbcc24a072e::t_9116b5fe04523c 446,449,485,489-492,495,503
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b865709a002b7e309291daae36d91535e657e911",
+  "prompts": {},
+  "sessions": {
+    "s_a9ebbcc24a072e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "37cbec29-9ae6-44d6-affb-dc7c2dcfbd3d",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Arpit Agrawal <arpit.agrawal@harness.io>"
+    }
+  }
+}
