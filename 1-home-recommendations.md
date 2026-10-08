@@ -443,10 +443,10 @@ You might make incremental adjustments rather than implementing a full recommend
 
 With Auto Inference enabled, the daily batch job detects the change and:
 
-1. Creates an **Applied Recommendation** that shows two columns: **Recommended** (the original suggestion) and **Applied change** (what actually changed in your infrastructure, such as 15 → 13 nodes), along with the realized savings for that partial reduction.
+1. Creates an **Applied Recommendation** that displays two columns: **Recommended** (the original suggestion) and **Applied change** (what actually changed in your infrastructure, such as 15 → 13 nodes), along with the realized savings for that partial reduction.
 2. Updates the original **Open Recommendation** to use the new state as the baseline (for example, the open recommendation now reads "currently 13 nodes, recommended 12 nodes").
 
-This applies to **ECS services**, **Node Pools**, and **Kubernetes Workloads**.
+Auto Inference applies to **ECS services**, **Node Pools**, and **Kubernetes Workloads**.
 
 <figure><img src="../../../.gitbook/assets/auto-inference-nodepool-partial-change.jpg" alt="Node pool auto-inferred applied recommendation showing Recommended vs Applied change columns (node count 15 → 13, recommended 12)"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
@@ -482,13 +482,17 @@ Filters under **Verification Status** on the Applied tab help you manage inferre
 
 When you click **Mark as Applied** on an ECS, Node Pool, or Workload recommendation, the same inference logic runs immediately (within 15–20 minutes) rather than waiting for the next daily batch job. Harness fetches the current infrastructure state, records what actually changed, and creates the Applied Recommendation accordingly.
 
-Manually applied recommendations show an **Undo Apply** button instead of the Verify/Reject options that appear on auto-inferred recommendations.
+Manually applied recommendations display an **Undo Apply** button instead of the Verify/Reject options that appear on auto-inferred recommendations.
 
 <figure><img src="../../../.gitbook/assets/auto-inference-ecs-undo-apply.jpg" alt="ECS recommendation manually applied, showing the Undo Apply button and Recommended vs Applied resource changes"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
+After 15–20 minutes, the details page displays the actual resource changes.
+
+<figure><img src="../../../.gitbook/assets/auto-inference-ecs-manual-applied-filled.jpg" alt="Recommendation details page showing the applied resource changes populated after inference completes"><figcaption><p>Click to view full size image</p></figcaption></figure>
+
 **Enable Auto Inference for ECS, Node Pool, and Workload**
 
-Auto Inference is controlled by account-level feature flags. Customers cannot enable these flags directly. Contact [Harness Support](mailto:support@harness.io) with your Harness Account ID to request enablement for Node Pool, Kubernetes Workload, or ECS.
+Auto Inference is controlled by account-level feature flags. Users can not enable these flags directly. Contact [Harness Support](mailto:support@harness.io) with your Harness Account ID to request enablement for Node Pool, Kubernetes Workload, or ECS.
 
 Once a flag is enabled, the daily batch job automatically begins capturing changes for that resource type. No additional configuration is required.
 
@@ -496,7 +500,7 @@ Manual actions always take precedence. Once you manually mark a recommendation a
 
 ***
 
-## Recommendation management via Jira/ServiceNow tickets <a href="#managing-recommendations-via-jiraservicenow-tickets" id="managing-recommendations-via-jiraservicenow-tickets"></a>
+## Recommendation management through Jira/ServiceNow tickets <a href="#managing-recommendations-via-jiraservicenow-tickets" id="managing-recommendations-via-jiraservicenow-tickets"></a>
 
 ### Prerequisites <a href="#prerequisites" id="prerequisites"></a>
 
