@@ -1,5 +1,6 @@
 # Table of contents
 
-* [EC2](ec2-get-started.md)
-* [Recommendations in Harness CACM](1-home-recommendations.md)
-* [What is supported in Harness CACM](whats-supported.md)
+* [Verify docs against the Harness UI](SKILL.md)
+* [Harness UI automation patterns](harness-ui-patterns.md)
+* [Verification report format](report-format.md)
+* [Documentation screenshots](screenshots.md)
