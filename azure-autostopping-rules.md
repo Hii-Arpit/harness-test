@@ -210,20 +210,31 @@ The **Configuration** tab has three sections.
 4. Under **State Sync Trigger**, select **Follow account level setting** or **Override for this rule**.
 5. Under **Resources to be managed**, select the type of resource the rule manages: **VM(s)**, **Azure Scale Sets**, or **Kubernetes Cluster**.
 
-   * To manage Azure VMs, select **VM(s)**, then:
-       * Choose how the VMs are handled once idle: **Shut down** or **Hibernate**.
-       * Select the VMs you want to onboard.
-       * Choose whether the instances convert to spot or remain on-demand: **On-demand** or **Spot**.
-   * To manage an Azure scale set, select **Azure Scale Sets**, then:
-       1. Click **+ Add a Scale Set**.
-       2. In **Select Azure Scale Set**, select a resource group from **Select resource group**. The dialog lists the scale sets in that group with their name and ID, the number of instances, and the region. Use **Search** to filter the list, or click **Refresh** to reload it.
-       3. Select a scale set, then click **Add Selected**.
+   {% tabs %}
+   {% tab title="VM(s)" %}
+   To manage Azure VMs, select **VM(s)**, then:
 
-       ![The Select Azure Scale Set dialog, listing the scale sets in the selected resource group with their instances and region](../../../.gitbook/assets/azure-scale-set-selection.png)
+   * Choose how the VMs are handled once idle: **Shut down** or **Hibernate**.
+   * Select the VMs you want to onboard.
+   * Choose whether the instances convert to spot or remain on-demand: **On-demand** or **Spot**.
+   {% endtab %}
 
-       A rule manages one scale set. To manage more than one scale set, create a separate rule for each. For how AutoStopping handles scale set instances, go to [Azure scale set behavior](#azure-scale-set-behavior).
-   * To manage a Kubernetes cluster, select **Kubernetes Cluster**. Go to [Kubernetes AutoStopping rules](kubernetes-autostopping-rules.md) to create the rule.
+   {% tab title="Azure Scale Sets" %}
+   To manage an Azure scale set, select **Azure Scale Sets**, then:
 
+   1. Click **+ Add a Scale Set**.
+   2. In **Select Azure Scale Set**, select a resource group from **Select resource group**. The dialog lists the scale sets in that group with their name and ID, the number of instances, and the region. Use **Search** to filter the list, or click **Refresh** to reload it.
+   3. Select a scale set, then click **Add Selected**.
+
+   ![The Select Azure Scale Set dialog, listing the scale sets in the selected resource group with their instances and region](../../../.gitbook/assets/azure-scale-set-selection.png)
+
+   A rule manages one scale set. To manage more than one scale set, create a separate rule for each. For how AutoStopping handles scale set instances, go to [Azure scale set behavior](#azure-scale-set-behavior).
+   {% endtab %}
+
+   {% tab title="Kubernetes Cluster" %}
+   To manage a Kubernetes cluster, select **Kubernetes Cluster**. Go to [Kubernetes AutoStopping rules](kubernetes-autostopping-rules.md) to create the rule.
+   {% endtab %}
+   {% endtabs %}
 6. Optional: Use the **Fixed schedules, alerts, and other advanced configuration** section to add fixed schedules and alerts, to set run options, and to add dependencies. Go to [Configure optional settings](#configure-optional-settings) for details.
 7. Click **Next**. For a schedule-based rule, the **2. Review** tab opens. For a traffic-based rule, the **2. Setup Access** tab opens first, and **3. Review** follows. The Setup Access tab asks which workload types run on the target and is optional, so you can click **Skip for now**.
 
