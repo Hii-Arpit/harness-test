@@ -245,7 +245,10 @@ Configure the rule on the **Configuration** tab.
   {% endtab %}
 
   {% tab title="Kubernetes Cluster" %}
-  Go to [Kubernetes AutoStopping rules](kubernetes-autostopping-rules.md) to create a rule for a Kubernetes cluster.
+  1. Click **+ Add a cluster**.
+  2. In **Select Connector**, select the Kubernetes connector for the cluster that you want the rule to manage, and then click **Add Selected**. The list shows the clusters that are connected to a Harness Delegate. To add a cluster that is not listed, click **+ Create a new connector**.
+
+  Go to [Kubernetes AutoStopping rules](kubernetes-autostopping-rules.md) for more information about AutoStopping rules for Kubernetes clusters.
   {% endtab %}
   {% endtabs %}
 
