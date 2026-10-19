@@ -150,13 +150,17 @@ Harness recently launched support for Azure WAF Gateways. Currently, only import
 
 Harness starts and stops the instances of a scale set by calling the Azure API with the service principal of your Azure connector, so the connector needs additional permissions for scale sets.
 
-When you create or edit the Azure connector, the connector wizard generates these permissions for you:
+To grant Harness only the permissions that scale set rules need, follow these steps when you create or edit the Azure connector:
 
-1. In the **Choose Requirements** step, select **Optimization by AutoStopping**, and then turn on **Limit to specific permissions**.
+1. In **Choose Requirements**, select **Optimization by AutoStopping**, and then turn on **Limit to specific permissions**.
 2. Click **Continue**.
-3. In the **AutoStopping Permissions** step, select **Scale Sets**. Scale sets offer only **Schedules only**. The **with App Gateway** and **with AutoStopping Proxy** options apply to **Virtual Machines**.
-4. Click **Continue**. The **Create Service Principal** step shows the commands to run, including an `az role definition create` command for a custom role named **Harness Autostopping**.
-5. Run the generated commands in a bash terminal or Azure Cloud Shell.
+3. In **AutoStopping Permissions**, select **Scale Sets**. **Schedules only** is the only option available for scale sets.
+4. Click **Continue**. **Create Service Principal** lists the commands that create the service principal and a custom role named **Harness Autostopping**.
+5. Run the commands in Azure Cloud Shell or a bash terminal.
+
+{% hint style="info" %}
+The **with App Gateway** and **with AutoStopping Proxy** options apply to virtual machines only.
+{% endhint %}
 
 ![The AutoStopping Permissions step of the Azure connector wizard, with Virtual Machines and Scale Sets selected and Schedules only as the single option for scale sets](../../../.gitbook/assets/azure-scale-set-granular-permissions.png)
 
