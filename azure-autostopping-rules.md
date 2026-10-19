@@ -152,11 +152,10 @@ Harness starts and stops the instances of a scale set by calling the Azure API w
 
 To grant Harness only the permissions that your AutoStopping rules need, follow these steps when you create or edit the Azure connector:
 
-1. In **Choose Requirements**, select **Optimization by AutoStopping**, and then turn on **Limit to specific permissions**.
+1. In **Choose Requirements**, select **Optimization by AutoStopping**, turn on **Limit to specific permissions**, and then click **Continue**.
 
    ![The Choose Requirements step of the Azure connector wizard, with Optimization by AutoStopping selected and Limit to specific permissions turned on](../../../.gitbook/assets/azure-connector-choose-requirements.png)
-2. Click **Continue**.
-3. In **AutoStopping Permissions**, select the resources that you want AutoStopping to manage, and then select the options that apply to your setup:
+2. In **AutoStopping Permissions**, select the resources that you want AutoStopping to manage, select the options that apply to your setup, and then click **Continue**:
     
     a. **Virtual Machines**
       * **Schedules only**. Start and stop VMs on a fixed schedule.
@@ -169,14 +168,13 @@ To grant Harness only the permissions that your AutoStopping rules need, follow 
    The next step adds only the permissions for the options that you select.
 
    ![The AutoStopping Permissions step of the Azure connector wizard, with Virtual Machines and Scale Sets selected and Schedules only as the single option for scale sets](../../../.gitbook/assets/azure-connector-autostopping-permissions.png)
-4. Click **Continue**. The commands on this page create a custom role named **Harness Autostopping**. For scale sets, the role has these additional permissions:
+3. In **Create Service Principal**, run the commands in Azure Cloud Shell or a bash terminal. The commands create a custom role named **Harness Autostopping**. For scale sets, the role has these additional permissions:
    * `Microsoft.Compute/virtualMachineScaleSets/read`: List scale sets.
    * `Microsoft.Compute/virtualMachineScaleSets/start/action`: Start scale set instances.
    * `Microsoft.Compute/virtualMachineScaleSets/deallocate/action`: Stop scale set instances.
    * `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read`: List scale set instances.
 
    ![The Create Service Principal step of the Azure connector wizard, showing the commands to run](../../../.gitbook/assets/azure-connector-create-service-principal.png)
-5. Run the commands in Azure Cloud Shell or a bash terminal.
 
 Go to [Azure permissions](../../../references/best-practices/azure/azure-permissions.md#autostopping) to review the permissions for each AutoStopping option.
 
