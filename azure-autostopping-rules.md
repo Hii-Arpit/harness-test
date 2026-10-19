@@ -162,12 +162,12 @@ To grant Harness only the permissions that your AutoStopping rules need, follow 
 2. In **AutoStopping Permissions**, select the resources that you want AutoStopping to manage, select the options that apply to your setup, and then click **Continue**:
     
     a. **Virtual Machines**
-      * **Schedules only**. Start and stop VMs on a fixed schedule.
-      * **with App Gateway**. Start VMs when traffic arrives through an Azure App Gateway.
-      * **with AutoStopping Proxy**. Start VMs when traffic arrives through an AutoStopping Proxy.
+      * **Schedules only**: Start and stop VMs on a fixed schedule.
+      * **with App Gateway**: Start VMs when traffic arrives through an Azure App Gateway.
+      * **with AutoStopping Proxy**: Start VMs when traffic arrives through an AutoStopping Proxy.
 
     b. **Scale Sets**
-      * **Schedules only**. Start and stop scale set instances on a fixed schedule.
+      * **Schedules only**: Start and stop scale set instances on a fixed schedule.
 
    The next step adds only the permissions for the options that you select.
 
@@ -205,8 +205,8 @@ Go to [Azure permissions](../../../references/best-practices/azure/azure-permiss
 Configure the rule on the **Configuration** tab.
 
 1. Under **AutoStopping Type**, select **Schedule-based**, **Traffic-based**, or both:
-    * **Schedule-based**. Start and stop resources at scheduled times, regardless of traffic.
-    * **Traffic-based**. Stop resources when idle and restart them on demand. Go to [Setup Access tab](#setup-access-tab) for the tab that this option adds.
+    * **Schedule-based**: Start and stop resources at scheduled times, regardless of traffic.
+    * **Traffic-based**: Stop resources when idle and restart them on demand. Go to [Setup Access tab](#setup-access-tab) for the tab that this option adds.
 
     {% hint style="info" %}
     When you select both, schedules always take priority over traffic-based detection.
@@ -219,16 +219,23 @@ Configure the rule on the **Configuration** tab.
   {% tabs %}
   {% tab title="VM(s)" %}
   1. In **Mode**, select how AutoStopping handles the VMs once they are idle:
-     * **Shut Down**. Completely shut down the VMs until a request brings them up. This option gives higher savings.
-     * **Hibernate**. Put the VMs into hibernation until they receive a request. This option gives a quicker warm-up time.
+
+     | Option | Description |
+     | --- | --- |
+     | **Shut Down** | Completely shuts down the VMs until a request brings them up. This option gives higher savings. |
+     | **Hibernate** | Puts the VMs into hibernation until they receive a request. This option gives a quicker warm-up time. |
+
   2. Click **+ Add an instance**, and then in **Select Instances**, select the VMs that you want the rule to manage:
-     * **Manual selection of Resources**. In **Select Resource Groups**, select a resource group, and optionally filter the VMs in **Select Tags (optional)**. Select the VMs, and then click **Add Selected**.
-     * **Tag-based inclusion of resources (existing + future)**. In **Select Tags**, click **Add Tag** to add the tags to match, and then click **Continue**. The rule includes the VMs that match the tags now and any VMs that match them later.
+     * **Manual selection of Resources**: In **Select Resource Groups**, select a resource group, and optionally filter the VMs in **Select Tags (optional)**. Select the VMs, and then click **Add Selected**.
+     * **Tag-based inclusion of resources (existing + future)**: In **Select Tags**, click **Add Tag** to add the tags to match, and then click **Continue**. The rule includes the VMs that match the tags now and any VMs that match them later.
 
      A rule can manage multiple VMs.
   3. Select **Spot** or **On demand** to set whether AutoStopping converts the instances to spot or keeps them on-demand:
-     * **Spot**. Convert the instances to spot instances. AutoStopping handles spot interruptions and can fall back to on-demand capacity.
-     * **On demand**. Keep the instances on-demand, with guaranteed capacity and no interruption risk.
+
+     | Option | Description |
+     | --- | --- |
+     | **Spot** | Converts the instances to spot instances. AutoStopping handles spot interruptions and can fall back to on-demand capacity. |
+     | **On demand** | Keeps the instances on-demand, with guaranteed capacity and no interruption risk. |
   {% endtab %}
 
   {% tab title="Azure Scale Sets" %}
@@ -345,9 +352,9 @@ Alerts notify you when something happens to the rule, such as a failed warm-up.
 
 ### Run options
 
-**Hide progress page.** Under **Run Options** in **Configuration**, turn on **Hide progress page** to disable the progress page that appears while the resources warm up. This option is useful when an automation system invokes the service, because it prevents the system from mistaking the progress page for the response of the onboarded service. When the progress page is hidden, the first response after a downtime is delayed until the service is running.
+**Hide progress page**: Under **Run Options** in **Configuration**, turn on **Hide progress page** to disable the progress page that appears while the resources warm up. This option is useful when an automation system invokes the service, because it prevents the system from mistaking the progress page for the response of the onboarded service. When the progress page is hidden, the first response after a downtime is delayed until the service is running.
 
-**Dry run.** Under **Run Options** in **Configuration**, turn on **Dry Run** to evaluate the rule without stopping your cloud resources.
+**Dry run**: Under **Run Options** in **Configuration**, turn on **Dry Run** to evaluate the rule without stopping your cloud resources.
 
 ### Add dependency
 
