@@ -195,53 +195,56 @@ Go to [Azure permissions](../../../references/best-practices/azure/azure-permiss
 
 ## Create AutoStopping rule
 
-1. In Harness, go to **Cloud & AI Cost Management** > **AutoStopping Rules** and click **New AutoStopping Rule**.
-2. Select **Azure**, choose the Azure connector from the account drop-down list, and click **Next**.
+1. In Harness, go to **Cloud & AI Cost Management** > **AutoStopping Rules**, and then click **New AutoStopping Rule**.
+2. Under **Select the cloud account type**, select **Azure**.
+3. In **Connect to your Azure account**, select your Azure connector, and then click **Apply Selected**.
+4. Click **Next**.
 
 ### Configuration tab
 
-The **Configuration** tab has three sections.
+Configure the rule on the **Configuration** tab, which has three sections.
 
-1. Under **AutoStopping Type**, select how the rule manages your resources. You can select both options.
-    * **Schedule-based**: Resources start and stop at scheduled times, regardless of traffic.
-    * **Traffic-based**: Resources stop when idle and restart on demand. Traffic-based rules add a **Setup Access** tab, which is described in the sections that follow.
+1. Under **AutoStopping Type**, select **Schedule-based**, **Traffic-based**, or both:
+    * **Schedule-based**. Start and stop resources at scheduled times, regardless of traffic.
+    * **Traffic-based**. Stop resources when idle and restart them on demand. Go to [Setup Access tab](#setup-access-tab) for the tab that this option adds.
 
     {% hint style="info" %}
     When you select both, schedules always take priority over traffic-based detection.
     {% endhint %}
-2. In **Name your Rule**, enter a name for the rule.
-3. In **Idle Time (mins)**, enter how long the resources must be inactive before the rule stops them. The default is 15.
+2. In **Name your Rule**, enter a name.
+3. In **Idle Time (mins)**, enter the number of minutes of inactivity after which the rule stops the resources. The default is 15.
 4. Under **State Sync Trigger**, select **Follow account level setting** or **Override for this rule**.
-5. Under **Resources to be managed**, select the type of resource the rule manages: **VM(s)**, **Azure Scale Sets**, or **Kubernetes Cluster**.
+5. Under **Resources to be managed**, select **VM(s)**, **Azure Scale Sets**, or **Kubernetes Cluster**, and then follow the steps on the tab for your choice.
 
   {% tabs %}
   {% tab title="VM(s)" %}
-  To manage Azure VMs, select **VM(s)**, then:
-
-  * Choose how the VMs are handled once idle: **Shut down** or **Hibernate**.
-  * Select the VMs you want to onboard.
-  * Choose whether the instances convert to spot or remain on-demand: **On-demand** or **Spot**.
+  1. Select **Shut down** or **Hibernate** to set how the VMs are handled once idle.
+  2. Select the VMs that you want to onboard.
+  3. Select **On-demand** or **Spot** to set whether the instances convert to spot or remain on-demand.
   {% endtab %}
 
   {% tab title="Azure Scale Sets" %}
-  To manage an Azure scale set, select **Azure Scale Sets**, then:
-
   1. Click **+ Add a Scale Set**.
-  2. In **Select Azure Scale Set**, select a resource group from **Select resource group**. The dialog lists the scale sets in that group with their name and ID, the number of instances, and the region. Use **Search** to filter the list, or click **Refresh** to reload it.
-  3. Select a scale set, then click **Add Selected**.
+  2. In **Select resource group**, select the resource group that contains the scale set. The **Select Azure Scale Set** dialog lists the scale sets in that group with their name and ID, the number of instances, and the region.
+  3. Optional: Use **Search** to filter the list, or click **Refresh** to reload it.
+  4. Select the scale set, and then click **Add Selected**.
 
   ![The Select Azure Scale Set dialog, listing the scale sets in the selected resource group with their instances and region](../../../.gitbook/assets/azure-scale-set-selection.png)
 
+  {% hint style="info" %}
   A rule manages one scale set. To manage more than one scale set, create a separate rule for each. For how AutoStopping handles scale set instances, go to [Azure scale set behavior](#azure-scale-set-behavior).
+  {% endhint %}
   {% endtab %}
 
   {% tab title="Kubernetes Cluster" %}
-  To manage a Kubernetes cluster, select **Kubernetes Cluster**. Go to [Kubernetes AutoStopping rules](kubernetes-autostopping-rules.md) to create the rule.
+  Go to [Kubernetes AutoStopping rules](kubernetes-autostopping-rules.md) to create a rule for a Kubernetes cluster.
   {% endtab %}
   {% endtabs %}
 
 6. Optional: Go to [Configure optional settings](#configure-optional-settings) to add fixed schedules, alerts, run options, or dependencies.
-7. Click **Next**. For a schedule-based rule, the **Review** tab opens. For a traffic-based rule, the **Setup Access** tab opens first, and **Review** follows. The Setup Access tab asks which workload types run on the target and is optional, so you can click **Skip for now**.
+7. Click **Next**.
+
+   For a schedule-based rule, the **Review** tab opens. For a traffic-based rule, the **Setup Access** tab opens first, and then the **Review** tab. The **Setup Access** tab asks which workload types run on the target and is optional, so you can click **Skip for now**.
 
 ### Setup Access tab
 
