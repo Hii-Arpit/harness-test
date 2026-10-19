@@ -202,7 +202,9 @@ The **Configuration** tab has three sections.
     * **Schedule-based**: Resources start and stop at scheduled times, regardless of traffic.
     * **Traffic-based**: Resources stop when idle and restart on demand. Traffic-based rules add a **Setup Access** tab, which is described in the sections that follow.
 
+    {% hint style="info" %}
     When you select both, schedules always take priority over traffic-based detection.
+    {% endhint %}
 2. In **Name your Rule**, enter a name for the rule.
 3. In **Idle Time (mins)**, enter how long the resources must be inactive before the rule stops them. The default is 15.
 4. Under **State Sync Trigger**, select **Follow account level setting** or **Override for this rule**.
@@ -220,6 +222,7 @@ The **Configuration** tab has three sections.
        ![The Select Azure Scale Set dialog, listing the scale sets in the selected resource group with their instances and region](../../../.gitbook/assets/azure-scale-set-selection.png)
 
        A rule manages one scale set. To manage more than one scale set, create a separate rule for each. For how AutoStopping handles scale set instances, go to [Azure scale set behavior](#azure-scale-set-behavior).
+   * To manage a Kubernetes cluster, select **Kubernetes Cluster**. Go to [Kubernetes AutoStopping rules](kubernetes-autostopping-rules.md) to create the rule.
 
 6. Optional: Use the **Fixed schedules, alerts, and other advanced configuration** section to add fixed schedules and alerts, to set run options, and to add dependencies. Go to [Configure optional settings](#configure-optional-settings) for details.
 7. Click **Next**. For a schedule-based rule, the **2. Review** tab opens. For a traffic-based rule, the **2. Setup Access** tab opens first, and **3. Review** follows. The Setup Access tab asks which workload types run on the target and is optional, so you can click **Skip for now**.
