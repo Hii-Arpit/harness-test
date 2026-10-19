@@ -237,33 +237,47 @@ The **Configuration** tab has three sections.
   {% endtabs %}
 
 6. Optional: Use the **Fixed schedules, alerts, and other advanced configuration** section to add fixed schedules and alerts, to set run options, and to add dependencies. Go to [Configure optional settings](#configure-optional-settings) for details.
-7. Click **Next**. For a schedule-based rule, the **2. Review** tab opens. For a traffic-based rule, the **2. Setup Access** tab opens first, and **3. Review** follows. The Setup Access tab asks which workload types run on the target and is optional, so you can click **Skip for now**.
+7. Click **Next**. For a schedule-based rule, the **Review** tab opens. For a traffic-based rule, the **Setup Access** tab opens first, and **Review** follows. The Setup Access tab asks which workload types run on the target and is optional, so you can click **Skip for now**.
 
 ### Setup Access tab
 
-The **2. Setup Access** tab appears only for traffic-based rules. Azure scale sets do not support it, so skip this section for a rule that manages a scale set.
+The **Setup Access** tab appears only for traffic-based rules. Azure scale sets do not support it, so skip this section for a rule that manages a scale set.
 
 Under **What type of workload/s are running in the target VM? (optional)**, select one or both cards. Each card opens a panel below it. If you do not need either, click **Skip for now**.
 
-* **TCP Workload or SSH/RDP**: select this card when users reach the VM over TCP, SSH, or RDP. In **Setup TCP**:
-  1. In **Specify AutoStopping Proxy**, select a proxy from the drop-down list. To add one, click **Create new AutoStopping Proxy**. AutoStopping Proxy is recommended for SSH/RDP-based rule setup.
-  2. Under **Specify listening Ports**, turn on **SSH** or **RDP**, and then enter the **Source port no.** (optional) and the **Target port no.** (mandatory). If you leave the source port empty, Harness generates one when you save the rule.
-  3. To expose other TCP ports, click **Add port**.
-* **HTTP/HTTPS Workload**: select this card when users reach the VM through an HTTP or HTTPS URL. In **Setup HTTP/HTTPS**:
-  1. In **Selected connector**, confirm the Azure connector to which your Application Gateway or load balancer belongs.
-  2. In **Specify Application Gateway (or AutoStopping Proxy)**, select an Application Gateway or an AutoStopping Proxy. To add a proxy, click **Create new AutoStopping Proxy**.
+{% tabs %}
+{% tab title="TCP Workload or SSH/RDP" %}
+Select this card when users reach the VM over TCP, SSH, or RDP. In **Setup TCP**:
 
-Go to [Set up proxy and/or load balancer](#prerequisite-set-up-proxy-and-or-load-balancer) to create the proxy or Application Gateway first.
+1. In **Specify AutoStopping Proxy**, select a proxy from the drop-down list. To add one, click **Create new AutoStopping Proxy**. AutoStopping Proxy is recommended for SSH/RDP-based rule setup.
+2. Under **Specify listening Ports**, turn on **SSH** or **RDP**, and then enter the **Source port no.** (optional) and the **Target port no.** (mandatory). If you leave the source port empty, Harness generates one when you save the rule.
+3. To expose other TCP ports, click **Add port**.
+
+Go to [Set up proxy and/or load balancer](#prerequisite-set-up-proxy-and-or-load-balancer) to create the proxy first.
+{% endtab %}
+
+{% tab title="HTTP/HTTPS Workload" %}
+Select this card when users reach the VM through an HTTP or HTTPS URL. In **Setup HTTP/HTTPS**:
+
+1. In **Selected connector**, confirm the Azure connector to which your Application Gateway or load balancer belongs.
+2. In **Specify Application Gateway (or AutoStopping Proxy)**, select an Application Gateway or an AutoStopping Proxy. To add a proxy, click **Create new AutoStopping Proxy**.
+
+Go to [Set up proxy and/or load balancer](#prerequisite-set-up-proxy-and-or-load-balancer) to create the Application Gateway or proxy first.
+{% endtab %}
+{% endtabs %}
 
 ### Review tab
 
-Click **Save Rule** on the **Review** tab to create the rule. To change a setting before you save, click **EDIT** next to the section or click **Previous**.
+The **Review** tab summarizes the rule before Harness creates it.
+
+1. Check the values in each section. To change a value, click **EDIT** next to the section. The **Configuration** tab opens so that you can update the setting. To go back one step, click **Previous**.
+2. Click **Save Rule**.
 
 Your AutoStopping rule is listed on the **AutoStopping Rules** page.
 
 ## Configure optional settings
 
-Use these settings in the **Fixed schedules, alerts, and other advanced configuration (optional)** section of the **1. Configuration** tab.
+Use these settings in the **Fixed schedules, alerts, and other advanced configuration (optional)** section of the **Configuration** tab.
 
 ### Fixed schedule
 
@@ -281,7 +295,7 @@ Harness executes scheduled rules using [Dkron](https://dkron.io/), an open-sourc
 
 To create a fixed schedule for your rule, do the following:
 
-1. In **1. Configuration**, under **Fixed Schedules**, click **Add Fixed Schedule**.
+1. In **Configuration**, under **Fixed Schedules**, click **Add Fixed Schedule**.
 2. In **New Fixed Schedule**, enter a **Name** for your schedule.
 3. In **Type**, select the type for your schedule. You can schedule an **Uptime** or **Downtime** for your rule. As per your schedule, the resources go up or down.
 4. Select the **Time Zone** from the drop-down list.
@@ -303,7 +317,7 @@ To create a fixed schedule for your rule, do the following:
 
 Alerts notify you when something happens to the rule, such as a failed warm-up.
 
-1. In **1. Configuration**, under **Alerts**, click **Add Alert**.
+1. In **Configuration**, under **Alerts**, click **Add Alert**.
 2. In **Create Rule Status Alert**, enter a **Name**.
 3. Under **Select events to receive notifications**, select one or more events: **Rule update**, **Rule delete**, **Rule warm up failures**, **Rule cool down failures**, **Rule warm up success**, or **Rule cool down success**.
 4. Under **Set up notification channels**, turn on a channel:
@@ -313,15 +327,15 @@ Alerts notify you when something happens to the rule, such as a failed warm-up.
 
 ### Run options
 
-**Hide progress page.** Under **Run Options** in **1. Configuration**, turn on **Hide progress page** to disable the progress page that appears while the resources warm up. This option is useful when an automation system invokes the service, because it prevents the system from mistaking the progress page for the response of the onboarded service. When the progress page is hidden, the first response after a downtime is delayed until the service is running.
+**Hide progress page.** Under **Run Options** in **Configuration**, turn on **Hide progress page** to disable the progress page that appears while the resources warm up. This option is useful when an automation system invokes the service, because it prevents the system from mistaking the progress page for the response of the onboarded service. When the progress page is hidden, the first response after a downtime is delayed until the service is running.
 
-**Dry run.** Under **Run Options** in **1. Configuration**, turn on **Dry Run** to evaluate the rule without stopping your cloud resources.
+**Dry run.** Under **Run Options** in **Configuration**, turn on **Dry Run** to evaluate the rule without stopping your cloud resources.
 
 ### Add dependency
 
 Set dependencies between two or more AutoStopping rules when you want one rule to make one or more rules active when it warms up. For example for an application server dependent on a database server, create two AutoStopping Rules managing both the servers. Add a dependency on the Rule managing the application server to be dependent on the Rule managing the database server.
 
-1. In **1. Configuration**, under **Dependencies**, click **+ Add dependency**.
+1. In **Configuration**, under **Dependencies**, click **+ Add dependency**.
 2. In **rules**, select the rule from the drop-down list.
 3. In **DELAY IN SECS**, enter the number of seconds that rule should wait after warming up the dependent rule. The default is 5. For example, you have Rule 1 dependent on Rule 2 and you have set 5 seconds delay. In that case, when the request is received to warm up Rule 1, then first Rule 2 (dependent rule) is warmed up, and then there is a delay of 5 seconds before warming up Rule 1.
 
