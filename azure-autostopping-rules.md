@@ -7,9 +7,22 @@ hidden: true
 
 {% @harness-package-selector/package-selector platforms="%5B%7B%22label%22%3A%22Kubernetes%22%2C%22slug%22%3A%22kubernetes%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Fkubernetes-autostopping-rules%22%2C%22logo%22%3A%22kubernetes-logo.svg%22%7D%2C%7B%22label%22%3A%22AWS%22%2C%22slug%22%3A%22aws%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Faws-autostopping-rules%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22GCP%22%2C%22slug%22%3A%22gcp%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Fgcp-autostopping-rules%22%2C%22logo%22%3A%22gcp-logo.svg%22%7D%2C%7B%22label%22%3A%22Azure%22%2C%22slug%22%3A%22azure%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Fazure-autostopping-rules%22%2C%22logo%22%3A%22azure-logo.svg%22%7D%5D" selectedPlatform="azure"  iconLibrary="https://developer.harness.io/provider-logos" %}
 
+## Supported resources and traffic management
+
+The following table shows the resources that AutoStopping supports and the traffic management you can use for each resource type.
+
+| Azure Resource | AutoStopping Proxy | Azure App Gateway (Load Balancer) |
+| -------------- | ------------------ | --------------------------------- |
+| Azure VM       | ✅                  | ✅                                 |
+| Azure Scale Set | ❌                  | ❌                                 |
+
+{% hint style="info" %}
+Azure scale sets do not support the AutoStopping proxy or Azure App Gateway. A scale set rule starts and stops the instances on a fixed schedule, or when another rule that depends on it warms up. Go to [Azure scale set behavior](#azure-scale-set-behavior) for details.
+{% endhint %}
+
 ## Prerequisite: Set up proxy and/or load balancer
 
-Set up a proxy or load balancer that will intercept and manage traffic to your resources. This component is what enables the seamless start/stop functionality.
+This prerequisite applies to Azure VMs only. Set up a proxy or load balancer that will intercept and manage traffic to your resources. This component is what enables the seamless start/stop functionality.
 
 {% columns %}
 {% column %}
@@ -28,17 +41,6 @@ This proxy VM sits in front of your virtual machines and intelligently starts or
 {% endhint %}
 {% endcolumn %}
 {% endcolumns %}
-
-Below table shows the resources supported by AutoStopping and the appropriate traffic management you can use for each resource type.
-
-| Azure Resource | AutoStopping Proxy | Azure App Gateway (Load Balancer) |
-| -------------- | ------------------ | --------------------------------- |
-| Azure VM       | ✅                  | ✅                                 |
-| Azure Scale Set | ❌                  | ❌                                 |
-
-{% hint style="info" %}
-Azure scale sets do not support the AutoStopping proxy or Azure App Gateway. A scale set rule starts and stops the instances on a fixed schedule, or when another rule that depends on it warms up. Go to [Azure scale set behavior](#azure-scale-set-behavior) for details.
-{% endhint %}
 
 {% tabs %}
 {% tab title="Setup Proxy" %}
