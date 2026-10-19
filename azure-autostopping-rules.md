@@ -7,6 +7,8 @@ hidden: true
 
 {% @harness-package-selector/package-selector platforms="%5B%7B%22label%22%3A%22Kubernetes%22%2C%22slug%22%3A%22kubernetes%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Fkubernetes-autostopping-rules%22%2C%22logo%22%3A%22kubernetes-logo.svg%22%7D%2C%7B%22label%22%3A%22AWS%22%2C%22slug%22%3A%22aws%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Faws-autostopping-rules%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22GCP%22%2C%22slug%22%3A%22gcp%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Fgcp-autostopping-rules%22%2C%22logo%22%3A%22gcp-logo.svg%22%7D%2C%7B%22label%22%3A%22Azure%22%2C%22slug%22%3A%22azure%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Fazure-autostopping-rules%22%2C%22logo%22%3A%22azure-logo.svg%22%7D%5D" selectedPlatform="azure"  iconLibrary="https://developer.harness.io/provider-logos" %}
 
+---
+
 ## Supported resources and traffic management
 
 The following table shows the resources that AutoStopping supports and the traffic management you can use for each resource type.
@@ -20,6 +22,8 @@ The following table shows the resources that AutoStopping supports and the traff
 Azure scale sets do not support the AutoStopping proxy or Azure App Gateway. A scale set rule starts and stops the instances on a fixed schedule, or when another rule that depends on it warms up. Go to [Azure scale set behavior](#azure-scale-set-behavior) for details.
 {% endhint %}
 
+---
+
 ## Prerequisite: Set up proxy and/or load balancer
 
 This prerequisite applies to Azure VMs only. Set up a proxy or load balancer that will intercept and manage traffic to your resources. This component is what enables the seamless start/stop functionality.
@@ -27,7 +31,7 @@ This prerequisite applies to Azure VMs only. Set up a proxy or load balancer tha
 {% columns %}
 {% column %}
 {% hint style="info" %}
-**Azure App Gateway**
+### Azure App Gateway
 
 Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers.
 {% endhint %}
@@ -35,7 +39,7 @@ Azure Application Gateway is a web traffic load balancer that enables you to man
 
 {% column %}
 {% hint style="success" %}
-**AutoStopping Proxy**
+### AutoStopping Proxy
 
 This proxy VM sits in front of your virtual machines and intelligently starts or stops them based on incoming traffic. It supports both HTTP(S) and TCP connections. Built on the proven, open-source Envoy Proxy, the AutoStopping Proxy is capable of managing traffic for multiple AutoStopping-managed VMs from a single instance.
 {% endhint %}
@@ -144,7 +148,7 @@ Harness recently launched support for Azure WAF Gateways. Currently, only import
 {% endtab %}
 {% endtabs %}
 
-***
+---
 
 ## Permissions required
 
@@ -339,6 +343,8 @@ Set dependencies between two or more AutoStopping rules when you want one rule t
 2. In **rules**, select the rule from the drop-down list.
 3. In **DELAY IN SECS**, enter the number of seconds that rule should wait after warming up the dependent rule. The default is 5. For example, you have Rule 1 dependent on Rule 2 and you have set 5 seconds delay. In that case, when the request is received to warm up Rule 1, then first Rule 2 (dependent rule) is warmed up, and then there is a delay of 5 seconds before warming up Rule 1.
 
+---
+
 ## Azure scale set behavior
 
 AutoStopping starts and stops the instances in an Azure scale set. It does not scale the scale set, so AutoStopping never changes the number of instances that the scale set defines.
@@ -352,6 +358,21 @@ Azure scale sets do not support the AutoStopping proxy or Azure App Gateway, so 
 While the instances start, the rule is **Warming up**, and it becomes **Active** when all the instances run. While the instances stop, the rule is **Cooling down**, and Azure shows the scale set as deallocating until the instances are stopped.
 
 On the **AutoStopping Rules** page, the **Resources** column lists the instances of the scale set and labels them as **Azure scale sets**. The **Resource details** column shows whether the rule is **Running** or **Stopped**. To find rules by state, click **Add filter**, select **Resource activity status**, and choose **Warming up**, **Active**, **Cooling down**, **Stopped**, or **Error**.
+
+---
+
+## Azure AutoStopping savings computation
+
+Billing data from Azure's amortized billing export will be used to compute savings for Azure VM-based AutoStopping rules. Ensure the connector has amortized billing export enabled.
+
+### Important points to remember:
+
+* Savings numbers will become precise only after the savings numbers are finalized after the 15th of the next month (after the final settlement). Savings will be recomputed for the previous month on the 15th of the next month to ensure any updates to CUR/billing-export are considered in the final savings numbers for the month.
+* GCP billing export configured in the billing connector needs to be "detailed".
+* Azure billing export configured in the billing connector needs to be "amortized".
+* For cluster-based AutoStopping rules, the corresponding billing-enabled connector of the CSP should be configured in Harness; otherwise, savings computation will be based on public pricing data.
+
+---
 
 ## Troubleshooting
 
@@ -368,16 +389,5 @@ To resolve this issue, do one of the following:
 * Delete the existing rule if you no longer need it, and then save the new rule.
 
 </details>
-
-## Azure AutoStopping savings computation
-
-Billing data from Azure's amortized billing export will be used to compute savings for Azure VM-based AutoStopping rules. Ensure the connector has amortized billing export enabled.
-
-### Important points to remember:
-
-* Savings numbers will become precise only after the savings numbers are finalized after the 15th of the next month (after the final settlement). Savings will be recomputed for the previous month on the 15th of the next month to ensure any updates to CUR/billing-export are considered in the final savings numbers for the month.
-* GCP billing export configured in the billing connector needs to be "detailed".
-* Azure billing export configured in the billing connector needs to be "amortized".
-* For cluster-based AutoStopping rules, the corresponding billing-enabled connector of the CSP should be configured in Harness; otherwise, savings computation will be based on public pricing data.
 
 {% @harness-feedback/feedback %}
