@@ -36,7 +36,9 @@ Below table shows the resources supported by AutoStopping and the appropriate tr
 | Azure VM       | ✅                  | ✅                                 |
 | Azure Scale Set | ❌                  | ❌                                 |
 
+{% hint style="info" %}
 Azure scale sets do not support the AutoStopping proxy or Azure App Gateway. A scale set rule starts and stops the instances on a fixed schedule, or when another rule that depends on it warms up. Go to [Azure scale set behavior](#azure-scale-set-behavior) for details.
+{% endhint %}
 
 {% tabs %}
 {% tab title="Setup Proxy" %}
