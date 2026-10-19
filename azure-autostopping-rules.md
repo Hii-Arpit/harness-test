@@ -196,7 +196,7 @@ Go to [Azure permissions](../../../references/best-practices/azure/azure-permiss
 
 ### Configuration tab
 
-The **1. Configuration** tab has three sections.
+The **Configuration** tab has three sections.
 
 1. Under **AutoStopping Type**, select how the rule manages your resources. You can select both options.
     * **Schedule-based**: Resources start and stop at scheduled times, regardless of traffic.
