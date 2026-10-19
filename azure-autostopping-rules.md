@@ -170,7 +170,9 @@ To grant Harness only the permissions that your AutoStopping rules need, follow 
    ![The AutoStopping Permissions step of the Azure connector wizard, with Virtual Machines and Scale Sets selected and Schedules only as the single option for scale sets](../../../.gitbook/assets/azure-connector-autostopping-permissions.png)
 3. In **Create Service Principal**, run the commands in Azure Cloud Shell or a bash terminal. The commands create a custom role named **Harness Autostopping**.
 
-   {% hint style="success" %}
+   {% hint style="info" %}
+   ### Additional permissions for scale sets
+
    For scale sets, the role has these additional permissions:
 
    | Permission | Usage |
