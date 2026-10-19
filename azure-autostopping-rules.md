@@ -226,10 +226,13 @@ Configure the rule on the **Configuration** tab.
      | **Hibernate** | Puts the VMs into hibernation until they receive a request. This option gives a quicker warm-up time. |
 
   2. Click **+ Add an instance**, and then in **Select Instances**, select the VMs that you want the rule to manage:
-     * **Manual selection of Resources**: In **Select Resource Groups**, select a resource group, and optionally filter the VMs in **Select Tags (optional)**. Select the VMs, and then click **Add Selected**.
-     * **Tag-based inclusion of resources (existing + future)**: In **Select Tags**, click **Add Tag** to add the tags to match, and then click **Continue**. The rule includes the VMs that match the tags now and any VMs that match them later.
 
-     A rule can manage multiple VMs.
+     | Option | Description |
+     | --- | --- |
+     | **Manual selection of Resources** | In **Select Resource Groups**, select a resource group, and optionally filter the VMs in **Select Tags (optional)**. Select the VMs, and then click **Add Selected**. |
+     | **Tag-based inclusion of resources (existing + future)** | In **Select Tags**, click **Add Tag** to add the tags to match, and then click **Continue**. The rule includes the VMs that match the tags now and any VMs that match them later. |
+
+     You can add multiple VMs to a single rule.
   3. Select **Spot** or **On demand** to set whether AutoStopping converts the instances to spot or keeps them on-demand:
 
      | Option | Description |
