@@ -153,23 +153,24 @@ Harness starts and stops the instances of a scale set by calling the Azure API w
 To grant Harness only the permissions that scale set rules need, follow these steps when you create or edit the Azure connector:
 
 1. In **Choose Requirements**, select **Optimization by AutoStopping**, and then turn on **Limit to specific permissions**.
+
+   ![The Choose Requirements step of the Azure connector wizard, with Optimization by AutoStopping selected and Limit to specific permissions turned on](../../../.gitbook/assets/azure-connector-choose-requirements.png)
 2. Click **Continue**.
 3. In **AutoStopping Permissions**, select **Scale Sets**. **Schedules only** is the only option available for scale sets.
-4. Click **Continue**. **Create Service Principal** lists the commands that create the service principal and a custom role named **Harness Autostopping**.
+
+   ![The AutoStopping Permissions step of the Azure connector wizard, with Scale Sets selected and Schedules only as the single option for scale sets](../../../.gitbook/assets/azure-connector-autostopping-permissions.png)
+4. Click **Continue**. **Create Service Principal** lists the commands that create the service principal and a custom role named **Harness Autostopping**. For scale sets, the role includes these permissions:
+   * `Microsoft.Compute/virtualMachineScaleSets/read`: List scale sets.
+   * `Microsoft.Compute/virtualMachineScaleSets/start/action`: Start scale set instances.
+   * `Microsoft.Compute/virtualMachineScaleSets/deallocate/action`: Stop scale set instances.
+   * `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read`: List scale set instances.
+
+   ![The Create Service Principal step of the Azure connector wizard, showing the commands to run](../../../.gitbook/assets/azure-connector-create-service-principal.png)
 5. Run the commands in Azure Cloud Shell or a bash terminal.
 
 {% hint style="info" %}
 The **with App Gateway** and **with AutoStopping Proxy** options apply to virtual machines only.
 {% endhint %}
-
-![The AutoStopping Permissions step of the Azure connector wizard, with Virtual Machines and Scale Sets selected and Schedules only as the single option for scale sets](../../../.gitbook/assets/azure-scale-set-granular-permissions.png)
-
-When **Scale Sets** is selected, the custom role includes these actions:
-
-* `Microsoft.Compute/virtualMachineScaleSets/read`
-* `Microsoft.Compute/virtualMachineScaleSets/start/action`
-* `Microsoft.Compute/virtualMachineScaleSets/deallocate/action`
-* `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read`
 
 Go to [Azure permissions](../../../references/best-practices/azure/azure-permissions.md#autostopping) to review the permissions for each AutoStopping option.
 
