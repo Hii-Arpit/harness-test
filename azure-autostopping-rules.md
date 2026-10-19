@@ -157,12 +157,14 @@ To grant Harness only the permissions that your AutoStopping rules need, follow 
    ![The Choose Requirements step of the Azure connector wizard, with Optimization by AutoStopping selected and Limit to specific permissions turned on](../../../.gitbook/assets/azure-connector-choose-requirements.png)
 2. Click **Continue**.
 3. In **AutoStopping Permissions**, select the resources that you want AutoStopping to manage, and then select the options that apply to your setup:
-   a. **Virtual Machines**
-     * **Schedules only**. Start and stop VMs on a fixed schedule.
-     * **with App Gateway**. Start VMs when traffic arrives through an Azure App Gateway.
-     * **with AutoStopping Proxy**. Start VMs when traffic arrives through an AutoStopping Proxy.
-   b. **Scale Sets**
-     * **Schedules only**. Start and stop scale set instances on a fixed schedule.
+    
+    a. **Virtual Machines**
+      * **Schedules only**. Start and stop VMs on a fixed schedule.
+      * **with App Gateway**. Start VMs when traffic arrives through an Azure App Gateway.
+      * **with AutoStopping Proxy**. Start VMs when traffic arrives through an AutoStopping Proxy.
+
+    b. **Scale Sets**
+      * **Schedules only**. Start and stop scale set instances on a fixed schedule.
 
    The next step adds only the permissions for the options that you select.
 
