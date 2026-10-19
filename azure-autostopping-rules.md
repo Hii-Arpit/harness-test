@@ -236,7 +236,7 @@ The **Configuration** tab has three sections.
   {% endtab %}
   {% endtabs %}
 
-6. Optional: Use the **Fixed schedules, alerts, and other advanced configuration** section to add fixed schedules and alerts, to set run options, and to add dependencies. Go to [Configure optional settings](#configure-optional-settings) for details.
+6. Optional: Go to [Configure optional settings](#configure-optional-settings) to add fixed schedules, alerts, run options, or dependencies.
 7. Click **Next**. For a schedule-based rule, the **Review** tab opens. For a traffic-based rule, the **Setup Access** tab opens first, and **Review** follows. The Setup Access tab asks which workload types run on the target and is optional, so you can click **Skip for now**.
 
 ### Setup Access tab
@@ -277,7 +277,7 @@ Your AutoStopping rule is listed on the **AutoStopping Rules** page.
 
 ## Configure optional settings
 
-Use these settings in the **Fixed schedules, alerts, and other advanced configuration (optional)** section of the **Configuration** tab.
+Configure these settings in the **Fixed Schedules, Alerts and other Advanced Configuration** section of the **Configuration** tab.
 
 ### Fixed schedule
 
