@@ -202,7 +202,7 @@ Go to [Azure permissions](../../../references/best-practices/azure/azure-permiss
 
 ### Configuration tab
 
-Configure the rule on the **Configuration** tab, which has three sections.
+Configure the rule on the **Configuration** tab.
 
 1. Under **AutoStopping Type**, select **Schedule-based**, **Traffic-based**, or both:
     * **Schedule-based**. Start and stop resources at scheduled times, regardless of traffic.
@@ -218,9 +218,17 @@ Configure the rule on the **Configuration** tab, which has three sections.
 
   {% tabs %}
   {% tab title="VM(s)" %}
-  1. Select **Shut down** or **Hibernate** to set how the VMs are handled once idle.
-  2. Select the VMs that you want to onboard.
-  3. Select **On-demand** or **Spot** to set whether the instances convert to spot or remain on-demand.
+  1. In **Mode**, select how AutoStopping handles the VMs once they are idle:
+     * **Shut Down**. Completely shut down the VMs until a request brings them up. This option gives higher savings.
+     * **Hibernate**. Put the VMs into hibernation until they receive a request. This option gives a quicker warm-up time.
+  2. Click **+ Add an instance**, and then in **Select Instances**, select the VMs that you want the rule to manage:
+     * **Manual selection of Resources**. In **Select Resource Groups**, select a resource group, and optionally filter the VMs in **Select Tags (optional)**. Select the VMs, and then click **Add Selected**.
+     * **Tag-based inclusion of resources (existing + future)**. In **Select Tags**, click **Add Tag** to add the tags to match, and then click **Continue**. The rule includes the VMs that match the tags now and any VMs that match them later.
+
+     A rule can manage multiple VMs.
+  3. Select **Spot** or **On demand** to set whether AutoStopping converts the instances to spot or keeps them on-demand:
+     * **Spot**. Convert the instances to spot instances. AutoStopping handles spot interruptions and can fall back to on-demand capacity.
+     * **On demand**. Keep the instances on-demand, with guaranteed capacity and no interruption risk.
   {% endtab %}
 
   {% tab title="Azure Scale Sets" %}
