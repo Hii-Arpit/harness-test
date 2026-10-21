@@ -1,37 +1,23 @@
 ---
-description: "Create and manage AutoStopping rules for Azure VMs and scale sets to stop idle resources on a schedule or when idle, and restart VMs when traffic is detected using Azure App Gateway or AutoStopping Proxy"
+description: "Create and manage AutoStopping rules for Azure workloads to automatically stop idle resources and restart them when traffic is detected, using Azure App Gateway or AutoStopping Proxy"
 hidden: true
 ---
+
 
 # Azure
 
 {% @harness-package-selector/package-selector platforms="%5B%7B%22label%22%3A%22Kubernetes%22%2C%22slug%22%3A%22kubernetes%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Fkubernetes-autostopping-rules%22%2C%22logo%22%3A%22kubernetes-logo.svg%22%7D%2C%7B%22label%22%3A%22AWS%22%2C%22slug%22%3A%22aws%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Faws-autostopping-rules%22%2C%22logo%22%3A%22aws-logo.svg%22%7D%2C%7B%22label%22%3A%22GCP%22%2C%22slug%22%3A%22gcp%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Fgcp-autostopping-rules%22%2C%22logo%22%3A%22gcp-logo.svg%22%7D%2C%7B%22label%22%3A%22Azure%22%2C%22slug%22%3A%22azure%22%2C%22path%22%3A%22cloud-cost-management%2Fcost-optimization%2Fautostopping-rules%2Fautostopping-rules%2Fazure-autostopping-rules%22%2C%22logo%22%3A%22azure-logo.svg%22%7D%5D" selectedPlatform="azure"  iconLibrary="https://developer.harness.io/provider-logos" %}
 
----
-
-## Supported resources and traffic management
-
-The following table shows the resources that AutoStopping supports and the traffic management you can use for each resource type.
-
-| Azure Resource | AutoStopping Proxy | Azure App Gateway (Load Balancer) |
-| -------------- | ------------------ | --------------------------------- |
-| Azure VM       | ✅                  | ✅                                 |
-| Azure Scale Set | ❌                  | ❌                                 |
-
-{% hint style="info" %}
-Azure scale sets do not support the AutoStopping proxy or Azure App Gateway. A scale set rule starts and stops the instances on a fixed schedule, or when another rule that depends on it warms up. Go to [Azure scale set behavior](#azure-scale-set-behavior) for details.
-{% endhint %}
-
----
+--- 
 
 ## Prerequisite: Set up proxy and/or load balancer
 
-This prerequisite applies to Azure VMs only. Set up a proxy or load balancer that will intercept and manage traffic to your resources. This component is what enables the seamless start/stop functionality.
+Set up a proxy or load balancer that will intercept and manage traffic to your resources. This component is what enables the seamless start/stop functionality.
 
 {% columns %}
 {% column %}
 {% hint style="info" %}
-### Azure App Gateway
+**Azure App Gateway**
 
 Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers.
 {% endhint %}
@@ -39,16 +25,22 @@ Azure Application Gateway is a web traffic load balancer that enables you to man
 
 {% column %}
 {% hint style="success" %}
-### AutoStopping Proxy
+**AutoStopping Proxy**
 
 This proxy VM sits in front of your virtual machines and intelligently starts or stops them based on incoming traffic. It supports both HTTP(S) and TCP connections. Built on the proven, open-source Envoy Proxy, the AutoStopping Proxy is capable of managing traffic for multiple AutoStopping-managed VMs from a single instance.
 {% endhint %}
 {% endcolumn %}
 {% endcolumns %}
 
+Below table shows the resources supported by AutoStopping and the appropriate traffic management you can use for each resource type.
+
+| Azure Resource | AutoStopping Proxy | Azure App Gateway (Load Balancer) |
+| -------------- | ------------------ | --------------------------------- |
+| Azure VM       | ✅                  | ✅                                 |
+
 {% tabs %}
 {% tab title="Setup Proxy" %}
-1. In the AutoStopping overview page, click **Load Balancers** in the top right. Click **Create new Load Balancer** and then select **Create AutoStopping Proxy**.
+1. In the AutoStopping overview page, click **Load Balancers** in the top right. Click on **Create Load Balancer** and then **Create AutoStopping Proxy**.
 2. Enter a name and select **Azure** in **Cloud Provider**
 3. Choose a cloud connector or create a [new one](../../../new-to-cacm/quickstart.md).
 4. Enter **Application Gateway Configuration**.
@@ -143,169 +135,86 @@ sandeepbhat@Sandeep Bhat key-vault % az keyvault secret set --vault-name "sandy-
 This newly created application gateway can be imported in any new Autostopping rule.
 
 {% hint style="info" %}
-Harness recently launched support for Azure WAF Gateways. Currently, only import functionality is available for this gateway type.
+We’ve recently launched support for Azure WAF Gateways. Currently, only import functionality is available for this gateway type.
 {% endhint %}
 {% endtab %}
 {% endtabs %}
 
----
-
-## Permissions required
-
-Harness starts and stops the instances of a scale set by calling the Azure API with the service principal of your Azure connector, so the connector needs additional permissions for scale sets.
-
-To grant Harness only the permissions that your AutoStopping rules need, follow these steps when you create or edit the Azure connector:
-
-1. In **Choose Requirements**, select **Optimization by AutoStopping**, turn on **Limit to specific permissions**, and then click **Continue**.
-
-   ![The Choose Requirements step of the Azure connector wizard, with Optimization by AutoStopping selected and Limit to specific permissions turned on](../../../.gitbook/assets/azure-connector-choose-requirements.png)
-2. In **AutoStopping Permissions**, select the resources that you want AutoStopping to manage, select the options that apply to your setup, and then click **Continue**:
-    
-    a. **Virtual Machines**
-      * **Schedules only**: Start and stop VMs on a fixed schedule.
-      * **with App Gateway**: Start VMs when traffic arrives through an Azure App Gateway.
-      * **with AutoStopping Proxy**: Start VMs when traffic arrives through an AutoStopping Proxy.
-
-    b. **Scale Sets**
-      * **Schedules only**: Start and stop scale set instances on a fixed schedule.
-
-   The next step adds only the permissions for the options that you select.
-
-   ![The AutoStopping Permissions step of the Azure connector wizard, with Virtual Machines and Scale Sets selected and Schedules only as the single option for scale sets](../../../.gitbook/assets/azure-connector-autostopping-permissions.png)
-3. In **Create Service Principal**, run the commands in Azure Cloud Shell or a bash terminal. The commands create a custom role named **Harness Autostopping**.
-
-   {% hint style="info" %}
-   ### Additional permissions for scale sets
-
-   For scale sets, the role has these additional permissions:
-
-   | Permission | Usage |
-   | --- | --- |
-   | `Microsoft.Compute/virtualMachineScaleSets/read` | List scale sets. |
-   | `Microsoft.Compute/virtualMachineScaleSets/start/action` | Start scale set instances. |
-   | `Microsoft.Compute/virtualMachineScaleSets/deallocate/action` | Stop scale set instances. |
-   | `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read` | List scale set instances. |
-   {% endhint %}
-
-   ![The Create Service Principal step of the Azure connector wizard, showing the commands to run](../../../.gitbook/assets/azure-connector-create-service-principal.png)
-
-Go to [Azure permissions](../../../references/best-practices/azure/azure-permissions.md#autostopping) to review the permissions for each AutoStopping option.
-
---- 
+***
 
 ## Create AutoStopping rule
 
-1. In Harness, go to **Cloud & AI Cost Management** > **AutoStopping Rules**, and then click **New AutoStopping Rule**.
-2. Under **Select the cloud account type**, select **Azure**.
-3. In **Connect to your Azure account**, select your Azure connector, and then click **Apply Selected**.
-4. Click **Next**.
+* In Harness, navigate to **Cloud Costs** > **AutoStopping Rules** and click **New AutoStopping Rule**.
 
-### Configuration tab
+### Step 1: Configuration
 
-Configure the rule on the **Configuration** tab.
+<figure><img src="../../../.gitbook/assets/autostopping-type.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-1. Under **AutoStopping Type**, select **Schedule-based**, **Traffic-based**, or both:
-    * **Schedule-based**: Start and stop resources at scheduled times, regardless of traffic.
-    * **Traffic-based**: Stop resources when idle and restart them on demand. Go to [Setup Access tab](#setup-access-tab) for the tab that this option adds.
+* Select Cloud Provider as **Azure**. Select an existing Azure connector or create a new one.
+* Enter a **Name** for your rule
+*   AutoStopping Type: Choose how you want your resources to be managed automatically. You can either choose **Traffic-based with schedules optionally** or **Schedules only**.
 
-    {% hint style="info" %}
-    When you select both, schedules always take priority over traffic-based detection.
-    {% endhint %}
-2. In **Name your Rule**, enter a name.
-3. In **Idle Time (mins)**, enter the number of minutes of inactivity after which the rule stops the resources. The default is 15.
-4. Under **State Sync Trigger**, select **Follow account level setting** or **Override for this rule**.
-5. Under **Resources to be managed**, select **VM(s)**, **Azure Scale Sets**, or **Kubernetes Cluster**, and then follow the steps on the tab for your choice.
+    * **Traffic-based with schedules optionally**: Resources automatically stop when idle and restart when traffic is detected. You can configure schedule overrides in advanced settings.
+    * **Schedules only**: Resources automatically start and stop based on defined schedules. You can configure multiple schedules in advanced settings.
 
-  {% tabs %}
-  {% tab title="VM(s)" %}
-  1. In **Mode**, select how AutoStopping handles the VMs once they are idle:
+    <div data-gb-custom-block data-tag="hint" data-style="info" class="hint hint-info"><p>Schedule-only rules can be changed to traffic-based during edit, but traffic-based rules cannot be reverted to schedule-only. (Schedules on traffic-based rules remain editable)</p></div>
+* Set the **Idle Time** - how long an instance should be inactive before stopping
+* In the **Resources to be managed by the AutoStopping rules** section, select "VM". Post this, specify how you would like the resources to be handled once idle for the specified Idle Time: Shut Down or Hibernate.
+* Click on **+ Add an instance** and select the VM you want to onboard.
 
-     | Option | Description |
-     | --- | --- |
-     | **Shut Down** | Completely shuts down the VMs until a request brings them up. This option gives higher savings. |
-     | **Hibernate** | Puts the VMs into hibernation until they receive a request. This option gives a quicker warm-up time. |
+<figure><img src="../../../.gitbook/assets/azure-resource.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-  2. Click **+ Add an instance**, and then in **Select Instances**, select the VMs that you want the rule to manage:
+**Advanced Configuration (Optional)**:
 
-     | Option | Description |
-     | --- | --- |
-     | **Manual selection of Resources** | In **Select Resource Groups**, select a resource group, and optionally filter the VMs in **Select Tags (optional)**. Select the VMs, and then click **Add Selected**. |
-     | **Tag-based inclusion of resources (existing + future)** | In **Select Tags**, click **Add Tag** to add the tags to match, and then click **Continue**. The rule includes the VMs that match the tags now and any VMs that match them later. |
-
-     You can add multiple VMs to a single rule.
-  3. Select **Spot** or **On demand** to set whether AutoStopping converts the instances to spot or keeps them on-demand:
-
-     | Option | Description |
-     | --- | --- |
-     | **Spot** | Converts the instances to spot instances. AutoStopping handles spot interruptions and can fall back to on-demand capacity. |
-     | **On demand** | Keeps the instances on-demand, with guaranteed capacity and no interruption risk. |
-  {% endtab %}
-
-  {% tab title="Azure Scale Sets" %}
-  1. Click **+ Add a Scale Set**.
-  2. In **Select resource group**, select the resource group that contains the scale set. The **Select Azure Scale Set** dialog lists the scale sets in that group with their name and ID, the number of instances, and the region.
-  3. Optional: Use **Search** to filter the list, or click **Refresh** to reload it.
-  4. Select the scale set, and then click **Add Selected**.
-
-  ![The Select Azure Scale Set dialog, listing the scale sets in the selected resource group with their instances and region](../../../.gitbook/assets/azure-scale-set-selection.png)
-
-  {% hint style="info" %}
-  A rule manages one scale set. To manage more than one scale set, create a separate rule for each. For how AutoStopping handles scale set instances, go to [Azure scale set behavior](#azure-scale-set-behavior).
-  {% endhint %}
-  {% endtab %}
-
-  {% tab title="Kubernetes Cluster" %}
-  1. Click **+ Add a cluster**.
-  2. In **Select Connector**, select the Kubernetes connector for the cluster that you want the rule to manage, and then click **Add Selected**. The list shows the clusters that are connected to a Harness Delegate. To add a cluster that is not listed, click **+ Create a new connector**.
-
-  Go to [Kubernetes AutoStopping rules](kubernetes-autostopping-rules.md) for more information about AutoStopping rules for Kubernetes clusters.
-  {% endtab %}
-  {% endtabs %}
-
-6. Optional: Go to [Configure optional settings](#configure-optional-settings) to add fixed schedules, alerts, run options, or dependencies.
-7. Click **Next**.
-
-   For a schedule-based rule, the **Review** tab opens. For a traffic-based rule, the **Setup Access** tab opens first, and then the **Review** tab. The **Setup Access** tab asks which workload types run on the target and is optional, so you can click **Skip for now**.
-
-### Setup Access tab
-
-The **Setup Access** tab appears only for traffic-based rules. Azure scale sets do not support it, so skip this section for a rule that manages a scale set.
-
-Under **What type of workload/s are running in the target VM? (optional)**, select one or both cards. Each card opens a panel below it. If you do not need either, click **Skip for now**.
+- **Hide Progress Page**: Toggle this to disable the display of a progress page during instance warm-up.
+- **Dry-Run**: Toggle this button if you wish to evaluate the feature without terminating your cloud resources.
 
 {% tabs %}
-{% tab title="TCP Workload or SSH/RDP" %}
-Select this card when users reach the VM over TCP, SSH, or RDP. In **Setup TCP**:
+{% tab title="Dependencies" %}
+Link your rule to other AutoStopping rules if resources depend on each other.
 
-1. In **Specify AutoStopping Proxy**, select a proxy from the drop-down list. To add one, click **Create new AutoStopping Proxy**. AutoStopping Proxy is recommended for SSH/RDP-based rule setup.
-2. Under **Specify listening Ports**, turn on **SSH** or **RDP**, and then enter the **Source port no.** (optional) and the **Target port no.** (mandatory). If you leave the source port empty, Harness generates one when you save the rule.
-3. To expose other TCP ports, click **Add port**.
-
-Go to [Set up proxy and/or load balancer](#prerequisite-set-up-proxy-and-or-load-balancer) to create the proxy first.
+  - Click **Add Dependency** and select a rule from the **RULES** drop-down list.
+  - In **DELAY IN SECS**, enter the number of seconds the dependent rule should wait after warming up before warming up this rule.
+  <figure><img src="../../../.gitbook/assets/aws-dependencies.png" alt=""><figcaption>Click to view full size image</figcaption></figure>
 {% endtab %}
+{% tab title="Fixed Schedules" %}
+Create fixed uptime or downtime schedules for the resources managed by this rule. A fixed schedule takes precedence over the idle time logic.
 
-{% tab title="HTTP/HTTPS Workload" %}
-Select this card when users reach the VM through an HTTP or HTTPS URL. In **Setup HTTP/HTTPS**:
-
-1. In **Selected connector**, confirm the Azure connector to which your Application Gateway or load balancer belongs.
-2. In **Specify Application Gateway (or AutoStopping Proxy)**, select an Application Gateway or an AutoStopping Proxy. To add a proxy, click **Create new AutoStopping Proxy**.
-
-Go to [Set up proxy and/or load balancer](#prerequisite-set-up-proxy-and-or-load-balancer) to create the Application Gateway or proxy first.
+  - Click **Add Fixed Schedule**.
+  - Give the schedule a **Name**.
+  - Select the **Type** of schedule (**Uptime** or **Downtime**).
+  - Select the **Time Zone**.
+  - Set the schedule period with **Begins on** and **Ends on** dates and times. You can also select the **Never ends** checkbox.
+  - To set a recurring schedule, select the repeat frequency and the days of the week, and set the **Start** and **End** times. You can also select **All Day**.
+  <figure><img src="../../../.gitbook/assets/aws-fixed-schedules.png" alt=""><figcaption>Click to view full size image</figcaption></figure>
+  -------
 {% endtab %}
 {% endtabs %}
 
-### Review tab
+<details>
 
-The **Review** tab summarizes the rule before Harness creates it.
+<summary>Click to expand advanced configuration details</summary>
 
-1. Check the values in each section. To change a value, click **EDIT** next to the section. The **Configuration** tab opens so that you can update the setting. To go back one step, click **Previous**.
-2. Click **Save Rule**.
+## (Optional) Set up advanced configuration
 
-Your AutoStopping rule is listed on the **AutoStopping Rules** page.
+In this step, you can configure the following settings:
 
-## Configure optional settings
+### Hide progress page
 
-Configure these settings in the **Fixed Schedules, Alerts and other Advanced Configuration** section of the **Configuration** tab.
+Toggle the button to disable the display of progress page during instances' warming up process. This option is especially useful when the service is invoked by an automation system, as it prevents misinterpretation of the progress page as the intended response from a service that is onboarded to AutoStopping. By hiding the progress page, the first response of warming up a rule after a downtime will be delayed until the intended service is up and running.
+
+### Dry run
+
+Toggle the button if you wish to evaluate this feature without terminating your cloud resources.
+
+### Add dependency
+
+Set dependencies between two or more AutoStopping Rules when you want one Rule to make one or more Rules to be active based on the traffic that it receives. For example for an application server dependent on a database server, create two AutoStopping Rules managing both the servers. Add a dependency on the Rule managing the application server to be dependent on the Rule managing the database server.
+
+1. Click **add dependency** to add a dependency on any existing rule.
+2. Select the rule from the **RULES** drop-down list.
+3. In **DELAY IN SECS**, enter the number of seconds that rule should wait after warming up the dependent rule. For example, you have Rule 1 dependent on Rule 2 and you have set 5 seconds delay. In that case, when the request is received to warm up Rule 1, then first Rule 2 (dependent rule) is warmed up, and then there is a delay of 5 seconds before warming up Rule 1.
+4. Once you are done with all the configurations, click **Next**.
 
 ### Fixed schedule
 
@@ -323,7 +232,7 @@ Harness executes scheduled rules using [Dkron](https://dkron.io/), an open-sourc
 
 To create a fixed schedule for your rule, do the following:
 
-1. In **Configuration**, under **Fixed Schedules**, click **Add Fixed Schedule**.
+1. In **Fixed Schedules**, click **Add Fixed Schedule**.
 2. In **New Fixed Schedule**, enter a **Name** for your schedule.
 3. In **Type**, select the type for your schedule. You can schedule an **Uptime** or **Downtime** for your rule. As per your schedule, the resources go up or down.
 4. Select the **Time Zone** from the drop-down list.
@@ -335,55 +244,163 @@ To create a fixed schedule for your rule, do the following:
     If you do not specify an end time, the schedule continues to run until you manually update the settings or remove the schedule.
 6. Select the checkbox **Never ends** if you do not want to set end time for your schedule.
 7. You can also set a recurring schedule for the rule. If you want to set a recurring schedule, in **Uptime/Downtime in the selected period**, in **Repeats**, select the repeat frequency.
-   1. Select the days of the week on which your schedule repeats. You can choose any day between Sunday and Saturday.
+   1. Select which days of the week you'd like your schedule to repeat. You can choose any day between Sunday and Saturday.
    2. Select **Everyday**, to set the schedule for all seven days of the week.
    3. Set your repeat schedule's beginning and ending time. In the **Time** field, specify the start and end time for the fixed schedule.
    4. Select **All Day**, if you wish to set your schedule for the entire day. If you choose All Day for your schedule, you will not be able to choose a start and end time.
-8. Click **Apply**.
 
-### Alerts
+</details>
 
-Alerts notify you when something happens to the rule, such as a failed warm-up.
+### Step 2: Setup access
 
-1. In **Configuration**, under **Alerts**, click **Add Alert**.
-2. In **Create Rule Status Alert**, enter a **Name**.
-3. Under **Select events to receive notifications**, select one or more events: **Rule update**, **Rule delete**, **Rule warm up failures**, **Rule cool down failures**, **Rule warm up success**, or **Rule cool down success**.
-4. Under **Set up notification channels**, turn on a channel:
-   * **Slack**: enter a webhook URL in **Specify webhook url**. Click **Add** to enter more webhook URLs.
-   * **e-mail**: enter comma-separated email addresses.
-5. Click **Save**.
+Now that you have the AutoStopping rule configured, define how you would want to access the underlying application running on the resources managed by this Rule. You can use either of the following or both the methods depending on your requirement.
 
-### Run options
+* Set up Access for HTTP/HTTPS workload: If the underlying applications running on the resources managed by the AutoStopping Rule are accessed by an HTTP or HTTPS URL.
+* Set up Access for TCP workload or SSH/RDP: If the underlying applications running on the resources managed by the AutoStopping Rule are accessed via TCP, SSH, or RDP.
+* OR Use Harness CLI to access resources through SSH/RDP
 
-**Hide progress page**: Under **Run Options** in **Configuration**, turn on **Hide progress page** to disable the progress page that appears while the resources warm up. This option is useful when an automation system invokes the service, because it prevents the system from mistaking the progress page for the response of the onboarded service. When the progress page is hidden, the first response after a downtime is delayed until the service is running.
+***
 
-**Dry run**: Under **Run Options** in **Configuration**, turn on **Dry Run** to evaluate the rule without stopping your cloud resources.
+**Set up access for TCP workload or SSH/RDP**
 
-### Add dependency
+Setting up access for TCP workload or SSH/RDP allows AutoStopping to detect activity and idleness, and ensure that the database is up and running only when you need it. Use the AutoStopping Proxy URL (IP/Hostname of the Proxy and a unique autogenerated port number) for this AutoStopping Rule when you connect to the RDS database using any database client. The Proxy URL is generated when you save the AutoStopping Rule. If you need to access the resources managed by this AutoStopping rule using TCP or SSH/RDP HTTPS URL, you need to perform the following steps:
 
-Set dependencies between two or more AutoStopping rules when you want one rule to make one or more rules active when it warms up. For example for an application server dependent on a database server, create two AutoStopping Rules managing both the servers. Add a dependency on the Rule managing the application server to be dependent on the Rule managing the database server.
+* Choose an AutoStopping Proxy load balancer from the Specify AutoStopping Proxy dropdown list to set up access.
+* Toggle SSH or RDP to specify the listening ports. The port number is autopopulated based on the security group.
+* Specify the source port numbers and the target TCP ports your application is listening to. If the source port is not specified, a random port will be generated at the backend. This auto-generated port will continue to be used as long as the target port remains unchanged or unless the user explicitly modifies the source port.
+* Click Next.
 
-1. In **Configuration**, under **Dependencies**, click **+ Add dependency**.
-2. In **rules**, select the rule from the drop-down list.
-3. In **DELAY IN SECS**, enter the number of seconds that rule should wait after warming up the dependent rule. The default is 5. For example, you have Rule 1 dependent on Rule 2 and you have set 5 seconds delay. In that case, when the request is received to warm up Rule 1, then first Rule 2 (dependent rule) is warmed up, and then there is a delay of 5 seconds before warming up Rule 1.
+***
 
----
+**Set up access for HTTP/HTTPS workload**
 
-## Azure scale set behavior
+If you need to access the resources managed by this AutoStopping rule using an HTTP or HTTPS URL, you need to perform the following steps:
 
-AutoStopping starts and stops the instances in an Azure scale set. It does not scale the scale set, so AutoStopping never changes the number of instances that the scale set defines.
+Choose an Application Load Balancer or an AutoStopping Proxy load balancer from the dropdown list to set up access.
 
-* When a schedule or the idle time stops the rule, AutoStopping stops (deallocates) the instances of the scale set.
-* When a schedule starts the rule, AutoStopping starts the instances again.
-* When another rule depends on the scale set rule, warming up that rule also starts the instances. Go to [Add dependency](#add-dependency) to link rules.
+**Option A: HTTP/HTTPS Access (Load Balancer i.e. Azure Application Gateway)**
 
-Azure scale sets do not support the AutoStopping proxy or Azure App Gateway, so traffic does not start the instances.
+<details>
 
-While the instances start, the rule is **Warming up**, and it becomes **Active** when all the instances run. While the instances stop, the rule is **Cooling down**, and Azure shows the scale set as deallocating until the instances are stopped.
+<summary>Click to expand HTTP/HTTPS access configuration details</summary>
 
-On the **AutoStopping Rules** page, the **Resources** column lists the instances of the scale set and labels them as **Azure scale sets**. The **Resource details** column shows whether the rule is **Running** or **Stopped**. To find rules by state, click **Add filter**, select **Resource activity status**, and choose **Warming up**, **Active**, **Cooling down**, **Stopped**, or **Error**.
+**Enter the routing configuration**
 
----
+1.  If the security groups are configured for the selected instances, then the routing information is auto-populated for those instances.\
+    You can edit or delete the routing information. However, it is mandatory to have at least one port listed. For more information, go to [Listeners](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html).
+
+    This is the load balancer routing configuration for the underlying application that is running on the cloud resources managed by this AutoStopping rule.
+2. Click **Add** if you wish to add more ports. The following are some points to consider:
+   * If you are forwarding the same action to different ports, then specify the server name and/or path match.
+   * If you specify the server name, then the host uses the custom URL to access the resources. You cannot use an auto-generated URL to access the resources.
+
+**Add multiple domains with the AutoStopping rule**
+
+ALB has certain [limitations](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) to consider when creating rules. By default, ALB allows only five conditions on a Listener Rule. This can become problematic when the AutoStopping rule requires configuration for more than five domains. To address this, you can utilize the **Server name** field in the **Port configuration** section.
+
+{% hint style="info" %}
+**IMPORTANT**
+
+Each row in the Port config table represents an ALB rule in Harness. The information provided in the row is translated into an ALB rule by the Harness backend. Therefore, the **Server name** field has a limit of five domains.
+{% endhint %}
+
+You can add a comma separated list of domain names in the server name field to add more domains to the rule. Each server name field can take up to five domain names. Continue adding rows to the table until all domains are included. Each row will generate a new rule in the ALB of the Harness load balancer.
+
+**Enter the Health Check Details**
+
+1.  Toggle the **Health check** button to configure the health check. Health check status should be successful for the AutoStopping rules to come into effect. Set a health check for the underlying application that is running on the cloud resources managed by this AutoStopping rule. The load balancer periodically sends requests as per the settings below to the application. If your application does not support health check or you do not have any application running, you can disable the health check.
+
+    By default, the health check is turned on.
+2. In Protocol, select **http** or **https**.
+3. Enter Path, port, and timeout details. For example, if you have configured port 80 and the timeout as 30 seconds for your instance, then the AutoStopping rule checks these specified parameters before bringing AutoStopping Rule into effect.
+
+**Specify the URL to access the resources**
+
+You can use either of the following methods:
+
+* Auto-generated URL
+* Custom URL
+
+**Auto-generated URL**
+
+Every AutoStopping rule has an auto-generated URL. This URL is a subdomain to the domain name specified for the [load balancer](../README.md). Since the load balancer configures a wildcard domain such as `*.autostopping.yourcompany.com`, the auto-generated URL works automatically and points to the correct load balancer.
+
+Select **Use the auto-generated URL to access the resources managed by this AutoStopping Rule**.
+
+**Custom URL**
+
+AutoStopping rule can use multiple custom domains. In such a case, it should be configured in the DNS provider. AutoStopping Rules also allows you to use custom domains or change the root of your site's URL from the default, like,`autostop.harness.io`, to any domain you own. To point your site's default domain to a custom domain, you can set it up in your DNS provider.
+
+Enter the custom URL currently used to access the instances. The domain name should be entered without prefixing the scheme. A rule can have multiple URLs. You can enter comma-separated values into a custom URL to support multiple URLs.
+
+**Configure custom exclusions and inclusions**
+
+Before you begin, make sure that you have enabled ALB access logs in your AWS account to be able to configure custom exclusions and inclusions while creating AutoStopping rules. For more information, go to [ALB access logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html).
+
+Custom exclusions and inclusions allow you to keep the cloud resources managed by AutoStopping remain idle by defining rules. These rules prevent the cloud resource from detecting traffic by the AutoStopping rule. For example, you can use custom exclusions and inclusions to filter out repeated traffic such as health checks, which would otherwise keep the cloud resource active at all times. The minimum idle time for the exclusion or inclusion-enabled AutoStopping rule is 15 minutes.
+
+You can configure exclusions by defining either of the following options:
+
+*   **Path-based match**: Specify the path that you want to exclude from invoking the instance. You can use wildcards in the path.
+
+    An error message is displayed to the user trying to access the path if the managed resource is in a stopped state. If the resource is active and running, this request is not considered as traffic and is ignored by the AutoStopping rule.
+* **Source IP-based match**: Specify one or more IP addresses that you want to exclude from accessing the instance. You could specify an entire range of IP addresses. Use commas to separate the IP addresses.
+
+Any requests from the specified IP addresses are ignored by the AutoStopping rule.
+
+Requests from these IP addresses or to these paths do not disturb the idle time configured for the AutoStopping rule.
+
+Similarly, you can configure custom inclusions. Requests to the specified path or from the specified IP address alone can invoke the cloud resource managed by AutoStopping. Only these requests are detected as traffic by the AutoStopping rule.
+
+</details>
+
+**Option B: SSH/RDP Access (AutoStopping Proxy)**
+
+<details>
+
+<summary>Click to expand SSH/RDP access configuration details</summary>
+
+**Enter Routing Configuration and Health Check Details**
+
+1.  If the security groups are configured for the selected instances, then the routing information is auto-populated for those instances.\
+    You can edit or delete the routing information. However, it is mandatory to have at least one port listed. For more information, go to [Listeners](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html).
+
+    This is the load balancer routing configuration for the underlying application that is running on the cloud resources managed by this AutoStopping rule.
+2. Click **Add** if you wish to add more ports. The following are some points to consider:
+   * If you are forwarding the same action to different ports, then specify the server name and/or path match.
+   * If you specify the server name, then the host uses the custom URL to access the resources. You cannot use an auto-generated URL to access the resources.
+3.  Toggle the **Health check** button to configure the health check. Health check status should be successful for the AutoStopping rules to come into effect. Set a health check for the underlying application that is running on the cloud resources managed by this AutoStopping rule. The load balancer periodically sends requests as per the settings below to the application. If your application does not support health check, or you do not have any application running, you can disable the health check.
+
+    By default, the health check is turned on.
+4. In Protocol, select **http** or **https**.
+5. Enter Path, port, and timeout details. For example, if you have configured port 80 and the timeout as 30 seconds for your instance, then the AutoStopping rule checks these specified parameters before bringing AutoStopping Rule into effect.
+
+**Specify the URL to access the resources**
+
+You can use either of the following methods:
+
+* Auto-generated URL
+* Custom URL
+
+**Auto-generated URL**
+
+Every AutoStopping rule has an auto-generated URL. This URL is a subdomain to the domain name specified for the [load balancer](../README.md). Since the load balancer configures a wildcard domain such as `*.autostopping.yourcompany.com`, the auto-generated URL works automatically and point to the correct load balancer.
+
+Select **Use the auto-generated URL to access the resources managed by this AutoStopping Rule**.
+
+**Custom URL**
+
+AutoStopping rule can use multiple custom domains. In such a case, it should be configured in the DNS provider. AutoStopping Rules also allows you to use custom domains or change the root of your site's URL from the default, like,`autostop.harness.io`, to any domain you own. To point your site's default domain to a custom domain, you can set it up in your DNS provider.
+
+Enter the custom URL currently used to access the instances. The domain name should be entered without prefixing the scheme. A rule can have multiple URLs. You can enter comma-separated values into a custom URL to support multiple URLs.
+
+</details>
+
+### Step 3: Review
+
+In Review, verify all the configuration details and click **Save Rule**. To edit any of the configuration settings, click **EDIT** and modify the settings.
+
+Your AutoStopping rule is listed under the AutoStopping Rules dashboard.
 
 ## Azure AutoStopping savings computation
 
@@ -395,23 +412,5 @@ Billing data from Azure's amortized billing export will be used to compute savin
 * GCP billing export configured in the billing connector needs to be "detailed".
 * Azure billing export configured in the billing connector needs to be "amortized".
 * For cluster-based AutoStopping rules, the corresponding billing-enabled connector of the CSP should be configured in Harness; otherwise, savings computation will be based on public pricing data.
-
----
-
-## Troubleshooting
-
-<details>
-
-<summary>The resource(s) you have selected are already associated with another Autostopping rule</summary>
-
-When you click **Save Rule** on a rule for an Azure scale set, Harness shows the error `The resource(s) you have selected are already associated with another Autostopping rule with id <id>`. An Azure scale set can belong to only one AutoStopping rule, and the error names the rule that already manages it.
-
-To resolve this issue, do one of the following:
-
-* Select a different scale set for the new rule.
-* Go to the **AutoStopping Rules** page, find the rule with the ID in the error, and edit that rule instead of creating a new one.
-* Delete the existing rule if you no longer need it, and then save the new rule.
-
-</details>
 
 {% @harness-feedback/feedback %}

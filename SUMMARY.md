@@ -1,4 +1,4 @@
 # Table of contents
 
+* [Overview](user-budgets.md)
 * [Azure](azure-autostopping-rules.md)
-* [Azure Permissions](azure-permissions.md)
