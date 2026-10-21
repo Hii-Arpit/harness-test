@@ -88,7 +88,7 @@ Configure the per-user spending limit, approval workflow, and notification rules
 
 ### Budget per user
 
-Enter the dollar amount each user in the group is allowed to spend per period. The provider scope badge (for example, **All AI spend**) in the top-right reflects what you selected in Step 1.
+Enter the dollar amount each user in the group is allowed to spend per period. The provider scope badge (for example, **All AI spend**) in the top-right reflects what you selected in [Step 1](#step-1-budget-setup).
 
 ### Limit increase requests
 
@@ -142,30 +142,30 @@ A user has a $125/month budget and needs more. Three approval tiers are configur
 3. Click **+ Notify** to send an email to the affected user when the threshold is crossed. You can add more recipients.
 4. Click **+ Block** to revoke the user's access to the covered AI providers when the threshold is crossed.
 
-For each threshold, you can choose to notify the user, block their access, or both. Add multiple thresholds to trigger different actions at different spend levels.
+   For each threshold, you can choose to notify the user, block their access, or both. Add multiple thresholds to trigger different actions at different spend levels.
 
-{% hint style="info" %}
-Harness automatically sends an email to the affected user when they are blocked, when they submit a limit increase request, and when they are unblocked. These emails are sent regardless of the notification thresholds configured here.
-{% endhint %}
+   {% hint style="info" %}
+   Harness automatically sends an email to the affected user when they are blocked, when they submit a limit increase request, and when they are unblocked. These emails are sent regardless of the notification thresholds configured here.
+   {% endhint %}
 
-<figure><img src="../../.gitbook/assets/user-budgets-step2-notifications.png" alt="Notification rules configured with Notify and Block thresholds"><figcaption><p>Notify and Block configured on separate thresholds</p></figcaption></figure>
+   <figure><img src="../../.gitbook/assets/user-budgets-step2-notifications.png" alt="Notification rules configured with Notify and Block thresholds"><figcaption><p>Notify and Block configured on separate thresholds</p></figcaption></figure>
 
-<details>
+   <details>
 
-<summary>Example: notification thresholds</summary>
+   <summary>Example: notification thresholds</summary>
 
-Two thresholds are configured on the same budget:
+   Two thresholds are configured on the same budget:
 
-| When spend reaches | Action |
-|---|---|
-| 90% | Notify the affected user |
-| 100% | Block access for the affected user |
+   | When spend reaches | Action |
+   |---|---|
+   | 90% | Notify the affected user |
+   | 100% | Block access for the affected user |
 
-Alternatively, enable both **Notify** and **Block** on the same threshold, for example, notify and block access at 100% in one rule.
+   Alternatively, enable both **Notify** and **Block** on the same threshold, for example, notify and block access at 100% in one rule.
 
-</details>
+   </details>
 
-1. Click **Create** to save the budget.
+5. Click **Create** to save the budget.
 
 ---
 
