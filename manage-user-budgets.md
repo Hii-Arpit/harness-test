@@ -88,9 +88,7 @@ Configure the per-user spending limit, approval workflow, and notification rules
 
 ### Budget per user
 
-1. Enter the dollar amount each user in the group is allowed to spend per period.
-
-The provider scope badge (for example, **All AI spend**) in the top-right reflects what you selected in Step 1.
+Enter the dollar amount each user in the group is allowed to spend per period. The provider scope badge (for example, **All AI spend**) in the top-right reflects what you selected in Step 1.
 
 ### Limit increase requests
 
