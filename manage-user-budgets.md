@@ -36,7 +36,7 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 ### Create a user group
 
-Budgets apply to user groups, so create one before you finish the budget. You can create a user group directly from the **Select user groups** field in the budget wizard, without leaving the page.
+You can create a user group directly from the **Select user groups** field in the budget wizard, without leaving the page.
 
 1. Click **+ Create new** to open the **Add User Group** panel.
 2. Fill in the fields described in the following table.
