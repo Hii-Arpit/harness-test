@@ -28,13 +28,19 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 ### Enable AI Governance on your connector
 
-Go to **Account Settings** > **Connectors**, open the connector, and select **AI Governance** under **Choose Requirements**.
+1. Go to **Account Settings** > **Connectors**.
+2. Open the connector.
+3. Select **AI Governance** under **Choose Requirements**.
 
 <figure><img src="../../.gitbook/assets/user-budgets-ai-governance-connector.png" alt="AI Governance checkbox in the connector Choose Requirements step"><figcaption><p>Enable AI Governance on each connector so User Budgets can enforce spend limits</p></figcaption></figure>
 
 ### Create a user group
 
-You can create a user group directly from the **Select user groups** field in the budget wizard, without leaving the page. Click **+ Create new** to open the **Add User Group** panel.
+You can create a user group directly from the **Select user groups** field in the budget wizard, without leaving the page.
+
+1. Click **+ Create new** to open the **Add User Group** panel.
+2. Fill in the fields described in the following table.
+3. Click **Add** to create the group. It appears immediately in the **Select user groups** dropdown.
 
 <figure><img src="../../.gitbook/assets/user-budgets-add-user-group.png" alt="Add User Group panel"><figcaption><p>Add User Group panel opened from the budget wizard</p></figcaption></figure>
 
@@ -46,8 +52,6 @@ You can create a user group directly from the **Select user groups** field in th
 | Metadata | Optional description and tags for the group. |
 
 <figure><img src="../../.gitbook/assets/user-budgets-select-users.png" alt="Add User Group panel with users and role bindings filled in"><figcaption><p>Add User Group panel with a user selected, a role binding configured, and a description added</p></figcaption></figure>
-
-Click **Add** to create the group. It appears immediately in the **Select user groups** dropdown.
 
 For full user group management, go to [Manage user groups](https://developer.harness.io/harness-ai/use-harness-platform/platform-access-control/add-user-groups).
 
@@ -78,24 +82,28 @@ To apply different limits per provider, create a separate budget for each provid
 
 ### Step 2: Enforcements and notifications
 
-Configure the per-user spending limit, approval workflow, and notification rules.
-
-**Budget per user**
-
-Enter the dollar amount each user in the group is allowed to spend per period. The provider scope badge (for example, **All AI spend**) in the top-right reflects what you selected in Step 1.
+Configure the per-user spending limit, approval workflow, and notification rules. This step has three parts: **Budget per user**, **Limit increase requests**, and **Notification and block rules**.
 
 <figure><img src="../../.gitbook/assets/user-budgets-step2-overview.png" alt="Step 2: Enforcements and notifications"><figcaption><p>Step 2: Enforcements and notifications</p></figcaption></figure>
 
-**Allow users to request a higher limit**
+### Budget per user
 
-Enable this to allow users to request a higher spending limit from their profile. You must then set up at least one approval tier to define who approves requests and the maximum amount they can approve.
+1. Enter the dollar amount each user in the group is allowed to spend per period.
+
+The provider scope badge (for example, **All AI spend**) in the top-right reflects what you selected in Step 1.
+
+### Limit increase requests
+
+1. Enable **Allow users to request a higher limit** to allow users to request a higher spending limit from their profile.
+2. Set up at least one approval tier to define who approves requests and the maximum amount they can approve. Each tier has the fields described in the following table.
+3. Click **+ Add approval tier** to add multiple tiers.
 
 | Field | Description |
 |---|---|
 | Requests up to | The maximum amount this approver can approve. Harness sends the request to the approver whose tier ceiling matches or exceeds the requested amount. |
 | Approved by | Who approves requests at this tier. Select **Auto-approve** to approve requests automatically without manual review. Otherwise, select one or more individual users or a user group. |
 
-Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling is the maximum any user can ever request.
+The highest tier's ceiling is the maximum any user can ever request.
 
 <figure><img src="../../.gitbook/assets/user-budgets-step2-approval-tiers.png" alt="Approval tiers with Requests up to and Approved by fields"><figcaption><p>Configure approval tiers when limit increase requests are enabled</p></figcaption></figure>
 
@@ -120,7 +128,7 @@ A user has a $125/month budget and needs more. Three approval tiers are configur
 
 **Advanced settings (optional)**
 
-Expand **Advanced settings** to set limits on when users can request an increase and how much they can request:
+1. Expand **Advanced settings** to set limits on when users can request an increase and how much they can request:
 
 | Field | Description |
 |---|---|
@@ -129,13 +137,12 @@ Expand **Advanced settings** to set limits on when users can request an increase
 
 <figure><img src="../../.gitbook/assets/user-budgets-step2-advanced-settings.png" alt="Advanced settings expanded"><figcaption><p>Advanced settings: request threshold and maximum increase per request</p></figcaption></figure>
 
-**Notifications**
+### Notification and block rules
 
-Click **+ Add percentage threshold** to define when Harness should act. For each threshold:
-
-* Set the spend percentage in the **When spend reaches** field.
-* Click **+ Notify** to send an email to the affected user when the threshold is crossed. You can add more recipients.
-* Click **+ Block** to revoke the user's access to the covered AI providers when the threshold is crossed.
+1. Click **+ Add percentage threshold** to define when Harness should act.
+2. Set the spend percentage in the **When spend reaches** field.
+3. Click **+ Notify** to send an email to the affected user when the threshold is crossed. You can add more recipients.
+4. Click **+ Block** to revoke the user's access to the covered AI providers when the threshold is crossed.
 
 For each threshold, you can choose to notify the user, block their access, or both. Add multiple thresholds to trigger different actions at different spend levels.
 
@@ -160,13 +167,13 @@ Alternatively, enable both **Notify** and **Block** on the same threshold, for e
 
 </details>
 
-Click **Create** to save the budget.
+1. Click **Create** to save the budget.
 
 ---
 
 ## Monitor a user budget
 
-From the User Budgets list, select a budget name to navigate to its detail page.
+1. From the User Budgets list, select a budget name to navigate to its detail page.
 
 <figure><img src="../../.gitbook/assets/user-budgets-detail-page.png" alt="Budget detail page"><figcaption><p>Budget detail page showing summary tiles, active enforcements, and per-user table</p></figcaption></figure>
 
@@ -204,9 +211,9 @@ Harness routes each submitted request to the approver assigned to the matching a
 
 ### Approve directly 
 
-Use the inline buttons next to the specific user in the **Request details** column to act without reviewing the request.
-  * (✓) to approve the request.
-  * (✗) to reject the request.
+1. Use the inline buttons next to the specific user in the **Request details** column to act without reviewing the request.
+   * Click (✓) to approve the request.
+   * Click (✗) to reject the request.
 
 {% hint style="info" %}
 Admins who are also listed as approvers for their own budget can approve their own requests.
@@ -214,7 +221,9 @@ Admins who are also listed as approvers for their own budget can approve their o
 
 ### Review request through review panel 
 
-Click **Review all** in the **Pending Requests** tile to see all users who have submitted a limit increase request for this budget. Alternatively, click **Review ↗** next to a specific user in the **Request details** column to go directly to their request.
+1. Click **Review all** in the **Pending Requests** tile to see all users who have submitted a limit increase request for this budget.
+
+   Alternatively, click **Review ↗** next to a specific user in the **Request details** column to go directly to their request.
 
    <figure><img src="../../.gitbook/assets/user-budgets-pending-requests-inline.png" alt="Budget detail page showing Review all and inline Review button"><figcaption><p>Review all in the Pending Requests tile and inline Review in the Request details column</p></figcaption></figure>
 
@@ -249,7 +258,8 @@ Choose one of the following:
 
 ## Edit or delete a user budget
 
-On the budget detail page, click **Edit Budget** to reopen the two-step wizard and change any setting. Click the three-dot menu for additional options including **Delete**.
+1. On the budget detail page, click **Edit Budget** to reopen the two-step wizard and change any setting.
+2. Click the three-dot menu for additional options including **Delete**.
 
 {% hint style="danger" %}
 Deleting a user budget removes all enforcement rules immediately. Users who were blocked regain access.
