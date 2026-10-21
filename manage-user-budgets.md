@@ -20,9 +20,36 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 * Harness Cloud & AI Cost Management must be enabled on your account.
 * The users you want to budget must belong to a Harness user group. Go to [Create a user group](#create-a-user-group) if you need to set one up.
-* Make sure **AI Governance** is enabled on the connector. Use your cloud connector for providers like Amazon Bedrock, or the provider's own connector for others (Cursor, Claude Enterprise, GitHub Copilot). Ask your Admin if you do not have access. Go to **Account Settings** > **Connectors**, open the connector, and select **AI Governance** under **Choose Requirements**.
+* Make sure **AI Governance** is enabled on the connector. Use your cloud connector for providers like Amazon Bedrock, or the provider's own connector for others (Cursor, Claude Enterprise, GitHub Copilot). Ask your Admin if you do not have access. Go to [Enable AI Governance on your connector](#enable-ai-governance-on-your-connector) for steps.
+
+---
+
+## Set up prerequisites
+
+### Enable AI Governance on your connector
+
+Go to **Account Settings** > **Connectors**, open the connector, and select **AI Governance** under **Choose Requirements**.
 
 <figure><img src="../../.gitbook/assets/user-budgets-ai-governance-connector.png" alt="AI Governance checkbox in the connector Choose Requirements step"><figcaption><p>Enable AI Governance on each connector so User Budgets can enforce spend limits</p></figcaption></figure>
+
+### Create a user group
+
+You can create a user group directly from the **Select user groups** field in the budget wizard, without leaving the page. Click **+ Create new** to open the **Add User Group** panel.
+
+<figure><img src="../../.gitbook/assets/user-budgets-add-user-group.png" alt="Add User Group panel"><figcaption><p>Add User Group panel opened from the budget wizard</p></figcaption></figure>
+
+| Field | Description |
+|---|---|
+| Name | A display name for the group. Harness auto-generates an identifier from it. |
+| Users | Click **Select** to pick users from your account. Search by name or email and select one or more, then click **Select** to confirm. |
+| Role Bindings | Assign a **Role** and **Resource Group** to the group. Click **+ Add** to add more role bindings. |
+| Metadata | Optional description and tags for the group. |
+
+<figure><img src="../../.gitbook/assets/user-budgets-select-users.png" alt="Add User Group panel with users and role bindings filled in"><figcaption><p>Add User Group panel with a user selected, a role binding configured, and a description added</p></figcaption></figure>
+
+Click **Add** to create the group. It appears immediately in the **Select user groups** dropdown.
+
+For full user group management, go to [Manage user groups](https://developer.harness.io/harness-ai/use-harness-platform/platform-access-control/add-user-groups).
 
 ---
 
@@ -72,8 +99,9 @@ Click **+ Add approval tier** to add multiple tiers. The highest tier's ceiling 
 
 <figure><img src="../../.gitbook/assets/user-budgets-step2-approval-tiers.png" alt="Approval tiers with Requests up to and Approved by fields"><figcaption><p>Configure approval tiers when limit increase requests are enabled</p></figcaption></figure>
 
-{% hint style="success" %}
-### Example
+<details>
+
+<summary>Example: approval tiers</summary>
 
 A user has a $125/month budget and needs more. Three approval tiers are configured as follows, and Harness sends the request to the designated approver based on the amount requested:
 
@@ -87,7 +115,8 @@ A user has a $125/month budget and needs more. Three approval tiers are configur
 * A request for $400 goes to the engineering manager (Tier 2).
 * A request for $700 goes to the VP of Engineering (Tier 3).
 * No user can request more than $750, the ceiling of the highest tier.
-{% endhint %}
+
+</details>
 
 **Advanced settings (optional)**
 
@@ -116,8 +145,9 @@ Harness automatically sends an email to the affected user when they are blocked,
 
 <figure><img src="../../.gitbook/assets/user-budgets-step2-notifications.png" alt="Notification rules configured with Notify and Block thresholds"><figcaption><p>Notify and Block configured on separate thresholds</p></figcaption></figure>
 
-{% hint style="success" %}
-### Example
+<details>
+
+<summary>Example: notification thresholds</summary>
 
 Two thresholds are configured on the same budget:
 
@@ -127,7 +157,8 @@ Two thresholds are configured on the same budget:
 | 100% | Block access for the affected user |
 
 Alternatively, enable both **Notify** and **Block** on the same threshold, for example, notify and block access at 100% in one rule.
-{% endhint %}
+
+</details>
 
 Click **Create** to save the budget.
 
@@ -229,28 +260,5 @@ Deleting a user budget removes all enforcement rules immediately. Users who were
 ## Next steps
 
 * Go to [Manage your AI budget](manage-your-ai-budget.md) to see what your team members experience: how to view their spend and submit a limit increase request.
-
----
-
-## References
-
-### Create a user group
-
-You can create a user group directly from the **Select user groups** field in the budget wizard, without leaving the page. Click **+ Create new** to open the **Add User Group** panel.
-
-<figure><img src="../../.gitbook/assets/user-budgets-add-user-group.png" alt="Add User Group panel"><figcaption><p>Add User Group panel opened from the budget wizard</p></figcaption></figure>
-
-| Field | Description |
-|---|---|
-| Name | A display name for the group. Harness auto-generates an identifier from it. |
-| Users | Click **Select** to pick users from your account. Search by name or email and select one or more, then click **Select** to confirm. |
-| Role Bindings | Assign a **Role** and **Resource Group** to the group. Click **+ Add** to add more role bindings. |
-| Metadata | Optional description and tags for the group. |
-
-<figure><img src="../../.gitbook/assets/user-budgets-select-users.png" alt="Add User Group panel with users and role bindings filled in"><figcaption><p>Add User Group panel with a user selected, a role binding configured, and a description added</p></figcaption></figure>
-
-Click **Add** to create the group. It appears immediately in the **Select user groups** dropdown.
-
-For full user group management, go to [Manage user groups](https://developer.harness.io/harness-ai/use-harness-platform/platform-access-control/add-user-groups).
 
 {% @harness-feedback/feedback %}

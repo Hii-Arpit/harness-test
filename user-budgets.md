@@ -40,7 +40,7 @@ User Budgets are separate from [Resource Budgets](../budgets/create-a-budget.md)
 
 ## Before you begin
 
-* Make sure **AI Governance** is enabled on the connector. Use your cloud connector for providers like Amazon Bedrock, or the provider's own connector for others (Cursor, Claude Enterprise, GitHub Copilot). Ask your Admin if you do not have access. Go to [Create and manage user budgets](manage-user-budgets.md#before-you-begin) to enable it on a connector.
+* Make sure **AI Governance** is enabled on the connector. Use your cloud connector for providers like Amazon Bedrock, or the provider's own connector for others (Cursor, Claude Enterprise, GitHub Copilot). Ask your Admin if you do not have access. Go to [Create and manage user budgets](manage-user-budgets.md#enable-ai-governance-on-your-connector) to enable it on a connector.
 
 On the left navigation bar, select **Cost Governance** > **User Budgets** to see all user budgets configured in your account.
 
