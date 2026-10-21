@@ -28,11 +28,30 @@ description: Create per-developer AI spending budgets, configure approval tiers 
 
 ### Enable AI Governance on your connector
 
+For Amazon Bedrock, AI Governance is enabled on the AWS cloud connector. Harness needs an IAM role and policy in your AWS account to enforce budgets, so the connector wizard asks for a few extra fields.
+
 1. Go to **Account Settings** > **Connectors**.
-2. Open the connector.
-3. Select **AI Governance** under **Choose Requirements**.
+2. Click **New Connector**, then select **AWS - Cloud Cost** under **Cloud & AI Costs**.
+3. Enter the connector name and AWS account ID, then complete the **Cost and Usage Report** step.
+4. In **Choose Requirements**, select **AI Governance**. Harness adds the permissions to enforce AI budgets on Amazon Bedrock and block access when a budget is breached to the IAM role.
 
 <figure><img src="../../.gitbook/assets/user-budgets-ai-governance-connector.png" alt="AI Governance checkbox in the connector Choose Requirements step"><figcaption><p>Enable AI Governance on each connector so User Budgets can enforce spend limits</p></figcaption></figure>
+
+5. In **Create Cross Account Role**, click **Launch Template on AWS console** and follow the instructions to create the CloudFormation stack.
+6. Enter the following fields:
+
+| Field | Description |
+|---|---|
+| Cross Account Role ARN | The ARN of the cross-account role that the CloudFormation stack creates. |
+| External ID | Prefilled by Harness. You cannot edit it. |
+| AI Governance AWS Role Name | The name of the AWS role used for AI Governance. |
+| AI Governance IAM Policy Name | The name of the IAM policy for AI Governance. The default is `harness-aicost-governance`. |
+
+7. Click **Save and Continue**, then complete the **Connection Test**.
+
+{% hint style="info" %}
+For Cursor, Claude Enterprise, and GitHub Copilot, ask your Admin to enable AI Governance on the provider's connector.
+{% endhint %}
 
 ### Create a user group
 
