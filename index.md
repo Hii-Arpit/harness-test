@@ -1,10 +1,4 @@
 ---
-title: Harness AI DLC Agent
-sidebar_position: 1
-sidebar_label: Overview
-nodeTitle: Harness AI DLC Agent
-inputFilePath: docs/ai-dlc-insights/setup/agent/index.md
-originalUrl: https://developer.harness.io/docs/ai-dlc-insights/setup/agent/index/
 description: >-
   Install and manage the Harness AI DLC Agent to collect AI coding agent
   telemetry data and power the AI Engineering dashboard.
