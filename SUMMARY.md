@@ -1,6 +1,6 @@
 # Table of contents
 
-* [User Budgets](user-budgets.md)
-* [Create and manage user budgets](manage-user-budgets.md)
-* [Overview](user-budgets.md)
+* [Harness AI DLC Agent [Beta]](index.md)
+* [AI Engineering Insights [Beta]](ai-engineering.md)
 * [Azure](azure-autostopping-rules.md)
+* [Cloud Cost Management release notes](cloud-cost-management.md)
