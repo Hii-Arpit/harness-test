@@ -180,7 +180,9 @@ In Manage Unallocated Costs, you can choose to show or ignore unallocated costs,
 
 ## Tag normalization
 
-Tag normalization helps you keep a label-based cost category up to date. Harness AI checks your cost category for label values that do not match any bucket yet, suggests where each value belongs, and updates the cost category only after you approve.
+Tag normalization finds label values that your cost category rules do not match yet and adds them to the right bucket, so more of your cost is attributed to the right team, product, or environment. Harness AI analyzes your labels and suggests where each value belongs.
+
+Harness updates the cost category only after you review and approve the suggested changes. Your cloud labels are not changed.
 
 ### Why tag variants matter
 
