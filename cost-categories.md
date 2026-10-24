@@ -186,11 +186,18 @@ Harness updates the cost category only after you review and approve the suggeste
 
 ### Why tag variants matter
 
-Teams often write the same label value in more than one way. For example, `prod`, `Prod`, and `production` all mean the same environment, but a rule such as `label > env IN prod` matches only one spelling.
+A label-based cost category lists the label values that belong in each bucket. Over time, new label values appear that the rules do not list. Common cases include:
 
-Cost from the other spellings matches no bucket, so it appears under your unallocated name, such as **Unattributed**. This is normal and easy to fix. You do not need to clean up your labels first.
+* **Spelling and case variants.** The same value is written in more than one way, such as `prod`, `Prod`, and `production`.
+* **Alternative names.** Teams use different names for the same environment, such as `QA` and `quality-assurance`.
+* **Label key variants.** The same label key is written in more than one way, such as `env` and `ENV`.
+* **New instances.** A team adds another environment of the same type, such as `production-2` or `production-3`, and the rule for the Production bucket is not updated.
 
-Tag normalization adds the missing spellings to the right bucket, so more of your cost is attributed to the team, product, or environment that owns it.
+These are a few of the many cases that tag normalization can find. A rule such as `label > env IN prod` matches only the values you listed. Cost from every other value does not match any bucket, so it appears as unallocated, under the name you set in **Manage unallocated costs**, such as **Unattributed**. You do not need to clean up your labels first.
+
+Tag normalization finds these values and suggests the bucket each one belongs in. After you approve the changes, that cost is attributed to the team, product, or environment that owns it.
+
+Two values do not always belong in the same bucket. For example, you might report on `prod-us` and `prod-eu` separately. Review each suggestion before you approve it.
 
 ### Requirements
 
