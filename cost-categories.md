@@ -223,60 +223,62 @@ Open Harness AI and enter a request, such as `help me do tag normalization`. Har
 {% endtab %}
 {% endtabs %}
 
-### How the conversation works
+### Example: normalize environment labels
+
+The following example follows one conversation from start to finish. The values and buckets are illustrative. Your results depend on your own labels.
+
+Your **Environment** cost category has two buckets. **Production** matches `env IN prod` and **QA** matches `env IN qa`. Since you created it, teams have added the label values `Prod`, `production`, `production-2`, and `QA-team`. No rule lists these values, so their cost appears as **Unattributed**.
 
 {% stepper %}
 {% step %}
-**Harness AI analyzes your labels**
+**Start tag normalization**
 
-Harness AI reads your cost category and the label values from the last 30 days. This can take about a minute.
+On the **Environment** cost category, select **Check for Tag Variance**. Harness AI opens and starts the analysis.
 {% endstep %}
 
 {% step %}
-**Review the summary**
+**Wait for the analysis**
 
-The tag drift summary lists the label values that do not match a bucket and the estimated cost that currently goes to unallocated.
+Harness AI compares the label values from the last 30 days with your buckets. This can take about a minute.
 {% endstep %}
 
 {% step %}
 **Review the proposed changes**
 
-A table shows each bucket, the new values to add, the label key, and the cost. Values that Harness AI cannot place are listed separately so that you can choose a bucket.
+Harness AI shows a summary of the values that match no bucket and the estimated cost that goes to unallocated. It then suggests a bucket for each value:
+
+| Bucket | New values to add | Key |
+| --- | --- | --- |
+| Production | `Prod`, `production`, `production-2` | `env` |
+| QA | `QA-team` | `env` |
+
+`Prod` and `production` are other spellings of `prod`, and `production-2` is a second production environment. `QA-team` is another name for QA. If Harness AI cannot place a value, it asks you which bucket to use.
 {% endstep %}
 
 {% step %}
 **Approve or adjust**
 
-Harness AI asks whether the proposal looks correct. Reply in the chat. After you approve, Harness AI updates the cost category and shows it as **Updated**.
+Harness AI asks, "Does this look correct?" Reply in the chat. Nothing changes until you approve.
+
+To accept the suggestions, reply:
+
+```
+Yes, this looks good.
+```
+
+To change a suggestion, say what you want in plain language. For example, if you report on `production-2` separately, reply:
+
+```
+Do not add production-2 to Production.
+```
+{% endstep %}
+
+{% step %}
+**Check the result**
+
+Harness AI updates the cost category and shows it as **Updated**. The cost from the approved values now appears in **Production** and **QA**, and **Unattributed** is smaller.
 {% endstep %}
 {% endstepper %}
-
-### Reply to Harness AI
-
-You reply in plain language. Nothing changes until you approve.
-
-| What you want | Example reply |
-| --- | --- |
-| Accept the proposal | `Yes, this looks good.` |
-| Place a value in a different bucket | `Put zn-eng in QA instead.` |
-| Handle a value that Harness AI could not place | `Add legacy-env to Production.` |
-
-### Example: normalize environment labels
-
-Your **Environment** cost category has a **Production** bucket and a **QA** bucket. The rules match `env` values `prod` and `qa`. Some resources use `Prod`, `production`, and `QA-team`, so their cost shows as **Unattributed**.
-
-1. Select **Check for Tag Variance** on the **Environment** cost category.
-2. Harness AI reports three values that match no bucket and proposes this change:
-
-   | Bucket | New values to add | Key |
-   | --- | --- | --- |
-   | Production | `Prod`, `production` | `env` |
-   | QA | `QA-team` | `env` |
-
-3. Harness AI asks, "Does this look correct?" Reply `Yes, this looks good.`
-4. Harness AI updates the cost category. The cost from those values now appears in **Production** and **QA**, and **Unattributed** is smaller.
-
-The values and buckets in this example are illustrative. Your results depend on your own labels.
 
 ### Things to know
 
