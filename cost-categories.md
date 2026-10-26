@@ -197,13 +197,14 @@ These are a few of the many cases you might see. Cost with a value that is not l
 
 Tag normalization finds these values and suggests a bucket for each one. Harness updates the cost category only after you review and approve the suggestions.
 
-### Requirements
+### Supported cost categories
 
-* The cost category uses **Label V2** rules. Cost categories that use other rules, such as projects, are not supported.
-* You can check one cost category at a time.
+You can check one cost category at a time.
 
 {% hint style="info" %}
-If **Check for Tag Variance** does not appear for a cost category, the cost category does not use label rules.
+Tag normalization works only on cost categories whose bucket rules use the **Label V2** field. Go to [Label vs. Label V2](../perspectives/key-concepts.md#label-migration-label-vs-label-v2) to learn how it differs from the legacy **Label** field.
+
+Cost categories that use other fields, such as projects, are not supported. If **Check for Tag Variance** does not appear for a cost category, the cost category does not use the **Label V2** field.
 {% endhint %}
 
 ### Start tag normalization
