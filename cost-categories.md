@@ -193,11 +193,9 @@ A label-based cost category lists the label values that belong in each bucket. O
 * **Label key variants.** The same label key is written in more than one way, such as `env` and `ENV`.
 * **New instances.** A team adds another environment of the same type, such as `production-2` or `production-3`, and the rule for the Production bucket is not updated.
 
-These are a few of the many cases that tag normalization can find. A rule such as `label > env IN prod` matches only the values you listed. Cost from every other value does not match any bucket, so it appears as unallocated, under the name you set in **Manage unallocated costs**, such as **Unattributed**. You do not need to clean up your labels first.
+These are a few of the many cases you might see. Cost with a value that is not listed in any bucket still appears in your reports, as unallocated cost, such as **Unattributed**.
 
-Tag normalization finds these values and suggests the bucket each one belongs in. After you approve the changes, that cost is attributed to the team, product, or environment that owns it.
-
-Two values do not always belong in the same bucket. For example, you might report on `prod-us` and `prod-eu` separately. Review each suggestion before you approve it.
+Tag normalization finds these values and suggests a bucket for each one. Harness updates the cost category only after you review and approve the suggestions.
 
 ### Requirements
 
@@ -283,6 +281,7 @@ The values and buckets in this example are illustrative. Your results depend on 
 
 * Cost is never counted twice. Cost that matches no rule stays in your unallocated bucket.
 * Normalization cannot recover cost that has no label at all.
+* Similar values do not always belong in the same bucket. For example, you might report on `prod-us` and `prod-eu` separately.
 * Harness AI can make mistakes and results can differ between runs. Review each proposal before you approve it.
 
 ### Troubleshooting
