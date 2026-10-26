@@ -227,47 +227,42 @@ Open Harness AI and enter a request, such as `help me do tag normalization`. Har
 
 The following example follows one conversation from start to finish. Your results depend on your own labels.
 
-Your **Env Sandy** cost category has three buckets: **Prod**, **QA**, and **Stage**. Each bucket lists the environment label values that belong to it. Since you created it, teams have added the label values `support`, `audit`, `internal`, `init`, and `zn-eng`. No bucket lists these values, so their cost appears as **Unattributed**.
+Your cost category groups cost by the `environment` label and has two buckets. The **Production** bucket lists the value `prod`, and the **QA** bucket lists the value `qa`. Over time, teams have also used other values for the same environments, such as `production`, `prod1`, `prod-setup`, and `qa0`. No bucket lists these values, so their cost appears as **Unattributed**. Tag normalization finds these values and suggests where each one belongs.
 
-1. On the **Env Sandy** cost category, select **Check for Tag Variance**. Harness AI opens and starts the analysis.
+1. On the cost category, open the row menu and select **Check for Tag Variance**. Harness AI opens and starts the analysis.
 
    <figure><img src="../../.gitbook/assets/tag-normalization-check-for-tag-variance.png" alt="The cost category row menu with the Check for Tag Variance option"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-2. Wait for the analysis. Harness AI loads the cost category, then compares the label values from the last 30 days with your buckets. This can take about a minute.
+2. Wait for the analysis. Harness AI loads the cost category, then compares the label values from the last 30 days with your buckets. This can take a couple of minutes.
 
-   <figure><img src="../../.gitbook/assets/tag-normalization-analysis.png" alt="The Harness AI panel with the tag normalization prompt while the analysis runs"><figcaption><p>Click to view full size image</p></figcaption></figure>
+   <figure><img src="../../.gitbook/assets/tag-normalization-analysis.png" alt="The Harness AI panel while the analysis runs"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-3. Review the proposed changes. Harness AI shows a table of proposed changes, with the bucket, the new values to add, the label key, and the cost. Below the table, it lists the values that no bucket matches and suggests a bucket for each one:
+3. Review the proposal. Harness AI lists the values to add to each bucket, with the cost of each value over the last 30 days. It also lists the values that have no clear match. In this example, Harness AI suggests the following:
 
-   | Value | Suggested bucket | Why |
-   | --- | --- | --- |
-   | `support` | Prod | It is an operational environment. |
-   | `audit` | Prod | Auditing typically runs in production. |
-   | `internal` | Prod | Internal systems are often production. |
-   | `init` | QA | It is an initialization or setup environment. |
-   | `zn-eng` | QA | It is an engineering environment. |
+   | Bucket | Values to add |
+   | --- | --- |
+   | Production | `production`, `prod1`, `prod2`, `prod3`, `prod-setup`, `prod-b`, `prod2-dl`, `prod1-dl`, `sharedvpc-prod`, `ci-buildfarm-prod` |
+   | QA | `qa0` |
 
-   Harness AI then asks, "Does this look correct?" and offers two options: apply the suggested assignments, or let you assign each value to a bucket yourself.
+   Values such as `haul`, `global`, `internal`, `stage`, and `dev` have no clear match, so Harness AI leaves them unassigned. They stay in **Unattributed**. Harness AI then asks you to confirm the changes.
 
-   <figure><img src="../../.gitbook/assets/tag-normalization-proposal.png" alt="The proposed changes table and the suggested bucket for each value that no bucket matches"><figcaption><p>Click to view full size image</p></figcaption></figure>
+   <figure><img src="../../.gitbook/assets/tag-normalization-proposal.png" alt="The Confirm Changes box that asks you to approve the proposal"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-4. Reply in the chat to approve or adjust the suggestions. Nothing changes until you approve. To accept the suggestions, reply:
+4. Reply in the **Confirm Changes** box. Nothing changes until you approve. To accept the suggestions, enter a reply such as `Yes, apply these suggestions.` and select **Submit**. To change a suggestion, say what you want in plain language. For example, enter `Do not add qa0.` to leave that value out.
 
-   ```
-   Yes, this looks good.
-   ```
+   <figure><img src="../../.gitbook/assets/tag-normalization-reply.png" alt="The reply typed in the Confirm Changes box"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-   To change a suggestion, say which bucket you want in plain language. For example, if `audit` belongs in **QA** in your organization, reply:
+5. Approve the update. Harness AI shows a review card that names the cost category it is about to update. Check the name and the identifier, then select **Approve**. Select **Cancel** to stop without changing the cost category.
 
-   ```
-   Put audit in QA instead.
-   ```
+   <figure><img src="../../.gitbook/assets/tag-normalization-approve.png" alt="The review card with the Cancel and Approve buttons"><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-   <figure><img src="../../.gitbook/assets/tag-normalization-approve.png" alt="The reply that approves the suggested bucket assignments"><figcaption><p>Click to view full size image</p></figcaption></figure>
-
-5. Check the result. Harness AI updates the cost category and shows it as **Updated**. It then summarizes the changes: `support`, `audit`, and `internal` are added to **Prod**, and `init` and `zn-eng` are added to **QA**. The cost from these values now appears in those buckets, and **Unattributed** is smaller.
+6. Check the result. Harness AI updates the cost category and shows it as **Updated**. It then summarizes the changes: the values added to **Production** and **QA**, and the values that still appear as **Unattributed**. The cost from the added values now appears in those buckets.
 
    <figure><img src="../../.gitbook/assets/tag-normalization-updated.png" alt="The Updated badge and the summary of changes"><figcaption><p>Click to view full size image</p></figcaption></figure>
+
+{% hint style="info" %}
+Harness AI reviews the highest-cost values first. In this example, it reviewed the top 25 of 96 unmatched values. To check the remaining values, run Check for Tag Variance again after the update.
+{% endhint %}
 
 ### Things to know
 
