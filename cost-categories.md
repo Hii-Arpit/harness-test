@@ -178,6 +178,26 @@ In Manage Unallocated Costs, you can choose to show or ignore unallocated costs,
 
 ***
 
+## Overview page <a href="#overview-page" id="overview-page"></a>
+
+<figure><img src="../../.gitbook/assets/output-overview.gif" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
+
+The Cost Categories overview page provides a centralized view of all your defined categories. From this dashboard, you can:
+
+* **View category details** - Click any category to examine its cost buckets, rules, and configurations
+* **Manage categories** - Edit existing categories, clone them to create similar ones, or delete categories you no longer need
+*   **Copy cost buckets** - Transfer bucket definitions between categories to maintain consistency across your cost organization structure:
+
+    * Expand the source cost category
+    * Select **Manage Cost Buckets**
+    * Select buckets to copy
+    * Click **Copy** and choose target categories
+    * Verify with **View Details**
+
+    **Note:** If a destination category already has a bucket with the same name, rename it first to avoid conflicts.
+
+***
+
 ## Tag normalization
 
 Tag normalization finds label values that your cost category rules do not match yet and adds them to the right bucket, so more of your cost is attributed to the right team, product, or environment. Harness AI analyzes your labels and suggests where each value belongs.
@@ -264,42 +284,18 @@ Your cost category groups cost by the `environment` label and has two buckets. T
 Harness AI reviews the highest-cost values first. In this example, it reviewed the top 25 of 96 unmatched values. To check the remaining values, run Check for Tag Variance again after the update.
 {% endhint %}
 
-### Things to know
+### Considerations
+
+Keep the following in mind when you use tag normalization:
 
 * Cost is never counted twice. Cost that matches no rule stays in your unallocated bucket.
 * Normalization cannot recover cost that has no label at all.
 * Similar values do not always belong in the same bucket. For example, you might report on `prod-us` and `prod-eu` separately.
 * Harness AI can make mistakes and results can differ between runs. Review each proposal before you approve it.
 
-### Troubleshooting
-
-<details>
-
-<summary>Check for Tag Variance does not appear</summary>
-
-The option appears only for cost categories that use label rules. Go to [Define your cost buckets](#define-your-cost-buckets) to check which rules the cost category uses.
-
-</details>
-
-***
-
-## Overview page <a href="#overview-page" id="overview-page"></a>
-
-<figure><img src="../../.gitbook/assets/output-overview.gif" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
-
-The Cost Categories overview page provides a centralized view of all your defined categories. From this dashboard, you can:
-
-* **View category details** - Click any category to examine its cost buckets, rules, and configurations
-* **Manage categories** - Edit existing categories, clone them to create similar ones, or delete categories you no longer need
-*   **Copy cost buckets** - Transfer bucket definitions between categories to maintain consistency across your cost organization structure:
-
-    * Expand the source cost category
-    * Select **Manage Cost Buckets**
-    * Select buckets to copy
-    * Click **Copy** and choose target categories
-    * Verify with **View Details**
-
-    **Note:** If a destination category already has a bucket with the same name, rename it first to avoid conflicts.
+{% hint style="info" %}
+If **Check for Tag Variance** does not appear, the cost category does not use label rules. The option appears only for cost categories that use Label V2 rules. Go to [Define your cost buckets](#define-your-cost-buckets) to check which rules the cost category uses.
+{% endhint %}
 
 ***
 
