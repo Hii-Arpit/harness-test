@@ -234,12 +234,16 @@ Your **Environment** cost category has two buckets. **Production** matches `env 
 **Start tag normalization**
 
 On the **Environment** cost category, select **Check for Tag Variance**. Harness AI opens and starts the analysis.
+
+<figure><img src="../../.gitbook/assets/tag-normalization-check-for-tag-variance.png" alt="The cost category row menu with the Check for Tag Variance option"><figcaption><p>Click to view full size image</p></figcaption></figure>
 {% endstep %}
 
 {% step %}
 **Wait for the analysis**
 
 Harness AI compares the label values from the last 30 days with your buckets. This can take about a minute.
+
+<figure><img src="../../.gitbook/assets/tag-normalization-analysis.png" alt="The Harness AI panel with the tag normalization prompt while the analysis runs"><figcaption><p>Click to view full size image</p></figcaption></figure>
 {% endstep %}
 
 {% step %}
