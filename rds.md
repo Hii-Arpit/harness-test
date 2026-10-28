@@ -17,7 +17,7 @@ Harness AutoStopping Proxy provides an effective solution to reduce non-producti
 
 <figure><img src="../../.gitbook/assets/rds-tutorial.png" alt=""><figcaption><p>Click to view full size image</p></figcaption></figure>
 
-### Supported RDS and Aurora databases <a href="#supported-rds-and-aurora-databases" id="supported-rds-and-aurora-databases"></a>
+## Supported RDS and Aurora databases <a href="#supported-rds-and-aurora-databases" id="supported-rds-and-aurora-databases"></a>
 
 AutoStopping saves cost by stopping an RDS instance or Aurora cluster when it is idle and starting it again when traffic returns. This means AutoStopping can manage a database only if AWS allows that database to be stopped. If AWS cannot stop the database, AutoStopping cannot manage it.
 
@@ -37,13 +37,13 @@ Eligibility depends on the database type and configuration, not on the Region. A
 AWS maintains the authoritative list of databases that can and cannot be stopped. Go to [Stopping an RDS DB instance: Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html#USER_StopInstance.Limitations) and [Stopping an Aurora cluster: Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html#aurora-cluster-stop-limitations) to confirm your database is eligible before you create a rule.
 {% endhint %}
 
-### Use Harness AutoStopping proxy for RDS <a href="#use-harness-autostopping-proxy-for-rds" id="use-harness-autostopping-proxy-for-rds"></a>
+## Use Harness AutoStopping proxy for RDS <a href="#use-harness-autostopping-proxy-for-rds" id="use-harness-autostopping-proxy-for-rds"></a>
 
 1. [Create a Harness AutoStopping proxy.](rds.md#create-harness-autostopping-proxy)
 2. [Create an AutoStopping rule for the RDS instance or cluster.](rds.md#set-up-harness-autostopping-rule-for-rds)
 3. [Connect to the RDS instance or cluster by using the AutoStopping proxy.](rds.md#connect-to-the-rds-instance)
 
-#### Create Harness AutoStopping proxy <a href="#create-harness-autostopping-proxy" id="create-harness-autostopping-proxy"></a>
+### Create Harness AutoStopping proxy <a href="#create-harness-autostopping-proxy" id="create-harness-autostopping-proxy"></a>
 
 For more information, go to [AutoStopping Proxy for AWS](../../cost-optimization/autostopping-rules/autostopping-rules/#aws).
 
@@ -75,7 +75,7 @@ For more information, go to [AutoStopping Proxy for AWS](../../cost-optimization
 18. Enable **Allocate Static IP** if you need to assign an elastic IP address to make the instance publicly accessible. Update the DNS route to point to the public IP. You do not need to enable this field if it is pointing to a private IP provided the DNS resolves. For example, when the DNS resolution is done within the VPC.
 19. Select **Save Load Balancer**.
 
-#### Set up Harness AutoStopping rule for RDS <a href="#set-up-harness-autostopping-rule-for-rds" id="set-up-harness-autostopping-rule-for-rds"></a>
+### Set up Harness AutoStopping rule for RDS <a href="#set-up-harness-autostopping-rule-for-rds" id="set-up-harness-autostopping-rule-for-rds"></a>
 
 This section walks you through the steps to configure an AutoStopping rule for your RDS instance. For more information, go to [Create AutoStopping rule for RDS](../../cost-optimization/autostopping-rules/autostopping-rules/#aws).
 
@@ -133,7 +133,7 @@ In Review, verify all the configuration details and select **Save Rule**. To edi
 
 Your AutoStopping rule is listed under the AutoStopping rules summary page.
 
-#### Connect to the RDS instance <a href="#connect-to-the-rds-instance" id="connect-to-the-rds-instance"></a>
+### Connect to the RDS instance <a href="#connect-to-the-rds-instance" id="connect-to-the-rds-instance"></a>
 
 Once the rule is saved, go to the **Details** page of the AutoStopping rule for instructions to connect to the RDS instance.
 
