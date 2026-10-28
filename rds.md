@@ -23,8 +23,8 @@ AutoStopping saves cost by stopping an RDS instance or Aurora cluster when it is
 
 A database is supported when Harness can run the AWS stop operation on it:
 
-* **RDS instance** — Harness can run `rds:StopDBInstance`.
-* **Aurora cluster** — Harness can run `rds:StopDBCluster`.
+* **RDS instance**: Harness can run `rds:StopDBInstance`.
+* **Aurora cluster**: Harness can run `rds:StopDBCluster`.
 
 A database is not supported when AWS blocks the stop operation. AutoStopping cannot manage these, for example:
 
