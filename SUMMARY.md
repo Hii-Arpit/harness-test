@@ -1,3 +1,3 @@
 # Table of contents
 
-* [Cost Categories](cost-categories.md)
+* [AutoStopping RDS with Proxy](rds.md)
