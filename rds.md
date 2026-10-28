@@ -19,14 +19,23 @@ Harness AutoStopping Proxy provides an effective solution to reduce non-producti
 
 ### Supported RDS and Aurora databases <a href="#supported-rds-and-aurora-databases" id="supported-rds-and-aurora-databases"></a>
 
-AutoStopping manages an RDS instance or Aurora cluster by stopping it when it is idle and starting it again when traffic returns. A database is a valid AutoStopping target only when AWS allows a stop operation on it, that is, when Harness can run `rds:StopDBInstance` on the instance or `rds:StopDBCluster` on the cluster.
+AutoStopping saves cost by stopping an RDS instance or Aurora cluster when it is idle and starting it again when traffic returns. Because stopping the database is how AutoStopping works, a database is a valid target only when AWS can stop it.
 
-AWS does not allow a stop on every configuration. For example, an Aurora cluster that has read replicas cannot be stopped, and in that case neither the cluster nor its member instances can be managed by AutoStopping. Eligibility depends on the database type and configuration, not on the Region, so a cluster that AWS can stop is a valid target whether it is Regional or Global.
+A database is supported when Harness can run the AWS stop operation on it:
 
-For the authoritative list of what can and cannot be stopped, go to the AWS documentation:
+* **RDS instance** — Harness can run `rds:StopDBInstance`.
+* **Aurora cluster** — Harness can run `rds:StopDBCluster`.
 
-* [Stopping an Amazon RDS DB instance temporarily — Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html#USER_StopInstance.Limitations)
-* [Stopping and starting an Aurora cluster — Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html#aurora-cluster-stop-limitations)
+A database is not supported when AWS blocks the stop operation. AutoStopping cannot manage these, for example:
+
+* An Aurora cluster that has read replicas. Neither the cluster nor its instances can be stopped.
+* Any other RDS or Aurora configuration that AWS does not allow to stop.
+
+Eligibility depends on the database type and configuration, not on the Region. A cluster that AWS can stop is a valid target whether it is Regional or Global.
+
+{% hint style="info" %}
+AWS maintains the authoritative list of databases that can and cannot be stopped. Go to [Stopping an RDS DB instance: Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html#USER_StopInstance.Limitations) and [Stopping an Aurora cluster: Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html#aurora-cluster-stop-limitations) to confirm your database is eligible before you create a rule.
+{% endhint %}
 
 ### Use Harness AutoStopping proxy for RDS <a href="#use-harness-autostopping-proxy-for-rds" id="use-harness-autostopping-proxy-for-rds"></a>
 
