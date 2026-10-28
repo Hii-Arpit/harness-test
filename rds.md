@@ -19,7 +19,7 @@ Harness AutoStopping Proxy provides an effective solution to reduce non-producti
 
 ### Supported RDS and Aurora databases <a href="#supported-rds-and-aurora-databases" id="supported-rds-and-aurora-databases"></a>
 
-AutoStopping saves cost by stopping an RDS instance or Aurora cluster when it is idle and starting it again when traffic returns. Because stopping the database is how AutoStopping works, a database is a valid target only when AWS can stop it.
+AutoStopping saves cost by stopping an RDS instance or Aurora cluster when it is idle and starting it again when traffic returns. This means AutoStopping can manage a database only if AWS allows that database to be stopped. If AWS cannot stop the database, AutoStopping cannot manage it.
 
 A database is supported when Harness can run the AWS stop operation on it:
 
