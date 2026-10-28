@@ -26,7 +26,12 @@ AutoStopping stops an RDS instance or Aurora cluster when it is idle and starts 
 | RDS instance   | `rds:StopDBInstance`          |
 | Aurora cluster | `rds:StopDBCluster`           |
 
-AWS does not allow every database to be stopped. For example, an Aurora cluster that has read replicas cannot be stopped, so AutoStopping cannot manage it. Eligibility depends on the database type and configuration, not on the Region. Go to [Stopping an RDS DB instance: Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html#USER_StopInstance.Limitations) and [Stopping an Aurora cluster: Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html#aurora-cluster-stop-limitations) to confirm your database can be stopped before you create a rule.
+AWS does not allow every database to be stopped. For example, an Aurora cluster that has read replicas cannot be stopped, so AutoStopping cannot manage it. Eligibility depends on the database type and configuration, not on the Region.
+
+Before you create a rule, confirm your database can be stopped in the AWS documentation:
+
+* [Stopping an RDS DB instance: Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html#USER_StopInstance.Limitations)
+* [Stopping an Aurora cluster: Limitations](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html#aurora-cluster-stop-limitations)
 
 ## Use Harness AutoStopping proxy for RDS <a href="#use-harness-autostopping-proxy-for-rds" id="use-harness-autostopping-proxy-for-rds"></a>
 
