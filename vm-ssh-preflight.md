@@ -111,7 +111,7 @@ Set up the script once on the shared host, then wire it into the way your users 
 
 With the script installed, the next step is to tell it how to reach your Harness account. The script reads these details, your account ID, the API endpoint, and an API key, from a configuration file.
 
-1. Create the configuration file. This command writes it to `/etc/harness/autostop-preflight.conf`:
+1. Create the configuration file:
 
    {% code overflow="wrap" %}
    ```sh
@@ -127,7 +127,7 @@ With the script installed, the next step is to tell it how to reach your Harness
    ```
    {% endcode %}
 
-   Replace `<your Harness account ID>` with your account ID. The `timeout` and `report_interval` values are sensible defaults, so you can leave them as they are. The file holds plain `key = value` text and is never run as a script.
+   This creates `/etc/harness/autostop-preflight.conf`. Replace `<your Harness account ID>` with your account ID, and leave `timeout` and `report_interval` at their defaults.
 
 2. Store your API key in its own file, kept separate from the configuration so the key is not exposed:
 
@@ -141,9 +141,9 @@ With the script installed, the next step is to tell it how to reach your Harness
    Replace `<your API key>` with your key. These commands make the file readable only by the user who runs the script, because the key can start VMs in your account. If anyone else can read it, group members included, the script refuses to use it.
 
 {% hint style="warning" %}
-The key file must be owned by the account that runs the script. If it is left owned by `root` and your engineers connect as `ec2-user` or `ubuntu`, the script cannot read the key, reports that it cannot, and hands over to `ssh` without starting the VM.
+### Key file ownership
 
-Do not work around this by running the script under `sudo`: `ssh` would then look for root's SSH keys instead of the user's.
+The key file must be owned by the user who runs the script. If `root` owns it while your engineers connect as `ec2-user` or `ubuntu`, the script cannot read the key and hands over to `ssh` without starting the VM. Do not run the script under `sudo` to work around this, because `ssh` would then use root's SSH keys instead of the user's.
 {% endhint %}
 
 Where several people share the host and a single owner-only file will not do, supply the key through the `HARNESS_API_KEY` environment variable instead, set from each user's profile or from your secret manager's agent. Never pass the key as a command-line argument; arguments are visible to every user on the host through `ps`.
