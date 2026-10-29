@@ -54,11 +54,11 @@ If anything goes wrong, for example the Harness API is unreachable, the script p
 
 Set up the following before you install the script:
 
-- **A VM-based AutoStopping rule** that covers the address your users connect to. Set a generous idle time so a short gap in activity reporting does not stop the VM mid-session. The default is 15 minutes. Go to [AutoStopping rules](../../cost-optimization/autostopping-rules/README.md) to create or review a rule.
-- **A shared host you control**, such as a bastion, jump box, build agent, or developer workstation, where you can install the script with `sudo` and where your users run `ssh`.
-- **A supported host OS:** RHEL, Ubuntu, or any Linux with `bash` and `curl`. `curl` is often absent on Ubuntu cloud images, so install it first.
+- **A VM-based [AutoStopping rule](../../cost-optimization/autostopping-rules/README.md)** that covers the address your users connect to. The default idle time of 15 minutes or more leaves margin for a missed activity report.
+- **A shared host you control** (bastion, jump box, build agent, or workstation) where you have `sudo` and where your users run `ssh`.
+- **A Linux host with `bash` and `curl`.** `curl` is often absent on Ubuntu cloud images, so install it first.
 - **Network access** from that host to `app.harness.io`, or your Harness cluster URL, on port 443.
-- **A Harness API key and your Harness account ID.** The key's role must be able to view the AutoStopping rules that cover your VMs and start those rules when a user connects. Viewing rules also requires **View** permission on **Connectors**. Use a key with a long or no expiration, because the script authenticates with it on every connection. Go to [Granular RBAC for AutoStopping](rbac-autostopping.md) to configure the role and resource group.
+- **A Harness API key and account ID.** The key's role must view and start the covering rules; see [Granular RBAC for AutoStopping](rbac-autostopping.md). Use a key with a long or no expiration.
 
 {% hint style="info" %}
 The rule must match the address your users connect to. Private IP addresses survive a stop and start and are the expected case. An automatically assigned public IP changes every time a VM restarts, so use a static or Elastic address if your users connect over the public network.
