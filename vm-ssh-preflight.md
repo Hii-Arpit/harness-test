@@ -55,7 +55,7 @@ If anything goes wrong, for example the Harness API is unreachable, the script p
 - **A VM-based [AutoStopping rule](../../cost-optimization/autostopping-rules/README.md)** that covers the address your users connect to. The default idle time of 15 minutes or more leaves margin for a missed activity report.
 - **A shared Linux host you control** (bastion, jump box, build agent, or workstation) where your users run `ssh` and where you have admin access to install the script. The script needs `bash` and `curl`, so confirm both are installed on the host and install them if they are not.
 - **Network access** from that host to `app.harness.io`, or your Harness cluster URL, on port 443.
-- **A Harness API key and account ID.** The key's role must view and start the covering rules; see [Granular RBAC for AutoStopping](rbac-autostopping.md). Use a key with a long or no expiration.
+- **A Harness API key and account ID.** The key's role must view and start the covering rules; see [Granular RBAC for AutoStopping](rbac-autostopping.md). Use a key with a long or no expiration. Go to [Add and manage API keys](https://developer.harness.io/harness-ai/use-harness-platform/automation/api/add-and-manage-api-keys) to create one.
 
 {% hint style="info" %}
 The rule must match the address your users connect to. Private IP addresses survive a stop and start and are the expected case. An automatically assigned public IP changes every time a VM restarts, so use a static or Elastic address if your users connect over the public network.
@@ -140,7 +140,7 @@ With the script installed, the next step is to tell it how to reach your Harness
 
    Replace `<your API key>` with your Harness API key. If you do not have one yet, go to [Add and manage API keys](https://developer.harness.io/harness-ai/use-harness-platform/automation/api/add-and-manage-api-keys) to create a key with the permissions listed in [Before you begin](#before-you-begin).
 
-   The command locks the file to the user who runs the script. Because the key can start VMs in your account, the script refuses to use the file if anyone else can read it, group members included.
+   The commands lock the file to the user who runs the script. Because the key can start VMs in your account, the script refuses to use the file if anyone else can read it, group members included.
 
 {% hint style="warning" %}
 ### Key file ownership
