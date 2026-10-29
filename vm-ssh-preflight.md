@@ -53,7 +53,7 @@ If anything goes wrong, for example the Harness API is unreachable, the script p
 ## Before you begin
 
 - **A VM-based [AutoStopping rule](../../cost-optimization/autostopping-rules/README.md)** that covers the address your users connect to. The default idle time of 15 minutes or more leaves margin for a missed activity report.
-- **A shared host you control** (bastion, jump box, build agent, or workstation) where you have `sudo`, where your users run `ssh`, and that has `bash` and `curl` installed.
+- **A shared Linux host you control** (bastion, jump box, build agent, or workstation) where your users run `ssh` and where you have admin access to install the script. The script needs `bash` and `curl`, so confirm both are installed on the host and install them if they are not.
 - **Network access** from that host to `app.harness.io`, or your Harness cluster URL, on port 443.
 - **A Harness API key and account ID.** The key's role must view and start the covering rules; see [Granular RBAC for AutoStopping](rbac-autostopping.md). Use a key with a long or no expiration.
 
