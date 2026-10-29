@@ -111,7 +111,7 @@ Set up the script once on the shared host, then wire it into the way your users 
 
 With the script installed, the next step is to tell it how to reach your Harness account. The script reads these details, your account ID, the API endpoint, and an API key, from a configuration file.
 
-1. Create the configuration file. It is read as plain `key = value` data and is never executed, so it cannot be used to run commands:
+1. Create the configuration file. This command writes it to `/etc/harness/autostop-preflight.conf`:
 
    {% code overflow="wrap" %}
    ```sh
@@ -127,7 +127,9 @@ With the script installed, the next step is to tell it how to reach your Harness
    ```
    {% endcode %}
 
-2. Store the API key in a file that only the user running the script can read. The script refuses a key file that anyone else can read, group-readable included, because the key can start VMs in your account:
+   Replace `<your Harness account ID>` with your account ID. The `timeout` and `report_interval` values are sensible defaults, so you can leave them as they are. The file holds plain `key = value` text and is never run as a script.
+
+2. Store your API key in its own file, kept separate from the configuration so the key is not exposed:
 
    {% code overflow="wrap" %}
    ```sh
@@ -135,6 +137,8 @@ With the script installed, the next step is to tell it how to reach your Harness
    sudo sh -c 'printf %s "<your API key>" > /etc/harness/autostop-api-key'
    ```
    {% endcode %}
+
+   Replace `<your API key>` with your key. These commands make the file readable only by the user who runs the script, because the key can start VMs in your account. If anyone else can read it, group members included, the script refuses to use it.
 
 {% hint style="warning" %}
 The key file must be owned by the account that runs the script. If it is left owned by `root` and your engineers connect as `ec2-user` or `ubuntu`, the script cannot read the key, reports that it cannot, and hands over to `ssh` without starting the VM.
