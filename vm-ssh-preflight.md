@@ -166,7 +166,7 @@ Set the variable in each user's shell profile, such as `.bashrc`, so it persists
 {% endtab %}
 {% endtabs %}
 
-Whichever method you use, never pass the key on the command line, for example `--api-key <key>`. Any user on the host can see running commands and their arguments with `ps`, so a key passed there is exposed to everyone. The key file and the environment variable both keep it hidden.
+With either method, do not supply the key as a command-line argument, such as `--api-key <key>`. Process arguments are visible to other users and processes on the host through the process list (`ps`), and they can be captured in shell history and system logs. The key file and the environment variable avoid this exposure, because the script reads the key without it ever appearing on the command line.
 
 ### Wire it into how people connect
 
