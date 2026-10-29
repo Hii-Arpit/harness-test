@@ -109,6 +109,8 @@ Set up the script once on the shared host, then wire it into the way your users 
 
 ### Configure the script
 
+With the script installed, the next step is to tell it how to reach your Harness account. The script reads these details, your account ID, the API endpoint, and an API key, from a configuration file.
+
 1. Create the configuration file. It is read as plain `key = value` data and is never executed, so it cannot be used to run commands:
 
    {% code overflow="wrap" %}
