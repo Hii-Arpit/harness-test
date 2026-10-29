@@ -152,7 +152,7 @@ The key file must be owned by the user who runs the script. If `root` owns it wh
 {% endtab %}
 
 {% tab title="Environment variable (shared host)" %}
-Use the `HARNESS_API_KEY` environment variable on a shared host, where several people log in under their own accounts. Each user sets the key in their own session, so no single owner-only file is needed. Each user can set it in their shell profile, such as `.bashrc`, or have a secret manager agent inject it at login:
+Use the `HARNESS_API_KEY` environment variable on a shared host, where several people log in under their own accounts. Each user supplies their own key in their own session, so no single owner-only file is needed:
 
 {% code overflow="wrap" %}
 ```sh
@@ -160,7 +160,9 @@ export HARNESS_API_KEY="<your API key>"
 ```
 {% endcode %}
 
-This keeps each person's key in their own environment, out of everyone else's reach. If you do not have a key yet, go to [Add and manage API keys](https://developer.harness.io/harness-ai/use-harness-platform/automation/api/add-and-manage-api-keys) to create one with the permissions listed in [Before you begin](#before-you-begin).
+Replace `<your API key>` with a Harness API key whose role can view and start the covering rules. If you do not have one yet, go to [Add and manage API keys](https://developer.harness.io/harness-ai/use-harness-platform/automation/api/add-and-manage-api-keys) to create a key with the permissions listed in [Before you begin](#before-you-begin).
+
+Set the variable in each user's shell profile, such as `.bashrc`, so it persists across sessions, or have a secret manager agent inject it at login. Either way, each person's key stays in their own environment, out of everyone else's reach.
 {% endtab %}
 {% endtabs %}
 
