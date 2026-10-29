@@ -71,6 +71,7 @@ Set up the script once on the shared host, then wire it into the way your users 
 
 1. Download the current version and verify its checksum:
 
+   {% code overflow="wrap" %}
    ```sh
    base=https://lightwing-downloads.s3.amazonaws.com/autostopping-ssh-preflight
    version=1.0.0
@@ -81,32 +82,36 @@ Set up the script once on the shared host, then wire it into the way your users 
    tar -xzf "harness-autostop-ssh-preflight-$version.tar.gz"
    cd "harness-autostop-ssh-preflight-$version"
    ```
+   {% endcode %}
 
-   The archive contains the script, a sample configuration file, and an offline copy of this page. The script is plain `bash`, so you can read it before installing. There is deliberately no one-line installer that pipes a download into a root shell.
+2. Install the script so users can run it but not change it. It is plain `bash`, so review it first if you want:
 
-2. Install it where users can run it but not modify it:
-
+   {% code overflow="wrap" %}
    ```sh
    sudo install -o root -g root -m 755 harness_autostop_ssh_proxy.sh \
        /usr/local/bin/harness-autostop-ssh-proxy
    ```
+   {% endcode %}
 
 3. Confirm the version:
 
+   {% code overflow="wrap" %}
    ```sh
    harness-autostop-ssh-proxy --version
    ```
+   {% endcode %}
 
-   You see output similar to this:
-
+   {% code overflow="wrap" %}
    ```
    harness-autostop-ssh-proxy 1.0.0
    ```
+   {% endcode %}
 
 ### Configure the script
 
 1. Create the configuration file. It is read as plain `key = value` data and is never executed, so it cannot be used to run commands:
 
+   {% code overflow="wrap" %}
    ```sh
    sudo mkdir -p /etc/harness
    sudo tee /etc/harness/autostop-preflight.conf >/dev/null <<'CONF'
@@ -118,13 +123,16 @@ Set up the script once on the shared host, then wire it into the way your users 
    CONF
    sudo chmod 644 /etc/harness/autostop-preflight.conf
    ```
+   {% endcode %}
 
 2. Store the API key in a file that only the user running the script can read. The script refuses a key file that anyone else can read, group-readable included, because the key can start VMs in your account:
 
+   {% code overflow="wrap" %}
    ```sh
    sudo install -m 600 -o "$USER" /dev/null /etc/harness/autostop-api-key
    sudo sh -c 'printf %s "<your API key>" > /etc/harness/autostop-api-key'
    ```
+   {% endcode %}
 
 {% hint style="warning" %}
 The key file must be owned by the account that runs the script. If it is left owned by `root` and your engineers connect as `ec2-user` or `ubuntu`, the script cannot read the key, reports that it cannot, and hands over to `ssh` without starting the VM.
@@ -168,17 +176,21 @@ This is the most reliable form, because the script knows exactly when the sessio
 1. Stop the VM through its AutoStopping rule and wait for the rule to show as stopped.
 2. Connect the way your users do, adding `--verbose` to watch what happens:
 
+   {% code overflow="wrap" %}
    ```sh
    harness-autostop-ssh-proxy --host 10.0.1.23 --verbose
    ```
+   {% endcode %}
 
    You see output similar to this:
 
+   {% code overflow="wrap" %}
    ```
    harness-autostop-ssh-proxy: starting 10.0.1.23, waiting up to 300s
    harness-autostop-ssh-proxy: 10.0.1.23 started after 21s
    harness-autostop-ssh-proxy: 10.0.1.23 is ready after 22s
    ```
+   {% endcode %}
 
 The connection then succeeds immediately. In the Harness UI the rule shows as active, and it stays active for as long as you remain connected.
 
