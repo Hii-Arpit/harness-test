@@ -32,20 +32,13 @@ SSH behaves differently. The `ssh` command expects a response within a few secon
 
 Increasing the `ssh` timeout is not a reliable workaround. The `ConnectTimeout` setting is often restricted by security policy, and a higher value slows down every failed connection, not only the first start.
 
-The pre-flight script runs before `ssh` and performs the wait itself. It starts the VM, waits until the VM is running and accepting SSH connections, and then runs your `ssh` command. Because the VM is already running when `ssh` connects, no timeout occurs and no SSH configuration changes are required.
+The pre-flight script removes the conflict by doing the waiting before `ssh` runs. By the time `ssh` connects, the VM is already up, so no timeout occurs and no SSH configuration changes are required.
 
 ---
 
 ## How it works
 
-When the script is installed and wired in, a connection to a stopped VM follows this path:
-
-1. A user runs their usual `ssh` command, or the wrapper or automation that calls the script.
-2. The script sends the target address to the AutoStopping API, which finds the rules covering that address and starts them.
-3. The script polls until Harness reports the VM running, then waits for the SSH port to answer. The cloud marks a VM running as soon as the hypervisor starts it, a few seconds before `sshd` is listening, so the script waits out that gap too.
-4. The script hands over, and the `ssh` command connects normally against a VM that is already up.
-5. A background process reports every two minutes that the session is alive, so AutoStopping does not treat the VM as idle while someone is connected.
-6. When the session ends, the background process stops reporting on its own, and the rule returns to its normal idle countdown.
+When a user connects to a stopped VM, the script starts the AutoStopping rules that cover the target address and waits until the VM is running and SSH is answering. It then hands over to `ssh`, which connects to a VM that is already up. While the session is open, the script reports activity every two minutes so AutoStopping does not treat the VM as idle and stop it mid-session. When the session ends, reporting stops and the rule resumes its normal idle countdown.
 
 {% hint style="info" %}
 The script only starts VMs and keeps them running. It cannot stop a VM, change a rule, or block a connection, and starting a VM grants no access to it: who may log in is still decided by the SSH accounts and keys on the VM. If anything fails, the script prints a short message and lets `ssh` run anyway, so the worst outcome of a failure is the behavior you have today.
