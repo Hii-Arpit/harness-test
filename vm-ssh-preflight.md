@@ -145,10 +145,15 @@ With the script installed, the next step is to tell it how to reach your Harness
 {% hint style="warning" %}
 ### Key file ownership
 
-The key file must be owned by the user who runs the script. If `root` owns it while your engineers connect as `ec2-user` or `ubuntu`, the script cannot read the key and hands over to `ssh` without starting the VM. Do not run the script under `sudo` to work around this, because `ssh` would then use root's SSH keys instead of the user's.
+The key file must be owned by the user who runs the script. If `root` owns it while your engineers connect as `ec2-user` or `ubuntu`, the script cannot read the key and hands over to `ssh` without starting the VM. Running the script under `sudo` is not a valid approach, because `ssh` would then run as `root` and use root's SSH keys instead of the user's, so the user's own key is never offered and the login fails.
 {% endhint %}
 
-Where several people share the host and a single owner-only file will not do, supply the key through the `HARNESS_API_KEY` environment variable instead, set from each user's profile or from your secret manager's agent. Never pass the key as a command-line argument; arguments are visible to every user on the host through `ps`.
+The script can read the key from either of two safe places:
+
+- **A key file (what you set up above).** Use this when one person runs the script. The file is readable only by its owner, so only that user can run the script. On a host that several people log in to under their own accounts, such as a shared bastion, the others cannot read the file.
+- **The `HARNESS_API_KEY` environment variable.** Use this on a shared host. Each user sets the variable in their own session, from their shell profile such as `.bashrc` or from a secret manager agent at login, so each person's key stays in their own environment.
+
+Do not supply the key in a third way: on the command line, for example `--api-key <key>`. Any user on the host can see running commands and their arguments with `ps`, so a key passed there is exposed to everyone. The key file and the environment variable both keep it hidden.
 
 ### Wire it into how people connect
 
