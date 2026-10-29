@@ -20,11 +20,13 @@ AutoStopping shuts down a VM when nobody is using it and starts it again when tr
 
 ## Why SSH needs a pre-flight step
 
-AutoStopping saves money by stopping idle VMs and restarting them on demand. For HTTP workloads the AutoStopping proxy makes this invisible: it holds the first request while the VM boots, so the user sees only a slightly slower page load.
+AutoStopping keeps your cloud bill down by putting idle VMs to sleep and waking them the moment someone needs them. For a website this happens behind the scenes: the AutoStopping proxy catches the first visitor's request, quietly starts the VM, and holds the request until the VM is ready. The visitor notices nothing more than one slow page load.
 
-SSH has no equivalent. OpenSSH's `ConnectTimeout` covers both the TCP connection and the start of the protocol handshake, so against a stopped VM `ssh` fails with `Connection timed out during banner exchange` within a few seconds, while the VM typically needs 30 to 60 seconds to boot and start `sshd`. Raising `ConnectTimeout` is often disallowed by a hardened SSH configuration, and it makes every genuine failure slow for everyone.
+SSH works differently. When you run `ssh`, it expects the server to answer almost at once and gives up after a few seconds if nothing responds. A sleeping VM needs 30 to 60 seconds to boot and start its SSH service (`sshd`), which is far longer than `ssh` is willing to wait, so the connection fails with `Connection timed out during banner exchange` before the VM has a chance to come up.
 
-Doing the wait before `ssh` starts avoids the conflict. By the time `ssh` runs, the VM is already up, so no timeout is involved and no SSH setting changes.
+You cannot simply tell `ssh` to wait longer. The setting that controls this (`ConnectTimeout`) is often locked down by security policy, and stretching it would make every genuine connection failure slow for everyone, not just the first wake-up.
+
+The pre-flight script solves this by doing the waiting first, before `ssh` ever runs. It wakes the VM, watches until the VM is fully up and accepting SSH, and only then lets your normal `ssh` command through. By the time `ssh` connects, the VM is already awake, so nothing times out and no SSH settings have to change.
 
 {% hint style="info" %}
 If your users can be given a new connection command, the AutoStopping proxy's [TCP mode](../../references/onboarding/autostopping/proxy.md) is simpler: it listens on a per-rule port and needs no script. The pre-flight script is for the case where the `ssh` command cannot change, including the hostname or IP that people have memorised, scripted, and put in their `~/.ssh/config`.
