@@ -67,58 +67,64 @@ The rule must match the address your users connect to. Private IP addresses surv
 
 Set up the script once on the shared host, then wire it into the way your users already connect.
 
-{% stepper %}
-{% step %}
 ### Install the script
 
-Download the current version and verify its checksum:
+1. Download the current version and verify its checksum:
 
-```sh
-base=https://lightwing-downloads.s3.amazonaws.com/autostopping-ssh-preflight
-version=1.0.0
+   ```sh
+   base=https://lightwing-downloads.s3.amazonaws.com/autostopping-ssh-preflight
+   version=1.0.0
 
-curl -fsSLO "$base/harness-autostop-ssh-preflight-$version.tar.gz"
-curl -fsSLO "$base/harness-autostop-ssh-preflight-$version.tar.gz.sha256"
-sha256sum -c "harness-autostop-ssh-preflight-$version.tar.gz.sha256"
-tar -xzf "harness-autostop-ssh-preflight-$version.tar.gz"
-cd "harness-autostop-ssh-preflight-$version"
-```
+   curl -fsSLO "$base/harness-autostop-ssh-preflight-$version.tar.gz"
+   curl -fsSLO "$base/harness-autostop-ssh-preflight-$version.tar.gz.sha256"
+   sha256sum -c "harness-autostop-ssh-preflight-$version.tar.gz.sha256"
+   tar -xzf "harness-autostop-ssh-preflight-$version.tar.gz"
+   cd "harness-autostop-ssh-preflight-$version"
+   ```
 
-The archive contains the script, a sample configuration file, and an offline copy of this page. The script is plain `bash` and is meant to be read before you install it; there is deliberately no one-line installer that pipes a download into a root shell.
+   The archive contains the script, a sample configuration file, and an offline copy of this page. The script is plain `bash`, so you can read it before installing. There is deliberately no one-line installer that pipes a download into a root shell.
 
-Install it where its users can run it but not modify it:
+2. Install it where users can run it but not modify it:
 
-```sh
-sudo install -o root -g root -m 755 harness_autostop_ssh_proxy.sh \
-    /usr/local/bin/harness-autostop-ssh-proxy
+   ```sh
+   sudo install -o root -g root -m 755 harness_autostop_ssh_proxy.sh \
+       /usr/local/bin/harness-autostop-ssh-proxy
+   ```
 
-harness-autostop-ssh-proxy --version
-```
-{% endstep %}
+3. Confirm the version:
 
-{% step %}
+   ```sh
+   harness-autostop-ssh-proxy --version
+   ```
+
+   You see output similar to this:
+
+   ```
+   harness-autostop-ssh-proxy 1.0.0
+   ```
+
 ### Configure the script
 
-Create the configuration file. It is read as plain `key = value` data and is never executed, so it cannot be used to run commands:
+1. Create the configuration file. It is read as plain `key = value` data and is never executed, so it cannot be used to run commands:
 
-```sh
-sudo mkdir -p /etc/harness
-sudo tee /etc/harness/autostop-preflight.conf >/dev/null <<'CONF'
-account_id      = <your Harness account ID>
-api_url         = https://app.harness.io/gateway/lw/api
-api_key_file    = /etc/harness/autostop-api-key
-timeout         = 300
-report_interval = 120
-CONF
-sudo chmod 644 /etc/harness/autostop-preflight.conf
-```
+   ```sh
+   sudo mkdir -p /etc/harness
+   sudo tee /etc/harness/autostop-preflight.conf >/dev/null <<'CONF'
+   account_id      = <your Harness account ID>
+   api_url         = https://app.harness.io/gateway/lw/api
+   api_key_file    = /etc/harness/autostop-api-key
+   timeout         = 300
+   report_interval = 120
+   CONF
+   sudo chmod 644 /etc/harness/autostop-preflight.conf
+   ```
 
-Then store the API key in a file that only the user running the script can read. The script refuses a key file that anyone else can read, group-readable included, because the key can start VMs in your account:
+2. Store the API key in a file that only the user running the script can read. The script refuses a key file that anyone else can read, group-readable included, because the key can start VMs in your account:
 
-```sh
-sudo install -m 600 -o "$USER" /dev/null /etc/harness/autostop-api-key
-sudo sh -c 'printf %s "<your API key>" > /etc/harness/autostop-api-key'
-```
+   ```sh
+   sudo install -m 600 -o "$USER" /dev/null /etc/harness/autostop-api-key
+   sudo sh -c 'printf %s "<your API key>" > /etc/harness/autostop-api-key'
+   ```
 
 {% hint style="warning" %}
 The key file must be owned by the account that runs the script. If it is left owned by `root` and your engineers connect as `ec2-user` or `ubuntu`, the script cannot read the key, reports that it cannot, and hands over to `ssh` without starting the VM.
@@ -127,9 +133,7 @@ Do not work around this by running the script under `sudo`: `ssh` would then loo
 {% endhint %}
 
 Where several people share the host and a single owner-only file will not do, supply the key through the `HARNESS_API_KEY` environment variable instead, set from each user's profile or from your secret manager's agent. Never pass the key as a command-line argument; arguments are visible to every user on the host through `ps`.
-{% endstep %}
 
-{% step %}
 ### Wire it into how people connect
 
 Choose the pattern that matches how your users connect today.
@@ -158,23 +162,25 @@ harness-autostop-ssh-proxy --host 10.0.1.23 -- ssh 10.0.1.23 'systemctl status m
 ```
 
 This is the most reliable form, because the script knows exactly when the session ends. It is the right choice for cron jobs, CI steps, and backup scripts.
-{% endstep %}
 
-{% step %}
 ### Verify it
 
-Stop the VM through its AutoStopping rule, wait for the rule to show as stopped, then connect the way your users do. With `--verbose` you can watch what happens:
+1. Stop the VM through its AutoStopping rule and wait for the rule to show as stopped.
+2. Connect the way your users do, adding `--verbose` to watch what happens:
 
-```
-$ harness-autostop-ssh-proxy --host 10.0.1.23 --verbose
-harness-autostop-ssh-proxy: starting 10.0.1.23, waiting up to 300s
-harness-autostop-ssh-proxy: 10.0.1.23 started after 21s
-harness-autostop-ssh-proxy: 10.0.1.23 is ready after 22s
-```
+   ```sh
+   harness-autostop-ssh-proxy --host 10.0.1.23 --verbose
+   ```
+
+   You see output similar to this:
+
+   ```
+   harness-autostop-ssh-proxy: starting 10.0.1.23, waiting up to 300s
+   harness-autostop-ssh-proxy: 10.0.1.23 started after 21s
+   harness-autostop-ssh-proxy: 10.0.1.23 is ready after 22s
+   ```
 
 The connection then succeeds immediately. In the Harness UI the rule shows as active, and it stays active for as long as you remain connected.
-{% endstep %}
-{% endstepper %}
 
 ---
 
