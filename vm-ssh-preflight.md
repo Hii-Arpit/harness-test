@@ -170,7 +170,7 @@ With either method, do not supply the key as a command-line argument, such as `-
 
 ### Wire it into how people connect
 
-Choose the pattern that matches how your users connect today.
+With the script installed and configured, the remaining step is to make it run automatically before `ssh` connects. On its own the script does nothing until something invokes it, so you wire it into the path your users already use to reach the VM. Each pattern below calls the script first, so the VM is running by the time `ssh` opens the session. Choose the one that matches how your users connect today.
 
 {% tabs %}
 {% tab title="Wrapper script" %}
