@@ -172,30 +172,44 @@ With either method, do not supply the key as a command-line argument, such as `-
 
 Choose the pattern that matches how your users connect today.
 
-**Through a wrapper script.** Add one line above the existing `ssh` command. Nothing else changes:
+{% tabs %}
+{% tab title="Wrapper script" %}
+Add one line above the existing `ssh` command in your wrapper. Nothing else changes:
 
+{% code overflow="wrap" %}
 ```sh
 harness-autostop-ssh-proxy --host "$target" || true
 ssh "$target" "$@"
 ```
+{% endcode %}
 
 The `|| true` is a safeguard: the script already succeeds on every failure path, but it makes the intent plain to whoever reads the wrapper next. If the wrapper ends in `exec ssh …`, activity reporting follows the wrapper's process, and `exec` keeps the same process, so reporting tracks the SSH session and stops when it ends.
+{% endtab %}
 
-**Directly with `ssh`.** Use OpenSSH's own `Match exec` to run the script before any connection to the managed hosts. Each user adds this to `~/.ssh/config`, or you add it to `/etc/ssh/ssh_config`:
+{% tab title="SSH config (Match exec)" %}
+Use OpenSSH's own `Match exec` to run the script before any connection to the managed hosts. Each user adds this to `~/.ssh/config`, or you add it to `/etc/ssh/ssh_config`:
 
-```
+{% code overflow="wrap" %}
+```text
 Match host 10.0.1.* exec "harness-autostop-ssh-proxy --host %h --port %p"
 ```
+{% endcode %}
 
 `ssh` runs the `exec` command before connecting, so the VM is started and ready by the time the connection is attempted. Users keep typing `ssh 10.0.1.23` exactly as they do today.
+{% endtab %}
 
-**For automation and one-off commands.** Let the script run the command itself, so it tracks that command's lifetime precisely:
+{% tab title="Automation and one-off commands" %}
+Let the script run the command itself, so it tracks that command's lifetime precisely:
 
+{% code overflow="wrap" %}
 ```sh
 harness-autostop-ssh-proxy --host 10.0.1.23 -- ssh 10.0.1.23 'systemctl status myapp'
 ```
+{% endcode %}
 
 This is the most reliable form, because the script knows exactly when the session ends. It is the right choice for cron jobs, CI steps, and backup scripts.
+{% endtab %}
+{% endtabs %}
 
 ### Verify it
 
