@@ -138,7 +138,7 @@ With the script installed, the next step is to tell it how to reach your Harness
    ```
    {% endcode %}
 
-   Replace `<your API key>` with your key. These commands make the file readable only by the user who runs the script, because the key can start VMs in your account. If anyone else can read it, group members included, the script refuses to use it.
+   Replace `<your API key>` with a Harness API key. Go to [Add and manage API keys](https://developer.harness.io/harness-ai/use-harness-platform/automation/api/add-and-manage-api-keys) to create one with the permissions listed in [Before you begin](#before-you-begin). These commands make the file readable only by the user who runs the script, because the key can start VMs in your account. If anyone else can read it, group members included, the script refuses to use it.
 
 {% hint style="warning" %}
 ### Key file ownership
