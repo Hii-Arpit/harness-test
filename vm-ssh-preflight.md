@@ -129,31 +129,42 @@ With the script installed, the next step is to tell it how to reach your Harness
 
    This creates `/etc/harness/autostop-preflight.conf`. Replace `<your Harness account ID>` with your account ID, and leave `timeout` and `report_interval` at their defaults.
 
-2. Store your API key in its own file, kept separate from the configuration so the key is not exposed:
+2. Provide your API key. The script reads it from one of two safe places. Choose the one that fits your host:
 
-   {% code overflow="wrap" %}
-   ```sh
-   sudo install -m 600 -o "$USER" /dev/null /etc/harness/autostop-api-key
-   sudo sh -c 'printf %s "<your API key>" > /etc/harness/autostop-api-key'
-   ```
-   {% endcode %}
+{% tabs %}
+{% tab title="Key file (single user)" %}
+Use a key file when a single user runs the script. Store the key in its own file, kept separate from the configuration so it is not exposed:
 
-   Replace `<your API key>` with your Harness API key. If you do not have one yet, go to [Add and manage API keys](https://developer.harness.io/harness-ai/use-harness-platform/automation/api/add-and-manage-api-keys) to create a key with the permissions listed in [Before you begin](#before-you-begin).
+{% code overflow="wrap" %}
+```sh
+sudo install -m 600 -o "$USER" /dev/null /etc/harness/autostop-api-key
+sudo sh -c 'printf %s "<your API key>" > /etc/harness/autostop-api-key'
+```
+{% endcode %}
 
-   The commands lock the file to the user who runs the script. Because the key can start VMs in your account, the script refuses to use the file if anyone else can read it, group members included.
+Replace `<your API key>` with your Harness API key. If you do not have one yet, go to [Add and manage API keys](https://developer.harness.io/harness-ai/use-harness-platform/automation/api/add-and-manage-api-keys) to create a key with the permissions listed in [Before you begin](#before-you-begin). The commands lock the file to its owner, so only that user can run the script.
 
 {% hint style="warning" %}
 ### Key file ownership
 
 The key file must be owned by the user who runs the script. If `root` owns it while your engineers connect as `ec2-user` or `ubuntu`, the script cannot read the key and hands over to `ssh` without starting the VM. Running the script under `sudo` is not a valid approach, because `ssh` would then run as `root` and use root's SSH keys instead of the user's, so the user's own key is never offered and the login fails.
 {% endhint %}
+{% endtab %}
 
-The script can read the key from either of two safe places:
+{% tab title="Environment variable (shared host)" %}
+Use the `HARNESS_API_KEY` environment variable on a shared host, where several people log in under their own accounts. Each user sets the key in their own session, so no single owner-only file is needed. Each user can set it in their shell profile, such as `.bashrc`, or have a secret manager agent inject it at login:
 
-- **A key file (what you set up above).** Use this when one person runs the script. The file is readable only by its owner, so only that user can run the script. On a host that several people log in to under their own accounts, such as a shared bastion, the others cannot read the file.
-- **The `HARNESS_API_KEY` environment variable.** Use this on a shared host. Each user sets the variable in their own session, from their shell profile such as `.bashrc` or from a secret manager agent at login, so each person's key stays in their own environment.
+{% code overflow="wrap" %}
+```sh
+export HARNESS_API_KEY="<your API key>"
+```
+{% endcode %}
 
-Do not supply the key in a third way: on the command line, for example `--api-key <key>`. Any user on the host can see running commands and their arguments with `ps`, so a key passed there is exposed to everyone. The key file and the environment variable both keep it hidden.
+This keeps each person's key in their own environment, out of everyone else's reach. If you do not have a key yet, go to [Add and manage API keys](https://developer.harness.io/harness-ai/use-harness-platform/automation/api/add-and-manage-api-keys) to create one with the permissions listed in [Before you begin](#before-you-begin).
+{% endtab %}
+{% endtabs %}
+
+Whichever method you use, never pass the key on the command line, for example `--api-key <key>`. Any user on the host can see running commands and their arguments with `ps`, so a key passed there is exposed to everyone. The key file and the environment variable both keep it hidden.
 
 ### Wire it into how people connect
 
