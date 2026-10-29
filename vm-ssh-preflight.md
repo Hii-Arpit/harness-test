@@ -7,6 +7,12 @@ description: Use the AutoStopping SSH pre-flight script to reach a stopped VM wi
 
 AutoStopping shuts down a VM when nobody is using it and starts it again when traffic arrives. For HTTP workloads this is transparent, but a plain `ssh` command gives up before a stopped VM can finish starting. The SSH pre-flight script closes that gap: it starts the VM, waits for it to accept connections, and then lets your normal `ssh` command run without any change.
 
+{% hint style="success" %}
+### Consider TCP mode instead
+
+If your users can adopt a new connection command, the AutoStopping proxy's [TCP mode](../../references/onboarding/autostopping/proxy.md) is simpler and needs no script. Use the pre-flight script only when the `ssh` command must stay the same.
+{% endhint %}
+
 ---
 
 ## What you will learn from this topic
@@ -27,10 +33,6 @@ SSH behaves differently. The `ssh` command expects a response within a few secon
 Increasing the `ssh` timeout is not a reliable workaround. The `ConnectTimeout` setting is often restricted by security policy, and a higher value slows down every failed connection, not only the first start.
 
 The pre-flight script runs before `ssh` and performs the wait itself. It starts the VM, waits until the VM is running and accepting SSH connections, and then runs your `ssh` command. Because the VM is already running when `ssh` connects, no timeout occurs and no SSH configuration changes are required.
-
-{% hint style="info" %}
-If your users can be given a new connection command, the AutoStopping proxy's [TCP mode](../../references/onboarding/autostopping/proxy.md) is simpler: it listens on a per-rule port and needs no script. The pre-flight script is for the case where the `ssh` command cannot change, including the hostname or IP that people have memorised, scripted, and put in their `~/.ssh/config`.
-{% endhint %}
 
 ---
 
