@@ -41,7 +41,11 @@ The pre-flight script removes the conflict by doing the waiting before `ssh` run
 When a user connects to a stopped VM, the script starts the AutoStopping rules that cover the target address and waits until the VM is running and SSH is answering. It then hands over to `ssh`, which connects to a VM that is already up. While the session is open, the script reports activity every two minutes so AutoStopping does not treat the VM as idle and stop it mid-session. When the session ends, reporting stops and the rule resumes its normal idle countdown.
 
 {% hint style="info" %}
-The script only starts VMs and keeps them running. It cannot stop a VM, change a rule, or block a connection, and starting a VM grants no access to it: who may log in is still decided by the SSH accounts and keys on the VM. If anything fails, the script prints a short message and lets `ssh` run anyway, so the worst outcome of a failure is the behavior you have today.
+### What the script can and cannot do
+
+The script can only start VMs and keep them running while someone is connected. It cannot stop a VM, change an AutoStopping rule, or block anyone's connection. Starting a VM does not grant access to it either: as always, only the SSH accounts and keys on the VM decide who can log in.
+
+If anything goes wrong, for example the Harness API is unreachable, the script prints a short message and runs `ssh` anyway. The worst that can happen is the same behavior you have today without it.
 {% endhint %}
 
 ---
