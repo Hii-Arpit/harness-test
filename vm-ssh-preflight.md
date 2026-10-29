@@ -11,10 +11,10 @@ AutoStopping shuts down a VM when nobody is using it and starts it again when tr
 
 ## What you will learn from this topic
 
-- **The problem:** Why SSH connections fail against stopped AutoStopping VMs, and how the pre-flight script fixes it.
-- **How it works:** The connection flow once the script is set up.
-- **Setup:** How to install, configure, and wire the script into the way your users already connect.
-- **Operations:** How to verify it, troubleshoot common issues, and what the current limitations are.
+- Why SSH connections fail against stopped AutoStopping VMs, and how the pre-flight script fixes it.
+- How the connection flow works once the script is set up.
+- How to install, configure, and wire the script into the way your users already connect.
+- How to verify it, troubleshoot common issues, and what the current limitations are.
 
 ---
 
