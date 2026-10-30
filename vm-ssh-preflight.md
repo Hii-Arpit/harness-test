@@ -168,6 +168,8 @@ Set the variable in each user's shell profile, such as `.bashrc`, so it persists
 
 With either method, do not supply the key as a command-line argument, such as `--api-key <key>`. Process arguments are visible to other users and processes on the host through the process list (`ps`), and they can be captured in shell history and system logs. The key file and the environment variable avoid this exposure, because the script reads the key without it ever appearing on the command line.
 
+Navigate to [Command-line options](#command-line-options) for the full list of options, their defaults, and the configuration keys and environment variables that set them.
+
 ### Wire it into how people connect
 
 With the script installed and configured, the remaining step is to make it run automatically before `ssh` connects. The script does not run on its own; it has to be triggered when a user connects. You wire it into your users' existing `ssh` workflow, so their connection runs it automatically and the VM is up by the time `ssh` opens the session. Select the tab that matches how your users connect: **a shared wrapper script**, **a direct `ssh` command**, or **an automated job**.
