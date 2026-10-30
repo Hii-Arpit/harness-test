@@ -38,12 +38,12 @@ The pre-flight script removes the conflict by doing the waiting before `ssh` run
 
 ## How it works
 
-When a user connects to a stopped VM, the script starts the AutoStopping rules that cover the target address and waits until the VM is running and SSH is answering. It then hands over to `ssh`, which connects to a VM that is already up. While the session is open, the script reports activity every two minutes so AutoStopping does not treat the VM as idle and stop it mid-session. When the last session ends, the script waits for a short cooldown period and then stops the VM.
+When a user connects to a stopped VM, the script starts the AutoStopping rules that cover the target address and waits until the VM is running and SSH is answering. It then hands over to `ssh`, which connects to a VM that is already up. While the session is open, the script reports activity every two minutes so AutoStopping does not treat the VM as idle and stop it mid-session. When the last session ends, the script stops reporting. The rule's idle timer then runs out as it would for any idle VM, and AutoStopping stops it.
 
 {% hint style="info" %}
 ### What the script can and cannot do
 
-The script starts VMs, keeps them running while someone is connected, and stops them a short time after the last session ends. It cannot change an AutoStopping rule or block anyone's connection. Starting a VM does not grant access to it either: as always, only the SSH accounts and keys on the VM decide who can log in.
+The script starts VMs and keeps them running while someone is connected. When the last session ends, it stops reporting activity, so the rule's idle timer stops the VM the same way it stops any idle VM. The script does not stop VMs itself, change an AutoStopping rule, or block anyone's connection. Starting a VM does not grant access to it either: as always, only the SSH accounts and keys on the VM decide who can log in.
 
 If anything goes wrong, for example the Harness API is unreachable, the script prints a short message and runs `ssh` anyway. The worst that can happen is the same behavior you have today without it.
 {% endhint %}
