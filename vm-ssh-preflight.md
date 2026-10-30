@@ -38,12 +38,12 @@ The pre-flight script removes the conflict by doing the waiting before `ssh` run
 
 ## How it works
 
-When a user connects to a stopped VM, the script starts the AutoStopping rules that cover the target address and waits until the VM is running and SSH is answering. It then hands over to `ssh`, which connects to a VM that is already up. While the session is open, the script reports activity every two minutes so AutoStopping does not treat the VM as idle and stop it mid-session. When the session ends, reporting stops and the rule resumes its normal idle countdown.
+When a user connects to a stopped VM, the script starts the AutoStopping rules that cover the target address and waits until the VM is running and SSH is answering. It then hands over to `ssh`, which connects to a VM that is already up. While the session is open, the script reports activity every two minutes so AutoStopping does not treat the VM as idle and stop it mid-session. When the last session ends, the script waits for a short cooldown period and then stops the VM.
 
 {% hint style="info" %}
 ### What the script can and cannot do
 
-The script can only start VMs and keep them running while someone is connected. It cannot stop a VM, change an AutoStopping rule, or block anyone's connection. Starting a VM does not grant access to it either: as always, only the SSH accounts and keys on the VM decide who can log in.
+The script starts VMs, keeps them running while someone is connected, and stops them a short time after the last session ends. It cannot change an AutoStopping rule or block anyone's connection. Starting a VM does not grant access to it either: as always, only the SSH accounts and keys on the VM decide who can log in.
 
 If anything goes wrong, for example the Harness API is unreachable, the script prints a short message and runs `ssh` anyway. The worst that can happen is the same behavior you have today without it.
 {% endhint %}
@@ -325,7 +325,7 @@ Run the script with `--verbose`. If it reports no matching rule, the address you
 
 <summary>The VM starts but the connection still fails</summary>
 
-The script waited for the SSH port and gave up within the timeout, which usually means a security group or firewall is blocking the port from this host. The connection would have failed anyway; the script only makes it fail later. Check that `--timeout` is not set too low as well.
+The script waited for the SSH port until the timeout elapsed, which usually means a security group or firewall is blocking the port from this host. The connection would have failed anyway; the script only makes it fail later. Check that `--timeout` is not set too low as well.
 
 </details>
 
@@ -352,13 +352,13 @@ When Harness cannot start a rule for a session, the reason is recorded in that r
 - **Addresses translated in transit do not match.** The address must be one Harness can see on the VM. Addresses translated by NAT or PrivateLink never match, and the script falls through to a plain `ssh`.
 - **Dynamic public IPs are unreliable.** An automatically assigned public IP changes on every restart, so a remembered public address does not reach the VM regardless of this script. Use static or private addresses.
 - **A killed reporter can end a session early.** If the reporting process is killed without the session ending, the VM may be stopped mid-session. A generous idle time on the rule is the mitigation.
-- **It covers SSH and anything built on it.** SFTP, SCP, rsync, `git` over SSH, and port forwarding are all covered. It is not specific to interactive logins.
+- **Coverage is by TCP port, not by protocol.** The script starts the VM and waits for the SSH port, so anything carried over SSH, such as SFTP, SCP, rsync, `git` over SSH, and port forwarding, is covered. It cannot distinguish one SSH-based protocol from another, and it does not detect activity on ports other than the one it checks.
 
 ---
 
 ## Next steps
 
-You have set up SSH pre-flight access on your shared host, and your users can reach AutoStopping-managed VMs over SSH without changing their `ssh` command or losing the savings from stopping idle VMs.
+You have set up SSH pre-flight access on your shared host, and your users can reach AutoStopping-managed VMs over SSH with little or no change to how they connect and without losing the savings from stopping idle VMs.
 
 - [AutoStopping idle VMs behind a reverse proxy](vm-reverse-proxy.md): Apply the same warm-up behavior to HTTP workloads behind a proxy.
 - [AutoStopping rules](../../cost-optimization/autostopping-rules/README.md): Review and tune the rules that cover your VMs.
