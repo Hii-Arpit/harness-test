@@ -240,52 +240,22 @@ The connection then succeeds immediately. In the Harness UI the rule shows as ac
 
 ## Command-line options
 
-Most options can also be set in the configuration file or the environment, so the connection command itself needs nothing but `--host`. Each group below notes which configuration keys and environment variables apply.
+Every option can also be set in the configuration file or the environment, so the connection command itself needs nothing but `--host`.
 
-**Targeting**
-
-| Option | Description | Default |
-| --- | --- | --- |
-| `--host <address>` | Address of the VM to start and wait for. The only required option. | required |
-| `--port <port>` | TCP port checked to confirm the VM is accepting SSH. Set it if `sshd` listens on a non-standard port. | `22` |
-
-`--host` and `--port` are set on the command line only; they have no configuration key or environment variable.
-
-**Account and authentication**
-
-| Option | Description | Default |
-| --- | --- | --- |
-| `--account-id <id>` | Harness account that owns the AutoStopping rules. | N/A |
-| `--api-url <url>` | Harness API endpoint the script calls to start rules. Override it only for a different cluster or a self-managed URL. | `https://app.harness.io/gateway/lw/api` |
-| `--api-key-file <path>` | Path to the file that holds the API key. | N/A |
-| `--config <path>` | Path to the configuration file, if you keep it outside the standard location. | `/etc/harness/autostop-preflight.conf` |
-
-Each of these can also be set outside the command line:
-
-- `--account-id`: configuration key `account_id`, environment variable `HARNESS_ACCOUNT_ID`.
-- `--api-url`: configuration key `api_url`, environment variable `HARNESS_AUTOSTOP_API_URL`.
-- `--api-key-file`: configuration key `api_key_file`, environment variable `HARNESS_API_KEY_FILE`.
-- `--config`: environment variable `HARNESS_AUTOSTOP_CONFIG` (no configuration key).
-
-**Timing and behavior**
-
-| Option | Description | Default |
-| --- | --- | --- |
-| `--timeout <secs>` | How long to wait for the VM to accept SSH before handing over to `ssh`. Raise it for VMs that boot slowly. | `300` |
-| `--report-interval <secs>` | How often the script reports activity so AutoStopping does not stop the VM mid-session. | `120` |
-| `--no-report` | Start the VM but do not keep reporting activity, for a one-off command where the rule's idle timer can stop it soon after. | off |
-
-`--timeout` and `--report-interval` can also be set in the configuration file as `timeout` and `report_interval`. `--no-report` is set on the command line only. None of the timing options has an environment variable.
-
-**Diagnostics**
-
-| Option | Description | Default |
-| --- | --- | --- |
-| `--log-file <path>` | Write diagnostic output to a file instead of discarding it, for example to attach to a support ticket. | discard |
-| `--verbose` | Print each step as it runs: starting, waiting, and ready. | off |
-| `--version` | Print the installed version and exit. | N/A |
-
-`--log-file` can also be set as configuration key `log_file` or environment variable `HARNESS_AUTOSTOP_LOG`. `--verbose` and `--version` are set on the command line only.
+| Option | Configuration key | Environment variable | Default |
+| --- | --- | --- | --- |
+| `--host <address>` |  |  | required |
+| `--port <port>` |  |  | `22` |
+| `--account-id <id>` | `account_id` | `HARNESS_ACCOUNT_ID` |  |
+| `--api-url <url>` | `api_url` | `HARNESS_AUTOSTOP_API_URL` | `https://app.harness.io/gateway/lw/api` |
+| `--api-key-file <path>` | `api_key_file` | `HARNESS_API_KEY_FILE` |  |
+| `--config <path>` |  | `HARNESS_AUTOSTOP_CONFIG` | `/etc/harness/autostop-preflight.conf` |
+| `--timeout <secs>` | `timeout` |  | `300` |
+| `--report-interval <secs>` | `report_interval` |  | `120` |
+| `--log-file <path>` | `log_file` | `HARNESS_AUTOSTOP_LOG` | discard |
+| `--no-report` |  |  | off |
+| `--verbose` |  |  | off |
+| `--version` |  |  |  |
 
 The API key itself is read only from `HARNESS_API_KEY` or from the key file. It is never accepted as an argument.
 
