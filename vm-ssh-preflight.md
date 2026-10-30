@@ -170,7 +170,7 @@ With either method, do not supply the key as a command-line argument, such as `-
 
 ### Wire it into how people connect
 
-With the script installed and configured, the remaining step is to make it run automatically before `ssh` connects. On its own the script does nothing until something invokes it, so you wire it into the path your users already use to reach the VM. Each pattern below calls the script first, so the VM is running by the time `ssh` opens the session. Choose the one that matches how your users connect today.
+With the script installed and configured, the remaining step is to make it run automatically before `ssh` connects. The script does not run on its own; it has to be triggered when a user connects. You wire it into your users' existing `ssh` workflow, so their connection runs it automatically and the VM is up by the time `ssh` opens the session. Select the tab that matches how your users connect: a shared wrapper script, a direct `ssh` command, or an automated job.
 
 {% tabs %}
 {% tab title="Wrapper script" %}
