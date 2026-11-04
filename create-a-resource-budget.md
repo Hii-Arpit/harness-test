@@ -14,7 +14,7 @@ Go to [Budgets](../../concepts/budgets.md) to compare a resource budget with a u
 
 - **Scope:** How to attach a budget to one cost view and a folder.
 - **Period and amount:** How to set the budget period, start date, amount, and an optional growth rate.
-- **Alerts:** How to add the first alert before you save. Later changes are on [Alerts and notifications](alerts-and-notifications.md).
+- **Alerts:** How to add the first alert before you save. Later changes are on [Manage resource budgets](manage-resource-budgets.md#change-alerts).
 
 ---
 
@@ -22,7 +22,7 @@ Go to [Budgets](../../concepts/budgets.md) to compare a resource budget with a u
 
 - **A cost view:** The budget tracks cost in one cost view. Go to [Create a cost view](../../cost-visibility/cost-views/create-a-cost-view.md) to create one.
 - **Budgets: Edit:** You need this permission to create a budget. An administrator assigns it with a role. Go to [Budgets](../../concepts/budgets.md#access-and-auditing) to review budget permissions.
-- **Folder access:** You need access to the folder you save the budget in. People who cannot open that folder cannot view the budget or its cost view. Go to [Folders](folders.md) to organize folders.
+- **Folder access:** You need access to the folder you save the budget in. People who cannot open that folder cannot view the budget or its cost view. Go to [Organize budgets in folders](manage-resource-budgets.md#organize-budgets-in-folders) to manage folders.
 
 ---
 
@@ -74,7 +74,7 @@ Click **Next**. Click **Back** to return to **Define scope**.
 {% step %}
 ### Setup alerts
 
-Add the alerts to send when you save. You can also save with no alerts and add them later. Go to [Alerts and notifications](alerts-and-notifications.md) to change alerts on a budget that already exists.
+Add the alerts to send when you save. You can also save with no alerts and add them later. Go to [Change alerts](manage-resource-budgets.md#change-alerts) to update alerts on a budget that already exists.
 
 ![Setup alerts step, with one alert for when actual spend exceeds a percentage of the monthly budget, sent by email](../../.gitbook/assets/budgets-new-budget-alerts.png)
 
@@ -101,8 +101,6 @@ Click **Save** to create the budget. Click **Cancel** to close the panel without
 
 The budget appears on the **Resource budgets** tab.
 
-- Go to [Manage resource budgets](manage-resource-budgets.md) to find the budget, read its status, and open budget history.
-- Go to [Alerts and notifications](alerts-and-notifications.md) to change thresholds, recipients, or subscriptions after you save.
-- Go to [Folders](folders.md) to move the budget to another folder.
+- Go to [Manage resource budgets](manage-resource-budgets.md) to find the budget, move it to a folder, change its alerts, and open budget history.
 
 {% @harness-feedback/feedback %}

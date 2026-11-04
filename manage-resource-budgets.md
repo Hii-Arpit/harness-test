@@ -1,17 +1,18 @@
 ---
-description: Find, filter, edit, and track resource budgets on the Budgets list and detail page
+description: Find, organize, and update resource budgets, including folders, alerts, and budget history
 ---
 
 # Manage resource budgets
 
-Use the **Resource budgets** tab to find a budget, change its settings, and track spend against the limit.
+Use the **Resource budgets** tab to find a budget, organize it in a folder, change its alerts, and track spend against the limit.
 
 ---
 
 ## What you will learn from this topic
 
 * How to search, filter, and choose columns on the resource budget list
-* How to edit, move, clone, or delete a budget
+* How to create a folder and move a budget into it
+* How to change alerts for one budget or for several budgets
 * How to read the budget detail page and budget history
 
 ---
@@ -19,7 +20,7 @@ Use the **Resource budgets** tab to find a budget, change its settings, and trac
 ## Before you begin
 
 * At least one resource budget. Go to [Create a resource budget](create-a-resource-budget.md) to create one.
-* Access to the folder that contains the budget. Go to [Folders](folders.md) to organize budgets.
+* Access to the folder that contains the budget. People who can open that folder can view the budget and its cost view.
 
 ---
 
@@ -74,7 +75,27 @@ Select any of these to add them:
 * **Created by**
 * **Last modified**
 
-The **Budget** column shows the budget amount. **Specified amount** or **Previous period spend** can appear under the amount. **Pace** shows the pace for the period, including when spend is over the budget.
+The **Budget** column shows the budget amount. **Pace** shows the pace for the period, including when spend is over the budget.
+
+---
+
+## Organize budgets in folders
+
+The **Folders** panel lists **All budgets** and your folders. Select a folder to show the budgets in it. Select **All budgets** to return to the full list.
+
+Use **Search folders** to find a folder by name.
+
+{% hint style="info" %}
+**Folder access**
+
+To view a resource budget and its cost view, you need access to the folder that contains the budget. When you save a budget to the **Default** folder, users need access to that folder to view the budget and its cost view.
+{% endhint %}
+
+Click **New folder**, enter a folder name, then save the folder.
+
+To move a budget, click **Show more actions** on the budget row, then select **Move to folder**. Select the destination folder.
+
+You can also choose the folder in **Save budget to folder** when you create the budget. Go to [Create a resource budget](create-a-resource-budget.md#define-scope) for that step.
 
 ---
 
@@ -82,9 +103,9 @@ The **Budget** column shows the budget amount. **Specified amount** or **Previou
 
 Click **Show more actions** on the budget row, then select one of the following:
 
-* **Edit:** Open the budget for changes.
-* **Subscribe to alerts:** Get notified for this budget. Go to [Alerts and notifications](alerts-and-notifications.md) to configure alert rules.
-* **Move to folder:** Change the folder. Go to [Folders](folders.md) to manage folders.
+* **Edit:** Open the budget and change its settings, including its alerts.
+* **Subscribe to alerts:** Receive this budget's alerts.
+* **Move to folder:** Change the folder. Go to [Organize budgets in folders](#organize-budgets-in-folders) for the folder panel.
 * **Delete:** Remove the budget.
 
 {% hint style="danger" %}
@@ -95,12 +116,39 @@ Once a budget is deleted, it cannot be restored.
 
 ---
 
+## Change alerts
+
+A resource budget alert fires when actual spend or forecasted spend exceeds a percentage of the budget. The notification goes to email or to Slack.
+
+### Change alerts on one budget
+
+Click **Show more actions** on the budget row, then select **Edit**. On the detail page, click **Edit budget**.
+
+Update the alert rows, then save. Each row sets **Actual spend** or **Forecasted spend**, a percentage, a **Channel** of **Email** or **Slack**, and **Recipients**. Go to [Create a resource budget](create-a-resource-budget.md#setup-alerts) for the fields on an alert row.
+
+Select **Subscribe to alerts** on the row to receive the alerts configured for that budget.
+
+### Change alerts on several budgets
+
+Select one or more budgets, then click **Bulk actions**, then select **Manage alerts**.
+
+Select one of the following:
+
+* **Delete all alerts**
+* **Add recipients to existing alerts**
+* **Remove recipients from existing alerts**
+* **Add new alerts**
+
+For a new alert, the dialog says "Thresholds apply as a % of each budget's own amount."
+
+---
+
 ## Work with several budgets
 
 Select one or more budgets, then click **Bulk actions**.
 
 * **Adjust budget amount:** Select **Increase by**, **Decrease by**, or **Set to**. Select **$** or **%**. The dialog says "Budget amounts will be updated. This can't be undone." Click **Update budgets** to apply the change, or click **Cancel** to leave the amounts unchanged.
-* **Manage alerts:** Change alert thresholds or recipients for the selected budgets. Go to [Alerts and notifications](alerts-and-notifications.md) for alert options.
+* **Manage alerts:** Change thresholds or recipients for the selected budgets. Go to [Change alerts on several budgets](#change-alerts-on-several-budgets) for the options.
 * **Clone:** Duplicate the selected budgets.
 * **Delete:** Remove the selected budgets.
 
@@ -120,7 +168,7 @@ The detail page shows:
 * **Forecast** for the end of the period
 * **Alerts configured**
 
-Click **Edit budget** to change the budget. Click **More**, then select **Delete** to remove it.
+Click **Edit budget** to change the budget, including its alerts. Click **More**, then select **Delete** to remove it.
 
 ### Budget history
 
@@ -140,7 +188,6 @@ The history table lists each period with these columns:
 ## Next steps
 
 * Go to [Create a resource budget](create-a-resource-budget.md) to add another budget.
-* Go to [Folders](folders.md) to organize budgets.
-* Go to [Alerts and notifications](alerts-and-notifications.md) to change alert rules.
+* Go to [User budgets](../user-budgets/README.md) to set a per-user limit on AI spend.
 
 {% @harness-feedback/feedback %}

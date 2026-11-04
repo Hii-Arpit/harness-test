@@ -19,20 +19,4 @@ In the left navigation, select **Cloud & AI Costs**, then select **Budgets**.
 [create-a-resource-budget.md](create-a-resource-budget.md)
 {% endcontent-ref %}
 
-{% content-ref url="manage-resource-budgets.md" %}
-[manage-resource-budgets.md](manage-resource-budgets.md)
-{% endcontent-ref %}
-
-{% content-ref url="folders.md" %}
-[folders.md](folders.md)
-{% endcontent-ref %}
-
-{% content-ref url="alerts-and-notifications.md" %}
-[alerts-and-notifications.md](alerts-and-notifications.md)
-{% endcontent-ref %}
-
-{% content-ref url="user-budgets-for-ai-spend.md" %}
-[user-budgets-for-ai-spend.md](user-budgets-for-ai-spend.md)
-{% endcontent-ref %}
-
 {% @harness-feedback/feedback %}
