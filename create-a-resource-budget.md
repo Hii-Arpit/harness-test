@@ -32,8 +32,6 @@ In the left navigation, select **Cloud & AI Costs**, then select **Budgets**.
 
 On the **Resource budgets** tab, click **New budget**, then select **Resource budget**. The **New budget** panel opens.
 
-{% stepper %}
-{% step %}
 ### Define scope
 
 Select **Create a single budget**. This page covers that option. The card describes a budget that tracks spend for one team, account, or set of services.
@@ -49,9 +47,7 @@ Set the target for this budget:
 **Budget access** names the folder you selected and reminds you that users need access to that folder to view the budget and its cost view.
 
 Click **Next**.
-{% endstep %}
 
-{% step %}
 ### Specify budget period and amount
 
 Set how long the budget lasts and the amount for that period.
@@ -69,9 +65,7 @@ Under the amount, Harness shows last period's spend for this cost view. Use that
 **Yearly budgets.** Select **Yearly**, then select **Break the budget down by month** to set an amount for each month instead of one amount for the year. **Copy to all** copies one month's amount to the other months. Under **Advanced configuration**, **Override forecasted spend for each month** replaces the forecast for a month with a value you enter.
 
 Click **Next**. Click **Back** to return to **Define scope**.
-{% endstep %}
 
-{% step %}
 ### Setup alerts
 
 Add the alerts to send when you save. You can also save with no alerts and add them later. Go to [Change alerts](manage-resource-budgets.md#change-alerts) to update alerts on a budget that already exists.
@@ -92,8 +86,6 @@ Click **Add alert** again to add another threshold. Click the remove icon on a r
 Click **Add a custom message to the alert (optional)** to add text to the notification.
 
 Click **Save** to create the budget. Click **Cancel** to close the panel without creating it. Click **Back** to return to the period and amount.
-{% endstep %}
-{% endstepper %}
 
 ---
 
