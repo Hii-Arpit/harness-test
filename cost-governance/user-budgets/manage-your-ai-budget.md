@@ -27,6 +27,8 @@ description: View your AI spending budget, track usage, and request a limit incr
 2. Select **Profile**.
 3. Select the **AI Budgets** tab.
 
+![AI Budgets tab showing budget allocation, spend, and enforcements](../../.gitbook/assets/user-budgets-my-ai-budgets.png)
+
 Your budgets appear under **My AI budgets**. Each budget card lets you view your allocation, current spend, and when the period resets.
 
 | Field | Description |
@@ -61,13 +63,19 @@ Your administrator has set approval tiers, so Harness automatically routes your 
 
 1. Click **Request limit increase** on the budget card.
 
+   ![Request limit increase button on the budget card](../../.gitbook/assets/user-budgets-request-limit-button.png)
+
    The panel displays your current limit and who approves requests at each amount, so you know what to expect before you submit.
+
+   ![Request panel showing approval tiers and the request form](../../.gitbook/assets/user-budgets-request-limit-increase.png)
 
 2. In the **Requested new budget** field, enter the amount you need. It must be higher than your current limit.
 3. Enter a **Reason** for the request, so your approver has context.
 4. Click **Submit request**.
 
 Harness sends the request to the right approver based on the amount. Go to [Review limit increase requests](manage-user-budgets.md#review-limit-increase-requests) to view how approvers review and act on requests. Your budget card updates so you can track the request. It displays the amount you asked for, when you submitted it, and who is reviewing it.
+
+![Budget card showing a pending request with the upgrade amount, approver, and actions](../../.gitbook/assets/user-budgets-pending-request-card.png)
 
 You do not need to do anything else. Harness notifies your approver. If you need to follow up or withdraw the request:
 

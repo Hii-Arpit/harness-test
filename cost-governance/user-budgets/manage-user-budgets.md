@@ -40,6 +40,9 @@ OpenAI and Anthropic Platform are not supported.
 2. Click **+ AI Provider**, then select the provider.
 3. Enter the connector details in **Overview** and click **Continue**. For Anthropic, select **Anthropic Enterprise** in the **Product Type** step. **Anthropic (Platform)** is not supported.
 4. In **Connector Details**, under **Permissions**, keep **View costs (required)** selected and select **Enforce AI user budgets**.
+
+   ![Connector Details step with the Enforce AI user budgets permission selected](../../.gitbook/assets/user-budgets-ai-provider-permissions.png)
+
 5. In **API Key**, select a secret that holds an administrator key with read and write access. Enforcing budgets requires write access.
 6. Click **Continue**, then complete the **Connection Test**.
 {% endtab %}
@@ -51,12 +54,17 @@ Amazon Bedrock is enabled on the AWS cloud connector. Harness needs an IAM polic
 2. Click **+ New Cloud Account**, then select **AWS**.
 3. Enter the connector details in **Overview**, then complete the **Cost and Usage Report** step.
 4. In **Choose Requirements**, select **AI Governance**. Harness adds the permissions to enforce AI budgets on AWS Bedrock and block access when a budget is breached.
+
+   ![Choose Requirements step with AI Governance selected](../../.gitbook/assets/user-budgets-aws-choose-requirements.png)
+
 5. In **AI Governance Permissions**, enter the following fields. Harness includes these values in the CloudFormation template.
 
    | Field | Description |
    |---|---|
    | Bedrock Target Role Name | The full name of the AWS IAM role that your Bedrock users use. For a role managed by AWS IAM Identity Center, include the `AWSReservedSSO_` prefix and the suffix, for example, `AWSReservedSSO_<permission-set-name>_<suffix>`. |
    | AI Governance IAM Policy Name | The name of the IAM policy that Harness uses to block access. The default is `harness-aicost-governance`. |
+
+   ![AI Governance Permissions step in the AWS connector wizard](../../.gitbook/assets/user-budgets-aws-governance-permissions.png)
 
 6. In **Create Cross Account Role**, click **Launch Template on AWS console** and follow the instructions to create the cross-account role. Harness prefills the **External ID**.
 7. Enter the **Cross Account Role ARN**, click **Save and Continue**, then complete the **Connection Test**.
@@ -83,12 +91,16 @@ You can create a user group directly from the **Select user groups** field in th
 2. Fill in the fields described in the following table.
 3. Click **Add** to create the group. It appears immediately in the **Select user groups** drop-down menu.
 
+![Add User Group panel opened from the budget wizard](../../.gitbook/assets/user-budgets-add-user-group.png)
+
 | Field | Description |
 |---|---|
 | Name | A display name for the group. Harness auto-generates an identifier from it. |
 | Users | Click **Select** to add users from your account. Search by name or email and select one or more, then click **Select** to confirm. |
 | Role Bindings | Assign a **Role** and **Resource Group** to the group. Click **+ Add** to add more role bindings. |
 | Metadata | Optional description and tags for the group. |
+
+![Add User Group panel with a user selected, a role binding configured, and a description added](../../.gitbook/assets/user-budgets-select-users.png)
 
 For full user group management, go to [Manage user groups](https://developer.harness.io/harness-ai/use-harness-platform/platform-access-control/add-user-groups).
 
@@ -140,6 +152,8 @@ Enter the dollar amount that each user in the group can spend per period. The pr
 
 The ceiling of the highest tier is the maximum amount any user can request.
 
+![Configure approval tiers when limit increase requests are enabled](../../.gitbook/assets/user-budgets-step2-approval-tiers.png)
+
 <details>
 
 <summary>Example: approval tiers</summary>
@@ -168,6 +182,8 @@ Expand **Advanced settings** to set limits on when users can request an increase
 | Users can request an increase once spend reaches | The percentage of their current budget a user must consume before they can submit a request. |
 | Maximum increase per request | The largest single-request increase allowed. |
 
+![Advanced settings: request threshold and maximum increase per request](../../.gitbook/assets/user-budgets-step2-advanced-settings.png)
+
 ### Notifications
 
 1. Click **+ Add percentage threshold** to define when Harness should act.
@@ -181,6 +197,8 @@ For each threshold, you can notify the user, block their access, or both. Add mu
 {% hint style="info" %}
 Harness automatically sends an email to the affected user when they are blocked, when they submit a limit increase request, and when they are unblocked. These emails are sent regardless of the notification thresholds configured here.
 {% endhint %}
+
+![Notify and Block configured on separate thresholds](../../.gitbook/assets/user-budgets-step2-notifications.png)
 
 <details>
 
@@ -206,6 +224,8 @@ Click **Create** to save the budget.
 ## Monitor a user budget
 
 From the User Budgets list, select a budget name to open its detail page.
+
+![Budget detail page showing summary tiles, active enforcements, and per-user table](../../.gitbook/assets/user-budgets-detail-page.png)
 
 ### Summary tiles
 
@@ -256,6 +276,8 @@ Click **Review all** in the **Pending Requests** tile to view all users who have
 
 Alternatively, click **Review ↗** next to a specific user in the **Request details** column to go directly to their request.
 
+![Review all in the Pending Requests tile and inline Review in the Request details column](../../.gitbook/assets/user-budgets-pending-requests-inline.png)
+
 The review panel displays the following details for the selected request:
 
 | Field | Description |
@@ -265,12 +287,19 @@ The review panel displays the following details for the selected request:
 | Requested upgrade | The transition from current to requested amount (for example, $125.00 → $130.00) |
 | Approve for | The amount to approve. Defaults to the requested amount. You can change it to approve a lesser amount than the user requested. |
 
+![Review panel with current budget, WTD spend, requested upgrade, and Approve for field](../../.gitbook/assets/user-budgets-review-panel-inline.png)
+
 The panel also includes two tabs:
 
 * **Request history**: Displays the user's past requests grouped by budget period.
+
+  ![Request history tab showing past requests by budget period](../../.gitbook/assets/user-budgets-request-details-history.png)
+
 * **Spend breakdown**: Displays a bar chart of the user's daily AI spend. Click **View on explorer** to open the full Cost Explorer. Use the following drop-down menus to change the view:
   * **By providers**: By providers, By models, By accounts, By model family, or By token type
   * **By days**: By days, By weeks, or By months
+
+  ![Spend breakdown tab showing daily AI spend by provider](../../.gitbook/assets/user-budgets-request-details-spend.png)
 
 Take one of the following actions:
 

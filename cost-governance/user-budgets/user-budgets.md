@@ -81,7 +81,11 @@ Select a folder in the **Folders** panel to filter the list. Select **All budget
 
 To create a folder, click **+** next to the **Folders** heading.
 
+![Click + next to Folders to create a new folder](../../.gitbook/assets/user-budgets-folders-create.png)
+
 Enter a folder name and click **Save**.
+
+![Create new folder dialog](../../.gitbook/assets/user-budgets-folder-modal.png)
 
 To manage an existing folder, hover over it in the panel to reveal three actions:
 
@@ -92,6 +96,8 @@ To manage an existing folder, hover over it in the panel to reveal three actions
 | **Pin** | Pin the folder to the top of the Folders panel for quick access |
 
 You can assign a budget to a folder when you create it. To change the folder for an existing budget, select **Show more actions** on the budget row. Select **Move to folder** to change only the folder, or select **Edit** to update the folder along with other budget settings.
+
+![Budget row menu with Edit, Move to folder, and Delete](../../.gitbook/assets/user-budgets-row-menu.png)
 
 ---
 
