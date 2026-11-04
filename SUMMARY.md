@@ -1,10 +1,17 @@
 # Table of contents
 
-* [Budgets](budgets.md)
-* [Budgets](budgets.md)
-* [Create a resource budget](create-a-resource-budget.md)
-* [Manage resource budgets](manage-resource-budgets.md)
-* [User budgets](user-budgets.md)
-* [Create and manage user budgets](manage-user-budgets.md)
-* [Manage your AI budget](manage-your-ai-budget.md)
-* [Overview](user-budgets.md)
+* [GitBook Preview](README.md)
+
+## Concepts
+
+* [Budgets](concepts/budgets.md)
+
+## Cost governance
+
+* [Budgets](cost-governance/budgets/README.md)
+  * [Create a resource budget](cost-governance/budgets/create-a-resource-budget.md)
+  * [Manage resource budgets](cost-governance/budgets/manage-resource-budgets.md)
+  * [User budgets](cost-governance/user-budgets/README.md)
+    * [Overview](cost-governance/user-budgets/user-budgets.md)
+    * [Create and manage user budgets](cost-governance/user-budgets/manage-user-budgets.md)
+    * [Manage your AI budget](cost-governance/user-budgets/manage-your-ai-budget.md)
