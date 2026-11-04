@@ -32,10 +32,10 @@ Go to [Budgets](../../concepts/budgets.md) to compare a resource budget with a u
 
 ![Define scope step of New budget, with Create a single budget selected, the AWS cost view, a budget name, and a folder](../../.gitbook/assets/budgets-new-budget-scope.png)
 
-1. In the left navigation, select **Cloud & AI Costs**, and then select **Budgets**.
+1. Go to **Cloud & AI Costs**, and then select **Budgets**.
 2. On the **Resource budgets** tab, click **New budget**, and then select **Resource budget**.
 3. Select **Create a single budget**.
-4. In **Select a cost view**, select the cost view.
+4. In **Select a cost view**, select the cost view to track.
 5. In **Budget name**, enter a name.
 6. In **Save budget to folder**, select a folder, or click **New folder**.
 7. Click **Next**.
@@ -48,23 +48,15 @@ Go to [Budgets](../../concepts/budgets.md) to compare a resource budget with a u
 
 1. In **Budget period**, select **Daily**, **Weekly**, **Monthly**, **Quarterly**, or **Yearly**.
 2. For **Yearly**, set the monthly breakdown.
-
-   | Field | Action |
-   | --- | --- |
-   | **Break the budget down by month** | Enter an amount for each month. |
-   | **Copy to all** | Apply one month's amount to the remaining months. |
-   | **Override forecasted spend for each month** | Under **Advanced configuration**, enter a forecast for a month. |
-
+   - In **Break the budget down by month**, enter an amount for each month.
+   - Click **Copy to all** to apply one month's amount to the remaining months.
+   - Under **Advanced configuration**, in **Override forecasted spend for each month**, enter a forecast for a month.
 3. In **Start date**, select the first day of the budget period.
-4. In **Monthly budget amount ($)**, enter an amount greater than 0. The field name matches **Budget period**.
-
-   | Display | When it appears |
-   | --- | --- |
-   | **Budget amount must be greater than 0** | The amount is not greater than 0. |
-   | **Last period's spend for this cost view** | Under the amount field. |
-
-5. Select **Add growth rate to budget amount**.
-   1. In **Growth rate (%)**, enter the percentage. When the field is empty, Harness displays **Enter a growth rate**.
+4. In **Monthly budget amount ($)**, enter an amount greater than 0. The label changes to match **Budget period**.
+   - When the amount is not greater than 0, Harness displays **Budget amount must be greater than 0**.
+   - Under the field, Harness displays **Last period's spend for this cost view**.
+5. Select **Add growth rate to budget amount**, and then in **Growth rate (%)**, enter the percentage.
+   - When **Growth rate (%)** is empty, Harness displays **Enter a growth rate**.
 6. Click **Next**.
 
 Click **Back** to return to **Define scope**.
@@ -74,20 +66,13 @@ Click **Back** to return to **Define scope**.
 ![Setup alerts step, with one alert for when actual spend exceeds a percentage of the monthly budget, sent by email](../../.gitbook/assets/budgets-new-budget-alerts.png)
 
 1. Click **Add alert**.
-2. Complete the alert row. **percent of Monthly Budget** follows **Budget period**.
-
-   | Field | Action |
-   | --- | --- |
-   | **When** | Select **Actual spend** or **Forecasted spend**. |
-   | **Enter %** | Enter the percentage of the budget amount. |
-   | **Channel** | Under **Send alerts to**, select **Email** or **Slack**. |
-   | **Recipients** | Enter the recipients. For **Email**, the field displays **Enter e-mail IDs**. |
-
-   | **When** | The alert triggers when |
-   | --- | --- |
-   | **Actual spend** | Spend in the current period reaches the percentage. |
-   | **Forecasted spend** | The forecast for the end of the period reaches the percentage. |
-
+2. Complete the alert row. The row ends with **percent of Monthly Budget**, and the wording follows **Budget period**.
+   - In **When**, select **Actual spend** or **Forecasted spend**.
+     - **Actual spend** triggers when spend in the current period reaches the percentage.
+     - **Forecasted spend** triggers when the forecast for the end of the period reaches the percentage.
+   - In **Enter %**, enter the percentage of the budget amount.
+   - Under **Send alerts to**, in **Channel**, select **Email** or **Slack**.
+   - In **Recipients**, enter the recipients. For **Email**, the field displays **Enter e-mail IDs**.
 3. Click **Add alert** to add another alert.
 4. Click the remove icon on a row to delete that alert.
 5. Click **Add a custom message to the alert (optional)** to add text to the notification.
