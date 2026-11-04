@@ -38,15 +38,15 @@ On the **Resource budgets** tab, click **New budget**, then select **Resource bu
 
 Select **Create a single budget**. This page covers that option. The card describes a budget that tracks spend for one team, account, or set of services.
 
-![Define scope step of New budget, with Create a single budget selected, a cost view, a budget name, and the Default folder](../../.gitbook/assets/budgets-new-budget-scope.png)
+![Define scope step of New budget, with Create a single budget selected, the AWS cost view, a budget name, and a folder](../../.gitbook/assets/budgets-new-budget-scope.png)
 
 Set the target for this budget:
 
 1. In **Select a cost view**, select the cost view to track. You can create more than one budget on the same cost view.
 2. In **Budget name**, enter a name that identifies the budget in the list.
-3. In **Save budget to folder**, select a folder. The field defaults to **Default**. Click **New folder** to create a folder without leaving the panel.
+3. In **Save budget to folder**, select a folder. Check the folder before you continue. Click **New folder** to create a folder without leaving the panel.
 
-**Budget access** names the folder you selected. For the **Default** folder it reads: Users need access to the "Default" folder to view this budget and its cost view.
+**Budget access** names the folder you selected and reminds you that users need access to that folder to view the budget and its cost view.
 
 Click **Next**.
 {% endstep %}
@@ -56,7 +56,7 @@ Click **Next**.
 
 Set how long the budget lasts and the amount for that period.
 
-![Specify budget period and amount, with a monthly period, a start date, a budget amount, and a growth rate](../../.gitbook/assets/budgets-new-budget-period.png)
+![Specify budget period and amount, with a monthly period, a start date, a budget amount, and the add growth rate option](../../.gitbook/assets/budgets-new-budget-period.png)
 
 1. In **Budget period**, select **Daily**, **Weekly**, **Monthly**, **Quarterly**, or **Yearly**.
 2. In **Start date**, select the first day of the budget.
