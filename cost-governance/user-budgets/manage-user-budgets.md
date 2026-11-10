@@ -20,7 +20,7 @@ description: Create per-user AI spending budgets, configure approval tiers and e
 
 * Harness Cloud & AI Cost Management must be enabled on your account.
 * The users you want to budget must belong to a Harness user group. Go to [Create a user group](#create-a-user-group) if you need to set one up.
-* Make sure budget enforcement is enabled on the connector. Select **AI Governance** on your AWS connector for Amazon Bedrock, or **Enforce AI user budgets** on the provider's own connector (Cursor, GitHub Copilot, and Claude). Consult your administrator if you do not have access. Go to [Enable AI Governance on your connector](#enable-ai-governance-on-your-connector) for steps.
+* Make sure budget enforcement is enabled on the connector. Select **AI Governance** on your AWS connector for Amazon Bedrock, or turn on **Enable budget enforcement** on the provider connector (Cursor, GitHub Copilot, and Claude). Consult your administrator if you do not have access. Go to [Enable AI Governance on your connector](#enable-ai-governance-on-your-connector) for steps.
 
 ---
 
@@ -32,42 +32,43 @@ AI Governance enables Harness to enforce user budgets by capping or revoking spe
 
 {% tabs %}
 {% tab title="AI providers" %}
-Use the following steps for Cursor, GitHub Copilot, and Claude.
+Use the following steps for Cursor, GitHub Copilot, and Anthropic Enterprise. The Cursor connector is shown below.
 
-OpenAI and Anthropic Platform are not supported.
+Anthropic (Platform) is not supported.
 
-1. On the left navigation bar, under **Setup and integration**, select **Cloud Integration**, then select the **AI Providers** tab.
-2. Click **+ AI Provider**, then select the provider.
-3. Enter the connector details in **Overview** and click **Continue**. For Anthropic, select **Anthropic Enterprise** in the **Product Type** step. **Anthropic (Platform)** is not supported.
-4. In **Connector Details**, under **Permissions**, keep **View costs (required)** selected and select **Enforce AI user budgets**.
+1. In the left navigation, select **Cloud & AI Integrations**.
+2. Select the **AI providers** tab, then click **Add an AI provider**.
+3. Select the provider. The panel title includes the provider name, for example **Create Cursor - Cloud cost connector**. For Anthropic, select **Anthropic Enterprise** under **Anthropic product type**.
+4. Enter a **Name**.
+5. Turn on **Enable budget enforcement**. When a user exceeds the budget, Harness can restrict or block that user's AI access. Enforcement requires a key with write access.
 
-   ![Connector Details step with the Enforce AI user budgets permission selected](../../.gitbook/assets/user-budgets-ai-provider-permissions.png)
+   ![Create Cursor connector with Enable budget enforcement](../../.gitbook/assets/user-budgets-ai-provider-permissions.png)
 
-5. In **API Key**, select a secret that holds an administrator key with read and write access. Enforcing budgets requires write access.
-6. Click **Continue**, then complete the **Connection Test**.
+6. In **API key**, select or create the secret that holds the provider API key. Ingesting cost and usage data requires an admin key with read-only access.
+7. Click **Create**.
 {% endtab %}
 
 {% tab title="Amazon Bedrock" %}
-Amazon Bedrock is enabled on the AWS cloud connector. Harness needs an IAM policy in your AWS account to block access, so the wizard asks for the Bedrock role and policy names.
+Amazon Bedrock is enabled on the AWS cloud connector. The wizard has five steps: **Overview**, **Cost and usage report**, **Choose requirements**, **Authentication**, and **Create cross account role**.
 
-1. On the left navigation bar, under **Setup and integration**, select **Cloud Integration**, then select the **Cloud Accounts** tab.
-2. Click **+ New Cloud Account**, then select **AWS**.
-3. Enter the connector details in **Overview**, then complete the **Cost and Usage Report** step.
-4. In **Choose Requirements**, select **AI Governance**. Harness adds the permissions to enforce AI budgets on AWS Bedrock and block access when a budget is breached.
+1. In the left navigation, select **Cloud & AI Integrations**.
+2. Select the **Cloud accounts** tab and open the AWS connector.
+3. Enter the connector details in **Overview**, then complete **Cost and usage report**.
+4. In **Choose requirements**, select **AI Governance**. Harness then enforces AI budgets on AWS Bedrock and blocks access when a budget is breached.
 
-   ![Choose Requirements step with AI Governance selected](../../.gitbook/assets/user-budgets-aws-choose-requirements.png)
+   ![Choose requirements step with AI Governance selected](../../.gitbook/assets/user-budgets-aws-choose-requirements.png)
 
-5. In **AI Governance Permissions**, enter the following fields. Harness includes these values in the CloudFormation template.
+5. Complete **Authentication**.
+6. In **Create cross account role**, do the following:
+   1. Click **Launch CloudFormation stack** and create the stack in AWS. To deploy it yourself, download the CloudFormation template instead.
+   2. Leave the **External ID** as shown. Harness fills it in for you.
+   3. Enter the **Cross account role ARN** from the stack.
+   4. Enter the **AI governance role name**. This is the IAM role your Bedrock users assume. For a role that AWS IAM Identity Center manages, include the `AWSReservedSSO_` prefix and the suffix, for example `AWSReservedSSO_<permission-set-name>_<suffix>`.
+   5. Enter the **IAM policy name**. Harness includes this name in the CloudFormation template and uses the policy to block access.
 
-   | Field | Description |
-   |---|---|
-   | Bedrock Target Role Name | The full name of the AWS IAM role that your Bedrock users use. For a role managed by AWS IAM Identity Center, include the `AWSReservedSSO_` prefix and the suffix, for example, `AWSReservedSSO_<permission-set-name>_<suffix>`. |
-   | AI Governance IAM Policy Name | The name of the IAM policy that Harness uses to block access. The default is `harness-aicost-governance`. |
+   ![AI governance role name and IAM policy name fields in the Create cross account role step](../../.gitbook/assets/user-budgets-aws-governance-permissions.png)
 
-   ![AI Governance Permissions step in the AWS connector wizard](../../.gitbook/assets/user-budgets-aws-governance-permissions.png)
-
-6. In **Create Cross Account Role**, click **Launch Template on AWS console** and follow the instructions to create the cross-account role. Harness prefills the **External ID**.
-7. Enter the **Cross Account Role ARN**, click **Save and Continue**, then complete the **Connection Test**.
+7. Click **Apply changes**.
 
 {% hint style="warning" %}
 **Attach the policy for IAM Identity Center roles**
@@ -75,7 +76,7 @@ Amazon Bedrock is enabled on the AWS cloud connector. Harness needs an IAM polic
 Harness cannot automatically attach the governance policy to a Bedrock target role that AWS IAM Identity Center manages. The CloudFormation stack still creates the policy, but you must attach it yourself:
 
 1. In IAM Identity Center, open the permission set for the role.
-2. Add `harness-aicost-governance` as a customer managed policy.
+2. Add the **IAM policy name** you entered as a customer managed policy.
 3. Re-provision the permission set to your AWS accounts.
 
 Until you attach the policy, Harness cannot block users on Bedrock.
@@ -96,7 +97,7 @@ You can create a user group directly from the **Select user groups** field in th
 | Field | Description |
 |---|---|
 | Name | A display name for the group. Harness auto-generates an identifier from it. |
-| Users | Click **Select** to add users from your account. Search by name or email and select one or more, then click **Select** to confirm. |
+| Users | Click **Select** to add users from your account. Search by name or email and select one or more. After a user is added, click **+ Add Users** to add more. |
 | Role Bindings | Assign a **Role** and **Resource Group** to the group. Click **+ Add** to add more role bindings. |
 | Metadata | Optional description and tags for the group. |
 
@@ -128,6 +129,8 @@ For full user group management, go to [Manage user groups](https://developer.har
 {% hint style="info" %}
 To apply different limits per provider, create a separate budget for each provider.
 {% endhint %}
+
+Click **Next** to open **Enforcements and notifications**.
 
 ### Step 2: Enforcements and notifications
 
@@ -186,13 +189,14 @@ Expand **Advanced settings** to set limits on when users can request an increase
 
 ### Notifications
 
-1. Click **+ Add percentage threshold** to define when Harness should act.
-2. Set the spend percentage in the **When spend reaches** field. The row shows **% of budget**.
-3. Select the action for the threshold:
+A threshold row is already on the step.
+
+1. In **When spend reaches**, enter the spend percentage. The row shows **% of budget**.
+2. Select the action for the threshold:
    * Click **+ Notify** to send an email to the affected user when the threshold is crossed. You can add more recipients.
    * Click **+ Block** to revoke the user's access to the covered AI providers when the threshold is crossed.
 
-For each threshold, you can notify the user, block their access, or both. Add multiple thresholds to trigger different actions at different spend levels.
+For each threshold, you can notify the user, block their access, or both. Click **+ Add percentage threshold** to add another row and trigger a different action at a different spend level.
 
 {% hint style="info" %}
 Harness automatically sends an email to the affected user when they are blocked, when they submit a limit increase request, and when they are unblocked. These emails are sent regardless of the notification thresholds configured here.
@@ -232,9 +236,9 @@ From the User Budgets list, select a budget name to open its detail page.
 | Tile | Description |
 |---|---|
 | Budget per user | The per-user limit, provider scope, and total number of users in the budget |
-| Total budget for period | Sum of all users' limits for the current period, with a breakdown of OK, At risk, and Exceeded users |
-| Period-to-date spend | Aggregate spend so far, shown as a percentage of the total budget, and how much of the period has elapsed |
-| Pending Requests | Number of outstanding limit increase requests |
+| Total weekly budget | Sum of all users' limits for the current period, with a breakdown of OK, At risk, and Exceeded users. On a weekly budget the tile is **Total weekly budget**. The tile name follows the budget period. |
+| Week-to-date spend | Aggregate spend so far, shown as a percentage of the total budget, and how much of the period has elapsed. On a weekly budget the tile is **Week-to-date spend**. The tile name follows the budget period. |
+| Pending Requests | Number of outstanding limit increase requests. Click **Review all** to open the review panel. |
 
 The **Active Enforcements** bar lists the notification and block rules applied to this budget. Each tag displays the action and the spend threshold that triggers it. For example, **Notify at 80%** sends an email when a user reaches 80% of their limit, and **Block all access at 100%** revokes their access when they hit the cap.
 
@@ -243,7 +247,7 @@ The **Active Enforcements** bar lists the notification and block rules applied t
 | Column | Description |
 |---|---|
 | User | User email |
-| Budget | The user's current per-period spending limit that may be higher than the default if a previous limit increase was approved |
+| Weekly budget | The user's current spending limit for the period. The column name follows the budget period. The amount can be higher than the default if a previous limit increase was approved. |
 | Status | **OK** (within limit), **At risk** (approaching the threshold), or **Exceeded** (over the limit) |
 | Current spend | Dollar amount spent and percentage of their limit, shown as a progress bar |
 | Enforcements | Active enforcement applied to this user |

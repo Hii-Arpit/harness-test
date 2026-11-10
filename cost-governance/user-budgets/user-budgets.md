@@ -40,7 +40,7 @@ User Budgets are separate from [resource budgets](../budgets/create-a-resource-b
 
 ## Before you begin
 
-* Make sure budget enforcement is enabled on the connector. Select **AI Governance** on your AWS connector for Amazon Bedrock, or **Enforce AI user budgets** on the provider's own connector (Cursor, GitHub Copilot, and Claude). Consult your administrator if you do not have access. Go to [Create and manage user budgets](manage-user-budgets.md#enable-ai-governance-on-your-connector) to enable it on a connector.
+* Make sure budget enforcement is enabled on the connector. Select **AI Governance** on your AWS connector for Amazon Bedrock, or turn on **Enable budget enforcement** on the provider connector (Cursor, GitHub Copilot, and Claude). Consult your administrator if you do not have access. Go to [Create and manage user budgets](manage-user-budgets.md#enable-ai-governance-on-your-connector) to enable it on a connector.
 
 ---
 
