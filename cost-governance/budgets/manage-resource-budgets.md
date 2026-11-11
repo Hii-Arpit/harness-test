@@ -80,11 +80,9 @@ The filter appears as a chip. Click **Reset** to clear the filters. Click **Save
 
 ## View a budget's details
 
-### Open the detail page
+### Detail page fields
 
 Click a budget name to open its detail page.
-
-### Detail page fields
 
 The detail page shows these fields:
 
@@ -100,7 +98,8 @@ The detail page shows these fields:
 
 ### Edit or delete the budget
 
-Click **Edit budget** to change the budget, including its alerts. Click **More**, then select **Delete** to remove it.
+1. Click **Edit budget** to change the budget, including its alerts.
+2. Click **More**, then select **Delete** to remove it.
 
 ### Budget history
 
