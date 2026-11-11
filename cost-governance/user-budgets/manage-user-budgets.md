@@ -2,7 +2,7 @@
 description: Create per-user AI spending budgets, configure approval tiers and enforcement rules, monitor usage across your team, and handle limit increase requests.
 ---
 
-# Create and manage user budgets
+# Create a user budget
 
 Create a user budget to set the same AI spending limit for each user in a Harness user group. Set up the connector, complete the budget wizard, and review limit increase requests.
 

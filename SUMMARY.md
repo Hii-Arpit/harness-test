@@ -13,5 +13,5 @@
   * [Manage resource budgets](cost-governance/budgets/manage-resource-budgets.md)
   * [User budgets](cost-governance/user-budgets/README.md)
     * [User budgets overview](cost-governance/user-budgets/user-budgets.md)
-    * [Create and manage user budgets](cost-governance/user-budgets/manage-user-budgets.md)
+    * [Create a user budget](cost-governance/user-budgets/manage-user-budgets.md)
     * [Manage your AI budget](cost-governance/user-budgets/manage-your-ai-budget.md)

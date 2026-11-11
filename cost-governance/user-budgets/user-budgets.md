@@ -38,7 +38,7 @@ User budgets are separate from resource budgets. Navigate to [Create a resource 
 
 ## Before you begin
 
-- Turn on enforcement on the connector before a block can take effect. Select **AI Governance** on the AWS connector for Amazon Bedrock, or turn on **Enable budget enforcement** on the provider connector for Cursor, GitHub Copilot, and Claude. Navigate to [Create and manage user budgets](manage-user-budgets.md#enable-ai-governance-on-your-connector) to enable it.
+- Turn on enforcement on the connector before a block can take effect. Select **AI Governance** on the AWS connector for Amazon Bedrock, or turn on **Enable budget enforcement** on the provider connector for Cursor, GitHub Copilot, and Claude. Navigate to [Create a user budget](manage-user-budgets.md#enable-ai-governance-on-your-connector) to enable it.
 
 ---
 
@@ -77,13 +77,15 @@ Folders organize user budgets and control access. A user with access to a folder
 
 Select a folder in the **Folders** panel to filter the list. Select **All budgets** to return to the full list.
 
-To create a folder, click the **Add** icon next to **Folders**.
+To create a folder:
 
-![Add icon next to Folders](../../.gitbook/assets/user-budgets-folders-create.png)
+1. Click the **Add** icon next to **Folders**.
 
-Enter a folder name and click **Save**.
+   ![Add icon next to Folders](../../.gitbook/assets/user-budgets-folders-create.png)
 
-![Create new folder panel](../../.gitbook/assets/user-budgets-folder-modal.png)
+2. Enter a folder name and click **Save**.
+
+   ![Create new folder panel](../../.gitbook/assets/user-budgets-folder-modal.png)
 
 Point to a folder in the panel to show three actions:
 
@@ -93,14 +95,20 @@ Point to a folder in the panel to show three actions:
 | **Delete** | Permanently remove the folder |
 | **Pin** | Pin the folder to the top of the **Folders** panel |
 
-You can assign a budget to a folder when you create it. To change the folder for an existing budget, click **Show more actions** on the budget row. Select **Move to folder** to change only the folder, or select **Edit** to update the folder and the other budget settings.
+You can assign a budget to a folder when you create it.
 
-![Budget row menu with Edit, Move to folder, and Delete](../../.gitbook/assets/user-budgets-row-menu.png)
+To change the folder for an existing budget:
+
+1. Click **Show more actions** on the budget row.
+
+   ![Budget row menu with Edit, Move to folder, and Delete](../../.gitbook/assets/user-budgets-row-menu.png)
+
+2. Select **Move to folder** to change only the folder, or select **Edit** to update the folder and the other budget settings.
 
 ---
 
 ## Next steps
 
-Navigate to [Create and manage user budgets](manage-user-budgets.md) to create a budget, set enforcement and approval tiers, and review limit increase requests. Navigate to [Budgets](../../concepts/budgets.md) to compare a user budget with a resource budget.
+Navigate to [Create a user budget](manage-user-budgets.md) to create a budget, set enforcement and approval tiers, and review limit increase requests. Navigate to [Budgets](../../concepts/budgets.md) to compare a user budget with a resource budget.
 
 {% @harness-feedback/feedback %}

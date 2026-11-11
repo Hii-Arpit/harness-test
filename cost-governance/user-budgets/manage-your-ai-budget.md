@@ -108,7 +108,7 @@ The administrator turns on **Allow users to request a higher limit**. Navigate t
 
 ## Next steps
 
-* Navigate to [Create and manage user budgets](manage-user-budgets.md) to create budgets, set approval tiers, and review requests as an administrator.
+* Navigate to [Create a user budget](manage-user-budgets.md) to create budgets, set approval tiers, and review requests as an administrator.
 * Navigate to [Budgets](../../concepts/budgets.md) to compare a user budget with a resource budget.
 
 {% @harness-feedback/feedback %}
