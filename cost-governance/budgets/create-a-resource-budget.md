@@ -18,9 +18,9 @@ Create a resource budget for one cost view, or create budgets in bulk for the bu
 
 ## Before you begin
 
-- **A cost view or a cost category:** A single budget tracks one cost view. Bulk budgets track up to 20 buckets in one cost category. Navigate to [Create a cost view](../../cost-visibility/cost-views/create-a-cost-view.md) to create a cost view.
-- **Budgets: Edit:** You need this permission to create a budget. An administrator grants it through a role. Navigate to [Budgets](../../concepts/budgets.md#access-and-auditing) to review budget permissions.
-- **Folder access:** You need access to the destination folder. Without it, you cannot view the budget. Navigate to [Organize budgets in folders](manage-resource-budgets.md#organize-budgets-in-folders) to manage folders.
+- A single budget tracks one cost view. Bulk budgets track up to 20 buckets in one cost category. Navigate to [Create a cost view](../../cost-visibility/cost-views/create-a-cost-view.md) to create a cost view.
+- You need the **Budgets: Edit** permission to create a budget. An administrator grants it through a role. Navigate to [Budgets](../../concepts/budgets.md#access-and-auditing) to review budget permissions.
+- You need access to the destination folder. Without it, you cannot view the budget. Navigate to [Organize budgets in folders](manage-resource-budgets.md#organize-budgets-in-folders) to manage folders.
 
 ---
 
