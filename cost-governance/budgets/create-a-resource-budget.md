@@ -36,11 +36,11 @@ Create a resource budget for one cost view, or create budgets in bulk for the bu
 
 ![Define scope step of New budget, with Create a single budget selected, the AWS cost view, a budget name, and a folder](../../.gitbook/assets/budgets-new-budget-scope.png)
 
-1. Select **Create a single budget**.
-2. In **Select a cost view**, select the cost view to track.
-3. In **Budget name**, enter a name.
-4. In **Save budget to folder**, select a folder, or click **New folder**.
-5. Click **Next**.
+3. Select **Create a single budget**.
+4. In **Select a cost view**, select the cost view to track.
+5. In **Budget name**, enter a name.
+6. In **Save budget to folder**, select a folder, or click **New folder**.
+7. Click **Next**.
 
 {% endtab %}
 
@@ -48,13 +48,13 @@ Create a resource budget for one cost view, or create budgets in bulk for the bu
 
 ![Define scope step of New budget, with Create budgets in bulk selected, a cost category, two cost buckets, a budget name, and a folder](../../.gitbook/assets/budgets-new-budget-scope-bulk.png)
 
-1. Select **Create budgets in bulk**.
-2. Select the cost category and its buckets.
+3. Select **Create budgets in bulk**.
+4. Select the cost category and its buckets.
    - In **Select cost category**, select the cost category.
    - In **Select cost bucket/s**, select up to 20 buckets. Harness creates one budget for each bucket.
-3. In **Budget name**, enter a name.
-4. In **Save budget to folder**, select a folder, or click **New folder**.
-5. Click **Next**.
+5. In **Budget name**, enter a name.
+6. In **Save budget to folder**, select a folder, or click **New folder**.
+7. Click **Next**.
 
 {% endtab %}
 {% endtabs %}
