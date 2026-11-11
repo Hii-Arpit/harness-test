@@ -1,8 +1,16 @@
 ---
-description: Set per-user spend limits across AI tools, with enforcement, approvals, and self-service increase requests
+description: Find the guides for the user budget list, the administrator workflow, and your own AI budget
 ---
 
 # User budgets
+
+A user budget sets a limit for each user on AI providers. Navigate to [Budgets](../../concepts/budgets.md) to compare a user budget with a resource budget.
+
+## What you will learn from this topic
+
+- **User budgets overview:** What the list, folders, and row actions show.
+- **Create and manage user budgets:** How to create a budget, set enforcement, and review requests.
+- **Manage your AI budget:** How to read your limit and request an increase.
 
 {% content-ref url="user-budgets.md" %}
 [user-budgets.md](user-budgets.md)

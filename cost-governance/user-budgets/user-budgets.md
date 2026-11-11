@@ -2,11 +2,7 @@
 description: Set per-user spend limits across AI tools, with enforcement, approvals, and self-service increase requests.
 ---
 
-# Overview
-
-{% hint style="success" %}
-This feature is generally available (GA). Contact your Harness account team to set it up.
-{% endhint %}
+# User budgets overview
 
 {% if "HAS_FEATURE_FLAG" === true %}
 ```
@@ -15,40 +11,42 @@ This feature is generally available (GA). Contact your Harness account team to s
         "key": "CCM_USER_BUDGETS",
         "name": "AI User Budgets",
         "status": "GA",
-        "description": "Enables the User budgets for AI spend tab on Budgets and the AI Budgets view in user profiles. Admins can create per-user AI spending budgets with configurable approval workflows and enforcement actions."
+        "description": "Enables the User budgets for AI spend tab on Budgets and the AI Budgets view in user profiles. Administrators can create per-user AI spending budgets with configurable approval workflows and enforcement actions."
     }]
 }
 ```
 {% endif %}
 
-User Budgets let you define a spending cap for each user on AI tools such as Cursor, Claude, GitHub Copilot, and Amazon Bedrock. When a user approaches or exceeds their limit, Harness notifies them and, optionally, blocks their access. Users who need more can request a limit increase directly from their profile without filing a support ticket.
+A user budget sets a spending limit for each user on AI tools such as Cursor, Claude, GitHub Copilot, and Amazon Bedrock. When a user approaches or exceeds the limit, Harness notifies that user and can block access. A user who needs a higher limit requests one from their profile.
 
 {% hint style="info" %}
-User Budgets are separate from [resource budgets](../budgets/create-a-resource-budget.md), which track cloud infrastructure spend against cost views.
+**User budgets and resource budgets**
+
+User budgets are separate from resource budgets. Navigate to [Create a resource budget](../budgets/create-a-resource-budget.md) to track cloud spend for a cost view.
 {% endhint %}
 
 ---
 
 ## What you will learn from this topic
 
-* How the User Budgets list is organized and what each column displays
-* How to search, sort, and filter budgets
-* How to use folders to organize budgets and control access
-* How to create, move, and delete budgets from the list view
+- **List:** What each column on the user budget list shows.
+- **Search and sort:** How to find a budget by name and how to order the list.
+- **Folders:** How to organize budgets and control who can view them.
+- **Row actions:** How to edit, move, or delete a budget from its row.
 
 ---
 
 ## Before you begin
 
-* Make sure budget enforcement is enabled on the connector. Select **AI Governance** on your AWS connector for Amazon Bedrock, or turn on **Enable budget enforcement** on the provider connector (Cursor, GitHub Copilot, and Claude). Consult your administrator if you do not have access. Go to [Create and manage user budgets](manage-user-budgets.md#enable-ai-governance-on-your-connector) to enable it on a connector.
+- **Budget enforcement:** Turn on enforcement on the connector before a block can take effect. Select **AI Governance** on the AWS connector for Amazon Bedrock, or turn on **Enable budget enforcement** on the provider connector for Cursor, GitHub Copilot, and Claude. Navigate to [Create and manage user budgets](manage-user-budgets.md#enable-ai-governance-on-your-connector) to enable it.
 
 ---
 
 ## View user budgets
 
-Go to **Cloud & AI Costs**, select **Budgets**, and then select **User budgets for AI spend** to view all user budgets configured in your account.
+In the left navigation, select **Cloud & AI Costs**, and then select **Budgets**. Select **User budgets for AI spend** to view the user budgets in your account.
 
-![User Budgets list view](../../.gitbook/assets/user-budgets-list.png)
+![User budgets list](../../.gitbook/assets/user-budgets-list.png)
 
 Each row displays:
 
@@ -64,7 +62,7 @@ Each row displays:
 {% hint style="success" %}
 **Find and filter budgets**
 
-Use the **Search budgets** bar to find a budget by name. Use the sort drop-down menu to order the list:
+Use **Search budgets** to find a budget by name. Use the sort dropdown to order the list:
 
 * **Name (A→Z / Z→A)**
 * **Created (newest / oldest)**
@@ -75,27 +73,27 @@ Use the **Search budgets** bar to find a budget by name. Use the sort drop-down 
 
 ## Folders
 
-Folders organize user budgets and control access. Users with access to a folder can view the budgets inside it. Use folders to scope visibility by team or org unit.
+Folders organize user budgets and control access. A user with access to a folder can view the budgets in it. Navigate to [Access and auditing](../../concepts/budgets.md#access-and-auditing) to review folder access and the budget permissions. Use a folder for each team.
 
 Select a folder in the **Folders** panel to filter the list. Select **All budgets** to return to the full list.
 
-To create a folder, click **+** next to the **Folders** heading.
+To create a folder, click the **Add** icon next to **Folders**.
 
-![Click + next to Folders to create a new folder](../../.gitbook/assets/user-budgets-folders-create.png)
+![Add icon next to Folders](../../.gitbook/assets/user-budgets-folders-create.png)
 
 Enter a folder name and click **Save**.
 
-![Create new folder dialog](../../.gitbook/assets/user-budgets-folder-modal.png)
+![Create new folder panel](../../.gitbook/assets/user-budgets-folder-modal.png)
 
-To manage an existing folder, hover over it in the panel to reveal three actions:
+Point to a folder in the panel to show three actions:
 
 | Action | Description |
 |---|---|
 | **Edit** | Rename the folder |
 | **Delete** | Permanently remove the folder |
-| **Pin** | Pin the folder to the top of the Folders panel for quick access |
+| **Pin** | Pin the folder to the top of the **Folders** panel |
 
-You can assign a budget to a folder when you create it. To change the folder for an existing budget, select **Show more actions** on the budget row. Select **Move to folder** to change only the folder, or select **Edit** to update the folder along with other budget settings.
+You can assign a budget to a folder when you create it. To change the folder for an existing budget, click **Show more actions** on the budget row. Select **Move to folder** to change only the folder, or select **Edit** to update the folder and the other budget settings.
 
 ![Budget row menu with Edit, Move to folder, and Delete](../../.gitbook/assets/user-budgets-row-menu.png)
 
@@ -103,6 +101,6 @@ You can assign a budget to a folder when you create it. To change the folder for
 
 ## Next steps
 
-Go to [Create and manage user budgets](manage-user-budgets.md) to set up a budget, configure enforcement rules and an approval workflow, and manage limit increase requests.
+Navigate to [Create and manage user budgets](manage-user-budgets.md) to create a budget, set enforcement and approval tiers, and review limit increase requests. Navigate to [Budgets](../../concepts/budgets.md) to compare a user budget with a resource budget.
 
 {% @harness-feedback/feedback %}

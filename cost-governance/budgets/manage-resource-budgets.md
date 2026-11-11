@@ -10,17 +10,18 @@ Use the **Resource budgets** tab to find a budget, organize it in a folder, chan
 
 ## What you will learn from this topic
 
-* How to search, filter, and choose columns on the resource budget list
-* How to create a folder and move a budget into it
-* How to change alerts for one budget or for several budgets
-* How to read the budget detail page and budget history
+- **Find a budget:** How to search, filter, and select columns on the list.
+- **Folders:** How to create a folder and move a budget into it.
+- **Alerts:** How to change alerts for one budget or for several budgets.
+- **Detail and history:** How to read the budget detail page and budget history.
 
 ---
 
 ## Before you begin
 
-* At least one resource budget. Go to [Create a resource budget](create-a-resource-budget.md) to create one.
-* Access to the folder that contains the budget. People who can open that folder can view the budget and its cost view.
+- **A resource budget:** Navigate to [Create a resource budget](create-a-resource-budget.md) to create one.
+- **Budget permissions:** You need **Budgets: View** to open the list, **Budgets: Edit** to change a budget, and **Budgets: Delete** to remove one. Navigate to [Access and auditing](../../concepts/budgets.md#access-and-auditing) to review these permissions.
+- **Folder access:** You need access to the folder that contains the budget. You can then view the budget and its cost view.
 
 ---
 
@@ -54,9 +55,9 @@ Click **Add filter**, then select a filter:
 
 The filter appears as a chip. Click **Reset** to clear the filters. Click **Save** to save the current filters. Select **Saved filters** to apply a saved set.
 
-### Choose columns
+### Select columns
 
-Click **Columns**. The control shows **7/11** when seven of the eleven columns are visible.
+Click **Columns**. The control shows **7/11** when seven of the 11 columns are visible.
 
 These columns are visible by default:
 
@@ -88,14 +89,14 @@ Use **Search folders** to find a folder by name.
 {% hint style="info" %}
 **Folder access**
 
-To view a resource budget and its cost view, you need access to the folder that contains the budget. When you save a budget to the **Default** folder, users need access to that folder to view the budget and its cost view.
+A user needs access to the folder that contains a budget to view the budget and its cost view. This includes the **Default** folder.
 {% endhint %}
 
-Click **New folder**, enter a folder name, then save the folder.
+To create a folder, click **New folder**, and then enter a name. Save the folder.
 
 To move a budget, click **Show more actions** on the budget row, then select **Move to folder**. Select the destination folder.
 
-You can also choose the folder in **Save budget to folder** when you create the budget. Go to [Create a resource budget](create-a-resource-budget.md#define-scope) for that step.
+You can also select the folder in **Save budget to folder** when you create the budget. Navigate to [Create a resource budget](create-a-resource-budget.md#define-scope) to set the folder.
 
 ---
 
@@ -105,41 +106,41 @@ Click **Show more actions** on the budget row, then select one of the following:
 
 * **Edit:** Open the budget and change its settings, including its alerts.
 * **Subscribe to alerts:** Receive this budget's alerts.
-* **Move to folder:** Change the folder. Go to [Organize budgets in folders](#organize-budgets-in-folders) for the folder panel.
+* **Move to folder:** Change the folder. Navigate to [Organize budgets in folders](#organize-budgets-in-folders) to use the folder panel.
 * **Delete:** Remove the budget.
 
 {% hint style="danger" %}
 **Delete is permanent**
 
-Once a budget is deleted, it cannot be restored.
+You cannot restore a deleted budget.
 {% endhint %}
 
 ---
 
 ## Change alerts
 
-A resource budget alert fires when actual spend or forecasted spend exceeds a percentage of the budget. The notification goes to email or to Slack.
+Harness sends a resource budget alert when actual spend or forecasted spend exceeds a percentage of the budget. The notification goes to email or to Slack.
 
 ### Change alerts on one budget
 
 Click **Show more actions** on the budget row, then select **Edit**. On the detail page, click **Edit budget**.
 
-Update the alert rows, then save. Each row sets **Actual spend** or **Forecasted spend**, a percentage, a **Channel** of **Email** or **Slack**, and **Recipients**. Go to [Create a resource budget](create-a-resource-budget.md#setup-alerts) for the fields on an alert row.
+Update the alert rows, then save. Each row sets **Actual spend** or **Forecasted spend**, a percentage, a **Channel** of **Email** or **Slack**, and **Recipients**. Navigate to [Create a resource budget](create-a-resource-budget.md#set-up-alerts) to review the fields on an alert row.
 
 Select **Subscribe to alerts** on the row to receive the alerts configured for that budget.
 
 ### Change alerts on several budgets
 
-Select one or more budgets, then click **Bulk actions**, then select **Manage alerts**.
+1. Select one or more budgets.
+2. Click **Bulk actions**, and then select **Manage alerts**.
+3. Select one of the following:
 
-Select one of the following:
+   * **Delete all alerts**
+   * **Add recipients to existing alerts**
+   * **Remove recipients from existing alerts**
+   * **Add new alerts**
 
-* **Delete all alerts**
-* **Add recipients to existing alerts**
-* **Remove recipients from existing alerts**
-* **Add new alerts**
-
-For a new alert, the dialog says "Thresholds apply as a % of each budget's own amount."
+A new alert threshold is a percentage of the amount of each selected budget.
 
 ---
 
@@ -147,8 +148,8 @@ For a new alert, the dialog says "Thresholds apply as a % of each budget's own a
 
 Select one or more budgets, then click **Bulk actions**.
 
-* **Adjust budget amount:** Select **Increase by**, **Decrease by**, or **Set to**. Select **$** or **%**. The dialog says "Budget amounts will be updated. This can't be undone." Click **Update budgets** to apply the change, or click **Cancel** to leave the amounts unchanged.
-* **Manage alerts:** Change thresholds or recipients for the selected budgets. Go to [Change alerts on several budgets](#change-alerts-on-several-budgets) for the options.
+* **Adjust budget amount:** Select **Increase by**, **Decrease by**, or **Set to**. Select **$** or **%**. Click **Update budgets** to apply the change, or click **Cancel** to leave the amounts unchanged. You cannot undo this change.
+* **Manage alerts:** Change thresholds or recipients for the selected budgets. Navigate to [Change alerts on several budgets](#change-alerts-on-several-budgets) to review the options.
 * **Clone:** Duplicate the selected budgets.
 * **Delete:** Remove the selected budgets.
 
@@ -185,9 +186,18 @@ The history table lists each period with these columns:
 
 ---
 
+## Troubleshooting
+
+### A budget is missing from the list
+
+Click **Reset** to clear the filters, then select **All budgets**. The budget is also hidden when you do not have access to its folder.
+
+---
+
 ## Next steps
 
-* Go to [Create a resource budget](create-a-resource-budget.md) to add another budget.
-* Go to [User budgets](../user-budgets/README.md) to set a per-user limit on AI spend.
+* Navigate to [Create a resource budget](create-a-resource-budget.md) to add another budget.
+* Navigate to [User budgets](../user-budgets/README.md) to set a limit on AI spend for each user.
+* Navigate to [Budgets](../../concepts/budgets.md) to compare a resource budget with a user budget.
 
 {% @harness-feedback/feedback %}

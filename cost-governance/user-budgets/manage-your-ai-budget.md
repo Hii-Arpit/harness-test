@@ -4,20 +4,22 @@ description: View your AI spending budget, track usage, and request a limit incr
 
 # Manage your AI budget
 
+Your AI budget is the spending limit your administrator sets for you on AI tools. Your Harness profile shows the limit, your spend for the period, and any limit increase requests.
+
 ---
 
 ## What you will learn from this topic
 
-* How to find your AI budget in your Harness profile
-* What each field on your budget card means
-* How to read your spend history and past requests
-* How to request a limit increase and track its status
+- **Find your budget:** Where the **AI Budgets** tab is in your profile.
+- **Budget card:** What each field on the card shows.
+- **History:** How to read spend history and past requests.
+- **Request a limit increase:** How to submit a request and track its status.
 
 ---
 
 ## Before you begin
 
-* You must be part of a Harness user group that has an AI budget assigned to it.
+- **User group:** You belong to a Harness user group that has a user budget.
 
 ---
 
@@ -29,15 +31,15 @@ description: View your AI spending budget, track usage, and request a limit incr
 
 ![AI Budgets tab showing budget allocation, spend, and enforcements](../../.gitbook/assets/user-budgets-my-ai-budgets.png)
 
-Your budgets appear under **My AI budgets**. Each budget card lets you view your allocation, current spend, and when the period resets.
+Your budgets are listed under **My AI budgets**. Each card shows the allocation, current spend, and the date the period resets.
 
 | Field | Description |
 |---|---|
 | Budget allocated | Your spending limit for the period and which AI providers it covers (for example, **All AI spend**) |
 | Resets on | When the current period ends and your spend resets to zero |
 | Spend so far | How much you have spent, what is left, and which day of the period you are on |
-| Progress bar | A visual indicator of your spend against your limit |
-| Enforcements | The action Harness takes when you approach or hit your limit (for example, **Notify at 80%**, **Block all access at 100%**) |
+| Progress bar | Your spend as a share of your limit |
+| Enforcements | The action Harness takes when your spend reaches a threshold (for example, **Notify at 80%**, **Block all access at 100%**) |
 
 ### Spend history
 
@@ -53,39 +55,56 @@ The **Spend history** tab displays a bar chart of your daily AI spend. Use the f
 
 ### My requests
 
-The **My requests** tab displays all your past limit increase requests, including who approved or rejected them and any notes they left.
+The **My requests** tab lists your past limit increase requests, the approver who acted on each request, and any notes from the approver.
 
 ---
 
 ## Request a limit increase
 
-Your administrator has set approval tiers, so Harness automatically routes your request to the approver based on the amount you ask for.
+Your administrator sets the approval tiers. Harness routes the request to the approver for the amount you enter.
 
 1. Click **Request limit increase** on the budget card.
 
    ![Request limit increase button on the budget card](../../.gitbook/assets/user-budgets-request-limit-button.png)
 
-   The panel displays your current limit and who approves requests at each amount, so you know what to expect before you submit.
+   The panel shows your current limit and the approver for each amount.
 
    ![Request panel showing approval tiers and the request form](../../.gitbook/assets/user-budgets-request-limit-increase.png)
 
 2. In the **Requested new budget** field, enter the amount you need. It must be higher than your current limit.
-3. Enter a **Reason** for the request, so your approver has context.
+3. Enter a **Reason** for the request.
 4. Click **Submit request**.
 
-Harness sends the request to the right approver based on the amount. Go to [Review limit increase requests](manage-user-budgets.md#review-limit-increase-requests) to view how approvers review and act on requests. Your budget card updates so you can track the request. It displays the amount you asked for, when you submitted it, and who is reviewing it.
+Harness sends the request to the approver for that amount and notifies the approver. The budget card shows the requested amount, the time you submitted it, and the approver. Navigate to [Review limit increase requests](manage-user-budgets.md#review-limit-increase-requests) to review the approver steps.
+
+When the approver declines the request, the decision and any notes appear on the **My requests** tab.
+
+{% hint style="info" %}
+**A declined request**
+
+The decision and any notes appear on the **My requests** tab. The current limit remains until a request is approved.
+{% endhint %}
 
 ![Budget card showing a pending request with the upgrade amount, approver, and actions](../../.gitbook/assets/user-budgets-pending-request-card.png)
 
-You do not need to do anything else. Harness notifies your approver. If you need to follow up or withdraw the request:
+To follow up on or withdraw the request, use the actions on the card:
 
-* **Share with approver**: Send a direct link to the approver to speed up the review.
-* **Revoke my request**: Cancel the request if you no longer need the increase. Harness confirms with a "Request revoked" notification.
+* **Share with approver:** Send the approver a direct link to the request.
+* **Revoke my request:** Cancel the request. Harness shows a **Request revoked** notification.
+
+---
+
+## Troubleshooting
+
+### Request limit increase is not on the budget card
+
+The administrator turns on **Allow users to request a higher limit**. Navigate to [Limit increase requests](manage-user-budgets.md#limit-increase-requests) to review that setting.
 
 ---
 
 ## Next steps
 
-* Go to [Create and manage user budgets](manage-user-budgets.md) if you are an administrator who needs to set up budgets, configure approval tiers, or review and approve requests from your team.
+* Navigate to [Create and manage user budgets](manage-user-budgets.md) to create budgets, set approval tiers, and review requests as an administrator.
+* Navigate to [Budgets](../../concepts/budgets.md) to compare a user budget with a resource budget.
 
 {% @harness-feedback/feedback %}
