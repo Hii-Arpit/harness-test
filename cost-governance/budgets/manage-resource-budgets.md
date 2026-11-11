@@ -80,6 +80,8 @@ The filter appears as a chip. Click **Reset** to clear the filters. Click **Save
 
 ## View a budget's details
 
+### Open the detail page
+
 Click a budget name to open its detail page.
 
 ### Detail page fields
@@ -95,6 +97,8 @@ The detail page shows these fields:
 | Current spend | Spend for the period to date, the percentage of the budget used, and the days left in the period |
 | Forecast | The forecast for the end of the period |
 | Alerts configured | The alerts set on the budget |
+
+### Edit or delete the budget
 
 Click **Edit budget** to change the budget, including its alerts. Click **More**, then select **Delete** to remove it.
 
