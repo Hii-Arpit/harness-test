@@ -207,7 +207,7 @@ On a $10,000 monthly budget:
 
 Use an actual-spend alert to confirm that a limit is reached. Use a forecasted-spend alert to get a warning while time remains in the period. Harness sends alerts by email or Slack. Alerts are optional. You can create a budget only to track status.
 
-Navigate to [Create a resource budget](../cost-governance/budgets/create-a-resource-budget.md#set-up-alerts) to add an alert. Navigate to [Manage resource budgets](../cost-governance/budgets/manage-resource-budgets.md#change-alerts) to change alerts on a budget that already exists.
+Navigate to [Create a resource budget](../cost-governance/budgets/create-a-resource-budget.md#setup-alerts) to add an alert. Navigate to [Manage resource budgets](../cost-governance/budgets/manage-resource-budgets.md#change-alerts) to change alerts on a budget that already exists.
 
 ---
 

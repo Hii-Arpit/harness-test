@@ -25,133 +25,54 @@ Use the **Resource budgets** tab to find a budget, organize it in a folder, chan
 
 ---
 
-## Open the Resource budgets tab
+## View the Resource budgets list
 
-In the left navigation, select **Cloud & AI Costs**, then select **Budgets**.
-
-Select the **Resource budgets** tab.
+1. In the left navigation, select **Cloud & AI Costs**, then select **Budgets**.
+2. Select the **Resource budgets** tab.
 
 ![Budgets page on the Resource budgets tab](../../.gitbook/assets/budgets-list.png)
-
----
-
-## Find a budget
-
-Use the **Search** field to find a budget by name.
-
-### Filter the list
-
-Click **All**, **Over**, **At risk**, or **OK** to filter by status.
-
-Click **Add filter**, then select a filter:
-
-* **Created by:** Filter by the budget creator.
-* **Last modified:** Select **Last 7 Days**, **Last 30 Days**, **Last 90 Days**, or **Select custom range**.
-* **Min budget amount ($)** and **Max budget amount ($):** Set the lowest and highest budget amounts to include.
-* **Period:** Select **Daily**, **Weekly**, **Monthly**, **Quarterly**, or **Yearly**.
-* **Cost view:** Show budgets for one cost view.
-* **Scope type:** Select **Perspective** or **Cost bucket**.
-* **Cost category:** Show budgets for a cost category.
-
-The filter appears as a chip. Click **Reset** to clear the filters. Click **Save** to save the current filters. Select **Saved filters** to apply a saved set.
 
 ### Select columns
 
 Click **Columns**. The control shows **7/11** when seven of the 11 columns are visible.
 
-These columns are visible by default:
-
-* **Budget name and period**
-* **Status**
-* **Current spend vs budget**
-* **Pace**
-* **Budget**
-* **Current spend (MTD)**
-* **Actions**
-
-Select any of these to add them:
-
-* **End of month forecast**
-* **Alert thresholds**
-* **Created by**
-* **Last modified**
+| Column | Shown by default |
+| --- | --- |
+| Budget name and period | Yes |
+| Status | Yes |
+| Current spend vs budget | Yes |
+| Pace | Yes |
+| Budget | Yes |
+| Current spend (MTD) | Yes |
+| Actions | Yes |
+| End of month forecast | No |
+| Alert thresholds | No |
+| Created by | No |
+| Last modified | No |
 
 The **Budget** column shows the budget amount. **Pace** shows the pace for the period, including when spend is over the budget.
 
 ---
 
-## Organize budgets in folders
+## Find a budget
 
-The **Folders** panel lists **All budgets** and your folders. Select a folder to show the budgets in it. Select **All budgets** to return to the full list.
+1. Use the **Search** field to find a budget by name.
+2. Click **All**, **Over**, **At risk**, or **OK** to filter by status.
+3. Click **Add filter**, then select a filter.
 
-Use **Search folders** to find a folder by name.
+### Filter the list
 
-{% hint style="info" %}
-**Folder access**
+| Filter | What it does |
+| --- | --- |
+| Created by | Filter by the budget creator. |
+| Last modified | Select **Last 7 Days**, **Last 30 Days**, **Last 90 Days**, or **Select custom range**. |
+| Min budget amount ($) and Max budget amount ($) | Set the lowest and highest budget amounts to include. |
+| Period | Select **Daily**, **Weekly**, **Monthly**, **Quarterly**, or **Yearly**. |
+| Cost view | Show budgets for one cost view. |
+| Scope type | Select **Perspective** or **Cost bucket**. |
+| Cost category | Show budgets for a cost category. |
 
-A user needs access to the folder that contains a budget to view the budget and its cost view. This includes the **Default** folder.
-{% endhint %}
-
-To create a folder, click **New folder**, and then enter a name. Save the folder.
-
-To move a budget, click **Show more actions** on the budget row, then select **Move to folder**. Select the destination folder.
-
-You can also select the folder in **Save budget to folder** when you create the budget. Navigate to [Create a resource budget](create-a-resource-budget.md#define-scope) to set the folder.
-
----
-
-## Work with one budget
-
-Click **Show more actions** on the budget row, then select one of the following:
-
-* **Edit:** Open the budget and change its settings, including its alerts.
-* **Subscribe to alerts:** Receive this budget's alerts.
-* **Move to folder:** Change the folder. Navigate to [Organize budgets in folders](#organize-budgets-in-folders) to use the folder panel.
-* **Delete:** Remove the budget.
-
-{% hint style="danger" %}
-**Delete is permanent**
-
-You cannot restore a deleted budget.
-{% endhint %}
-
----
-
-## Change alerts
-
-Harness sends a resource budget alert when actual spend or forecasted spend exceeds a percentage of the budget. The notification goes to email or to Slack.
-
-### Change alerts on one budget
-
-Click **Show more actions** on the budget row, then select **Edit**. On the detail page, click **Edit budget**.
-
-Update the alert rows, then save. Each row sets **Actual spend** or **Forecasted spend**, a percentage, a **Channel** of **Email** or **Slack**, and **Recipients**. Navigate to [Create a resource budget](create-a-resource-budget.md#set-up-alerts) to review the fields on an alert row.
-
-Select **Subscribe to alerts** on the row to receive the alerts configured for that budget.
-
-### Change alerts on several budgets
-
-1. Select one or more budgets.
-2. Click **Bulk actions**, and then select **Manage alerts**.
-3. Select one of the following:
-
-   * **Delete all alerts**
-   * **Add recipients to existing alerts**
-   * **Remove recipients from existing alerts**
-   * **Add new alerts**
-
-A new alert threshold is a percentage of the amount of each selected budget.
-
----
-
-## Work with several budgets
-
-Select one or more budgets, then click **Bulk actions**.
-
-* **Adjust budget amount:** Select **Increase by**, **Decrease by**, or **Set to**. Select **$** or **%**. Click **Update budgets** to apply the change, or click **Cancel** to leave the amounts unchanged. You cannot undo this change.
-* **Manage alerts:** Change thresholds or recipients for the selected budgets. Navigate to [Change alerts on several budgets](#change-alerts-on-several-budgets) to review the options.
-* **Clone:** Duplicate the selected budgets.
-* **Delete:** Remove the selected budgets.
+The filter appears as a chip. Click **Reset** to clear the filters. Click **Save** to save the current filters. Select **Saved filters** to apply a saved set.
 
 ---
 
@@ -183,6 +104,85 @@ The history table lists each period with these columns:
 | Budgeted cost | Budget amount for the period |
 | Budget variance ($) | Dollar difference between actual and budgeted cost |
 | Budget variance (%) | Percentage difference between actual and budgeted cost |
+
+---
+
+## Work with budgets
+
+For one budget, click **Show more actions** on the budget row. For several budgets, select one or more budgets, then click **Bulk actions**.
+
+| Action | What it does | One budget | Several budgets |
+| --- | --- | --- | --- |
+| Edit | Open the budget and change its settings, including its alerts. | Yes | No |
+| Subscribe to alerts | Receive this budget's alerts. | Yes | No |
+| Move to folder | Change the folder. Navigate to [Organize budgets in folders](#organize-budgets-in-folders) to use the folder panel. | Yes | No |
+| Adjust budget amount | Change the amount of the selected budgets. Navigate to [Adjust the amount on several budgets](#adjust-the-amount-on-several-budgets) to review the options. | No | Yes |
+| Manage alerts | Change thresholds or recipients for the selected budgets. Navigate to [Change alerts on several budgets](#change-alerts-on-several-budgets) to review the options. | No | Yes |
+| Clone | Duplicate the selected budgets. | No | Yes |
+| Delete | Remove the budget. | Yes | Yes |
+
+{% hint style="danger" %}
+**Delete is permanent**
+
+You cannot restore a deleted budget.
+{% endhint %}
+
+### Adjust the amount on several budgets
+
+1. Select one or more budgets.
+2. Click **Bulk actions**, and then select **Adjust budget amount**.
+3. Select **Increase by**, **Decrease by**, or **Set to**.
+4. Select **$** or **%**.
+5. Click **Update budgets** to apply the change, or click **Cancel** to leave the amounts unchanged. You cannot undo this change.
+
+---
+
+## Change alerts
+
+Harness sends a resource budget alert when actual spend or forecasted spend exceeds a percentage of the budget. The notification goes to email or to Slack.
+
+### Change alerts on one budget
+
+1. Click **Show more actions** on the budget row, then select **Edit**.
+2. On the detail page, click **Edit budget**.
+3. Update the alert rows, then save.
+
+Each row sets **Actual spend** or **Forecasted spend**, a percentage, a **Channel** of **Email** or **Slack**, and **Recipients**. Navigate to [Create a resource budget](create-a-resource-budget.md#setup-alerts) to review the fields on an alert row.
+
+Select **Subscribe to alerts** on the row to receive the alerts configured for that budget.
+
+### Change alerts on several budgets
+
+1. Select one or more budgets.
+2. Click **Bulk actions**, and then select **Manage alerts**.
+3. Select one of the following:
+
+   * **Delete all alerts**
+   * **Add recipients to existing alerts**
+   * **Remove recipients from existing alerts**
+   * **Add new alerts**
+
+A new alert threshold is a percentage of the amount of each selected budget.
+
+---
+
+## Organize budgets in folders
+
+The **Folders** panel lists **All budgets** and your folders. Select a folder to show the budgets in it. Select **All budgets** to return to the full list.
+
+Use **Search folders** to find a folder by name.
+
+{% hint style="info" %}
+**Folder access**
+
+A user needs access to the folder that contains a budget to view the budget and its cost view. This includes the **Default** folder.
+{% endhint %}
+
+To create a folder, click **New folder**, and then enter a name. Save the folder.
+
+To move a budget, click **Show more actions** on the budget row, then select **Move to folder**. Select the destination folder.
+
+You can also select the folder in **Save budget to folder** when you create the budget. Navigate to [Create a resource budget](create-a-resource-budget.md#define-scope) to set the folder.
 
 ---
 
