@@ -27,7 +27,7 @@ Create a user budget to set the same AI spending limit for each user in a Harnes
 
 ---
 
-## Prepare the connector and the user group
+## Set up the connector and a user group
 
 ### Enable AI Governance on your connector
 
@@ -114,7 +114,7 @@ Navigate to [Manage user groups](https://developer.harness.io/harness-platform/u
 
 ---
 
-## Create a user budget
+## Create the budget
 
 1. Navigate to **Cloud & AI Costs**, select **Budgets**, and then select **User budgets for AI spend**.
 2. Click **New budget**, and then select **User budget for AI spend**. The **Create a new Budget** panel opens.
@@ -274,9 +274,9 @@ Use the **Enforcements** and **Requests** filters above the table to narrow the 
 
 ## Review limit increase requests
 
-Harness routes each submitted request to the approver assigned to the matching approval tier. Navigate to [Approve directly](#approve-directly) to act without opening the review panel. Navigate to [Review request through review panel](#review-request-through-review-panel) to read the request before you decide.
+Harness routes each submitted request to the approver assigned to the matching approval tier. Navigate to [Approve requests directly](#approve-requests-directly) to act without opening the review panel. Navigate to [Review requests in the review panel](#review-requests-in-the-review-panel) to read the request before you decide.
 
-### Approve directly
+### Approve requests directly
 
 Use the buttons in the **Request details** column to act on a request without opening the review panel.
 
@@ -289,7 +289,7 @@ Use the buttons in the **Request details** column to act on a request without op
 If you are an administrator and also listed as an approver for your own budget, you can approve your own requests.
 {% endhint %}
 
-### Review request through review panel
+### Review requests in the review panel
 
 Click **Review all** in the **Pending Requests** tile to view all users who have submitted a limit increase request for this budget.
 
