@@ -80,7 +80,7 @@ Harness sends the request to the approver for that amount and notifies the appro
 When the approver declines the request, the decision and any notes appear on the **My requests** tab.
 
 {% hint style="info" %}
-**A declined request**
+### A declined request
 
 The decision and any notes appear on the **My requests** tab. The current limit remains until a request is approved.
 {% endhint %}

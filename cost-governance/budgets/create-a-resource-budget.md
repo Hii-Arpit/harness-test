@@ -73,7 +73,7 @@ Create a resource budget for one cost view, or create budgets in bulk for the bu
 5. Click **Next**.
 
 {% hint style="warning" %}
-**The period and start date stay fixed**
+### The period and start date stay fixed
 
 Harness keeps the period and start date after you save. To use a different period, create a new budget.
 {% endhint %}

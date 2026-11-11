@@ -82,9 +82,7 @@ The filter appears as a chip. Click **Reset** to clear the filters. Click **Save
 
 ### Detail page fields
 
-Click a budget name to open its detail page.
-
-The detail page shows these fields:
+Click a budget name to open its detail page. The detail page shows these fields:
 
 | Field | What it shows |
 | --- | --- |
@@ -131,7 +129,7 @@ For one budget, click **Show more actions** on the budget row. For several budge
 | Delete | Remove the budget. | Yes | Yes |
 
 {% hint style="danger" %}
-**Delete is permanent**
+### Delete is permanent
 
 You cannot restore a deleted budget.
 {% endhint %}
@@ -182,7 +180,7 @@ The **Folders** panel lists **All budgets** and your folders. Select a folder to
 Use **Search folders** to find a folder by name.
 
 {% hint style="info" %}
-**Folder access**
+### Folder access
 
 A user needs access to the folder that contains a budget to view the budget and its cost view. This includes the **Default** folder.
 {% endhint %}

@@ -38,7 +38,7 @@ Harness enforces a user budget only on a connector that has AI Governance turned
 Use the following steps for Cursor, GitHub Copilot, and Anthropic Enterprise. The Cursor connector is shown below.
 
 {% hint style="info" %}
-**Anthropic (Platform) is not supported**
+### Anthropic (Platform) is not supported
 
 Enforcement is available for Anthropic Enterprise only.
 {% endhint %}
@@ -78,7 +78,7 @@ Amazon Bedrock is enabled on the AWS cloud connector. The wizard has five steps:
 7. Click **Apply changes**.
 
 {% hint style="warning" %}
-**Attach the policy for IAM Identity Center roles**
+### Attach the policy for IAM Identity Center roles
 
 Harness cannot automatically attach the governance policy to a Bedrock target role that AWS IAM Identity Center manages. The CloudFormation stack still creates the policy, but you must attach it yourself:
 
@@ -134,7 +134,7 @@ Navigate to [Manage user groups](https://developer.harness.io/harness-platform/u
 | Starts | Use the date picker to select the start date for the first budget period. |
 
 {% hint style="info" %}
-**Different limits for each provider**
+### Different limits for each provider
 
 To set a different limit for each provider, create a separate budget for each provider.
 {% endhint %}
@@ -208,7 +208,7 @@ The step includes one threshold row by default.
 For each threshold, you can notify the user, block access, or both. Click **+ Add percentage threshold** to add a row with a different action at a different spend level.
 
 {% hint style="info" %}
-**Emails that Harness always sends**
+### Emails that Harness always sends
 
 Harness emails the user when the user is blocked, submits a limit increase request, and is unblocked. Harness sends these emails regardless of the thresholds on this step.
 {% endhint %}
@@ -265,7 +265,7 @@ The **Active Enforcements** bar lists the notification and block rules for this 
 | Request details | Details of any pending limit increase request for this user |
 
 {% hint style="success" %}
-**Filter the table**
+### Filter the table
 
 Use the **Enforcements** and **Requests** filters above the table to narrow the view to users with active enforcements or pending requests.
 {% endhint %}
@@ -284,7 +284,7 @@ Use the buttons in the **Request details** column to act on a request without op
 * Click the reject icon (✗) to reject the request.
 
 {% hint style="info" %}
-**Approve your own request**
+### Approve your own request
 
 If you are an administrator and also listed as an approver for your own budget, you can approve your own requests.
 {% endhint %}
@@ -334,7 +334,7 @@ Take one of the following actions:
 * To delete the budget, click **Show more actions**, then select **Delete**.
 
 {% hint style="danger" %}
-**Deletion removes enforcement**
+### Deletion removes enforcement
 
 Deleting a user budget removes all enforcement rules immediately. Users who were blocked regain access.
 {% endhint %}

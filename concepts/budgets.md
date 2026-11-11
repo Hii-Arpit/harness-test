@@ -78,7 +78,7 @@ The budget uses the same cost as the cost view:
 You can create several budgets on the same cost view, for example a monthly budget for the team and a quarterly budget for its manager.
 
 {% hint style="info" %}
-**A resource budget does not stop spend**
+### A resource budget does not stop spend
 
 A resource budget reports and alerts. It does not change, stop, or scale down cloud resources. To act on spend automatically, pair the alert with your own process, or navigate to [How AutoStopping works](how-autostopping-works.md) to stop idle resources.
 {% endhint %}
@@ -96,7 +96,7 @@ Three options set the amount:
 The period and start date are fixed once you create the budget. To track a different period, create a new budget.
 
 {% hint style="info" %}
-**Budget amounts and currency**
+### Budget amounts and currency
 
 When you change the currency preference for your account, Harness does not convert existing budget amounts. Update each amount yourself. A cost view can span several cloud accounts, so Harness cannot convert the amount automatically.
 {% endhint %}
@@ -142,7 +142,7 @@ For example, notify at 90% and block at 100%. The user receives a warning at 90%
 Harness also emails the user when they are blocked, when they submit a request, and when they are unblocked. Harness sends these emails regardless of the thresholds you configure.
 
 {% hint style="warning" %}
-**Blocking needs enforcement on the connector**
+### Blocking needs enforcement on the connector
 
 Block only works for providers whose connector has enforcement enabled, and only for providers that support it. Navigate to [What's supported](../get-started/whats-supported.md) to check which providers support user budget enforcement.
 {% endhint %}

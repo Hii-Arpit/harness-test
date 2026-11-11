@@ -20,7 +20,7 @@ description: Set per-user spend limits across AI tools, with enforcement, approv
 A user budget sets a spending limit for each user on AI tools such as Cursor, Claude, GitHub Copilot, and Amazon Bedrock. When a user approaches or exceeds the limit, Harness notifies that user and can block access. A user who needs a higher limit requests one from their profile.
 
 {% hint style="info" %}
-**User budgets and resource budgets**
+### User budgets and resource budgets
 
 User budgets are separate from resource budgets. Navigate to [Create a resource budget](../budgets/create-a-resource-budget.md) to track cloud spend for a cost view.
 {% endhint %}
@@ -60,7 +60,7 @@ Each row displays:
 | Upgrade requests | Pending limit increase requests submitted by users in the budget |
 
 {% hint style="success" %}
-**Find and filter budgets**
+### Find and filter budgets
 
 Use **Search budgets** to find a budget by name. Use the sort dropdown to order the list:
 
