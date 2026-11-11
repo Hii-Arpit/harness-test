@@ -8,8 +8,8 @@ A resource budget compares the cost in a cost view with an amount you set. Navig
 
 ## What you will learn from this topic
 
-- How to set the scope, period, amount, and alerts for a resource budget
-- How to find a budget, organize it in a folder, and change its alerts
+- How to create a resource budget for a cost view or a cost category
+- How to find a resource budget and change it
 
 {% content-ref url="create-a-resource-budget.md" %}
 [create-a-resource-budget.md](create-a-resource-budget.md)
