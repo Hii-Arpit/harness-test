@@ -204,9 +204,13 @@ You can also select the folder in **Save budget to folder** when you create the 
 
 ## Troubleshooting
 
-### A budget is missing from the list
+<details>
+
+<summary>A budget is missing from the list</summary>
 
 Click **Reset** to clear the filters, then select **All budgets**. The budget is also hidden when you do not have access to its folder.
+
+</details>
 
 ---
 

@@ -96,9 +96,13 @@ To follow up on or withdraw the request, use the actions on the card:
 
 ## Troubleshooting
 
-### Request limit increase is not on the budget card
+<details>
+
+<summary>Request limit increase is not on the budget card</summary>
 
 The administrator turns on **Allow users to request a higher limit**. Navigate to [Limit increase requests](manage-user-budgets.md#limit-increase-requests) to review that setting.
+
+</details>
 
 ---
 

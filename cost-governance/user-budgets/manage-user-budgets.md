@@ -343,13 +343,21 @@ Deleting a user budget removes all enforcement rules immediately. Users who were
 
 ## Troubleshooting
 
-### Anthropic block does not turn on
+<details>
+
+<summary>Anthropic block does not turn on</summary>
 
 Enforcement is available for Anthropic Enterprise only. Navigate to [Enable AI Governance on your connector](#enable-ai-governance-on-your-connector) to select **Anthropic Enterprise**.
 
-### Amazon Bedrock access stays open after the limit
+</details>
+
+<details>
+
+<summary>Amazon Bedrock access stays open after the limit</summary>
 
 Harness cannot block those users until you attach the governance policy to the IAM Identity Center permission set and re-provision the permission set. Navigate to [Enable AI Governance on your connector](#enable-ai-governance-on-your-connector) to attach the policy.
+
+</details>
 
 ---
 
