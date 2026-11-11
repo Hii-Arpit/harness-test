@@ -2,7 +2,7 @@
 description: Find the guides for the user budget list, the administrator workflow, and your own AI budget
 ---
 
-# User budgets
+# User Budgets for AI Spend
 
 A user budget sets a limit for each user on AI providers. Navigate to [Budgets](../../concepts/budgets.md) to compare a user budget with a resource budget.
 

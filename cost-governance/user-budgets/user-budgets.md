@@ -44,7 +44,7 @@ User budgets are separate from resource budgets. Navigate to [Create a resource 
 
 ## View user budgets
 
-In the left navigation, select **Cloud & AI Costs**, and then select **Budgets**. Select **User budgets for AI spend** to view the user budgets in your account.
+In the left navigation, select **Cloud & AI Costs**, and then select **Budgets**. Select **User Budgets for AI Spend** to view the user budgets in your account.
 
 ![User budgets list](../../.gitbook/assets/user-budgets-list.png)
 

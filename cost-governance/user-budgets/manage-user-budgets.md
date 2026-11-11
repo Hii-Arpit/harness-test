@@ -27,7 +27,7 @@ Create a user budget to set the same AI spending limit for each user in a Harnes
 
 ---
 
-## Set up the connector and a user group
+## Set up the connector and the user group
 
 ### Enable AI Governance on your connector
 
@@ -116,10 +116,10 @@ Navigate to [Manage user groups](https://developer.harness.io/harness-platform/u
 
 ## Create the budget
 
-1. Navigate to **Cloud & AI Costs**, select **Budgets**, and then select **User budgets for AI spend**.
+1. Navigate to **Cloud & AI Costs**, select **Budgets**, and then select **User Budgets for AI Spend**.
 2. Click **New budget**, and then select **User budget for AI spend**. The **Create a new Budget** panel opens.
 
-### Budget setup
+### Step 1: Budget setup
 
 ![Budget setup step](../../.gitbook/assets/user-budgets-step1-budget-setup.png)
 
@@ -141,7 +141,7 @@ To set a different limit for each provider, create a separate budget for each pr
 
 Click **Next** to open **Enforcements and notifications**.
 
-### Enforcements and notifications
+### Step 2: Enforcements and notifications
 
 **Enforcements and notifications** sets the limit for each user, the approval workflow, and the notification rules. The step has three parts: **Budget per user**, **Limit increase requests** (with optional advanced settings), and **Notifications**.
 
@@ -149,7 +149,7 @@ Click **Next** to open **Enforcements and notifications**.
 
 ### Budget per user
 
-Enter the dollar amount that each user in the group can spend in a period. The provider badge (for example, **All AI spend**) shows the providers you selected. Navigate to [Budget setup](#budget-setup) to review that selection.
+Enter the dollar amount that each user in the group can spend in a period. The provider badge (for example, **All AI spend**) shows the providers you selected. Navigate to [Step 1: Budget setup](#step-1-budget-setup) to review that selection.
 
 ### Limit increase requests
 
@@ -196,7 +196,7 @@ Expand **Advanced settings** to set limits on when users can request an increase
 
 ![Advanced settings: request threshold and maximum increase per request](../../.gitbook/assets/user-budgets-step2-advanced-settings.png)
 
-### Notifications
+### Notification and block rules
 
 The step includes one threshold row by default.
 
@@ -230,7 +230,7 @@ You can also add **Notify** and **Block** to the same threshold, for example to 
 
 </details>
 
-### Save the budget
+### Step 3: Save the budget
 
 Click **Create** to save the budget.
 

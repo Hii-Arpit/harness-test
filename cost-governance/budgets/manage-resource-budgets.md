@@ -214,7 +214,7 @@ Click **Reset** to clear the filters, then select **All budgets**. The budget is
 ## Next steps
 
 * Navigate to [Create a resource budget](create-a-resource-budget.md) to add another budget.
-* Navigate to [User budgets](../user-budgets/README.md) to set a limit on AI spend for each user.
+* Navigate to [User Budgets for AI Spend](../user-budgets/README.md) to set a limit on AI spend for each user.
 * Navigate to [Budgets](../../concepts/budgets.md) to compare a resource budget with a user budget.
 
 {% @harness-feedback/feedback %}
