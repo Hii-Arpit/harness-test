@@ -188,9 +188,15 @@ Use **Search folders** to find a folder by name.
 A user needs access to the folder that contains a budget to view the budget and its cost view. This includes the **Default** folder.
 {% endhint %}
 
-To create a folder, click **New folder**, and then enter a name. Save the folder.
+To create a folder:
 
-To move a budget, click **Show more actions** on the budget row, then select **Move to folder**. Select the destination folder.
+1. Click **New folder**, and then enter a name.
+2. Save the folder.
+
+To move a budget:
+
+1. Click **Show more actions** on the budget row, then select **Move to folder**.
+2. Select the destination folder.
 
 You can also select the folder in **Save budget to folder** when you create the budget. Navigate to [Create a resource budget](create-a-resource-budget.md#define-scope) to set the folder.
 
