@@ -8,9 +8,9 @@ A user budget sets a limit for each user on AI providers. Navigate to [Budgets](
 
 ## What you will learn from this topic
 
-- **User budgets overview:** What the list, folders, and row actions show.
-- **Create and manage user budgets:** How to create a budget, set enforcement, and review requests.
-- **Manage your AI budget:** How to read your limit and request an increase.
+- What the list, folders, and row actions show
+- How to create a budget, set enforcement, and review requests
+- How to read your limit and request an increase
 
 {% content-ref url="user-budgets.md" %}
 [user-budgets.md](user-budgets.md)

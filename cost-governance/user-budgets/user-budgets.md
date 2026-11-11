@@ -29,16 +29,16 @@ User budgets are separate from resource budgets. Navigate to [Create a resource 
 
 ## What you will learn from this topic
 
-- **List:** What each column on the user budget list shows.
-- **Search and sort:** How to find a budget by name and how to order the list.
-- **Folders:** How to organize budgets and control who can view them.
-- **Row actions:** How to edit, move, or delete a budget from its row.
+- What each column on the user budget list shows
+- How to find a budget by name and how to order the list
+- How to organize budgets and control who can view them
+- How to edit, move, or delete a budget from its row
 
 ---
 
 ## Before you begin
 
-- **Budget enforcement:** Turn on enforcement on the connector before a block can take effect. Select **AI Governance** on the AWS connector for Amazon Bedrock, or turn on **Enable budget enforcement** on the provider connector for Cursor, GitHub Copilot, and Claude. Navigate to [Create and manage user budgets](manage-user-budgets.md#enable-ai-governance-on-your-connector) to enable it.
+- Turn on enforcement on the connector before a block can take effect. Select **AI Governance** on the AWS connector for Amazon Bedrock, or turn on **Enable budget enforcement** on the provider connector for Cursor, GitHub Copilot, and Claude. Navigate to [Create and manage user budgets](manage-user-budgets.md#enable-ai-governance-on-your-connector) to enable it.
 
 ---
 

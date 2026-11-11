@@ -10,16 +10,16 @@ Your AI budget is the spending limit your administrator sets for you on AI tools
 
 ## What you will learn from this topic
 
-- **Find your budget:** Where the **AI Budgets** tab is in your profile.
-- **Budget card:** What each field on the card shows.
-- **History:** How to read spend history and past requests.
-- **Request a limit increase:** How to submit a request and track its status.
+- Where the **AI Budgets** tab is in your profile
+- What each field on the card shows
+- How to read spend history and past requests
+- How to submit a limit increase request and track its status
 
 ---
 
 ## Before you begin
 
-- **User group:** You belong to a Harness user group that has a user budget.
+- You belong to a Harness user group that has a user budget.
 
 ---
 

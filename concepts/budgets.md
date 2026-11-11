@@ -15,18 +15,18 @@ Most accounts use both. Resource budgets support planning. User budgets control 
 
 ## What you will learn from this topic
 
-- **Budget types:** What a resource budget and a user budget limit, and when to use each.
-- **Periods and amounts:** How a period resets, and how a growth rate or a monthly breakdown sets the amount.
-- **Forecast:** How Harness estimates spend at the end of the period.
-- **Alerts and enforcement:** How an alert reports spend, and how a user budget can block access.
-- **Data timing:** Why an alert can arrive hours after the spend that triggered it.
+- What a resource budget and a user budget limit, and when to use each
+- How a period resets, and how a growth rate or a monthly breakdown sets the amount
+- How Harness estimates spend at the end of the period
+- How an alert reports spend, and how a user budget can block access
+- Why an alert can arrive hours after the spend that triggered it
 
 ---
 
 ## Before you begin
 
-- **Cost view:** A resource budget measures the cost in one cost view. The cost view selects which cost counts. Navigate to [Cost views](cost-views.md) to review what a cost view includes.
-- **User group:** A user budget sets the same limit for each user in a Harness user group. Navigate to [Manage user groups](https://app.gitbook.com/s/iHCl4N3pQkjhOYjQoOs7/harness-platform-resources/platform-access-control/add-user-groups) to create a user group.
+- A resource budget measures the cost in one cost view. The cost view selects which cost counts. Navigate to [Cost views](cost-views.md) to review what a cost view includes.
+- A user budget sets the same limit for each user in a Harness user group. Navigate to [Manage user groups](https://app.gitbook.com/s/iHCl4N3pQkjhOYjQoOs7/harness-platform-resources/platform-access-control/add-user-groups) to create a user group.
 
 ---
 

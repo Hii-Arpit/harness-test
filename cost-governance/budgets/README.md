@@ -8,9 +8,9 @@ A budget is a spending limit for a period. Navigate to [Budgets](../../concepts/
 
 ## What you will learn from this topic
 
-- **Create a resource budget:** How to set the scope, period, amount, and alerts.
-- **Manage resource budgets:** How to find a budget, organize it in a folder, and change its alerts.
-- **User budgets:** How to set a limit for each user on AI providers.
+- How to set the scope, period, amount, and alerts for a resource budget
+- How to find a budget, organize it in a folder, and change its alerts
+- How to set a limit for each user on AI providers
 
 {% content-ref url="create-a-resource-budget.md" %}
 [create-a-resource-budget.md](create-a-resource-budget.md)

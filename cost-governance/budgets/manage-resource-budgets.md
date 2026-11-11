@@ -10,18 +10,18 @@ Use the **Resource budgets** tab to find a budget, organize it in a folder, chan
 
 ## What you will learn from this topic
 
-- **Find a budget:** How to search, filter, and select columns on the list.
-- **Folders:** How to create a folder and move a budget into it.
-- **Alerts:** How to change alerts for one budget or for several budgets.
-- **Detail and history:** How to read the budget detail page and budget history.
+- How to search, filter, and select columns on the list
+- How to create a folder and move a budget into it
+- How to change alerts for one budget or for several budgets
+- How to read the budget detail page and budget history
 
 ---
 
 ## Before you begin
 
-- **A resource budget:** Navigate to [Create a resource budget](create-a-resource-budget.md) to create one.
-- **Budget permissions:** You need **Budgets: View** to open the list, **Budgets: Edit** to change a budget, and **Budgets: Delete** to remove one. Navigate to [Access and auditing](../../concepts/budgets.md#access-and-auditing) to review these permissions.
-- **Folder access:** You need access to the folder that contains the budget. You can then view the budget and its cost view.
+- You need a resource budget. Navigate to [Create a resource budget](create-a-resource-budget.md) to create one.
+- You need permission to view budgets to open the list, permission to edit budgets to change a budget, and permission to delete budgets to remove one. Navigate to [Access and auditing](../../concepts/budgets.md#access-and-auditing) to review these permissions.
+- You need access to the folder that contains the budget. You can then view the budget and its cost view.
 
 ---
 

@@ -10,20 +10,20 @@ Create a user budget to set the same AI spending limit for each user in a Harnes
 
 ## What you will learn from this topic
 
-- **Create a budget:** How to set the scope, period, and spending limit.
-- **Approval tiers:** How users request a higher limit, and who approves each amount.
-- **Enforcement:** How to notify a user or block access at a spend threshold.
-- **Monitor:** How to read spend and user health on the budget detail page.
-- **Review requests:** How to approve or reject a limit increase.
+- How to set the scope, period, and spending limit
+- How users request a higher limit, and who approves each amount
+- How to notify a user or block access at a spend threshold
+- How to read spend and user health on the budget detail page
+- How to approve or reject a limit increase
 
 ---
 
 ## Before you begin
 
-- **Cloud & AI Cost Management:** The module is enabled on your account.
-- **Budget permissions:** Navigate to [Access and auditing](../../concepts/budgets.md#access-and-auditing) to review **Budgets: View**, **Budgets: Edit**, and **Budgets: Delete**.
-- **User group:** The users in the budget belong to a Harness user group. Navigate to [Create a user group](#create-a-user-group) to create one from the budget wizard.
-- **Budget enforcement:** Select **AI Governance** on the AWS connector for Amazon Bedrock, or turn on **Enable budget enforcement** on the provider connector for Cursor, GitHub Copilot, and Claude. Navigate to [Enable AI Governance on your connector](#enable-ai-governance-on-your-connector) to turn it on.
+- Cloud & AI Cost Management must be enabled on your account.
+- You need permission to view, edit, and delete budgets. Navigate to [Access and auditing](../../concepts/budgets.md#access-and-auditing) to review these permissions.
+- The users in the budget belong to a Harness user group. Navigate to [Create a user group](#create-a-user-group) to create one from the budget wizard.
+- Select **AI Governance** on the AWS connector for Amazon Bedrock, or turn on **Enable budget enforcement** on the provider connector for Cursor, GitHub Copilot, and Claude. Navigate to [Enable AI Governance on your connector](#enable-ai-governance-on-your-connector) to turn it on.
 
 ---
 
