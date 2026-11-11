@@ -49,11 +49,12 @@ Create a resource budget for one cost view, or create budgets in bulk for the bu
 ![Define scope step of New budget, with Create budgets in bulk selected, a cost category, two cost buckets, a budget name, and a folder](../../.gitbook/assets/budgets-new-budget-scope-bulk.png)
 
 1. Select **Create budgets in bulk**.
-2. In **Select cost category**, select the cost category.
-3. In **Select cost bucket/s**, select up to 20 buckets. Harness creates one budget for each bucket.
-4. In **Budget name**, enter a name.
-5. In **Save budget to folder**, select a folder, or click **New folder**.
-6. Click **Next**.
+2. Select the cost category and its buckets.
+   - In **Select cost category**, select the cost category.
+   - In **Select cost bucket/s**, select up to 20 buckets. Harness creates one budget for each bucket.
+3. In **Budget name**, enter a name.
+4. In **Save budget to folder**, select a folder, or click **New folder**.
+5. Click **Next**.
 
 {% endtab %}
 {% endtabs %}
@@ -63,13 +64,13 @@ Create a resource budget for one cost view, or create budgets in bulk for the bu
 ![Specify budget period and amount, with a monthly period, a start date, a budget amount, and the add growth rate option](../../.gitbook/assets/budgets-new-budget-period.png)
 
 1. In **Budget period**, select **Daily**, **Weekly**, **Monthly**, **Quarterly**, or **Yearly**.
-2. For **Yearly**, select **Break the budget down by month**, and then enter an amount for each month.
+   - For **Yearly**, select **Break the budget down by month**, and then enter an amount for each month.
    - Click **Copy to all** to apply one month's amount to the remaining months.
    - (Optional) Under **Advanced configuration**, enter a forecast for a month in **Override forecasted spend for each month**.
-3. In **Start date**, select the first day of the budget period.
-4. In the amount field, enter an amount greater than 0.
-5. (Optional) Select **Add growth rate to budget amount**, and then enter a percentage in **Growth rate (%)**.
-6. Click **Next**.
+2. In **Start date**, select the first day of the budget period.
+3. In the amount field, enter an amount greater than 0.
+4. (Optional) Select **Add growth rate to budget amount**, and then enter a percentage in **Growth rate (%)**.
+5. Click **Next**.
 
 {% hint style="warning" %}
 **The period and start date stay fixed**
@@ -77,20 +78,20 @@ Create a resource budget for one cost view, or create budgets in bulk for the bu
 Harness keeps the period and start date after you save. To use a different period, create a new budget.
 {% endhint %}
 
-### Set up alerts
+### Setup alerts
 
 ![Set up alerts step, with one alert for when actual spend exceeds a percentage of the monthly budget, sent by email](../../.gitbook/assets/budgets-new-budget-alerts.png)
 
-1. Click **Add alert**.
-2. In **When**, select **Actual spend** or **Forecasted spend**.
+1. Click **Add a custom message to the alert (optional)** to add text to the notification.
+2. Click **Add alert**.
+3. In **When**, select **Actual spend** or **Forecasted spend**.
    - **Actual spend:** Harness sends the alert when spend in the current period reaches the percentage.
    - **Forecasted spend:** Harness sends the alert when the forecast for the end of the period reaches the percentage.
-3. In **Enter %**, enter the percentage of the budget amount.
-4. Under **Send alerts to**, in **Channel**, select **Email** or **Slack**.
-5. In **Recipients**, enter who receives the alert. For **Email**, the field shows **Enter e-mail IDs**.
-6. Click **Add alert** to add another alert.
-7. To delete an alert, click the delete icon on its row.
-8. Click **Add a custom message to the alert (optional)** to add text to the notification.
+4. In **Enter %**, enter the percentage of the budget amount.
+5. Under **Send alerts to**, in **Channel**, select **Email** or **Slack**.
+6. In **Recipients**, enter who receives the alert.
+7. Click **Add alert** to add another alert.
+8. To delete an alert, click the delete icon on its row.
 9. Click **Save**.
 
 ---
