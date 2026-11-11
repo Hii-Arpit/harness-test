@@ -34,7 +34,7 @@ Use the **Resource budgets** tab to find a budget, organize it in a folder, chan
 
 ### Select columns
 
-Click **Columns**. The control shows **7/11** when seven of the 11 columns are visible.
+Click **Columns**. By default, Harness shows seven columns. If you want, you can add more columns.
 
 | Column | Shown by default |
 | --- | --- |
@@ -56,9 +56,11 @@ The **Budget** column shows the budget amount. **Pace** shows the pace for the p
 
 ## Find a budget
 
-1. Use the **Search** field to find a budget by name.
-2. Click **All**, **Over**, **At risk**, or **OK** to filter by status.
-3. Click **Add filter**, then select a filter.
+Use any of the following to narrow the list:
+
+* Use the **Search** field to find a budget by name.
+* Click **All**, **Over**, **At risk**, or **OK** to filter by status.
+* Click **Add filter**, then select a filter. The table below lists each filter.
 
 ### Filter the list
 
@@ -76,19 +78,23 @@ The filter appears as a chip. Click **Reset** to clear the filters. Click **Save
 
 ---
 
-## Open a budget detail page
+## View a budget's details
 
 Click a budget name to open its detail page.
 
-The detail page shows:
+### Detail page fields
 
-* **Status**
-* **Period**
-* **View on**
-* **Budget**
-* **Current spend** for the period to date, with the percentage of the budget used and the days left in the period
-* **Forecast** for the end of the period
-* **Alerts configured**
+The detail page shows these fields:
+
+| Field | What it shows |
+| --- | --- |
+| Status | Over, At risk, or OK |
+| Period | The budget period, such as Monthly |
+| View on | The cost view that the budget tracks |
+| Budget | The budget amount |
+| Current spend | Spend for the period to date, the percentage of the budget used, and the days left in the period |
+| Forecast | The forecast for the end of the period |
+| Alerts configured | The alerts set on the budget |
 
 Click **Edit budget** to change the budget, including its alerts. Click **More**, then select **Delete** to remove it.
 
