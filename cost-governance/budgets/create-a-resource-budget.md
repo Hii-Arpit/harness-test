@@ -10,9 +10,9 @@ Create a resource budget for one cost view, or create budgets in bulk for the bu
 
 ## What you will learn from this topic
 
-- **Scope:** How to associate a single budget with a cost view, or bulk budgets with a cost category, and save them to a folder.
-- **Period and amount:** How to set the budget period, start date, amount, and an optional growth rate.
-- **Alerts:** How to set alert thresholds before you save the budget.
+- How to associate a single budget with a cost view, or create bulk budgets for a cost category, and save them to a folder
+- How to set the budget period, start date, amount, and an optional growth rate
+- How to set alert thresholds before you save the budget
 
 ---
 
